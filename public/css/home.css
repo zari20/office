@@ -1,0 +1,49 @@
+/*=================== Generals =======================*/
+
+.tooltip-inner { font-family: 'Dinar';}
+.hidden { display: none;}
+.relative {position: relative}
+
+*[onclick] {cursor: pointer;}
+
+button, label {cursor:pointer}
+button.link {background: none; border:none;}
+
+a {-webkit-transition: 0.5s; transition: 0.5s;}
+.disabled {cursor: not-allowed}
+
+th {text-align: center;}
+td {vertical-align: middle;}
+
+i.small {font-size: 0.6em}
+
+input::-webkit-color-swatch { border: none; } 
+
+.underline {text-decoration: underline; cursor: pointer;}
+.pointer { cursor: pointer;}
+.none:hover {text-decoration: none;}
+
+.custom-control-indicator {position: absolute; right: 0;}
+.custom-control-description {margin-right: 25px;}
+
+.are-you-sure {display: none; position: fixed; padding: 25px 100px; bottom: 50px; right: 50px; z-index:10}
+.flash {position: fixed; bottom: 25px; right: 25px; z-index: 10; padding: 20px 50px}
+
+/*=================== Home =======================*/
+
+
+body{
+    font-family: IRANSans;
+}
+.dinar {
+    font-family: Mj_DinarOneMedium;
+}
+.pointer{
+    cursor: pointer;
+}
+.manage a:nth-child(even){
+    background: #d7d7d7;
+}
+.manage a:hover{
+    background: cyan;
+}

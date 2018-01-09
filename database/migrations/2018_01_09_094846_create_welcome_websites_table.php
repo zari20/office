@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWelcomeUsersTable extends Migration
+class CreateWelcomeWebsitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,13 @@ class CreateWelcomeUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('welcome_users', function (Blueprint $table) {
+        Schema::create('welcome_websites', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('author')->nullable();
             $table->timestamps();
         });
-
-        \DB::table('welcome_users')->insert([
-            'username' => 'admin',
-            'password' => bcrypt('1q2w3e'),
-        ]);
-
     }
 
     /**
@@ -35,6 +29,6 @@ class CreateWelcomeUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('welcome_users');
+        Schema::dropIfExists('welcome_websites');
     }
 }

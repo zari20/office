@@ -73,8 +73,8 @@
     <hr>
 
 <div class="content p-4">
-    @include('partials.are_you_sure')
-    @include('partials.flash')
+    @include('welcome_partials.are_you_sure')
+    @include('welcome_partials.flash')
     @yield('content')
 </div>
 

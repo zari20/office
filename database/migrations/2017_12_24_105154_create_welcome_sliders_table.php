@@ -24,7 +24,7 @@ class CreateWelcomeSlidersTable extends Migration
         });
 
         for ($i=0; $i < 3 ; $i++) {
-            \DB::table('welcome_five_cols')->insert([
+            \DB::table('welcome_sliders')->insert([
                 'title' => 'عنوان اسلایدر',
                 'body' =>  'لورم ایپسوم یک متن بی مفهوم است که طراح برای پرکردن صفحات از آن استفاده می کند.',
                 'button_name' => 'نام دکمه',

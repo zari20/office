@@ -23,7 +23,6 @@ class CreateWelcomeHeadersTable extends Migration
             $table->string('top_links_topic')->nullable();
             $table->string('telegram_id')->nullable();
             $table->string('instagram_id')->nullable();
-            $table->string('website_title')->nullable();
             $table->timestamps();
         });
 
@@ -36,7 +35,6 @@ class CreateWelcomeHeadersTable extends Migration
             'top_links_topic' => 'سایر وبسایت های من',
             'telegram_id' => '',
             'instagram_id' => '',
-            'website_title' => 'رویان رسانه',
         ]);
     }
 

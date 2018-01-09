@@ -10,14 +10,14 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
 
-        @include('partials.styles')
+        @include('welcome_partials.styles')
 
         <link href="css/responsive.css" rel="stylesheet">
         <link href="css/fonts.css" rel="stylesheet">
 
     </head>
     <body>
-        <div class="cnfix"><a href="#"><i class="fa fa-comments"></i> {{$words->online}} </a></div>
+        <div class="cnfix"><a href="#"><i class="fa fa-comments"></i> گفتگوی آنلاین </a></div>
         <section class="topbar" id="home">
             <div class="container">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12 contact">

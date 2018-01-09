@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class WelcomePageController extends WelcomeController
 {
+
+    public function login()
+    {
+        dd('here');
+    }
+
     public function load($partial)
     {
         switch ($partial) {

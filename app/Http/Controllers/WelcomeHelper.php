@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Helper extends Controller
+class WelcomeHelper extends WelcomeController
 {
     public static function message($body='',$status='success')
     {

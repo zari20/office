@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ValidateWelcome extends Controller
+class WelcomeValidate extends WelcomeController
 {
     public static function header($id=0)
     {

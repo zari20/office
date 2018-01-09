@@ -7,7 +7,7 @@
         <meta name="author" content="">
         <title> {{$website->title ?? '-'}} </title>
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/welcome.bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
 
         @include('welcome_partials.styles')
@@ -27,7 +27,7 @@
         @endif
         @include('welcome_partials.footer')
 
-        <script src="js/jquery.min.js"></script>
+        <script src="js/welcome.jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/contact_me.js"></script>
         <script src="js/jqBootstrapValidation.js"></script>

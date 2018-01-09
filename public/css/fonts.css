@@ -58,6 +58,13 @@
 		 url('../fonts/Mj_DinarOneMedium.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 		 url('../fonts/Mj_DinarOneMedium.ttf') format('truetype');
 }
+@font-face {
+	font-family: Yekan;
+	font-style: normal;
+	font-weight: normal;
+	src: url('../fonts/Yekan.woff');
+	src: url('../fonts/Yekan.ttf')  format('truetype'),
+}
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

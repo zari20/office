@@ -1,4 +1,4 @@
-<p class="h3 dinar text-blue">  مدیریت تب های {{$words->introduce}} </p>
+<p class="h3 dinar text-info">  مدیریت تب های {{$words->introduce}} </p>
     <div class="row p-3">
 
         <form class="col-sm-4" action="{{url('/welcome_page/introduce_tab')}}" method="post">
@@ -9,7 +9,7 @@
                 <p class="h5 mt-3">
                     <a class="cloner pointer">
                         تب
-                        <i class="fa fa-plus text-blue mt-1 mr-2"></i>
+                        <i class="fa fa-plus text-info mt-1 mr-2"></i>
                     </a>
                 </p>
             </div>
@@ -47,7 +47,7 @@
                 <p class="h5 mt-3">
                     <a class="cloner-2 pointer">
                         مطلب
-                        <i class="fa fa-plus text-blue mt-1 mr-2"></i>
+                        <i class="fa fa-plus text-info mt-1 mr-2"></i>
                     </a>
                 </p>
             </div>

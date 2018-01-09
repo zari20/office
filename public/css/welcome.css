@@ -17,7 +17,7 @@ td {vertical-align: middle;}
 
 i.small {font-size: 0.6em}
 
-input::-webkit-color-swatch { border: none; } 
+input::-webkit-color-swatch { border: none; }
 
 .underline {text-decoration: underline; cursor: pointer;}
 .pointer { cursor: pointer;}
@@ -33,7 +33,8 @@ input::-webkit-color-swatch { border: none; }
 
 
 body{
-    font-family: IRANSans;
+    direction: rtl;
+    font-family: Yekan;
 }
 .dinar {
     font-family: Mj_DinarOneMedium;
@@ -46,4 +47,30 @@ body{
 }
 .manage a:hover{
     background: cyan;
+}
+
+.border-btn {
+    border: 2px solid white;
+    padding: 10px;
+    color: white;
+}
+.border-btn:hover {
+    border-color: gold;
+    color: gold;
+    text-decoration: none;
+}
+
+section.map > div {
+    border-radius: 20px;
+    padding: 30px 0px;
+    margin: 10px 0px;
+    font-family: Mj_DinarOneMedium;
+    font-size: 2em;
+    position: relative;
+}
+
+.map-options {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
 }

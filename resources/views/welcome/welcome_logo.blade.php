@@ -1,4 +1,4 @@
-<p class="h3 dinar text-blue"> مدیریت لوگو </p>
+<p class="h3 dinar text-info"> مدیریت لوگو </p>
 <form class="p-3" action="{{url('/welcome_page/logo')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}

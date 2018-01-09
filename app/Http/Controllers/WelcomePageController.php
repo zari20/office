@@ -23,8 +23,18 @@ class WelcomePageController extends WelcomeController
 
     public function panel($value='')
     {
+        //check if logged in
         WelcomeHelper::auth();
-        return view('welcome_panel');
+
+        //colors
+        $colors = \App\Welcome\WelcomeColors::find(1) ?? new \App\Welcome\WelcomeColors;
+
+        //contact us
+        $contact_us = \App\Welcome\WelcomeContactUs::find(1);
+        $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
+        $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
+
+        return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches'));
     }
 
     public function load($partial)

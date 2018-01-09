@@ -1,4 +1,4 @@
-<p class="h3 dinar text-blue">  {{$words->contact_main_branch}} </p>
+<p class="h3 dinar text-info">  {{$words->contact_main_branch}} </p>
 <form class="p-3" action="{{url('/welcome_page/main_branch')}}" method="post">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}

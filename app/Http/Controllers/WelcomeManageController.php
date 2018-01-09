@@ -12,10 +12,15 @@ class WelcomeManageController extends WelcomeController
         return $this->$partial();
     }
 
+    public function action($partial,$action)
+    {
+        dd($partial.','.$action);
+    }
+
     public function colors()
     {
-        \App\WelcomeColors::truncate();
-        \App\WelcomeColors::create(request()->all());
+        \App\Welcome\WelcomeColors::truncate();
+        \App\Welcome\WelcomeColors::create(request()->all());
 
         WelcomeHelper::flash();
         return back();
@@ -24,23 +29,23 @@ class WelcomeManageController extends WelcomeController
     public function header()
     {
         //header itself
-        \App\WelcomeHeader::truncate();
+        \App\Welcome\WelcomeHeader::truncate();
         $header = WelcomeValidate::header();
-        \App\WelcomeHeader::create($header);
+        \App\Welcome\WelcomeHeader::create($header);
 
         //dynamic links
         $hrefs = request('website_link');
         $logos = request('website_logo');
         $numbers = request('number');
 
-        \App\WelcomeTopLink::delete_others($numbers);
+        \App\Welcome\WelcomeTopLink::delete_others($numbers);
 
         for ($i=0; $i < count($hrefs) ; $i++) {
 
-            $link_instance = \App\WelcomeTopLink::where('number',$numbers[$i])->first();
+            $link_instance = \App\Welcome\WelcomeTopLink::where('number',$numbers[$i])->first();
             if (isset($logos[$i])) {
                 $link_instance ? $link_instance->delete() : null;
-                $link = new \App\WelcomeTopLink;
+                $link = new \App\Welcome\WelcomeTopLink;
                 $link->href = $hrefs[$i];
                 $link->number = $numbers[$i];
                 $link->logo_path = $logos[$i]->storeAs(
@@ -62,8 +67,8 @@ class WelcomeManageController extends WelcomeController
 
     public function logo()
     {
-        $found = \App\WelcomeLogo::find(1);
-        $main_logo =  $found ?? new \App\WelcomeLogo;
+        $found = \App\Welcome\WelcomeLogo::find(1);
+        $main_logo =  $found ?? new \App\Welcome\WelcomeLogo;
         if (request('main_logo')) {
             $main_logo->logo_path = request('main_logo')->storeAs(
                 'header', 'main_logo.'.request('main_logo')->extension(), 'welcome_page_uploads'
@@ -79,7 +84,7 @@ class WelcomeManageController extends WelcomeController
 
     public function menu()
     {
-        \App\WelcomeMenu::truncate();
+        \App\Welcome\WelcomeMenu::truncate();
         \DB::table('welcome_menus')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
@@ -87,7 +92,7 @@ class WelcomeManageController extends WelcomeController
 
     public function col()
     {
-        \App\WelcomeCol::truncate();
+        \App\Welcome\WelcomeCol::truncate();
         \DB::table('welcome_cols')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
@@ -100,7 +105,7 @@ class WelcomeManageController extends WelcomeController
                 'slider', 'slider.png', 'welcome_page_uploads'
             );
         }
-        \App\WelcomeSlider::truncate();
+        \App\Welcome\WelcomeSlider::truncate();
         \DB::table('welcome_sliders')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
@@ -108,7 +113,7 @@ class WelcomeManageController extends WelcomeController
 
     public function introduce_tab()
     {
-        \App\WelcomeIntroduceTab::truncate();
+        \App\Welcome\WelcomeIntroduceTab::truncate();
         \DB::table('welcome_introduce_tabs')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
@@ -122,14 +127,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $passages = request('passage');
 
-        \App\WelcomeIntroduceBlog::delete_others($numbers);
+        \App\Welcome\WelcomeIntroduceBlog::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $blog_instance = \App\WelcomeIntroduceBlog::where('number',$numbers[$i])->first();
+            $blog_instance = \App\Welcome\WelcomeIntroduceBlog::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $blog_instance ? $blog_instance->delete() : null;
-                $blog = new \App\WelcomeIntroduceBlog;
+                $blog = new \App\Welcome\WelcomeIntroduceBlog;
                 $blog->title = $titles[$i];
                 $blog->number = $numbers[$i];
                 $blog->tab_number = $tab_numbers[$i];
@@ -161,14 +166,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeOurTeam::delete_others($numbers);
+        \App\Welcome\WelcomeOurTeam::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $team_member_instance = \App\WelcomeOurTeam::where('number',$numbers[$i])->first();
+            $team_member_instance = \App\Welcome\WelcomeOurTeam::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $team_member_instance ? $team_member_instance->delete() : null;
-                $team_member = new \App\WelcomeOurTeam;
+                $team_member = new \App\Welcome\WelcomeOurTeam;
                 $team_member->title = $titles[$i];
                 $team_member->number = $numbers[$i];
                 $team_member->body = $bodies[$i];
@@ -198,14 +203,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeOurService::delete_others($numbers);
+        \App\Welcome\WelcomeOurService::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $service_instance = \App\WelcomeOurService::where('number',$numbers[$i])->first();
+            $service_instance = \App\Welcome\WelcomeOurService::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $service_instance ? $service_instance->delete() : null;
-                $service = new \App\WelcomeOurService;
+                $service = new \App\Welcome\WelcomeOurService;
                 $service->title = $titles[$i];
                 $service->number = $numbers[$i];
                 $service->passage = $passages[$i];
@@ -235,14 +240,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeOurProject::delete_others($numbers);
+        \App\Welcome\WelcomeOurProject::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $project_instance = \App\WelcomeOurProject::where('number',$numbers[$i])->first();
+            $project_instance = \App\Welcome\WelcomeOurProject::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $project_instance ? $project_instance->delete() : null;
-                $project = new \App\WelcomeOurProject;
+                $project = new \App\Welcome\WelcomeOurProject;
                 $project->title = $titles[$i];
                 $project->number = $numbers[$i];
                 $project->body = $bodies[$i];
@@ -272,14 +277,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeOurDepartment::delete_others($numbers);
+        \App\Welcome\WelcomeOurDepartment::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $department_instance = \App\WelcomeOurDepartment::where('number',$numbers[$i])->first();
+            $department_instance = \App\Welcome\WelcomeOurDepartment::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $department_instance ? $department_instance->delete() : null;
-                $department = new \App\WelcomeOurDepartment;
+                $department = new \App\Welcome\WelcomeOurDepartment;
                 $department->title = $titles[$i];
                 $department->number = $numbers[$i];
                 $department->body = $bodies[$i];
@@ -309,14 +314,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeOurView::delete_others($numbers);
+        \App\Welcome\WelcomeOurView::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $view_instance = \App\WelcomeOurView::where('number',$numbers[$i])->first();
+            $view_instance = \App\Welcome\WelcomeOurView::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $view_instance ? $view_instance->delete() : null;
-                $view = new \App\WelcomeOurView;
+                $view = new \App\Welcome\WelcomeOurView;
                 $view->title = $titles[$i];
                 $view->number = $numbers[$i];
                 $view->passage = $passages[$i];
@@ -346,14 +351,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeOurBranch::delete_others($numbers);
+        \App\Welcome\WelcomeOurBranch::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $branch_instance = \App\WelcomeOurBranch::where('number',$numbers[$i])->first();
+            $branch_instance = \App\Welcome\WelcomeOurBranch::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $branch_instance ? $branch_instance->delete() : null;
-                $branch = new \App\WelcomeOurBranch;
+                $branch = new \App\Welcome\WelcomeOurBranch;
                 $branch->title = $titles[$i];
                 $branch->number = $numbers[$i];
                 $branch->body = $bodies[$i];
@@ -378,16 +383,16 @@ class WelcomeManageController extends WelcomeController
 
     public function main_branch()
     {
-        \App\WelcomeMainBranch::truncate();
+        \App\Welcome\WelcomeMainBranch::truncate();
         $data = WelcomeValidate::main_branch();
-        \App\WelcomeMainBranch::create($data);
+        \App\Welcome\WelcomeMainBranch::create($data);
         WelcomeHelper::flash();
         return back();
     }
 
     public function contact_branches()
     {
-        \App\WelcomeContactBranch::truncate();
+        \App\Welcome\WelcomeContactBranch::truncate();
         \DB::table('welcome_contact_branches')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
@@ -400,14 +405,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeCatalog::delete_others($numbers);
+        \App\Welcome\WelcomeCatalog::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $catalog_instance = \App\WelcomeCatalog::where('number',$numbers[$i])->first();
+            $catalog_instance = \App\Welcome\WelcomeCatalog::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $catalog_instance ? $catalog_instance->delete() : null;
-                $catalog = new \App\WelcomeCatalog;
+                $catalog = new \App\Welcome\WelcomeCatalog;
                 $catalog->title = $titles[$i];
                 $catalog->number = $numbers[$i];
                 $catalog->body = $bodies[$i];
@@ -438,14 +443,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeVideo::delete_others($numbers);
+        \App\Welcome\WelcomeVideo::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $video_instance = \App\WelcomeVideo::where('number',$numbers[$i])->first();
+            $video_instance = \App\Welcome\WelcomeVideo::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $video_instance ? $video_instance->delete() : null;
-                $video = new \App\WelcomeVideo;
+                $video = new \App\Welcome\WelcomeVideo;
                 $video->title = $titles[$i];
                 $video->aparat_link = $aparat_links[$i];
                 $video->number = $numbers[$i];
@@ -479,14 +484,14 @@ class WelcomeManageController extends WelcomeController
         $pictures = request('picture');
         $numbers = request('number');
 
-        \App\WelcomeProduct::delete_others($numbers);
+        \App\Welcome\WelcomeProduct::delete_others($numbers);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $product_instance = \App\WelcomeProduct::where('number',$numbers[$i])->first();
+            $product_instance = \App\Welcome\WelcomeProduct::where('number',$numbers[$i])->first();
             if (isset($pictures[$i])) {
                 $product_instance ? $product_instance->delete() : null;
-                $product = new \App\WelcomeProduct;
+                $product = new \App\Welcome\WelcomeProduct;
                 $product->title = $titles[$i];
                 $product->price = $prices[$i];
                 $product->number = $numbers[$i];
@@ -513,7 +518,7 @@ class WelcomeManageController extends WelcomeController
 
     public function links()
     {
-        \App\WelcomeLink::truncate();
+        \App\Welcome\WelcomeLink::truncate();
         \DB::table('welcome_links')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
@@ -521,11 +526,11 @@ class WelcomeManageController extends WelcomeController
 
     public function footer()
     {
-        \App\WelcomeFooter::truncate();
-        \App\WelcomeFooterLink::truncate();
+        \App\Welcome\WelcomeFooter::truncate();
+        \App\Welcome\WelcomeFooterLink::truncate();
 
         $data = WelcomeValidate::footer();
-        \App\WelcomeFooter::create($data);
+        \App\Welcome\WelcomeFooter::create($data);
 
         \DB::table('welcome_footer_links')->insert(prepare_multiple(request()->all()));
 

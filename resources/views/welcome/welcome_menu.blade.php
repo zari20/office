@@ -1,4 +1,4 @@
-<p class="h3 dinar text-blue"> مدیریت منو </p>
+<p class="h3 dinar text-info"> مدیریت منو </p>
 <form class="p-3" action="{{url('/welcome_page/menu')}}" method="post">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
@@ -7,7 +7,7 @@
         <p class="h5 d-inline mt-3">
             <a class="cloner pointer">
                 منو
-                <i class="fa fa-plus text-blue mt-1 mr-2"></i>
+                <i class="fa fa-plus text-info mt-1 mr-2"></i>
             </a>
         </p>
         <a target="_blank" href="http://fontawesome.io/icons/" class="mr-4">مشاهده لیست آیکون ها</a>

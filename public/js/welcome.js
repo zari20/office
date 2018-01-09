@@ -1,4 +1,12 @@
 $(document).ready(function () {
+
+    //color input type
+    $('input[type=color]').change(function () {
+        var color = $(this).val();
+        $(this).css('background-color',color);
+    });
+
+
     //flash messages
     $('.flash').delay(5000).fadeOut(1000);
 
@@ -47,11 +55,9 @@ $(document).ready(function () {
         $(this).removeClass('bg-blue').addClass('bg-yellow');
     });
 
-    //color input type
-    $('input[type=color]').change(function () {
-        var color = $(this).val();
-        $(this).css('background-color',color);
-    });
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-tooltip="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
 });
 
 

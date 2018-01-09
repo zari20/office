@@ -1,10 +1,10 @@
-<p class="h3 dinar text-blue">  مدیریت کلمات </p>
+<p class="h3 dinar text-info">  مدیریت کلمات </p>
 <form class="p-3" action="{{url('/welcome_page/words')}}" method="post">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
 
     <hr>
-    <p class="text-blue h5 dinar text-center mb-4">کلمات هدر</p>
+    <p class="text-info h5 dinar text-center mb-4">کلمات هدر</p>
     <div class="row">
         <div class="form-group col-md-3">
             <label class="text-primary" for="co"> لینک هدر </label>
@@ -25,7 +25,7 @@
     </div>
 
     <hr>
-    <p class="text-blue h5 dinar text-center mb-4">سایر کلمات</p>
+    <p class="text-info h5 dinar text-center mb-4">سایر کلمات</p>
     <div class="row">
         <div class="form-group col-md-3">
             <label class="text-primary" for="online"> کلمه چت باکس </label>
@@ -107,7 +107,7 @@
 
 
     <hr>
-    <p class="text-blue h5 dinar text-center mb-4">کلمات فوتر</p>
+    <p class="text-info h5 dinar text-center mb-4">کلمات فوتر</p>
     <div class="row">
         <div class="form-group col-md-6">
             <label class="text-primary" for="related_links"> عنوان لینک های فوتر </label>

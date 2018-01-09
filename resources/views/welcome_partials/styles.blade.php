@@ -654,7 +654,7 @@ ol.carousel-indicators{
     color: #444;
 }
 .introduction.contact{
-    background-image: url(../images/contact-bg.jpg);
+    background-image: {{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;

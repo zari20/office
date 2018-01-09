@@ -1,4 +1,4 @@
-<p class="h3 dinar text-blue"> {{$words->our_team}} </p>
+<p class="h3 dinar text-info"> {{$words->our_team}} </p>
 <form class="p-3" action="{{url('/welcome_page/our_team')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
@@ -7,7 +7,7 @@
         <p class="h5 mt-3">
             <a class="cloner pointer">
                 {{$words->our_team}}
-                <i class="fa fa-plus text-blue mt-1 mr-2"></i>
+                <i class="fa fa-plus text-info mt-1 mr-2"></i>
             </a>
         </p>
     </div>

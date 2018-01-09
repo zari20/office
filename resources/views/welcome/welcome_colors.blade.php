@@ -1,4 +1,3 @@
-<p class="h3 dinar text-blue"> مدیریت رنگ ها </p>
 <form class="p-3" action="{{url('/welcome_page/colors')}}" method="post">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}

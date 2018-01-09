@@ -21,11 +21,13 @@ class CreateWelcomeMenusTable extends Migration
             $table->timestamps();
         });
 
-        \DB::table('welcome_menus')->insert([
-            'name' => 'عنوان سایت',
-            'icon' => 'محل قرارگیری توضیحات',
-            'target' => 'محل قرارگیری توضیحات',
-        ]);
+        for ($i=0; $i < 8 ; $i++) {
+            \DB::table('welcome_menus')->insert([
+                'name' => 'عنوان',
+                'icon' => 'home',
+                'target' => '#',
+            ]);
+        }
     }
 
     /**

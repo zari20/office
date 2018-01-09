@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class WelcomeManageController extends WelcomeController
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function update($partial)
     {

@@ -34,15 +34,22 @@
 	<!--//header-->
 	<div class="main-content-agile">
 		<div class="sub-main-w3">
+            @if ($errors->any())
+                <div class="errors">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
 			<form action="{{url('/welcome_login')}}" method="post">
                 {{ csrf_field() }}
 				<div class="pom-agile">
                     <span class="fa fa-user-o" aria-hidden="true"></span>
-					<input placeholder="نام کاربری" name="username" class="user" type="text" required="">
+					<input placeholder="نام کاربری" name="username" class="user" type="text" required="" value="{{old('username')}}">
 				</div>
 				<div class="pom-agile">
 					<span class="fa fa-key" aria-hidden="true"></span>
-					<input placeholder="رمز عبور" name="Password" class="pass" type="password" required="">
+					<input placeholder="رمز عبور" name="password" class="pass" type="password" required="">
 				</div>
 				{{-- <div class="sub-w3l">
 					<div class="sub-agile">

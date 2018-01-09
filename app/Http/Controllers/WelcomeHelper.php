@@ -26,4 +26,11 @@ class WelcomeHelper extends WelcomeController
       session()->flash('status', $status);
     }
 
+    public static function auth()
+    {
+        if (!session('welcome_login')) {
+            abort(404);
+        }
+    }
+
 }

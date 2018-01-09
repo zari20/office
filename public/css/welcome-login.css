@@ -34,6 +34,11 @@ body {
 	font-family: IRANSans,'Roboto', sans-serif;
 	height: 100vh;
 }
+.errors {
+    color : red;
+    font-size: 1.5em;
+    padding-bottom: 20px;
+}
 /*--header--*/
 .header-w3l {
     padding-top: 2em;
@@ -88,7 +93,6 @@ body {
     width: 93%;
     color: #000;
     font-family: IRANSans;
-    letter-spacing: 1px;
 }
 .right-w3l button[type="submit"] {
     color: #fff;

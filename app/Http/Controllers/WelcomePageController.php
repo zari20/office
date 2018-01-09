@@ -9,7 +9,22 @@ class WelcomePageController extends WelcomeController
 
     public function login()
     {
-        dd('here');
+        $user = \App\Welcome\WelcomeUser::where('username',request('username'))->first();
+        if ($user && \Hash::check(request('password'), $user->password)) {
+            session([
+                'welcome_login' => true,
+                'welcome_user' => $user
+            ]);
+            return redirect('/welcome_panel');
+        }else {
+            return back()->withErrors(['نام کاربری یا رمز عبور صحیح نیست']);
+        }
+    }
+
+    public function panel($value='')
+    {
+        WelcomeHelper::auth();
+        return view('welcome_panel');
     }
 
     public function load($partial)

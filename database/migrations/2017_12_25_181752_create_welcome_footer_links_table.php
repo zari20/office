@@ -17,9 +17,15 @@ class CreateWelcomeFooterLinksTable extends Migration
             $table->increments('id');
             $table->unsignedSmallInteger('welcome_footer_id')->default(1);
             $table->string('name')->nullable();
-            $table->string('href')->nullable();
+            $table->string('href')->default('#');
             $table->timestamps();
         });
+
+        for ($i=1; $i <= 8 ; $i++) {
+            \DB::table('welcome_footer_links')->insert([
+                'name' => 'لینک شماره '.$i,
+            ]);
+        }
     }
 
     /**

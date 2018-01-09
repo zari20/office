@@ -19,7 +19,10 @@
     <body>
 
         <div class="cnfix"><a href="#"><i class="fa fa-comments"></i> گفتگوی آنلاین </a></div>
+
         @include('welcome_partials.header')
+        @include('welcome_partials.menu')
+        @include('welcome_partials.footer')
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>

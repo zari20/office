@@ -17,12 +17,13 @@ class CreateWelcomeContactUsesTable extends Migration
             $table->increments('id');
             $table->string('topic');
             $table->string('background_path');
+            $table->boolean('visible');
             $table->timestamps();
         });
 
         \DB::table('welcome_contact_uses')->insert([
             'topic' => 'ارتباط با ما',
-            'background_path' => 'contact/bg.png',
+            "visible" => 1
         ]);
     }
 

@@ -15,15 +15,21 @@ class CreateWelcomeContactUsesTable extends Migration
     {
         Schema::create('welcome_contact_uses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('topic')->nullable();
-            $table->string('background_path')->nullable();
+            $table->string('title')->nullable();
+            $table->string('main_branch_title')->nullable();
+            $table->string('other_branches_title')->nullable();
+            $table->string('form_title')->nullable();
             $table->boolean('visible')->default(1);
+            $table->boolean('form_visible')->default(1);
+            $table->string('background_path')->nullable();
             $table->timestamps();
         });
 
         \DB::table('welcome_contact_uses')->insert([
-            'topic' => 'ارتباط با ما',
-            "visible" => 1
+            'title' => 'ارتباط با ما',
+            'main_branch_title' => 'ارتباط با دفتر مرکزی',
+            'other_branches_title' => 'ارتباط با شعب',
+            'form_title' => 'فرم تماس با ما',
         ]);
     }
 

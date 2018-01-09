@@ -118,21 +118,27 @@ class WelcomePageController extends WelcomeController
 
     public function index()
     {
+        //essentials
         $colors = \App\Welcome\WelcomeColors::find(1);
+
+        //header
         $header = \App\Welcome\WelcomeHeader::find(1);
-        $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
         $top_links = \App\Welcome\WelcomeTopLink::orderBy('number')->get();
+
+        //menu
         $menus = \App\Welcome\WelcomeMenu::all();
-        $five_cols = \App\Welcome\WelcomeFiveCol::all();
-        $sliders = \App\Welcome\WelcomeSlider::all();
+        $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
+
+        //contact us
+        $contact_us = \App\Welcome\WelcomeContactUs::find(1);
         $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
-        $contact_branches = \App\Welcome\WelcomeContactBranch::all();
-        $latest_products = \App\Welcome\WelcomeProduct::latest()->get();
-        $links = \App\Welcome\WelcomeLink::all();
+        $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
+
+        //footer
         $footer = \App\Welcome\WelcomeFooter::find(1);
+
         return view('welcome',compact(
-            'colors', 'header', 'welcome_logo', 'top_links', 'menus', 'five_cols', 'sliders',
-            'main_branch', 'contact_branches', 'latest_products', 'links', 'footer'
+            'colors','header','top_links','menus','welcome_logo','contact_us','main_branch','contact_branches','footer'
         ));
     }
 }

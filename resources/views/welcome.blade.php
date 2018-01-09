@@ -22,6 +22,9 @@
 
         @include('welcome_partials.header')
         @include('welcome_partials.menu')
+        @if ($contact_us->visible)
+            @include('welcome_partials.contact_us')
+        @endif
         @include('welcome_partials.footer')
 
         <script src="js/jquery.min.js"></script>

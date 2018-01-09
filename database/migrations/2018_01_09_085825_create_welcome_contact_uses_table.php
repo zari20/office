@@ -19,6 +19,11 @@ class CreateWelcomeContactUsesTable extends Migration
             $table->string('background_path');
             $table->timestamps();
         });
+
+        \DB::table('welcome_contact_uses')->insert([
+            'topic' => 'ارتباط با ما',
+            'background_path' => 'contact/bg.png',
+        ]);
     }
 
     /**

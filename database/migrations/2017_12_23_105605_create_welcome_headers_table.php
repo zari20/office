@@ -26,6 +26,18 @@ class CreateWelcomeHeadersTable extends Migration
             $table->string('website_title')->nullable();
             $table->timestamps();
         });
+
+        \DB::table('welcome_headers')->insert([
+            'telephone' => '021-0000',
+            'link_name' => 'نام لینک',
+            'link_href' => '#',
+            'link_icon' => 'external-link',
+            'search_placeholder' => 'جستجو در سایت ...',
+            'top_links_topic' => 'سایر وبسایت های من',
+            'telegram_id' => '',
+            'instagram_id' => '',
+            'website_title' => 'رویان رسانه',
+        ]);
     }
 
     /**

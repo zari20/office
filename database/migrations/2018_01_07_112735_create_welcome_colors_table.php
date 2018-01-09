@@ -21,6 +21,13 @@ class CreateWelcomeColorsTable extends Migration
             $table->string('organ_color_2')->nullable();
             $table->timestamps();
         });
+
+        \DB::table('welcome_colors')->insert([
+            'layout_background' => 'black',
+            'layout_text' => 'white',
+            'organ_color_1' => 'cyan',
+            'organ_color_2' => 'gold',
+        ]);
     }
 
     /**

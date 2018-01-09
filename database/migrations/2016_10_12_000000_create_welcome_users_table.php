@@ -22,10 +22,8 @@ class CreateUsersTable extends Migration
         });
 
         \DB::table('users')->insert([
-            'name' => 'Admin',
             'username' => 'admin',
             'password' => bcrypt('1q2w3e'),
-            'admin' => 1
         ]);
 
     }

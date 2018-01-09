@@ -13,7 +13,7 @@ class CreateWelcomeFiveColsTable extends Migration
      */
     public function up()
     {
-        Schema::create('welcome_cols', function (Blueprint $table) {
+        Schema::create('welcome_five_cols', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject')->nullable();
             $table->string('icon')->nullable();
@@ -21,6 +21,15 @@ class CreateWelcomeFiveColsTable extends Migration
             $table->text('info')->nullable();
             $table->timestamps();
         });
+
+        for ($i=0; $i < 5 ; $i++) {
+            \DB::table('welcome_five_cols')->insert([
+                'subject' => 'عنوان ستون',
+                'icon' => 'font-awesome',
+                'href' => '#',
+                'info' => 'لورم ایپسوم یک متن بی مفهوم است که طراح برای پرکردن صفحات از آن استفاده می کند.',
+            ]);
+        }
     }
 
     /**
@@ -30,6 +39,6 @@ class CreateWelcomeFiveColsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('welcome_cols');
+        Schema::dropIfExists('welcome_five_cols');
     }
 }

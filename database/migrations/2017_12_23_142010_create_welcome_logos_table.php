@@ -20,6 +20,11 @@ class CreateWelcomeLogosTable extends Migration
             $table->string('logo_path')->nullable();
             $table->timestamps();
         });
+
+        \DB::table('welcome_logos')->insert([
+            'title' => 'عنوان سایت',
+            'info' => 'محل قرارگیری توضیحات',
+        ]);
     }
 
     /**

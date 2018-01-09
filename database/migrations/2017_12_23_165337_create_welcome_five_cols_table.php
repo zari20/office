@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWelcomeOurProjectsTable extends Migration
+class CreateWelcomeFiveColsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateWelcomeOurProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('welcome_our_projects', function (Blueprint $table) {
+        Schema::create('welcome_cols', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('number')->nullable();
-            $table->string('title')->nullable();
-            $table->string('body')->nullable();
-            $table->string('picture_path')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('href')->nullable();
+            $table->text('info')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateWelcomeOurProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('welcome_our_projects');
+        Schema::dropIfExists('welcome_cols');
     }
 }

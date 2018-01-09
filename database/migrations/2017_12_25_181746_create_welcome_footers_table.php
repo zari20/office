@@ -16,8 +16,9 @@ class CreateWelcomeFootersTable extends Migration
         Schema::create('welcome_footers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
-            $table->string('copy_right')->nullable();
             $table->text('passage')->nullable();
+            $table->string('copy_right')->nullable();
+            $table->string('quote')->nullable();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ class CreateWelcomeSlidersTable extends Migration
             $table->string('body')->nullable();
             $table->string('button_name')->nullable();
             $table->string('button_link')->nullable();
+            $table->string('background_path')->nullable();
             $table->timestamps();
         });
     }

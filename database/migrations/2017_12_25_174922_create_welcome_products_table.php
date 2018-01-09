@@ -16,9 +16,9 @@ class CreateWelcomeProductsTable extends Migration
         Schema::create('welcome_products', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('number')->nullable();
-            $table->string('title')->nullable();
             $table->string('body')->nullable();
             $table->string('price')->nullable();
+            $table->string('button_name')->nullable();
             $table->string('picture_path')->nullable();
             $table->timestamps();
         });

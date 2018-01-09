@@ -15,9 +15,9 @@ class CreateWelcomeContactUsesTable extends Migration
     {
         Schema::create('welcome_contact_uses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('topic');
-            $table->string('background_path');
-            $table->boolean('visible');
+            $table->string('topic')->nullable();
+            $table->string('background_path')->nullable();
+            $table->boolean('visible')->default(1);
             $table->timestamps();
         });
 

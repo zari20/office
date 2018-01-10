@@ -12,8 +12,8 @@
 
         @include('welcome_partials.styles')
 
-        <link href="css/responsive.css" rel="stylesheet">
-        <link href="css/fonts.css" rel="stylesheet">
+        <link href="css/welcome.responsive.css" rel="stylesheet">
+        <link href="css/welcome.fonts.css" rel="stylesheet">
 
     </head>
     <body>

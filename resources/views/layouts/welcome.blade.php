@@ -5,7 +5,7 @@
         <title>پنل مدیریت</title>
 
         <link href="css/welcome.bootstrap.min.css" rel="stylesheet">
-        <link href="css/fonts.css" rel="stylesheet">
+        <link href="css/welcome.fonts.css" rel="stylesheet">
         <link href="css/welcome.css" rel="stylesheet">
 
     </head>

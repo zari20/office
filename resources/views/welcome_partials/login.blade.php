@@ -19,7 +19,7 @@
 	<!-- css files -->
 	<link rel="stylesheet" href="css/welcome-login.css" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/welcome.fonts.css">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //css files -->
 </head>

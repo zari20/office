@@ -23,6 +23,9 @@ class WelcomeTabController extends WelcomeController
         $tab->latin_id = request('tab_latin_id');
         $tab->save();
 
+        //creating layout
+        WelcomeHelper::make_layout($tab->id,'Tab');
+
         //saving sections
         $types = request('type');
         $titles = request('title');

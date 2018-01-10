@@ -17,7 +17,10 @@ class WelcomeSectionController extends WelcomeController
         // TODO: uniqueness
 
         //store in database
-        Section::create(request()->all());
+        $section = Section::create(request()->all());
+
+        //creating layout
+        WelcomeHelper::make_layout($section->id,'Section');
 
         //redirection
         WelcomeHelper::flash();

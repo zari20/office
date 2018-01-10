@@ -5,12 +5,15 @@
         <title>پنل مدیریت</title>
 
         <link href="css/welcome.bootstrap.min.css" rel="stylesheet">
+        <link href="css/welcome.animate.css" rel="stylesheet">
         <link href="css/welcome.fonts.css" rel="stylesheet">
         <link href="css/welcome.css" rel="stylesheet">
 
     </head>
 
     <body>
+        @include('welcome_partials.flash')
+        @include('welcome_partials.are_you_sure')
         @yield('content')
     </body>
 

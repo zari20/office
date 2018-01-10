@@ -30,8 +30,8 @@
             <input type="text" class="form-control" id="title" name="title">
         </div>
         <div class="form-group col-md-4">
-            <label for="id">آیدی (لاتین)</label>
-            <input type="text" class="form-control" id="id" name="id" lang="en" dir="ltr">
+            <label for="latin_id">آیدی (لاتین)</label>
+            <input type="text" class="form-control" id="latin_id" name="latin_id" lang="en" dir="ltr">
         </div>
 
         <div class="col-md-5"></div>

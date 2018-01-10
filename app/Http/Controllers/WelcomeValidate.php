@@ -12,8 +12,11 @@ class WelcomeValidate extends WelcomeController
             'telephone' => 'nullable',
             'telegram_id' => 'nullable',
             'instagram_id' => 'nullable',
-            'co_link' => 'nullable',
-            'website_title' => 'nullable',
+            'top_links_topic' => 'nullable',
+            'search_placeholder' => 'nullable',
+            'link_name' => 'nullable',
+            'link_icon' => 'nullable',
+            'link_href' => 'nullable',
         ]);
     }
 

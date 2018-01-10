@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <title>پنل مدیریت</title>
 
-        <link href="css/welcome.bootstrap.min.css" rel="stylesheet">
-        <link href="css/welcome.animate.css" rel="stylesheet">
-        <link href="css/welcome.fonts.css" rel="stylesheet">
-        <link href="css/welcome.css" rel="stylesheet">
+        <link href="{{asset('css/welcome.bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('css/welcome.animate.css')}}" rel="stylesheet">
+        <link href="{{asset('css/welcome.fonts.css')}}" rel="stylesheet">
+        <link href="{{asset('css/welcome.css')}}" rel="stylesheet">
 
     </head>
 
@@ -17,7 +17,7 @@
         @yield('content')
     </body>
 
-    <script src="js/welcome.jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/welcome.js"></script>
+    <script src="{{asset('js/welcome.jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('js/welcome.js')}}"></script>
 </html>

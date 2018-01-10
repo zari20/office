@@ -1,9 +1,6 @@
 @extends('layouts.welcome')
 @section('content')
-    <div class="text-center bg-info p-4 text-white">
-        <span class="h2 dinar">ایجاد تب جدید</span>
-        <a href="{{url('welcome_panel')}}" class="border-btn float-right"> <i class="fa fa-home m-1"></i> برگشت </a>
-    </div>
+    @include('welcome_partials.banner', ['title' => 'ایجاد تب جدید'])
     <form class="row p-4" action="{{url('/welcome_tabs')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group col-md-6">

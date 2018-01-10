@@ -3,11 +3,9 @@
     {{ csrf_field() }}
     {{ method_field('PUT') }}
 
-    <button type="submit" class="link" formaction="{{url('welcome_action/'.$id.'/edit/'.$partial)}}">
-        <a class="none" href="#" title="ویرایش" data-tooltip="tooltip">
-            <i class="fa fa-edit text-success"></i>
-        </a>
-    </button>
+    <a class="none" href="{{url('welcome_page/header')}}" title="ویرایش" data-tooltip="tooltip">
+        <i class="fa fa-edit text-success"></i>
+    </a>
 
     <button type="submit" class="link" formaction="{{url('welcome_action/'.$id.'/visibility/'.$partial)}}">
         <a class="none" href="#" title="{{$close ? 'عدم نمایش' : 'نمایش'}}" data-tooltip="tooltip">

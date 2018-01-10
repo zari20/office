@@ -13,6 +13,9 @@ class WelcomeSectionController extends WelcomeController
         //check if logged in
         WelcomeHelper::auth();
 
+        //validatio
+        // TODO: uniqueness
+
         //store in database
         Section::create(request()->all());
 

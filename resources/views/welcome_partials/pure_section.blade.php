@@ -5,7 +5,7 @@
 
 <div class="clone-box col-12">
     <div class="to-be-cloned col-12 row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-{{$array ? '6' : '4'}}">
             <label> نوع بخش </label>
             <select class="form-control section-type" name="type{{$array ? '[]' : ''}}" onchange="changeSectionPhoto($(this).find(':selected').val())">
                 <option value="5col">5 ستونه</option>
@@ -18,13 +18,15 @@
                 <option value="link">لینک چهارتایی</option>
             </select>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-{{$array ? '6' : '4'}}">
             <label for="title">عنوان</label>
             <input type="text" class="form-control" id="title" name="title{{$array ? '[]' : ''}}">
         </div>
-        <div class="form-group col-md-4">
-            <label for="latin_id">آیدی (لاتین)</label>
-            <input type="text" class="form-control" id="latin_id" name="latin_id{{$array ? '[]' : ''}}" lang="en" dir="ltr">
-        </div>
+        @if (!$array)
+            <div class="form-group col-md-4">
+                <label for="latin_id">آیدی (لاتین)</label>
+                <input type="text" class="form-control" id="latin_id" name="latin_id{{$array ? '[]' : ''}}" lang="en" dir="ltr">
+            </div>
+        @endif
     </div>
 </div>

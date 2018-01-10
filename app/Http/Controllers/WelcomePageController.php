@@ -33,15 +33,12 @@ class WelcomePageController extends WelcomeController
         $header = \App\Welcome\WelcomeHeader::find(1) ?? new \App\Welcome\WelcomeHeader;
         $footer = \App\Welcome\WelcomeFooter::find(1) ?? new \App\Welcome\WelcomeFooter;
 
-        //sections
-        $sections = \App\Welcome\WelcomeSection::orderBy('position')->get();
-
         //contact us
         $contact_us = \App\Welcome\WelcomeContactUs::find(1);
         $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
         $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
 
-        return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches','header','footer','sections'));
+        return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches','header','footer'));
     }
 
     public function load($partial)

@@ -7,12 +7,12 @@
     <form class="row p-4" action="{{url('/welcome_tabs')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group col-md-6">
-            <label for="title">عنوان</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <label for="tab_title">عنوان</label>
+            <input type="text" class="form-control" id="tab_title" name="tab_title">
         </div>
         <div class="form-group col-md-6">
-            <label for="latin_id">آیدی (لاتین)</label>
-            <input type="text" class="form-control" id="latin_id" name="latin_id" lang="en" dir="ltr">
+            <label for="tab_latin_id">آیدی (لاتین)</label>
+            <input type="text" class="form-control" id="tab_latin_id" name="tab_latin_id" lang="en" dir="ltr">
         </div>
 
         <hr class="col-12">

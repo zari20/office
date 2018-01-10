@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class WelcomeTab extends WelcomePage
 {
-    //
+    public function sections()
+    {
+        return $this->hasMany(WelcomeSection::class);
+    }
 }

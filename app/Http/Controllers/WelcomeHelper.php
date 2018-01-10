@@ -38,8 +38,8 @@ class WelcomeHelper extends WelcomeController
         $highest_layout = \DB::table('welcome_layouts')->where('position', \DB::raw("(SELECT MAX(`position`) FROM welcome_layouts)"))->first();
         $postion =  $highest_layout ? ($highest_layout->position + 1) : 1;
         $layout = new \App\Welcome\WelcomeLayout;
-        $layout->layout_id = $id;
-        $layout->layout_type = 'App\Welcome\Welcome'.$type;
+        $layout->puzzle_id = $id;
+        $layout->puzzle_type = 'App\Welcome\Welcome'.$type;
         $layout->position = $postion;
         $layout->save();
     }

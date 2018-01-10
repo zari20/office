@@ -15,7 +15,7 @@ class CreateWelcomeLayoutsTable extends Migration
     {
         Schema::create('welcome_layouts', function (Blueprint $table) {
             $table->increments('id');
-            $table->morphs('layout');
+            $table->morphs('puzzle');
             $table->unsignedSmallInteger('position')->nullable();
             $table->boolean('visible')->default(1);
             $table->timestamps();

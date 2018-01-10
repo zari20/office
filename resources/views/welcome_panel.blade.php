@@ -26,6 +26,12 @@
             <span class="text-black"> منو </span>
             @include('welcome_partials.map_options',['close'=>$header->menu_visible, 'delete'=>false, 'partial'=>'header'])
         </div>
+        @foreach ($sections as $key => $section)
+            <div class="welcome-sections">
+                <span class="text-black"> {{$section->title ?? '[بدون عنوان]'}} </span>
+                @include('welcome_partials.map_options',['close'=>$section->visible, 'delete'=>true, 'partial'=>$section->latin_id])
+            </div>
+        @endforeach
         <div style="background:{{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}}">
             ارتباط با ما
             @include('welcome_partials.map_options',['close'=>$contact_us->visible, 'delete'=>false, 'partial'=>'contact_us'])

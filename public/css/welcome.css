@@ -65,7 +65,7 @@ section.map > div {
     padding: 30px 0px;
     margin: 10px 0px;
     font-family: Mj_DinarOneMedium;
-    font-size: 2em;
+    font-size: 1.5em;
     position: relative;
 }
 
@@ -83,3 +83,7 @@ select {
     background-color: lavender;
 }
 .text-black {color: black}
+
+.welcome-sections {
+    background-color: MISTYROSE;
+}

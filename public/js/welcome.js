@@ -14,12 +14,6 @@ $(document).ready(function () {
         return false;
     });
 
-    //section type
-    $('#section-type').change(function () {
-        var type = $(this).find(':selected').val();
-        $('#section-img').attr('src','welcome_images/'+type+'.png');
-    });
-
     //color input type
     $('input[type=color]').change(function () {
         var color = $(this).val();
@@ -98,6 +92,10 @@ function isInt(value) {
 
 function remove(element) {
     element.remove();
+}
+
+function changeSectionPhoto(type) {
+    $('#section-img').attr('src','welcome_images/'+type+'.png');
 }
 
 $(document).on('click','.delete-cloned',function () {

@@ -2,7 +2,8 @@
 @section('content')
     <nav class="bg-info text-center p-4 pb-5">
         <span class="h2 dinar text-white">پنل مدیریت</span>
-        <a href="{{url('welcome_new_section')}}" class="border-btn float-left"> <i class="fa fa-plus m-1"></i> بخش جدید </a>
+        <a href="{{url('welcome_new_section')}}" class="border-btn mx-1 float-left"> <i class="fa fa-plus m-1"></i> بخش جدید </a>
+        <a href="{{url('welcome_new_tab')}}" class="border-btn mx-1 float-left"> <i class="fa fa-plus m-1"></i> تب جدید </a>
         <a href="http://fontawesome.io/icons/" target="_blank" class="border-btn float-right"> <i class="fa fa-font-awesome m-1"></i> لیست فونت ها </a>
     </nav>
     <section class="p-3 text-center map">

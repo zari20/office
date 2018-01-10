@@ -4,19 +4,26 @@
         <span class="h2 dinar text-white">پنل مدیریت</span>
         <a href="{{url('welcome_new_section')}}" class="border-btn mx-1 float-left"> <i class="fa fa-plus m-1"></i> بخش جدید </a>
         <a href="{{url('welcome_new_tab')}}" class="border-btn mx-1 float-left"> <i class="fa fa-plus m-1"></i> تب جدید </a>
-        <a href="http://fontawesome.io/icons/" target="_blank" class="border-btn float-right"> <i class="fa fa-font-awesome m-1"></i> لیست فونت ها </a>
+        <a href="http://fontawesome.io/icons/" target="_blank" class="border-btn mx-1 float-right"> <i class="fa fa-font-awesome m-1"></i> لیست فونت ها </a>
+        <a href="{{url('welcome_positions')}}" class="border-btn mx-1 float-right"> <i class="fa fa-arrow-down m-1"></i> مدیریت ترتیب ها </a>
     </nav>
     <section class="p-3 text-center map">
 
         {{-- colors --}}
         <hr class="mt-0">
-        <p class="h3 dinar text-info"> <i class="fa fa-dashboard ml-1"></i> مدیریت رنگ ها </p>
+        <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-dashboard ml-1"></i> مدیریت رنگ ها </p>
         <hr>
         @include('welcome.welcome_colors')
 
+        {{-- website --}}
+        <hr class="mt-0">
+        <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-globe ml-1"></i> مدیریت وبسایت </p>
+        <hr>
+        @include('welcome.welcome_website')
+
         {{-- map --}}
         <hr>
-        <p class="h3 dinar text-info mb-4"> <i class="fa fa-map ml-1"></i> نقشه سایت </p>
+        <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-map ml-1"></i> نقشه سایت </p>
         <hr>
 
         <div class="text-white" style="background-color:{{$colors->layout_background}}">

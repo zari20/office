@@ -4,7 +4,7 @@ namespace App\Welcome;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WelcomeWebsite extends Model
+class WelcomeWebsite extends WelcomePage
 {
     //
 }

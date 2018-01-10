@@ -23,6 +23,15 @@ class WelcomeManageController extends WelcomeController
         dd($id.','.$action.','.$partial);
     }
 
+    public function website()
+    {
+        \App\Welcome\WelcomeWebsite::truncate();
+        \App\Welcome\WelcomeWebsite::create(request()->all());
+
+        WelcomeHelper::flash();
+        return back();
+    }
+
     public function colors()
     {
         \App\Welcome\WelcomeColors::truncate();

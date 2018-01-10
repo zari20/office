@@ -79,3 +79,8 @@ select:placeholder {
     font-size: 0.8em;
     line-height: 0.8em;
 }
+
+.bg-lavender{
+    background-color: lavender;
+}
+.text-black {color: black}

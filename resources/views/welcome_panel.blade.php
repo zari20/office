@@ -20,15 +20,19 @@
 
         <div class="text-white" style="background-color:{{$colors->layout_background}}">
             هدر
-            @include('welcome_partials.map_options',['open'=>false, 'partial'=>'header'])
+            @include('welcome_partials.map_options',['close'=>$header->visible, 'delete'=>false, 'partial'=>'header'])
+        </div>
+        <div class="text-white bg-lavender">
+            <span class="text-black"> منو </span>
+            @include('welcome_partials.map_options',['close'=>$header->menu_visible, 'delete'=>false, 'partial'=>'header'])
         </div>
         <div style="background:{{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}}">
             ارتباط با ما
-            @include('welcome_partials.map_options',['open'=>false, 'partial'=>'contact_us'])
+            @include('welcome_partials.map_options',['close'=>$contact_us->visible, 'delete'=>false, 'partial'=>'contact_us'])
         </div>
         <div class="text-white" style="background-color:{{$colors->layout_background}}">
             فوتر
-            @include('welcome_partials.map_options',['open'=>false, 'partial'=>'footer'])
+            @include('welcome_partials.map_options',['close'=>$footer->visible, 'delete'=>false, 'partial'=>'footer'])
         </div>
     </section>
 @endsection

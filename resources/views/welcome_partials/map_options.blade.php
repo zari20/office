@@ -8,15 +8,17 @@
         </a>
     </button>
 
-    <button type="submit" class="link" formaction="{{url('welcome_action/delete/'.$partial)}}">
-        <a class="none" href="#" title="حذف" data-tooltip="tooltip">
-            <i class="fa fa-trash text-danger"></i>
-        </a>
-    </button>
+    @if ($delete)
+        <button type="submit" class="link" formaction="{{url('welcome_action/delete/'.$partial)}}">
+            <a class="none" href="#" title="حذف" data-tooltip="tooltip">
+                <i class="fa fa-trash text-danger"></i>
+            </a>
+        </button>
+    @endif
 
     <button type="submit" class="link" formaction="{{url('welcome_action/visibility/'.$partial)}}">
-        <a class="none" href="#" title="{{$open ? 'نمایش' : 'عدم نمایش'}}" data-tooltip="tooltip">
-            <i class="fa fa-{{$open ? 'eye' : 'eye-slash'}} text-{{$open ? 'primary' : 'warning'}}"></i>
+        <a class="none" href="#" title="{{$close ? 'عدم نمایش' : 'نمایش'}}" data-tooltip="tooltip">
+            <i class="fa fa-{{$close ? 'eye-slash' : 'eye' }} text-{{$close ? 'warning' : 'primary'}}"></i>
         </a>
     </button>
 </form>

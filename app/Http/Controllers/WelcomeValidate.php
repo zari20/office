@@ -46,6 +46,8 @@ class WelcomeValidate extends WelcomeController
             'title' => 'nullable',
             'copy_right' => 'nullable',
             'passage' => 'nullable',
+            'links_title' => 'nullable',
+            'quote' => 'nullable',
         ]);
     }
 }

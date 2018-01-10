@@ -142,7 +142,7 @@ class WelcomePageController extends WelcomeController
                 if(!count($links)) $links = array(new \App\Welcome\WelcomeLink);
                 return view('welcome.'.$partial,compact('links'));
                 break;
-            case 'welcome_footer':
+            case 'footer':
                 $footer = \App\Welcome\WelcomeFooter::find(1);
                 $links = (isset($footer->links) && count($footer->links)) ? $footer->links : array(new \App\Welcome\WelcomeFooterLink);
                 return view('welcome.'.$partial,compact('footer','links'));

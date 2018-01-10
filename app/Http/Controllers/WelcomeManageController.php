@@ -11,16 +11,16 @@ class WelcomeManageController extends WelcomeController
     {
         //check if logged in
         WelcomeHelper::auth();
-        
+
         return $this->$partial();
     }
 
-    public function action($partial,$action)
+    public function action($id,$action,$partial)
     {
         //check if logged in
         WelcomeHelper::auth();
 
-        dd($partial.','.$action);
+        dd($id.','.$action.','.$partial);
     }
 
     public function colors()

@@ -8,6 +8,6 @@ class WelcomeTab extends WelcomePage
 {
     public function sections()
     {
-        return $this->hasMany(WelcomeSection::class);
+        return $this->hasMany(WelcomeSection::class,'tab_id');
     }
 }

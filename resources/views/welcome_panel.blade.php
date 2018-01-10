@@ -21,25 +21,43 @@
 
         <div class="text-white" style="background-color:{{$colors->layout_background}}">
             هدر
-            @include('welcome_partials.map_options',['close'=>$header->visible, 'delete'=>false, 'partial'=>'header'])
+            @include('welcome_partials.map_options',['close'=>$header->visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'header'])
         </div>
         <div class="text-white bg-lavender">
             <span class="text-black"> منو </span>
-            @include('welcome_partials.map_options',['close'=>$header->menu_visible, 'delete'=>false, 'partial'=>'header'])
+            @include('welcome_partials.map_options',['close'=>$header->menu_visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'header'])
         </div>
-        {{-- @foreach ($sections as $key => $section)
-            <div class="welcome-sections">
-                <span class="text-black"> {{$section->title ?? '[بدون عنوان]'}} </span>
-                @include('welcome_partials.map_options',['close'=>$section->visible, 'delete'=>true, 'partial'=>$section->latin_id])
-            </div>
-        @endforeach --}}
+        @foreach ($layouts as $key => $layout)
+            @if (rw($layout->puzzle_type) == 'section')
+                <div class="welcome-sections">
+                    <span class="text-black"> {{$layout->puzzle->title ?? '[بدون عنوان]'}} </span>
+                    @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$layout->puzzle->id, 'class'=>true, 'partial'=>'section'])
+                    <small class="map-type"> بخش </small>
+                </div>
+            @else
+                <div class="welcome-tabs row">
+                    <div class="col-12">
+                        <p>{{$layout->puzzle->title}}</p>
+                        <small class="map-type"> تب </small>
+                        @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$layout->puzzle->id, 'class'=>true, 'partial'=>'tab'])
+                    </div>
+                    <hr class="col-12">
+                    @foreach ($layout->puzzle->sections as $key => $section)
+                        <div class="col-md-{{calculate_cols(count($layout->puzzle->sections))}}">
+                            {{$section->title}}
+                            @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$section->id, 'class'=>false, 'partial'=>'section'])
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @endforeach
         <div style="background:{{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}}">
             ارتباط با ما
-            @include('welcome_partials.map_options',['close'=>$contact_us->visible, 'delete'=>false, 'partial'=>'contact_us'])
+            @include('welcome_partials.map_options',['close'=>$contact_us->visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'contact_us'])
         </div>
         <div class="text-white" style="background-color:{{$colors->layout_background}}">
             فوتر
-            @include('welcome_partials.map_options',['close'=>$footer->visible, 'delete'=>false, 'partial'=>'footer'])
+            @include('welcome_partials.map_options',['close'=>$footer->visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'footer'])
         </div>
     </section>
 @endsection

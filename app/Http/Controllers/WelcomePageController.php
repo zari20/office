@@ -29,6 +29,9 @@ class WelcomePageController extends WelcomeController
         //colors
         $colors = \App\Welcome\WelcomeColors::find(1) ?? new \App\Welcome\WelcomeColors;
 
+        //layouts
+        $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
+
         //header and footer
         $header = \App\Welcome\WelcomeHeader::find(1) ?? new \App\Welcome\WelcomeHeader;
         $footer = \App\Welcome\WelcomeFooter::find(1) ?? new \App\Welcome\WelcomeFooter;
@@ -38,7 +41,7 @@ class WelcomePageController extends WelcomeController
         $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
         $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
 
-        return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches','header','footer'));
+        return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches','header','footer','layouts'));
     }
 
     public function load($partial)

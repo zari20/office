@@ -75,9 +75,8 @@ section.map > div {
     left: 20px;
 }
 
-select:placeholder {
-    font-size: 0.8em;
-    line-height: 0.8em;
+select {
+    font-family: Calibri;
 }
 
 .bg-lavender{

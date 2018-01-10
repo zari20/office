@@ -1,5 +1,25 @@
 $(document).ready(function () {
 
+    //english inputs
+    $('input[lang=en]').keypress(function(event){
+        var ew = event.which;
+        if(ew == 32)
+            return true;
+        if(48 <= ew && ew <= 57)
+            return true;
+        if(65 <= ew && ew <= 90)
+            return true;
+        if(97 <= ew && ew <= 122)
+            return true;
+        return false;
+    });
+
+    //section type
+    $('#section-type').change(function () {
+        var type = $(this).find(':selected').val();
+        $('#section-img').attr('src','welcome_images/'+type+'.png');
+    });
+
     //color input type
     $('input[type=color]').change(function () {
         var color = $(this).val();

@@ -56,14 +56,14 @@ class WelcomePageController extends WelcomeController
                 if(!count($top_links)) $top_links = array(new \App\Welcome\WelcomeTopLink);
                 return view('welcome.'.$partial,compact('header','top_links'));
                 break;
-            case 'welcome_logo':
-                $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
-                return view('welcome.'.$partial,compact('welcome_logo'));
-                break;
-            case 'welcome_menu':
+            case 'menu':
                 $menus = \App\Welcome\WelcomeMenu::all();
                 if(!count($menus)) $menus = array(new \App\Welcome\WelcomeMenu);
                 return view('welcome.'.$partial,compact('menus'));
+                break;
+            case 'welcome_logo':
+                $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
+                return view('welcome.'.$partial,compact('welcome_logo'));
                 break;
             case 'welcome_cols':
                 $cols = \App\Welcome\WelcomeCol::all();

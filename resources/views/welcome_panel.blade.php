@@ -32,7 +32,7 @@
         </div>
         <div class="text-white bg-lavender">
             <span class="text-black"> منو </span>
-            @include('welcome_partials.map_options',['close'=>$header->menu_visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'header'])
+            @include('welcome_partials.map_options',['close'=>$header->menu_visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'menu'])
         </div>
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')

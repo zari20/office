@@ -15,6 +15,7 @@ class WelcomeSection extends WelcomePage
     {
         $class = '\App\Welcome\Welcome'.pascal_case($this->type);
         $fragments = $class::where('section_id',$this->id)->get();
+        $fragments = count($fragments) ? $fragments : [new self];
         return $fragments;
     }
 }

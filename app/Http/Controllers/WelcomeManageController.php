@@ -164,4 +164,13 @@ class WelcomeManageController extends WelcomeController
         WelcomeHelper::flash();
         return back();
     }
+
+    public function link()
+    {
+        $section_id = request('id');
+        \App\Welcome\WelcomeLink::clean($section_id);
+        \DB::table('welcome_links')->insert(prepare_multiple(request()->all()));
+        WelcomeHelper::flash();
+        return back();
+    }
 }

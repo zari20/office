@@ -155,4 +155,9 @@ class WelcomeManageController extends WelcomeController
         WelcomeHelper::flash();
         return back();
     }
+
+    public function tab()
+    {
+        dd('under constructions');
+    }
 }

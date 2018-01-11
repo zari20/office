@@ -47,8 +47,11 @@ class WelcomePageController extends WelcomeController
         return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches','header','footer','layouts','website'));
     }
 
-    public function load($partial)
+    public function load($partial,$id=0)
     {
+        //check if logged in
+        WelcomeHelper::auth();
+        
         switch ($partial) {
             case 'header':
                 $header = \App\Welcome\WelcomeHeader::find(1);
@@ -73,6 +76,13 @@ class WelcomePageController extends WelcomeController
                 $footer = \App\Welcome\WelcomeFooter::find(1);
                 $links = (isset($footer->links) && count($footer->links)) ? $footer->links : array(new \App\Welcome\WelcomeFooterLink);
                 return view('welcome.'.$partial,compact('footer','links'));
+                break;
+            case 'section':
+                $section = \App\Welcome\WelcomeSection::find($id);
+                dd($section);
+                break;
+            case 'tab':
+                dd('tab');
                 break;
             default:
                 return view('welcome.'.$partial);

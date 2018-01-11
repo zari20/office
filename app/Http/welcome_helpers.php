@@ -24,7 +24,7 @@ function calculate_cols($count)
 function welcome_translate($word)
 {
     switch ($word) {
-        case '5col': return '5 ستونه'; break;
+        case 'five_col': return '5 ستونه'; break;
         case 'slider': return 'اسلایدر'; break;
         case 'blog': return 'بلاگ'; break;
         case 'image': return 'عکس چهارتایی'; break;
@@ -59,4 +59,12 @@ function prepare_multiple($inputs)
     }
 
     return $result;
+}
+
+function pascal_case($str)
+{
+    $str = preg_replace_callback("/(?:^|_)([a-z])/", function($matches) {
+        return strtoupper($matches[1]);
+    }, $str);
+    return $str;
 }

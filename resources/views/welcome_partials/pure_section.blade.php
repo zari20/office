@@ -1,5 +1,5 @@
 <div class="text-center py-3 col-12">
-    <img src="welcome_images/5col.png" id="section-img">
+    <img src="welcome_images/five_col.png" id="section-img">
 </div>
 <hr class="col-12">
 
@@ -8,7 +8,7 @@
         <div class="form-group col-md-{{$array ? '6' : '4'}}">
             <label> نوع بخش </label>
             <select class="form-control section-type" name="type{{$array ? '[]' : ''}}" onchange="changeSectionPhoto($(this).find(':selected').val())">
-                <option value="5col">5 ستونه</option>
+                <option value="five_col">5 ستونه</option>
                 <option value="slider">اسلایدر</option>
                 <option value="blog">بلاگ</option>
                 <option value="image">عکس چهارتایی</option>

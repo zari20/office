@@ -3,7 +3,7 @@
     {{ csrf_field() }}
     {{ method_field('PUT') }}
 
-    <a class="none" href="{{url('welcome_page/'.$partial)}}" title="ویرایش" data-tooltip="tooltip">
+    <a class="none" href="{{url('welcome_page/'.$partial.($id ? '/'.$id : ''))}}" title="ویرایش" data-tooltip="tooltip">
         <i class="fa fa-edit text-success"></i>
     </a>
 

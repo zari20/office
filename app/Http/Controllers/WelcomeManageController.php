@@ -156,8 +156,12 @@ class WelcomeManageController extends WelcomeController
         return back();
     }
 
-    public function tab()
+    public function five_col()
     {
-        dd('under constructions');
+        $section_id = request('id');
+        \App\Welcome\WelcomeFiveCol::clean($section_id);
+        \DB::table('welcome_five_cols')->insert(prepare_multiple(request()->all()));
+        WelcomeHelper::flash();
+        return back();
     }
 }

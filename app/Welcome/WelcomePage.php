@@ -17,4 +17,9 @@ class WelcomePage extends Model
             }
         }
     }
+
+    public static function clean($section_id)
+    {
+        self::where('section_id',$section_id)->delete();
+    }
 }

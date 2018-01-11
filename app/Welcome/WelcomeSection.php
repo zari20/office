@@ -10,4 +10,11 @@ class WelcomeSection extends WelcomePage
     {
         return $this->belongsTo(WelcomeTab::class);
     }
+
+    public function fragments()
+    {
+        $class = '\App\Welcome\Welcome'.pascal_case($this->type);
+        $fragments = $class::where('section_id',$this->id)->get();
+        return $fragments;
+    }
 }

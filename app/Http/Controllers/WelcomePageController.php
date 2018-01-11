@@ -51,7 +51,7 @@ class WelcomePageController extends WelcomeController
     {
         //check if logged in
         WelcomeHelper::auth();
-        
+
         switch ($partial) {
             case 'header':
                 $header = \App\Welcome\WelcomeHeader::find(1);
@@ -79,7 +79,7 @@ class WelcomePageController extends WelcomeController
                 break;
             case 'section':
                 $section = \App\Welcome\WelcomeSection::find($id);
-                dd($section);
+                return view('welcome.fragments.'.$section->type,compact('section'));
                 break;
             case 'tab':
                 dd('tab');

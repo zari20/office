@@ -2,7 +2,7 @@
 @section('content')
     @include('welcome_partials.banner', ['title' => ' مدیریت بلاگ ها'])
 
-    <form class="p-3" action="{{url('/welcome_page/our_services/'.$section->id)}}" method="post" enctype="multipart/form-data">
+    <form class="p-3" action="{{url('/welcome_page/blog/'.$section->id)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
 
@@ -41,7 +41,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-md-5"></div>
             <button type="submit" class="btn btn-primary form-control col-md-2"> تایید </button>
         </div>

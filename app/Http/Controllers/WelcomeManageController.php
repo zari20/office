@@ -173,4 +173,38 @@ class WelcomeManageController extends WelcomeController
         WelcomeHelper::flash();
         return back();
     }
+
+    public function blog()
+    {
+        $section_id = request('id');
+
+        $titles = request('title');
+        $passages = request('passage');
+        $pictures = request('picture');
+        $numbers = request('number');
+        $section_ids = request('section_id');
+
+        \App\Welcome\WelcomeBlog::delete_others($numbers,$section_id);
+
+        for ($i=0; $i < count($numbers) ; $i++) {
+
+            $blog_instance = \App\Welcome\WelcomeBlog::where('number',$numbers[$i])->where('section_id',$section_id)->first();
+            $blog = $blog_instance ?? new \App\Welcome\WelcomeBlog;
+
+            if (isset($pictures[$i])) {
+                $blog->picture_path = $pictures[$i]->storeAs(
+                    'blogs', $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->extension(), 'welcome_page_uploads'
+                );
+            }
+            $blog->section_id = $section_ids[$i];
+            $blog->title = $titles[$i];
+            $blog->number = $numbers[$i];
+            $blog->passage = $passages[$i];
+            $blog->save();
+
+        }
+
+        WelcomeHelper::flash();
+        return back();
+    }
 }

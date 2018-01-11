@@ -21,15 +21,6 @@ class CreateWelcomeFiveColsTable extends Migration
             $table->text('info')->nullable();
             $table->timestamps();
         });
-
-        for ($i=0; $i < 5 ; $i++) {
-            \DB::table('welcome_five_cols')->insert([
-                'subject' => 'عنوان ستون',
-                'icon' => 'font-awesome',
-                'href' => '#',
-                'info' => 'لورم ایپسوم یک متن بی مفهوم است که طراح برای پرکردن صفحات از آن استفاده می کند.',
-            ]);
-        }
     }
 
     /**

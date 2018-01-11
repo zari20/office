@@ -16,14 +16,8 @@ class WelcomeSectionController extends WelcomeController
         //validatio
         // TODO: uniqueness
 
-        //create fragment
-        $data = request()->all();
-        $fragment = WelcomeHelper::make_fragment(request('type'));
-
         //store in database
-        $data['fragment_id'] = $fragment->id;
-        $data['fragment_type'] = 'App\Welcome\Welcome'.pascal_case(request('type'));
-        $section = Section::create($data);
+        $section = Section::create(request()->all());
 
         //creating layout
         WelcomeHelper::make_layout($section->id,'Section');

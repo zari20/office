@@ -44,38 +44,4 @@ class WelcomeHelper extends WelcomeController
         $layout->save();
     }
 
-    public static function make_fragment($type)
-    {
-        switch ($type) {
-            case 'five_col':
-                $fragment = new \App\Welcome\WelcomeFiveCol;
-                break;
-            case 'slider':
-                $fragment = new \App\Welcome\WelcomeSlider;
-                break;
-            case 'blog':
-                $fragment = new \App\Welcome\WelcomeBlog;
-                break;
-            case 'image':
-                $fragment = new \App\Welcome\WelcomeImage;
-                break;
-            case 'image_cadr':
-                $fragment = new \App\Welcome\WelcomeImageCadr;
-                break;
-            case 'download':
-                $fragment = new \App\Welcome\WelcomeDownload;
-                break;
-            case 'product':
-                $fragment = new \App\Welcome\WelcomeProduct;
-                break;
-            case 'link':
-                $fragment = new \App\Welcome\WelcomeLink;
-                break;
-            default:
-                dd("Fatel Error");
-                break;
-        }
-        return $fragment;
-    }
-
 }

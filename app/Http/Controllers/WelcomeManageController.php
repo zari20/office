@@ -211,6 +211,11 @@ class WelcomeManageController extends WelcomeController
         return $this->update_and_upload('download');
     }
 
+    public function product()
+    {
+        return $this->update_and_upload('product');
+    }
+
     private function update_and_upload($keyword)
     {
         $section_id = request('id');

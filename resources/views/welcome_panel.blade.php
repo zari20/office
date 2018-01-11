@@ -19,7 +19,7 @@
         <hr class="mt-0">
         <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-globe ml-1"></i> مدیریت وبسایت </p>
         <hr>
-        @include('welcome.welcome_website')
+        @include('welcome.website')
 
         {{-- map --}}
         <hr>

@@ -38,7 +38,8 @@
             @if (rw($layout->puzzle_type) == 'section')
                 <div class="welcome-sections">
                     <span class="text-black">
-                        {{$layout->puzzle->title ?? '[بدون عنوان]'}}
+                        <small>[{{$layout->puzzle->latin_id}}]</small>
+                        <span class="font-weight-bold">{{$layout->puzzle->title ?? '[بدون عنوان]'}}</span>
                         <small>[{{welcome_translate($layout->puzzle->type)}}]</small>
                     </span>
                     @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$layout->puzzle->id, 'class'=>true, 'partial'=>'section'])
@@ -47,7 +48,10 @@
             @else
                 <div class="welcome-tabs row">
                     <div class="col-12">
-                        <p>{{$layout->puzzle->title}}</p>
+                        <p>
+                            <small>[{{$layout->puzzle->latin_id}}]</small>
+                            <span class="font-weight-bold">{{$layout->puzzle->title}}</span>
+                        </p>
                         <small class="map-type"> تب </small>
                         @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$layout->puzzle->id, 'class'=>true, 'partial'=>'tab'])
                     </div>

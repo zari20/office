@@ -176,31 +176,61 @@ class WelcomeManageController extends WelcomeController
 
     public function blog()
     {
+        return $this->text_and_picture('blog');
+    }
+
+    public function slider()
+    {
         $section_id = request('id');
 
-        $titles = request('title');
-        $passages = request('passage');
+        if (request('background')) {
+            request('background')->storeAs(
+                'slider', 'slider.png', 'welcome_page_uploads'
+            );
+        }
+
+        \App\Welcome\WelcomeSlider::clean($section_id);
+        \DB::table('welcome_sliders')->insert(prepare_multiple(request()->all()));
+
+        WelcomeHelper::flash();
+        return back();
+    }
+
+    public function image()
+    {
+        return $this->text_and_picture('image');
+    }
+
+    public function image_cadr()
+    {
+        return $this->text_and_picture('image_cadr');
+    }
+
+    private function text_and_picture($keyword)
+    {
+        $section_id = request('id');
         $pictures = request('picture');
         $numbers = request('number');
-        $section_ids = request('section_id');
 
-        \App\Welcome\WelcomeBlog::delete_others($numbers,$section_id);
+        $class = '\App\Welcome\Welcome'.pascal_case($keyword);
+        $class::delete_others($numbers,$section_id);
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $blog_instance = \App\Welcome\WelcomeBlog::where('number',$numbers[$i])->where('section_id',$section_id)->first();
-            $blog = $blog_instance ?? new \App\Welcome\WelcomeBlog;
+            $object_instance = $class::where('number',$numbers[$i])->where('section_id',$section_id)->first();
+            $object = $object_instance ?? new $class;
 
             if (isset($pictures[$i])) {
-                $blog->picture_path = $pictures[$i]->storeAs(
-                    'blogs', $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->extension(), 'welcome_page_uploads'
+                $object->picture_path = $pictures[$i]->storeAs(
+                    $keyword, $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->extension(), 'welcome_page_uploads'
                 );
             }
-            $blog->section_id = $section_ids[$i];
-            $blog->title = $titles[$i];
-            $blog->number = $numbers[$i];
-            $blog->passage = $passages[$i];
-            $blog->save();
+            foreach (request()->all() as $key => $input) {
+                if (is_array($input) && $key != 'picture') {
+                    $object->$key = $input[$i];
+                }
+            }
+            $object->save();
 
         }
 

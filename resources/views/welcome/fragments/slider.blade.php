@@ -2,7 +2,7 @@
 @section('content')
     @include('welcome_partials.banner', ['title' => ' مدیریت اسلایدر ها'])
 
-    <form class="p-3" action="{{url('/welcome_page/slider/'.$section->id)}}" method="post" enctype="multipart/form-data">
+    <form class="p-5" action="{{url('/welcome_page/slider/'.$section->id)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
 

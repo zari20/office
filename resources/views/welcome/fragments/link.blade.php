@@ -6,14 +6,12 @@
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
 
-        <div class="">
-            <p class="h5 mt-3">
-                <a class="cloner pointer">
-                    لینک
-                    <i class="fa fa-plus text-info mt-1 mr-2"></i>
-                </a>
-            </p>
-        </div>
+        <p class="h5 mt-3">
+            <a class="cloner pointer">
+                لینک
+                <i class="fa fa-plus text-info mt-1 mr-2"></i>
+            </a>
+        </p>
 
 
         <div class="clone-box">

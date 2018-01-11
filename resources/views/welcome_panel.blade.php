@@ -13,7 +13,7 @@
         <hr class="mt-0">
         <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-dashboard ml-1"></i> مدیریت رنگ ها </p>
         <hr>
-        @include('welcome.welcome_colors')
+        @include('welcome.colors')
 
         {{-- website --}}
         <hr class="mt-0">

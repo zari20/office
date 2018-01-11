@@ -176,7 +176,7 @@ class WelcomeManageController extends WelcomeController
 
     public function blog()
     {
-        return $this->text_and_picture('blog');
+        return $this->update_and_upload('blog');
     }
 
     public function slider()
@@ -198,18 +198,24 @@ class WelcomeManageController extends WelcomeController
 
     public function image()
     {
-        return $this->text_and_picture('image');
+        return $this->update_and_upload('image');
     }
 
     public function image_cadr()
     {
-        return $this->text_and_picture('image_cadr');
+        return $this->update_and_upload('image_cadr');
     }
 
-    private function text_and_picture($keyword)
+    public function download()
+    {
+        return $this->update_and_upload('download');
+    }
+
+    private function update_and_upload($keyword)
     {
         $section_id = request('id');
         $pictures = request('picture');
+        $files = request('file');
         $numbers = request('number');
 
         $class = '\App\Welcome\Welcome'.pascal_case($keyword);
@@ -225,8 +231,13 @@ class WelcomeManageController extends WelcomeController
                     $keyword, $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->extension(), 'welcome_page_uploads'
                 );
             }
+            if (isset($files[$i])) {
+                $object->file_path = $files[$i]->storeAs(
+                    $keyword.'/files', $section_id.'-'.$numbers[$i].'.'.$files[$i]->extension(), 'welcome_page_uploads'
+                );
+            }
             foreach (request()->all() as $key => $input) {
-                if (is_array($input) && $key != 'picture') {
+                if (is_array($input) && !($key == 'picture' || $key == 'file')) {
                     $object->$key = $input[$i];
                 }
             }

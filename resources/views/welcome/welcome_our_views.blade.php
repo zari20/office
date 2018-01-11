@@ -16,7 +16,7 @@
     <div class="clone-box">
         @foreach ($views as $key => $view)
             <div class="row to-be-cloned">
-                <fieldset class="form-group col-md-1 p-3">
+                <fieldset class="form-group col-md-1 p-3 text-center">
                     <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                 </fieldset>
                 <fieldset class="form-group col-md-2 p-3">

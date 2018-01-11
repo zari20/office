@@ -19,6 +19,9 @@ class ModifyPreviousWelcomeFragmentsForOrm extends Migration
         Schema::table('welcome_links', function (Blueprint $table) {
             $table->unsignedInteger('section_id')->default(0)->after('id');
         });
+        Schema::table('welcome_sliders', function (Blueprint $table) {
+            $table->unsignedInteger('section_id')->default(0)->after('id');
+        });
     }
 
     /**
@@ -32,6 +35,9 @@ class ModifyPreviousWelcomeFragmentsForOrm extends Migration
             $table->dropColumn('section_id');
         });
         Schema::table('welcome_links', function (Blueprint $table) {
+            $table->dropColumn('section_id');
+        });
+        Schema::table('welcome_sliders', function (Blueprint $table) {
             $table->dropColumn('section_id');
         });
     }

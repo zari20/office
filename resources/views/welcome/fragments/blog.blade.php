@@ -15,26 +15,26 @@
 
 
         <div class="clone-box">
-            @foreach ($section->fragments() as $key => $service)
+            @foreach ($section->fragments() as $key => $blog)
                 <div class="row to-be-cloned">
                     <input type="hidden" name="section_id[]" value="{{$section->id}}">
-                    <fieldset class="form-group col-md-1 p-3">
+                    <fieldset class="form-group col-md-1 p-3 text-center">
                         <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                     </fieldset>
                     <fieldset class="form-group col-md-2 p-3">
                         <label> شماره </label>
-                        <input name="number[]" value="{{$service->number}}" type="text" class="form-control">
+                        <input name="number[]" value="{{$blog->number}}" type="text" class="form-control">
                     </fieldset>
                     <fieldset class="form-group col-md-6 p-3">
                         <label> عنوان </label>
-                        <input name="title[]" value="{{$service->title}}" type="text" class="form-control">
+                        <input name="title[]" value="{{$blog->title}}" type="text" class="form-control">
                     </fieldset>
                     <fieldset class="form-group col-md-3 p-3">
                         <label> تصویر <span dir="ltr">528*297</span></label>
                         <input name="picture[]" type="file" class="form-control-file">
                     </fieldset>
                     <fieldset class="col-12">
-                        <textarea name="passage[]" rows="2" class="form-control">{{$service->passage}}</textarea>
+                        <textarea name="passage[]" rows="2" class="form-control">{{$blog->passage}}</textarea>
                     </fieldset>
                 </div>
             @endforeach

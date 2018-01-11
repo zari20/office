@@ -16,10 +16,10 @@
     <div class="clone-box">
         @foreach ($catalogs as $key => $catalog)
             <div class="row to-be-cloned">
-                <fieldset class="form-group col-md-1 p-3">
+                <fieldset class="form-group col-md-1 p-3 text-center">
                     <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                 </fieldset>
-                <fieldset class="form-group col-md-1 p-3">
+                <fieldset class="form-group col-md-1 p-3 text-center">
                     <label> شماره </label>
                     <input name="number[]" value="{{$catalog->number}}" type="text" class="form-control">
                 </fieldset>

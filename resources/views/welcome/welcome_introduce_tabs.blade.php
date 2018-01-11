@@ -18,7 +18,7 @@
             <div class="clone-box">
                 @foreach ($tabs as $key => $tab)
                     <div class="row to-be-cloned">
-                        <fieldset class="form-group col-md-1 p-3">
+                        <fieldset class="form-group col-md-1 p-3 text-center">
                             <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                         </fieldset>
                         <fieldset class="form-group col-md-3 p-3">
@@ -56,7 +56,7 @@
             <div class="clone-box-2">
                 @foreach ($blogs as $key => $blog)
                     <div class="row to-be-cloned-2">
-                        <fieldset class="form-group col-md-1 p-3">
+                        <fieldset class="form-group col-md-1 p-3 text-center">
                             <a class="delete-cloned-2 pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                         </fieldset>
                         <fieldset class="form-group col-md-4 p-3">

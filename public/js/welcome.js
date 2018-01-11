@@ -96,6 +96,11 @@ function remove(element) {
 
 function changeSectionPhoto(type) {
     $('#section-img').attr('src','welcome_images/'+type+'.png');
+    if(type=='slider'){
+        $('.section-title').hide();
+    }else {
+        $('.section-title').show();
+    }
 }
 
 $(document).on('click','.delete-cloned',function () {

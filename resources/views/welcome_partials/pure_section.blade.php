@@ -18,7 +18,7 @@
                 <option value="link">لینک چهارتایی</option>
             </select>
         </div>
-        <div class="form-group col-md-{{$array ? '6' : '4'}}">
+        <div class="form-group section-title col-md-{{$array ? '6' : '4'}}">
             <label for="title">عنوان</label>
             <input type="text" class="form-control" id="title" name="title{{$array ? '[]' : ''}}">
         </div>

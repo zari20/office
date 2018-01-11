@@ -21,6 +21,21 @@ function calculate_cols($count)
     }
 }
 
+function welcome_translate($word)
+{
+    switch ($word) {
+        case '5col': return '5 ستونه'; break;
+        case 'slider': return 'اسلایدر'; break;
+        case 'blog': return 'بلاگ'; break;
+        case 'image': return 'عکس چهارتایی'; break;
+        case 'image_cadr': return 'عکس چهارتایی با کادر'; break;
+        case 'download': return 'دانلود فایل 4 ستونه'; break;
+        case 'product': return 'محصول چهارتایی'; break;
+        case 'link': return 'لینک چهارتایی'; break;
+        default: return $word; break;
+    }
+}
+
 function carousel_indicators($array)
 {
     $count = count($array);

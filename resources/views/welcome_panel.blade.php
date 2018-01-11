@@ -37,7 +37,10 @@
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')
                 <div class="welcome-sections">
-                    <span class="text-black"> {{$layout->puzzle->title ?? '[بدون عنوان]'}} </span>
+                    <span class="text-black">
+                        {{$layout->puzzle->title ?? '[بدون عنوان]'}}
+                        <small>[{{welcome_translate($layout->puzzle->type)}}]</small>
+                    </span>
                     @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$layout->puzzle->id, 'class'=>true, 'partial'=>'section'])
                     <small class="map-type"> بخش </small>
                 </div>
@@ -52,6 +55,8 @@
                     @foreach ($layout->puzzle->sections as $key => $section)
                         <div class="col-md-{{calculate_cols(count($layout->puzzle->sections))}}">
                             {{$section->title}}
+                            <br>
+                            <small>[{{welcome_translate($section->type)}}]</small>
                             @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$section->id, 'class'=>false, 'partial'=>'section'])
                         </div>
                     @endforeach

@@ -58,12 +58,9 @@ class WelcomePageController extends WelcomeController
                 break;
             case 'menu':
                 $menus = \App\Welcome\WelcomeMenu::all();
-                if(!count($menus)) $menus = array(new \App\Welcome\WelcomeMenu);
-                return view('welcome.'.$partial,compact('menus'));
-                break;
-            case 'welcome_logo':
                 $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
-                return view('welcome.'.$partial,compact('welcome_logo'));
+                if(!count($menus)) $menus = array(new \App\Welcome\WelcomeMenu);
+                return view('welcome.'.$partial,compact('menus','welcome_logo'));
                 break;
             case 'contact_us':
                 $main_branch = \App\Welcome\WelcomeMainBranch::find(1);

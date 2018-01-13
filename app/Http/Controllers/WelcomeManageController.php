@@ -64,7 +64,7 @@ class WelcomeManageController extends WelcomeController
                 $link->href = $hrefs[$i];
                 $link->number = $numbers[$i];
                 $link->logo_path = $logos[$i]->storeAs(
-                    'header', $numbers[$i].'.'.$logos[$i]->extension(), 'welcome_page_uploads'
+                    'header', $numbers[$i].'.'.$logos[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
                 );
                 $link->save();
             }elseif($link_instance) {
@@ -86,7 +86,7 @@ class WelcomeManageController extends WelcomeController
         $main_logo =  $found ?? new \App\Welcome\WelcomeLogo;
         if (request('main_logo')) {
             $main_logo->logo_path = request('main_logo')->storeAs(
-                'header', 'main_logo.'.request('main_logo')->extension(), 'welcome_page_uploads'
+                'header', 'main_logo.'.request('main_logo')->getClientOriginalExtension(), 'welcome_page_uploads'
             );
         }
         $main_logo->title = request('title');
@@ -111,7 +111,7 @@ class WelcomeManageController extends WelcomeController
         $contact_us =  $found ?? new \App\Welcome\WelcomeContactUs;
         if (request('background_path')) {
             $contact_us->background_path = request('background_path')->storeAs(
-                'contact_us', 'background.'.request('background_path')->extension(), 'welcome_page_uploads'
+                'contact_us', 'background.'.request('background_path')->getClientOriginalExtension(), 'welcome_page_uploads'
             );
         }
         $contact_us->title = request('title');
@@ -233,12 +233,12 @@ class WelcomeManageController extends WelcomeController
 
             if (isset($pictures[$i])) {
                 $object->picture_path = $pictures[$i]->storeAs(
-                    $keyword, $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->extension(), 'welcome_page_uploads'
+                    $keyword, $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
                 );
             }
             if (isset($files[$i])) {
                 $object->file_path = $files[$i]->storeAs(
-                    $keyword.'/files', $section_id.'-'.$numbers[$i].'.'.$files[$i]->extension(), 'welcome_page_uploads'
+                    $keyword.'/files', $section_id.'-'.$numbers[$i].'.'.$files[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
                 );
             }
             foreach (request()->all() as $key => $input) {

@@ -100,3 +100,7 @@ select {
 .welcome-tabs {
     background-color: lightblue;
 }
+.bx-blue {
+    border-left:2px solid #00A5B4;
+    border-right:2px solid #00A5B4;
+}

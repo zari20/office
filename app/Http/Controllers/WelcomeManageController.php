@@ -23,6 +23,23 @@ class WelcomeManageController extends WelcomeController
         dd($id.','.$action.','.$partial);
     }
 
+    public function positions()
+    {
+        //check if logged in
+        WelcomeHelper::auth();
+
+        $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
+        $positions = request('position');
+
+        foreach ($layouts as $key => $layout) {
+            $layout->position = $positions[$key];
+            $layout->save();
+        }
+
+        WelcomeHelper::flash();
+        return back();
+    }
+
     public function website()
     {
         \App\Welcome\WelcomeWebsite::truncate();

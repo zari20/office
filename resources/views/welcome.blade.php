@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="{{$website->description ?? ''}}">
+        <meta name="author" content="{{$website->author ?? ''}}">
+        <meta name="keywords" content="{{$website->keywords ?? ''}}">
         <title> {{$website->title ?? '-'}} </title>
         <!-- Bootstrap core CSS -->
         <link href="css/welcome.bootstrap.min.css" rel="stylesheet">

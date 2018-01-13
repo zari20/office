@@ -16,6 +16,10 @@
             <label for="description"> توضیحات سایت </label>
             <input type="text" class="form-control" id="description" name="description" value="{{$website->description}}">
         </div>
+        <div class="form-group col-md-12">
+            <label for="keywords"> کلمات کلیدی </label>
+            <textarea name="keywords" rows="8" class="form-control" id="keywords">{{$website->keywords}}</textarea>
+        </div>
 
     </div>
 

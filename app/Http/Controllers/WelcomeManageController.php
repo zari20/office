@@ -15,12 +15,46 @@ class WelcomeManageController extends WelcomeController
         return $this->$partial();
     }
 
-    public function action($id,$action,$partial)
+    public function action($id,$action,$type)
     {
         //check if logged in
         WelcomeHelper::auth();
 
-        dd($id.','.$action.','.$partial);
+        $puzzle_type = 'App\Welcome\Welcome'.pascal_case($type);
+        $puzzle_id = $id ? $id : 1;
+
+        $layout = \App\Welcome\WelcomeLayout::where('puzzle_id',$puzzle_id)->where('puzzle_type',$puzzle_type)->first();
+
+        if (!$layout) {
+            $section = $puzzle_type::find($puzzle_id);
+            if ($action == 'delete') {
+                $section->delete();
+            }else {
+                $section->visible = !$section->visible;
+                $section->save();
+            }
+        }else {
+            if ( $action=='delete' ) {
+                $puzzle = $layout->puzzle;
+                if ( $type == 'tab' ) {
+                    foreach ($puzzle->sections as $key => $section) {
+                        $section->delete();
+                    }
+                }elseif($type == 'section') {
+                    //do nothing
+                }else {
+                    return back();
+                }
+                $puzzle->delete();
+                $layout->delete();
+            }else {
+                $layout->visible = !$layout->visible;
+                $layout->save();
+            }
+        }
+
+        WelcomeHelper::flash();
+        return redirect('welcome_panel');
     }
 
     public function positions()
@@ -37,7 +71,7 @@ class WelcomeManageController extends WelcomeController
         }
 
         WelcomeHelper::flash();
-        return back();
+        return redirect('welcome_panel');
     }
 
     public function website()

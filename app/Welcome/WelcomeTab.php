@@ -10,4 +10,9 @@ class WelcomeTab extends WelcomePage
     {
         return $this->hasMany(WelcomeSection::class,'tab_id');
     }
+
+    public function visible_sections()
+    {
+        return WelcomeSection::where('tab_id',$this->id)->where('visible',1)->get();
+    }
 }

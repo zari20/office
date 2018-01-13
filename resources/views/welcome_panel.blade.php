@@ -48,7 +48,7 @@
             @elseif (rw($layout->puzzle_type) == 'contactus')
                 <div style="background:{{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}}">
                     ارتباط با ما
-                    @include('welcome_partials.map_options',['close'=>$contact_us->visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'contact_us'])
+                    @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'contact_us'])
                 </div>
             @else
                 <div class="welcome-tabs row">
@@ -66,7 +66,7 @@
                             {{$section->title}}
                             <br>
                             <small>[{{welcome_translate($section->type)}}]</small>
-                            @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>true, 'id'=>$section->id, 'class'=>false, 'partial'=>'section'])
+                            @include('welcome_partials.map_options',['close'=>$section->visible, 'delete'=>true, 'id'=>$section->id, 'class'=>false, 'partial'=>'section'])
                         </div>
                     @endforeach
                 </div>

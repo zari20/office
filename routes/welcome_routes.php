@@ -20,4 +20,4 @@ Route::get('/welcome_positions', 'WelcomePageController@positions');
 Route::put('/welcome_positions', 'WelcomeManageController@positions');
 Route::get('/welcome_page/{partial}/{id?}', 'WelcomePageController@load');
 Route::patch('/welcome_page/{partial}/{id?}', 'WelcomeManageController@update');
-Route::put('/welcome_action/{id}/{action}/{partial}', 'WelcomeManageController@action');
+Route::put('/welcome_action/{id}/{action}/{type}', 'WelcomeManageController@action');

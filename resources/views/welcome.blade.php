@@ -52,48 +52,6 @@
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/contact_me.js"></script>
         <script src="js/jqBootstrapValidation.js"></script>
-        <script>
-            $(document).ready(function(e) {
-                $('ul.menu li').hover(function()
-                {
-                    $(this).children('ul:first').slideDown(100);
-
-                },function()
-                {
-
-                    $(this).children('ul:first').slideUp(100);
-
-                });
-
-                jQuery(window).scroll(function(){
-                    sticky_menu();
-                });
-
-            });
-
-            function sticky_menu(){
-                var top = jQuery(window).scrollTop();
-                var nav_top = jQuery('#top-menu').outerHeight();
-                if (top > nav_top) {
-                    jQuery('#top-menu').addClass('sticky').children().addClass('container');
-                } else
-                {
-                    jQuery('#top-menu').removeClass('sticky');
-                }
-            }
-        </script>
-        <script>
-            $(document).ready(function(){
-                var goToByScroll = function(id) {
-                    id = id.replace("link", "");
-                    $("html, body").animate({scrollTop: $("#" + id).offset().top});
-                }
-
-                $('.goToByScroll').on("click", function(e){
-                    e.preventDefault();
-                    goToByScroll($(this).attr("id"));
-                });
-            });
-        </script>
+        <script src="js/welcome-smooth-scroll.js"></script>
     </body>
 </html>

@@ -14,7 +14,7 @@
             <ul class="navbar-nav ml-auto">
                 @foreach ($menus as $key => $menu)
                     <li class="nav-item">
-                        <a class="nav-link goToByScroll" href="#" id="{{$menu->target}}link">
+                        <a class="nav-link goToByScroll" href="#{{$menu->target}}">
                             <i class="fa fa-{{$menu->icon}}" aria-hidden="true"></i>
                             {{$menu->name}}
                         </a>

@@ -6,13 +6,6 @@
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
 
-        <div class="row">
-            <fieldset class="form-group col-md-3 p-3">
-                <label> تصویر پس زمینه </label>
-                <input name="background" type="file" class="form-control-file">
-            </fieldset>
-        </div>
-
         <p class="h5 mt-3">
             <a class="cloner pointer">
                 اسلایدر
@@ -27,15 +20,15 @@
                     <fieldset class="form-group col-md-1 p-3 text-center">
                         <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                     </fieldset>
-                    <fieldset class="form-group col-md-2 p-3">
+                    <fieldset class="form-group col-md-1 p-3">
+                        <label> شماره </label>
+                        <input name="number[]" value="{{$slider->number}}" type="text" class="form-control">
+                    </fieldset>
+                    <fieldset class="form-group col-md-3 p-3">
                         <label> عنوان </label>
                         <input name="title[]" value="{{$slider->title}}" type="text" class="form-control">
                     </fieldset>
-                    <fieldset class="form-group col-md-5 p-3">
-                        <label> متن </label>
-                        <input name="body[]" value="{{$slider->body}}" type="text" class="form-control">
-                    </fieldset>
-                    <fieldset class="form-group col-md-2 p-3">
+                    <fieldset class="form-group col-md-3 p-3">
                         <label> نام دکمه </label>
                         <input name="button_name[]" value="{{$slider->button_name}}" type="text" class="form-control">
                     </fieldset>
@@ -43,6 +36,15 @@
                         <label> لینک دکمه </label>
                         <input name="button_link[]" value="{{$slider->button_link}}" type="text" class="form-control">
                     </fieldset>
+                    <fieldset class="form-group col-md-2 p-3">
+                        <label> تصویر پس زمینه </label>
+                        <input name="picture[]" type="file" class="form-control-file">
+                    </fieldset>
+                    <fieldset class="form-group col-md-12 p-3">
+                        <label> توضیحات </label>
+                        <input name="passage[]" value="{{$slider->passage}}" type="text" class="form-control" placeholder="متن توضیحات">
+                    </fieldset>
+                    <hr class="col-12">
                 </div>
             @endforeach
         </div>

@@ -396,8 +396,7 @@ li.nav-item{
 .srsl .col-xl-9.col-lg-9.col-md-6.col-xs-12{
     padding-left: 0;
 }
-.srsl .slider .carousel-inner{
-    background-image: url(../welcome/slider/slider.png);
+.srsl .slider .bg{
     background-size: cover;
     background-position: center
 }

@@ -237,19 +237,7 @@ class WelcomeManageController extends WelcomeController
 
     public function slider()
     {
-        $section_id = request('id');
-
-        if (request('background')) {
-            request('background')->storeAs(
-                'slider', 'slider.png', 'welcome_page_uploads'
-            );
-        }
-
-        \App\Welcome\WelcomeSlider::clean($section_id);
-        \DB::table('welcome_sliders')->insert(prepare_multiple(request()->all()));
-
-        WelcomeHelper::flash();
-        return back();
+        return $this->update_and_upload('slider');
     }
 
     public function image()

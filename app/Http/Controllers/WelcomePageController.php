@@ -54,8 +54,8 @@ class WelcomePageController extends WelcomeController
 
         //contact us
         $contact_us = \App\Welcome\WelcomeContactUs::find(1);
-        $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
-        $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
+        $main_branch = $contact_us->main_branch;
+        $contact_branches = $contact_us->branches;;
 
         return view( $view, compact(
             'colors','contact_us','main_branch','contact_branches','header','top_links','welcome_logo','menus','footer','layouts','website'

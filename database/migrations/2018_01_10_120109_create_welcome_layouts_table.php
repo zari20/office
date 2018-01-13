@@ -20,6 +20,13 @@ class CreateWelcomeLayoutsTable extends Migration
             $table->boolean('visible')->default(1);
             $table->timestamps();
         });
+
+        \DB::table('welcome_layouts')->insert([
+            'puzzle_id' => 1,
+            'puzzle_type' => '\App\Welcome\WelcomeContactUs',
+            'position' => 1,
+            'visible' => 1,
+        ]);
     }
 
     /**

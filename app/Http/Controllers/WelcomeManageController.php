@@ -115,6 +115,7 @@ class WelcomeManageController extends WelcomeController
             );
         }
         $contact_us->title = request('title');
+        $contact_us->latin_id = request('latin_id');
         $contact_us->main_branch_title = request('main_branch_title');
         $contact_us->other_branches_title = request('other_branches_title');
         $contact_us->form_title = request('form_title');

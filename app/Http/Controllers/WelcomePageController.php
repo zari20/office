@@ -31,10 +31,10 @@ class WelcomePageController extends WelcomeController
     {
         //check if logged in
         WelcomeHelper::auth();
-        return $this->bring_and_load('welcome_panel');
+        return $this->bring_and_load('welcome_panel',false);
     }
 
-    private function bring_and_load($view)
+    private function bring_and_load($view,$only_visibles=true)
     {
         //colors
         $colors = \App\Welcome\WelcomeColors::find(1) ?? new \App\Welcome\WelcomeColors;
@@ -43,7 +43,7 @@ class WelcomePageController extends WelcomeController
         $website = \App\Welcome\WelcomeWebsite::find(1) ?? new \App\Welcome\WelcomeWebsite;
 
         //layouts
-        $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
+        $layouts = $only_visibles ? \App\Welcome\WelcomeLayout::where('visible',1)->orderBy('position')->get() : \App\Welcome\WelcomeLayout::orderBy('position')->get();
 
         //header and footer
         $header = \App\Welcome\WelcomeHeader::find(1) ?? new \App\Welcome\WelcomeHeader;
@@ -60,6 +60,12 @@ class WelcomePageController extends WelcomeController
         return view( $view, compact(
             'colors','contact_us','main_branch','contact_branches','header','top_links','welcome_logo','menus','footer','layouts','website'
         ));
+    }
+
+    public function positions()
+    {
+        $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
+        return view('welcome_partials.positions',compact('layouts'));
     }
 
     public function load($partial,$id=0)

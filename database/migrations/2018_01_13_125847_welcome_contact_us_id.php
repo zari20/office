@@ -14,6 +14,7 @@ class WelcomeContactUsId extends Migration
     public function up()
     {
         Schema::table('welcome_contact_uses', function (Blueprint $table) {
+            $table->string('latin_id')->default('contact-us')->after('id');
             $table->dropColumn('visible');
         });
         Schema::table('welcome_main_branches', function (Blueprint $table) {
@@ -32,6 +33,7 @@ class WelcomeContactUsId extends Migration
     public function down()
     {
         Schema::table('welcome_contact_uses', function (Blueprint $table) {
+            $table->dropColumn('latin_id');
             $table->boolean('visible')->default(1);
         });
         Schema::table('welcome_main_branches', function (Blueprint $table) {

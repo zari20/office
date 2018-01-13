@@ -28,10 +28,14 @@
                 <input name="form_title" type="text" class="form-control" value="{{$contact_us->form_title}}">
             </fieldset>
             <fieldset class="form-group col-md-4 p-3">
+                <label for="latin_id">آیدی (لاتین)</label>
+                <input type="text" class="form-control" id="latin_id" name="latin_id" lang="en" dir="ltr" value="{{$contact_us->latin_id}}">
+            </fieldset>
+            <fieldset class="form-group col-md-2 p-3">
                 <p> تصویر پس زمینه </p>
                 <input name="background_path" type="file" class="custome-form-control">
             </fieldset>
-            <fieldset class="form-group col-md-4 p-3">
+            <fieldset class="form-group col-md-2 p-3">
                 <p> نمایش فرم ارتباط </p>
                 <label class="custom-control custom-radio">
                     <input id="radio1" name="form_visible" type="radio" value="1" class="custom-control-input" {{$contact_us->form_visible ? 'checked' : ''}}>

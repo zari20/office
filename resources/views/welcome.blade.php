@@ -22,6 +22,14 @@
 
         @include('welcome_partials.header')
         @include('welcome_partials.menu')
+        <div class="clear">.</div>
+        @foreach ($layouts as $key => $layout)
+            @if (rw($layout->puzzle_type) == 'section')
+                @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])
+            @else
+                @include('welcome.index.tab',['tab' => $layout->puzzle])
+            @endif
+        @endforeach
         @if ($contact_us->visible)
             @include('welcome_partials.contact_us')
         @endif

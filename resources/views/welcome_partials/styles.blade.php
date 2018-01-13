@@ -315,7 +315,7 @@ li.nav-item{
     padding: 0px 0px 40px 0px;
 }
 .boxes .box{
-    font-size: 1.75em;
+    width: 20%;
     border-left: solid 1px #E8E6E6;
     padding: 0px 15px;
 }

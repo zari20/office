@@ -488,7 +488,7 @@ li.nav-item{
 .introduction .tabs ol.carousel-indicators{
     bottom: -10px
 }
-.introduction.shop ol.carousel-indicators {
+.shop ol.carousel-indicators {
     bottom: -20px
 }
 ol.carousel-indicators{
@@ -497,12 +497,12 @@ ol.carousel-indicators{
 }
 .news .content .contbox ol.carousel-indicators li,
 .introduction .tabs  ol.carousel-indicators li,
-.introduction.shop ol.carousel-indicators li{
+.shop ol.carousel-indicators li{
     background-color: #333;
 }
 .news .content .contbox ol.carousel-indicators li.active,
 .introduction .tabs ol.carousel-indicators li.active,
-.introduction.shop ol.carousel-indicators li.active{
+.shop ol.carousel-indicators li.active{
     background-color: #999
 }
 .news .content .contbox .col-xl-7.col-lg-7.col-md-6.col-xs-12 img{
@@ -798,27 +798,27 @@ ol.carousel-indicators{
 .ticket-list ul li:hover{
     background-color: #555;
 }
-.introduction.shop .desc{
+.shop .desc{
     margin: 20px 0px;
     color: #666;
 }
-.introduction.shop .card-body{
+.shop .card-body{
     padding: 10px;
     font-weight: 300;
     line-height: 23px;
     text-align: center;
 }
-.introduction.shop .card.h-100 {
+.shop .card.h-100 {
     border-radius: 0px;
     box-shadow: 3px 3px 3px #eee;
 }
-.introduction.shop .card.h-100 img{
+.shop .card.h-100 img{
     border-radius: 0px;
 }
-.introduction.shop .card-footer{
+.shop .card-footer{
     padding: 10px 10px 0px 10px;
 }
-.introduction.shop .card-footer .blue{
+.shop .card-footer .blue{
     border-radius: 0px;
     background-color: {{$colors->organ_color_2 ?? 'blue'}};
     font-size: 13px;
@@ -826,12 +826,12 @@ ol.carousel-indicators{
     margin-left: 20px;
     margin-bottom: 0
 }
-.introduction.shop .card-footer p{
+.shop .card-footer p{
     color: #F7941D;
     text-align: left;
     float: left
 }
-.introduction.shop .title h4{
+.shop .title h4{
     font-size: 30px;
 }
 .btnshop{

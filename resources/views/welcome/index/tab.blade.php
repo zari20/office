@@ -3,7 +3,7 @@
         <div class="row">
             @if ($tab->title)
                 <div class="layout-title">
-                    <h4>{{$tab->title}}</h4>
+                    <h2>{{$tab->title}}</h2>
                 </div>
             @endif
             <div class="tabs">

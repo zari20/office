@@ -544,7 +544,7 @@ ol.carousel-indicators{
     text-align: center;
     margin-bottom: 0 !important;
 }
-.layout-title h4{
+.layout-title h2{
     font-size: 36px;
     margin: auto;
     display: inline-block;

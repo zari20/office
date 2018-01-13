@@ -25,6 +25,11 @@
         <div class="clear">.</div>
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')
+                @if ($section->title)
+                    <div class="layout-title">
+                        <h4>{{$section->title}}</h4>
+                    </div>
+                @endif
                 @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])
             @else
                 @include('welcome.index.tab',['tab' => $layout->puzzle])

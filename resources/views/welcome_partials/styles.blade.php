@@ -539,15 +539,15 @@ ol.carousel-indicators{
 .introduction.about{
     background-color: #fff;
 }
-.introduction .title{
+.layout-title{
     width: auto;
-    margin: auto
-}
-.introduction .title h4{
-    text-align: center;
-    font-size: 48px;
     margin: auto;
-    width: 100%;
+    text-align: center;
+}
+.layout-title h4{
+    font-size: 36px;
+    margin: auto;
+    display: inline-block;
     border-bottom: solid 3px {{$colors->organ_color_2 ?? 'blue'}};
     padding-bottom: 10px;
 }

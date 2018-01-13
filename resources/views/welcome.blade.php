@@ -20,8 +20,12 @@
 
         <div class="cnfix"><a href="#"><i class="fa fa-comments"></i> گفتگوی آنلاین </a></div>
 
-        @include('welcome_partials.header')
-        @include('welcome_partials.menu')
+        @if ($header->visible)
+            @include('welcome_partials.header')
+        @endif
+        @if ($header->menu_visible)
+            @include('welcome_partials.menu')
+        @endif
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')
                 @if ($title = $layout->puzzle->title)
@@ -36,7 +40,9 @@
                 @include('welcome.index.tab', ['tab' => $layout->puzzle])
             @endif
         @endforeach
-        @include('welcome_partials.footer')
+        @if ($footer->visible)
+            @include('welcome_partials.footer')
+        @endif
 
         <script src="js/welcome.jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>

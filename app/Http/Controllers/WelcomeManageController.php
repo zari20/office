@@ -27,7 +27,11 @@ class WelcomeManageController extends WelcomeController
 
         if (!$layout) {
             $section = $puzzle_type::find($puzzle_id);
-            if ($action == 'delete') {
+            if ($type=='menu') {
+                $header = \App\Welcome\WelcomeHeader::find(1);
+                $header->menu_visible = !$header->menu_visible;
+                $header->save();
+            }elseif ($action == 'delete') {
                 $section->delete();
             }else {
                 $section->visible = !$section->visible;

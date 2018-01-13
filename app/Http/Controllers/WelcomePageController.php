@@ -21,11 +21,21 @@ class WelcomePageController extends WelcomeController
         }
     }
 
+    public function index()
+    {
+        //check if logged in
+        return $this->bring_and_load('welcome');
+    }
+
     public function panel()
     {
         //check if logged in
         WelcomeHelper::auth();
+        return $this->bring_and_load('welcome_panel');
+    }
 
+    private function bring_and_load($view)
+    {
         //colors
         $colors = \App\Welcome\WelcomeColors::find(1) ?? new \App\Welcome\WelcomeColors;
 
@@ -37,6 +47,9 @@ class WelcomePageController extends WelcomeController
 
         //header and footer
         $header = \App\Welcome\WelcomeHeader::find(1) ?? new \App\Welcome\WelcomeHeader;
+        $top_links = \App\Welcome\WelcomeTopLink::all();
+        $welcome_logo = \App\Welcome\WelcomeLogo::find(1) ?? new \App\Welcome\WelcomeLogo;
+        $menus = \App\Welcome\WelcomeMenu::all();
         $footer = \App\Welcome\WelcomeFooter::find(1) ?? new \App\Welcome\WelcomeFooter;
 
         //contact us
@@ -44,7 +57,9 @@ class WelcomePageController extends WelcomeController
         $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
         $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
 
-        return view('welcome_panel',compact('colors','contact_us','main_branch','contact_branches','header','footer','layouts','website'));
+        return view( $view, compact(
+            'colors','contact_us','main_branch','contact_branches','header','top_links','welcome_logo','menus','footer','layouts','website'
+        ));
     }
 
     public function load($partial,$id=0)
@@ -88,31 +103,5 @@ class WelcomePageController extends WelcomeController
                 return view('welcome.'.$partial);
                 break;
         }
-    }
-
-    public function index()
-    {
-        //essentials
-        $colors = \App\Welcome\WelcomeColors::find(1);
-
-        //header
-        $header = \App\Welcome\WelcomeHeader::find(1);
-        $top_links = \App\Welcome\WelcomeTopLink::orderBy('number')->get();
-
-        //menu
-        $menus = \App\Welcome\WelcomeMenu::all();
-        $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
-
-        //contact us
-        $contact_us = \App\Welcome\WelcomeContactUs::find(1);
-        $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
-        $contact_branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
-
-        //footer
-        $footer = \App\Welcome\WelcomeFooter::find(1);
-
-        return view('welcome',compact(
-            'colors','header','top_links','menus','welcome_logo','contact_us','main_branch','contact_branches','footer'
-        ));
     }
 }

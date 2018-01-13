@@ -18,7 +18,7 @@
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     @foreach ($tab->sections as $i => $section)
-                        <div class="tab-pane fade show active" id="{{$tab->id}}-{{$i}}" role="tabpanel">
+                        <div class="tab-pane fade show {{ $i==0 ? 'active' : '' }}" id="{{$tab->id}}-{{$i}}" role="tabpanel">
                             @if(false) <div id="slider-{{$section->id}}" class="carousel slide" data-ride="carousel"> @endif
                                 @if ( false )
                                     <ol class="carousel-indicators">
@@ -28,9 +28,13 @@
                                     </ol>
                                 @endif
                                 @if(false) <div class="carousel-inner"> @endif
-                                    @for ($i=0; $i <= 1; $i++)
+                                    @for ($i=0; $i <= 0; $i++)
                                         <div class="carousel-item {!! $i==0 ? 'active' : '' !!}">
-                                            @include('welcome.index.'.$section->type,compact('section'))
+                                            @if ($section->type == 'blog')
+                                                @include('welcome.index.blog',[ 'blog' => $section->fragments()[$i] ])
+                                            @else
+                                                @include('welcome.index.'.$section->type,compact('section'))
+                                            @endif
                                         </div>
                                     @endfor
                                 @if(false) </div> @endif

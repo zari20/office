@@ -63,7 +63,15 @@
                     </fieldset>
                     <fieldset class="form-group col-md-3 p-3">
                         <label> هدف </label>
-                        <input name="target[]" value="{{$menu->target}}" type="text" class="form-control">
+                        <select class="form-control" name="target[]">
+                            <option value="" {{!$menu->target ? 'selected' : null}}> [بدون هدف] </option>
+                            @foreach ($layouts as $key => $layout)
+                                <option value="{{$layout->puzzle->latin_id}}" {{$layout->puzzle->latin_id == $menu->target ? 'selected' : ''}}>
+                                    {{$layout->puzzle->title}}
+                                    ({{$layout->puzzle->latin_id}})
+                                </option>
+                            @endforeach
+                        </select>
                     </fieldset>
                 </div>
             @endforeach

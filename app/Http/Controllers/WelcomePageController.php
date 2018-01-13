@@ -81,10 +81,11 @@ class WelcomePageController extends WelcomeController
                 return view('welcome.'.$partial,compact('header','top_links'));
                 break;
             case 'menu':
+                $layouts = \App\Welcome\WelcomeLayout::all();
                 $menus = \App\Welcome\WelcomeMenu::all();
                 $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
                 if(!count($menus)) $menus = array(new \App\Welcome\WelcomeMenu);
-                return view('welcome.'.$partial,compact('menus','welcome_logo'));
+                return view('welcome.'.$partial,compact('menus','welcome_logo','layouts'));
                 break;
             case 'contact_us':
                 $main_branch = \App\Welcome\WelcomeMainBranch::find(1);

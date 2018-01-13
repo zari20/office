@@ -28,16 +28,20 @@
         @endif
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')
-                @if ($title = $layout->puzzle->title)
-                    <div class="layout-title">
-                        <h4>{{$title}}</h4>
-                    </div>
-                @endif
-                @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])
+                <section id="{{$layout->puzzle->latin_id}}">
+                    @if ($title = $layout->puzzle->title)
+                        <div class="layout-title">
+                            <h4>{{$title}}</h4>
+                        </div>
+                    @endif
+                    @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])
+                </section>
             @elseif(rw($layout->puzzle_type) == 'contactus')
                 @include('welcome_partials.contact_us')
             @else
-                @include('welcome.index.tab', ['tab' => $layout->puzzle])
+                <section id="{{$layout->puzzle->latin_id}}">
+                    @include('welcome.index.tab', ['tab' => $layout->puzzle])
+                </section>
             @endif
         @endforeach
         @if ($footer->visible)

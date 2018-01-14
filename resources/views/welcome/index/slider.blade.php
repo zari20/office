@@ -6,7 +6,7 @@
                     <div id="slide-show" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             @foreach ($section->fragments() as $key => $slider)
-                                <div class="carousel-item {{$key==0 ? 'active' : null}}" class="bg" style="background-image: url(../welcome/{{$slider->picture_path}})">
+                                <div class="carousel-item {{$key==0 ? 'active' : null}}" class="bg" style="background-image: url(../../welcome/{{$slider->picture_path}})">
                                     @if ($slider->title)
                                         <h4> {{$slider->title}} </h4>
                                     @endif

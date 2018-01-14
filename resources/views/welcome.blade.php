@@ -7,14 +7,12 @@
         <meta name="author" content="{{$website->author ?? ''}}">
         <meta name="keywords" content="{{$website->keywords ?? ''}}">
         <title> {{$website->title ?? '-'}} </title>
-        <!-- Bootstrap core CSS -->
-        <link href="css/welcome.bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
 
+
+        <link href="css/welcome/bootstrap.min.css" rel="stylesheet">
         @include('welcome_partials.styles')
-
-        <link href="css/welcome.responsive.css" rel="stylesheet">
-        <link href="css/welcome.fonts.css" rel="stylesheet">
+        <link href="css/welcome/responsive.css" rel="stylesheet">
+        <link href="css/welcome/fonts.css" rel="stylesheet">
 
     </head>
     <body>
@@ -49,10 +47,10 @@
             @include('welcome_partials.footer')
         @endif
 
-        <script src="js/welcome.jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/contact_me.js"></script>
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/welcome-smooth-scroll.js"></script>
+        <script src="js/welcome/jquery.min.js"></script>
+        <script src="js/welcome/bootstrap.bundle.min.js"></script>
+        <script src="js/welcome/contact_me.js"></script>
+        <script src="js/welcome/jqBootstrapValidation.js"></script>
+        <script src="js/welcome/smooth-scroll.js"></script>
     </body>
 </html>

@@ -380,7 +380,7 @@ li.nav-item{
     -webkit-appearance: none!important;
     -moz-appearance: none!important;
     appearance: none!important;
-    background-image: url(../images/arrow.png)!important;
+    background-image: url(../../images/arrow.png)!important;
     background-repeat: no-repeat;
     background-position: 7px 16px;
     font-size: 13px;
@@ -654,7 +654,7 @@ ol.carousel-indicators{
     color: #444;
 }
 .introduction.contact{
-    background-image: {{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}};
+    background-image: {{ $contact_us->background_path ? 'url(../../welcome/'.$contact_us->background_path.')' : 'url(../../welcome_images/contact-bg.jpg)'}};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -720,7 +720,7 @@ ol.carousel-indicators{
 }
 .introduction.support{
     background-color: #1C1C1C;
-    background-image: url(../images/support.jpg);
+    background-image: url(../../images/support.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;

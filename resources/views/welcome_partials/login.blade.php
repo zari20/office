@@ -17,9 +17,9 @@
 	</script>
 	<!-- Meta tag Keywords -->
 	<!-- css files -->
-	<link rel="stylesheet" href="css/welcome-login.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/welcome/login.css" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" href="css/welcome.fonts.css">
+	<link rel="stylesheet" href="css/welcome/fonts.css">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //css files -->
 </head>

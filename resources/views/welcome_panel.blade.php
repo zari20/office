@@ -46,7 +46,7 @@
                     <small class="map-type"> بخش </small>
                 </div>
             @elseif (rw($layout->puzzle_type) == 'contactus')
-                <div style="background:{{ $contact_us->background_path ? 'url(../welcome/'.$contact_us->background_path.')' : 'url(../welcome_images/contact-bg.jpg)'}}">
+                <div style="background:{{ $contact_us->background_path ? 'url(../../welcome/'.$contact_us->background_path.')' : 'url(../../welcome_images/contact-bg.jpg)'}}">
                     ارتباط با ما
                     @include('welcome_partials.map_options',['close'=>$layout->visible, 'delete'=>false, 'id'=>0, 'class'=>true, 'partial'=>'contact_us'])
                 </div>

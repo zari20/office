@@ -13,6 +13,7 @@
         @include('welcome_partials.styles')
         <link href="css/welcome/responsive.css" rel="stylesheet">
         <link href="css/welcome/fonts.css" rel="stylesheet">
+        <link href="css/welcome/animate.css" rel="stylesheet">
 
     </head>
     <body>
@@ -25,6 +26,7 @@
         @if ($header->menu_visible)
             @include('welcome_partials.menu')
         @endif
+        @include('welcome.fragments.category')
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')
                 <section id="{{$layout->puzzle->latin_id}}">
@@ -52,5 +54,6 @@
         <script src="js/welcome/contact_me.js"></script>
         <script src="js/welcome/jqBootstrapValidation.js"></script>
         <script src="js/welcome/smooth-scroll.js"></script>
+        <script src="{{asset('js/welcome/isotope.pkgd.min.js')}}"></script>
     </body>
 </html>

@@ -39,6 +39,7 @@ button:active{
     outline: none!important;
     border: none!important
 }
+button {cursor: pointer;}
 a:focus,
 input[type="file"]:focus,
 input[type="radio"]:focus,
@@ -943,4 +944,47 @@ ol.carousel-indicators{
     display: none
 }
 
+.category a {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.category a p{
+    color: {{$colors->organ_color_2 ?? 'blue'}};
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 3em;
+    display: none;
+    transition: 0.6s;
+}
+.category a p span:first-of-type {
+    text-shadow: 2px 2px 6px black;
+    font-family: Mj_DinarOneMedium!important;
+    font-weight: bold;
+}
+.category a p span:last-of-type {
+    color: black;
+}
+
+.category img {
+    transition: 0.6s;
+}
+
+.category a:hover img {
+    opacity: 0.3;
+    transform: scale(1.1);
+}
+.category a:hover p {
+    display: block;
+}
+
+.bg-first{
+    background-color: {{$colors->organ_color_1 ?? 'black'}};
+}
+.bg-second{
+    background-color: {{$colors->organ_color_2 ?? 'black'}};
+}
 </style>

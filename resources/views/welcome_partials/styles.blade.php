@@ -944,7 +944,7 @@ ol.carousel-indicators{
     display: none
 }
 
-.category a {
+/* .category a {
     display: block;
     position: relative;
     text-align: center;
@@ -979,6 +979,29 @@ ol.carousel-indicators{
 }
 .category a:hover p {
     display: block;
+} */
+
+.category .photo-sticker {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    background: {{$colors->organ_color_1 ?? 'blue'}};
+    border-radius: 20px 0 0 20px;
+    padding: 7px 5px 5px 20px;
+    color: white;
+    border-top: 2px solid {{$colors->organ_color_2 ?? 'blue'}};
+    border-left: 2px solid {{$colors->organ_color_2 ?? 'blue'}};
+    border-bottom: 2px solid {{$colors->organ_color_2 ?? 'blue'}};
+    -webkit-transition: 1s; /* Safari */
+    transition: 1s;
+}
+
+.category .text-sticker{
+    background: {{$colors->organ_color_1 ?? 'blue'}};
+    border-radius: 25px;
+    color: white;
+    float:left;
+    padding: 5px 15px;
 }
 
 .bg-first{

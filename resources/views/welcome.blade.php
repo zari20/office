@@ -26,7 +26,6 @@
         @if ($header->menu_visible)
             @include('welcome_partials.menu')
         @endif
-        @include('welcome.fragments.category')
         @foreach ($layouts as $key => $layout)
             @if (rw($layout->puzzle_type) == 'section')
                 <section id="{{$layout->puzzle->latin_id}}">

@@ -6,7 +6,7 @@
 <div class="clone-box col-12">
     <div class="to-be-cloned col-12 row">
         <div class="form-group col-md-{{$array ? '6' : '4'}}">
-            <label> نوع بخش </label>
+            <label> نوع ماژول </label>
             <select class="form-control section-type" name="type{{$array ? '[]' : ''}}" onchange="changeSectionPhoto($(this).find(':selected').val())">
                 <option value="five_col">5 ستونه</option>
                 <option value="slider">اسلایدر</option>

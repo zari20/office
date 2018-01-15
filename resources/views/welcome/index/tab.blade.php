@@ -30,11 +30,7 @@
                                 @if(false) <div class="carousel-inner"> @endif
                                     @for ($i=0; $i <= 0; $i++)
                                         <div class="carousel-item {!! $i==0 ? 'active' : '' !!}">
-                                            @if ($section->type == 'blog')
-                                                @include('welcome.index.blog',[ 'blog' => $section->fragments()[$i] ])
-                                            @else
-                                                @include('welcome.index.'.$section->type,compact('section'))
-                                            @endif
+                                            @include('welcome.index.'.$section->type,compact('section'))
                                         </div>
                                     @endfor
                                 @if(false) </div> @endif

@@ -28,7 +28,14 @@
             </div>
             <div class="form-group section-title col-md-{{$array ? '4' : '3'}}">
                 <label for="cols">تعداد ستون</label>
-                <input type="text" class="form-control" id="cols" name="cols{{$array ? '[]' : ''}}" value="{{$section->cols}}">
+                <select class="form-control" id="cols" name="cols{{$array ? '[]' : ''}}">
+                    <option value="1" {{$section->cols == 1 ? 'selected' : ''}}> 1 </option>
+                    <option value="2" {{$section->cols == 2 ? 'selected' : ''}}> 2 </option>
+                    <option value="3" {{$section->cols == 3 ? 'selected' : ''}}> 3 </option>
+                    <option value="4" {{$section->cols == 4 || !$section->cols ? 'selected' : ''}}> 4 </option>
+                    <option value="5" {{$section->cols == 5 ? 'selected' : ''}}> 5 </option>
+                    <option value="6" {{$section->cols == 6 ? 'selected' : ''}}> 6 </option>
+                </select>
             </div>
             @if (!$array)
                 <div class="form-group col-md-3">

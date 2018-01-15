@@ -1,6 +1,6 @@
 <div class="row">
     @foreach ($section->fragments() as $key => $download)
-        <div class="col-xl-3 col-lg-3 col-md-6 col-xs-12 text-center">
+        <div class="col-md-{{calculate_cols($section->cols)}} col-sm-12 text-center">
             <div class="catalog">
                 <img src="welcome/{{$download->picture_path}}" alt="{{$download->title}}">
                 <div class="title">

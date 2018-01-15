@@ -52,9 +52,14 @@ class WelcomeTabController extends WelcomeController
         $tab->latin_id = request('tab_latin_id');
         $tab->save();
 
-        //add new sections
+        //add new sections or edit previus sections
         $types = request('type');
         $titles = request('title');
+        foreach ($sections as $i => $section) {
+            $section->title = $titles[$i];
+            $section->type = $types[$i];
+            $section->save();
+        }
         for ($i=count($sections); $i < count($types); $i++) {
             $section = new Section;
             $section->tab_id = $tab->id;

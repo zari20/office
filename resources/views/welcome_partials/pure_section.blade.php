@@ -8,7 +8,7 @@
 <div class="clone-box col-12">
     @foreach ( $sections as $key => $section)
         <div class="to-be-cloned col-12 row">
-            <div class="form-group col-md-{{$array ? '6' : '4'}}">
+            <div class="form-group col-md-{{$array ? '4' : '3'}}">
                 <label> نوع ماژول </label>
                 <select class="form-control section-type" name="type{{$array ? '[]' : ''}}" onchange="changeSectionPhoto($(this).find(':selected').val())">
                     <option value="five_col" {{$section->type=='five_col' ? 'selected' : ''}}>5 ستونه</option>
@@ -19,14 +19,19 @@
                     <option value="download" {{$section->type=='download' ? 'selected' : ''}}>دانلود فایل 4 ستونه</option>
                     <option value="product" {{$section->type=='product' ? 'selected' : ''}}>محصول چهارتایی</option>
                     <option value="link" {{$section->type=='link' ? 'selected' : ''}}>لینک چهارتایی</option>
+                    <option value="card" {{$section->type=='card' ? 'selected' : ''}}> کارت </option>
                 </select>
             </div>
-            <div class="form-group section-title col-md-{{$array ? '6' : '4'}}">
+            <div class="form-group section-title col-md-{{$array ? '4' : '3'}}">
                 <label for="title">عنوان</label>
                 <input type="text" class="form-control" id="title" name="title{{$array ? '[]' : ''}}" value="{{$section->title}}">
             </div>
+            <div class="form-group section-title col-md-{{$array ? '4' : '3'}}">
+                <label for="cols">تعداد ستون</label>
+                <input type="text" class="form-control" id="cols" name="cols{{$array ? '[]' : ''}}" value="{{$section->cols}}">
+            </div>
             @if (!$array)
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="latin_id">آیدی (لاتین)</label>
                     <input type="text" class="form-control" id="latin_id" name="latin_id{{$array ? '[]' : ''}}" lang="en" dir="ltr">
                 </div>

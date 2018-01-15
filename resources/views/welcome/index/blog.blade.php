@@ -1,8 +1,8 @@
 <div id="blogs-{{$section->id}}" class="carousel slide" data-ride="carousel">
     @if (count($section->fragments()) > 1)
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators carousel-indicators-numbers">
             @foreach ($section->fragments() as $key => $blog)
-                <li data-target="#blogs-{{$section->id}}" data-slide-to="{{$key}}" {!!$key==0 ? 'class="active"' : ''!!}></li>
+                <li data-target="#blogs-{{$section->id}}" data-slide-to="{{$key}}" {!!$key==0 ? 'class="active"' : ''!!}>{{$key+1}}</li>
             @endforeach
         </ol>
     @endif

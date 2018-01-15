@@ -944,42 +944,26 @@ ol.carousel-indicators{
     display: none
 }
 
-/* .category a {
-    display: block;
-    position: relative;
+.carousel-indicators-numbers li {
+    text-indent: 0;
     text-align: center;
+    margin: 0 2px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 100%;
+    line-height: 30px;
+    color: #fff;
+    background-color: #c6c6c6 !important;
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
-
-.category a p{
-    color: {{$colors->organ_color_2 ?? 'blue'}};
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 3em;
-    display: none;
-    transition: 0.6s;
+.carousel-indicators-numbers li.active, .carousel-indicators-numbers li:hover {
+    margin: 0 2px;
+    width: 30px;
+    height: 30px;
+    background-color: {{$colors->organ_color_1 ?? 'blue'}} !important ;
 }
-.category a p span:first-of-type {
-    text-shadow: 2px 2px 6px black;
-    font-family: Mj_DinarOneMedium!important;
-    font-weight: bold;
-}
-.category a p span:last-of-type {
-    color: black;
-}
-
-.category img {
-    transition: 0.6s;
-}
-
-.category a:hover img {
-    opacity: 0.3;
-    transform: scale(1.1);
-}
-.category a:hover p {
-    display: block;
-} */
 
 .category .photo-sticker {
     position: absolute;

@@ -52,7 +52,7 @@
         <script src="js/welcome/bootstrap.bundle.min.js"></script>
         <script src="js/welcome/contact_me.js"></script>
         <script src="js/welcome/jqBootstrapValidation.js"></script>
-        <script src="js/welcome/smooth-scroll.js"></script>
+        <script src="js/welcome/sm-scroll.js"></script>
         <script src="{{asset('js/welcome/isotope.pkgd.min.js')}}"></script>
     </body>
 </html>

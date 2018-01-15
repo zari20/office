@@ -40,4 +40,30 @@ class WelcomeTabController extends WelcomeController
         WelcomeHelper::flash();
         return redirect('welcome_panel');
     }
+
+    public function update($id)
+    {
+        //find
+        $tab = Tab::find($id);
+        $sections = $tab->sections;
+
+        //update tab
+        $tab->title = request('tab_title');
+        $tab->latin_id = request('tab_latin_id');
+        $tab->save();
+
+        //add new sections
+        $types = request('type');
+        $titles = request('title');
+        for ($i=count($sections); $i < count($types); $i++) {
+            $section = new Section;
+            $section->tab_id = $tab->id;
+            $section->title = $titles[$i];
+            $section->type = $types[$i];
+            $section->save();
+        }
+
+        WelcomeHelper::flash();
+        return back();
+    }
 }

@@ -104,7 +104,8 @@ class WelcomePageController extends WelcomeController
                 return view('welcome.fragments.'.$section->type,compact('section'));
                 break;
             case 'tab':
-                dd('tab');
+                $tab = \App\Welcome\WelcomeTab::find(request('id'));
+                return view('welcome_partials.new_tab',compact('tab'));
                 break;
             default:
                 return view('welcome.'.$partial);

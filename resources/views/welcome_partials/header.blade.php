@@ -16,30 +16,30 @@
             <div class="text-left ml-5 mb-1 my-md-0 my-4">
                 <a class="text-white mx-3" href="tel:{{$header->telephone}}">
                     {{$header->telephone}}
-                    <i class="fa fa-phone text-first mr-1"></i>
+                    <i class="fa fa-phone text-second mr-1"></i>
                 </a>
                 <div class="bl">&nbsp;</div>
                 <a class="text-white mx-3" href="{{$header->link_href}}">
-                    <i class="fa fa-{{$header->link_icon}} text-first ml-1"></i>
+                    <i class="fa fa-{{$header->link_icon}} text-second ml-1"></i>
                     {{$header->link_name}}
                 </a>
             </div>
             <div class="row header-center">
                 <div class="col-md-1 text-center col-3">
                     <a target="_blank" href="http://t.me/{{$header->telegram_id ?? ''}}">
-                        <i class="text-white fa fa-telegram fa-2x mt-2 mr-2"></i>
+                        <i class="text-white fa fa-telegram fa-2x mt-2 mr-2 hover-text-second"></i>
                     </a>
                 </div>
                 <div class="bl"></div>
                 <div class="col-md-1 text-center col-4">
                     <a target="_blank" href="http://instagram.com/{{$header->instagram_id ?? ''}}">
-                        <i class="text-white fa fa-instagram fa-2x mt-2 mr-2"></i>
+                        <i class="text-white fa fa-instagram fa-2x mt-2 mr-2 hover-text-second"></i>
                     </a>
                 </div>
                 <div class="bl"></div>
                 <div class="col-md-1 text-center col-3">
                     <a target="_blank" href="{{url('/login')}}">
-                        <i class="text-white fa fa-user fa-2x mt-2 mr-2"></i>
+                        <i class="text-white fa fa-user fa-2x mt-2 mr-2 hover-text-second"></i>
                     </a>
                 </div>
                 <div class="col-md-7 mt-3 mt-md-1" dir="ltr">

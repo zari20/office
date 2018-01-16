@@ -996,6 +996,13 @@ ol.carousel-indicators{
     background-color: {{$colors->organ_color_2 ?? 'black'}};
 }
 
+.hover-bg-first:hover{
+    background-color: {{$colors->organ_color_1 ?? 'black'}};
+}
+.hover-bg-second:hover{
+    background-color: {{$colors->organ_color_2 ?? 'black'}};
+}
+
 .text-first{
     color: {{$colors->organ_color_1 ?? 'black'}};
 }
@@ -1003,9 +1010,15 @@ ol.carousel-indicators{
     color: {{$colors->organ_color_2 ?? 'black'}};
 }
 
+.hover-text-first:hover{
+    color: {{$colors->organ_color_1 ?? 'black'}} !important;
+}
+.hover-text-second:hover{
+    color: {{$colors->organ_color_2 ?? 'black'}} !important;
+}
+
 .logo h1, .logo h3{
     color: white;
-    margin-right: 5px;
 }
 .logo h1 {
     font-size: 3em;
@@ -1020,6 +1033,5 @@ ol.carousel-indicators{
     color: white;
     width: 1px;
     margin-right: 15px;
-    box-shadow: 0px 0px 5px {{$colors->organ_color_2 ?? 'black'}};
 }
 </style>

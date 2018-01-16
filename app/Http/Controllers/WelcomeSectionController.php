@@ -26,4 +26,21 @@ class WelcomeSectionController extends WelcomeController
         WelcomeHelper::flash();
         return redirect('welcome_panel');
     }
+
+    public function update($id)
+    {
+        //check if logged in
+        WelcomeHelper::auth();
+
+        //updating record
+        $section = Section::find($id);
+        $section->title = request('title');
+        $section->latin_id = request('latin_id');
+        $section->cols = request('cols');
+        $section->save();
+
+        //redirection
+        WelcomeHelper::flash();
+        return back();
+    }
 }

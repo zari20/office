@@ -101,7 +101,8 @@ class WelcomePageController extends WelcomeController
                 break;
             case 'section':
                 $section = \App\Welcome\WelcomeSection::find($id);
-                return view('welcome.fragments.'.$section->type,compact('section'));
+                $editable = !$section->tab_id;
+                return view('welcome.fragments.'.$section->type,compact('section','editable'));
                 break;
             case 'tab':
                 $tab = \App\Welcome\WelcomeTab::find(request('id'));

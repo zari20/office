@@ -18,4 +18,9 @@ class WelcomeSection extends WelcomePage
         $fragments = count($fragments) ? $fragments : [new self];
         return $fragments;
     }
+
+    public function layout()
+    {
+        return WelcomeLayout::where('puzzle_type',self::class)->where('puzzle_id',$this->id)->first();
+    }
 }

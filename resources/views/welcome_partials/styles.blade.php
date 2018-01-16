@@ -1016,7 +1016,7 @@ ol.carousel-indicators{
 
 .bl {
     display:inline-block;
-    background-color: white;
+    background-color: {{$colors->organ_color_2 ?? 'black'}};
     color: white;
     width: 1px;
     margin-right: 15px;

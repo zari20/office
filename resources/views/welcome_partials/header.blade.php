@@ -42,7 +42,6 @@
                         <i class="text-white fa fa-user fa-2x mt-2 mr-2"></i>
                     </a>
                 </div>
-                <div class="bl d-none d-md-block"></div>
                 <div class="col-md-7 mt-3 mt-md-1" dir="ltr">
                     <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>

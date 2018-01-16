@@ -12,7 +12,11 @@ class WelcomeManageController extends WelcomeController
         //check if logged in
         WelcomeHelper::auth();
 
-        return $this->$partial();
+        if(method_exists($this, $partial)){
+            return $this->$partial();
+        }else {
+            return $this->update_and_upload($partial);
+        }
     }
 
     public function action($id,$action,$type)
@@ -228,36 +232,6 @@ class WelcomeManageController extends WelcomeController
         \DB::table('welcome_links')->insert(prepare_multiple(request()->all()));
         WelcomeHelper::flash();
         return back();
-    }
-
-    public function blog()
-    {
-        return $this->update_and_upload('blog');
-    }
-
-    public function slider()
-    {
-        return $this->update_and_upload('slider');
-    }
-
-    public function image()
-    {
-        return $this->update_and_upload('image');
-    }
-
-    public function image_cadr()
-    {
-        return $this->update_and_upload('image_cadr');
-    }
-
-    public function download()
-    {
-        return $this->update_and_upload('download');
-    }
-
-    public function product()
-    {
-        return $this->update_and_upload('product');
     }
 
     private function update_and_upload($keyword)

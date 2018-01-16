@@ -35,6 +35,7 @@ function welcome_translate($word)
         case 'download': return 'دانلود فایل 4 ستونه'; break;
         case 'product': return 'محصول چهارتایی'; break;
         case 'link': return 'لینک چهارتایی'; break;
+        case 'card': return 'آگهی'; break;
         default: return $word; break;
     }
 }

@@ -19,7 +19,7 @@
                     <option value="download" {{$section->type=='download' ? 'selected' : ''}}>دانلود فایل 4 ستونه</option>
                     <option value="product" {{$section->type=='product' ? 'selected' : ''}}>محصول چهارتایی</option>
                     <option value="link" {{$section->type=='link' ? 'selected' : ''}}>لینک چهارتایی</option>
-                    <option value="card" {{$section->type=='card' ? 'selected' : ''}}> کارت </option>
+                    <option value="card" {{$section->type=='card' ? 'selected' : ''}}> آگهی </option>
                 </select>
             </div>
             <div class="form-group section-title col-md-{{$array ? '4' : '3'}}">

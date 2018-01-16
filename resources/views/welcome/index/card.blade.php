@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row mb-3">
             @foreach ($section->fragments() as $key => $card)
-                <div class="col-md-3 my-1 p-1">
+                <div class="col-md-{{calculate_cols($section->cols)}} my-1 p-1">
                     <div class="card">
                         <a href="{{$card->link}}">
                             <img class="card-img-top" src="{{asset('welcome/'.$card->picture_path)}}" alt="{{$card->title}}">

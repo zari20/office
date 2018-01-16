@@ -35,7 +35,6 @@
                     <option value="2" {{$section->cols == 2 ? 'selected' : ''}}> 2 </option>
                     <option value="3" {{$section->cols == 3 ? 'selected' : ''}}> 3 </option>
                     <option value="4" {{$section->cols == 4 || !$section->cols ? 'selected' : ''}}> 4 </option>
-                    <option value="5" {{$section->cols == 5 ? 'selected' : ''}}> 5 </option>
                     <option value="6" {{$section->cols == 6 ? 'selected' : ''}}> 6 </option>
                 </select>
             </div>

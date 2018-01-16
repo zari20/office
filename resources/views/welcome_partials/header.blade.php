@@ -1,6 +1,6 @@
 <section class="topbar" id="home">
     <div class="row px-4">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="row">
                 <div class="col-3 col-sm-2">
                     <img src="{{ $welcome_logo->logo_path ? asset('welcome/'.$welcome_logo->logo_path) : asset('welcome_images/logo.png') }}"
@@ -12,8 +12,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="text-left ml-5 mb-1">
+        <div class="col-md-5">
+            <div class="text-left ml-5 mb-1 my-md-0 my-4">
                 <a class="text-white mx-3" href="tel:{{$header->telephone}}">
                     {{$header->telephone}}
                     <i class="fa fa-phone text-first mr-1"></i>
@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="row header-center">
-                <div class="col-md-1 text-center col-4">
+                <div class="col-md-1 text-center col-3">
                     <a target="_blank" href="http://t.me/{{$header->telegram_id ?? ''}}">
                         <i class="text-white fa fa-telegram fa-3x"></i>
                     </a>
@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="bl d-none d-md-block"></div>
-                <div class="col-md-8 mt-3 mt-md-0" dir="ltr">
+                <div class="col-md-7 mt-3 mt-md-1" dir="ltr">
                     <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
                         <input class="form-control" type="text" placeholder="{{$header->search_placeholder ?? ''}}" dir="rtl">

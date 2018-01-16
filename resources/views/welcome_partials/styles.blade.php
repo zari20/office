@@ -1019,7 +1019,7 @@ ol.carousel-indicators{
     background-color: white;
     color: white;
     width: 1px;
-    margin-right: 10px;
+    margin-right: 15px;
     box-shadow: 0px 0px 5px {{$colors->organ_color_2 ?? 'black'}};
 }
 </style>

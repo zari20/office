@@ -4,7 +4,9 @@
             @foreach ($section->fragments() as $key => $card)
                 <div class="col-md-3 my-1 p-1">
                     <div class="card">
-                        <img class="card-img-top" src="{{asset('welcome/'.$card->picture_path)}}" alt="{{$card->title}}">
+                        <a href="{{$card->link}}">
+                            <img class="card-img-top" src="{{asset('welcome/'.$card->picture_path)}}" alt="{{$card->title}}">
+                        </a>
                         <div class="card-block p-3 relative">
                             <h4 class="card-title">{{$card->title}}</h4>
                             <p class="card-text"> {{$card->passage}} </p>

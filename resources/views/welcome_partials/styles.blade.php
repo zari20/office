@@ -996,14 +996,30 @@ ol.carousel-indicators{
     background-color: {{$colors->organ_color_2 ?? 'black'}};
 }
 
+.text-first{
+    color: {{$colors->organ_color_1 ?? 'black'}};
+}
+.text-second{
+    color: {{$colors->organ_color_2 ?? 'black'}};
+}
+
 .logo h1, .logo h3{
     color: white;
+    margin-right: 5px;
 }
 .logo h1 {
     font-size: 3em;
 }
 .logo h3 {
     font-size: 1.3em;
-    margin-right: 30px;
+}
+
+.bl {
+    display:inline-block;
+    background-color: white;
+    color: white;
+    width: 1px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 5px {{$colors->organ_color_2 ?? 'black'}};
 }
 </style>

@@ -1,52 +1,54 @@
 <section class="topbar" id="home">
     <div class="row px-4">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="row">
-                <div class="col-4 text-left">
+                <div class="col-3 col-sm-2">
                     <img src="{{ $welcome_logo->logo_path ? asset('welcome/'.$welcome_logo->logo_path) : asset('welcome_images/logo.png') }}"
                     alt="{{$welcome_logo->title ?? ''}}" width="75px" height="75px">
                 </div>
-                <div class="col-8 logo text-right">
+                <div class="col-9 col-sm-10 logo text-right">
                     <h1> {{$welcome_logo->title ?? ''}} </h1>
                     <h3> {{$welcome_logo->info ?? ''}} </h3>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 contact">
-            <ul>
-                <li class="phone">
-                    <a href="tel:{{$header->telephone ?? ''}}">
-                        <i class="fa fa-phone small"></i>
-                        {{$header->telephone ?? ''}}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{$header->link_href ?? '#'}}">
-                        <i class="fa fa-{{$header->link_icon ?? ''}} small"></i>
-                        {{$header->link_name ?? ''}}
-                    </a>
-                </li>
-                <li>
+        <div class="col-md-6">
+            <div class="text-left ml-5 mb-1">
+                <a class="text-white mx-3" href="tel:{{$header->telephone}}">
+                    {{$header->telephone}}
+                    <i class="fa fa-phone text-first mr-1"></i>
+                </a>
+                <div class="bl">&nbsp;</div>
+                <a class="text-white mx-3" href="{{$header->link_href}}">
+                    <i class="fa fa-{{$header->link_icon}} text-first ml-1"></i>
+                    {{$header->link_name}}
+                </a>
+            </div>
+            <div class="row header-center">
+                <div class="col-md-1 text-center col-4">
                     <a target="_blank" href="http://t.me/{{$header->telegram_id ?? ''}}">
-                        <i class="fa fa-telegram fa-2x"></i>
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="http://instagram.com/{{$header->instagram_id ?? ''}}">
-                        <i class="fa fa-instagram fa-2x"></i>
-                    </a>
-                </li>
-            </ul>
-            <div class="row">
-                <div class="col-4">
-                    <a href="{{url('/login')}}" class="user-box">
-                        ورود
+                        <i class="text-white fa fa-telegram fa-3x"></i>
                     </a>
                 </div>
-                <form class="col-8">
-                    <input id="filter" type="text" placeholder="{{$header->search_placeholder ?? ''}}" />
-                    <i id="filtersubmit" class="fa fa-search mr-2"></i>
-                </form>
+                <div class="bl"></div>
+                <div class="col-md-1 text-center col-4">
+                    <a target="_blank" href="http://instagram.com/{{$header->instagram_id ?? ''}}">
+                        <i class="text-white fa fa-instagram fa-3x"></i>
+                    </a>
+                </div>
+                <div class="bl"></div>
+                <div class="col-md-1 text-center col-3">
+                    <a target="_blank" href="{{url('/login')}}">
+                        <i class="text-white fa fa-user fa-3x"></i>
+                    </a>
+                </div>
+                <div class="bl d-none d-md-block"></div>
+                <div class="col-md-8 mt-3 mt-md-0" dir="ltr">
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                        <input class="form-control" type="text" placeholder="{{$header->search_placeholder ?? ''}}" dir="rtl">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-2 portal">

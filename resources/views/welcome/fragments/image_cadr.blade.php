@@ -1,6 +1,7 @@
 @extends('layouts.welcome')
 @section('content')
     @include('welcome_partials.banner', ['title' => ' مدیریت تصاویر'])
+    @if ($editable) @include('welcome_partials.edit_section') @endif
 
     <form class="p-3" action="{{url('/welcome_page/image_cadr/'.$section->id)}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}

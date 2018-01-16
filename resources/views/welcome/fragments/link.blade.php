@@ -1,6 +1,7 @@
 @extends('layouts.welcome')
 @section('content')
     @include('welcome_partials.banner', ['title' => ' مدیریت  لینک ها'])
+    @if ($editable) @include('welcome_partials.edit_section') @endif
 
     <form class="p-5" action="{{url('/welcome_page/link/'.$section->id)}}" method="post">
         {{ csrf_field() }}

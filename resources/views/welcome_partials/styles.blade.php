@@ -65,7 +65,7 @@ section {
     display: block;
     float: right;
     width: 100%;
-    padding: 5px 0px;
+    padding-top: 10px;
 }
 .topbar .contact ul{
     margin: 0;
@@ -79,7 +79,7 @@ section {
 .topbar .contact ul li:last-child{
     margin-left: 0;
 }
-.topbar .contact ul li i{
+.topbar .contact ul li i.small{
     float: left;
     display: block;
     margin: 6px 5px 0 0;
@@ -218,10 +218,11 @@ section {
 }
 .user-box{
     background-color: #fff;
-    border-radius: 4px;
-    margin: 10px 0px 0px 0px;
     text-align: center;
-    min-height: 56px;
+    display: block;
+    margin-top: 8px;
+    padding: 10px 0px;
+    border-radius: 4px;
 }
 .user-box i{
     color: {{$colors->organ_color_1 ?? 'blue'}};
@@ -993,5 +994,16 @@ ol.carousel-indicators{
 }
 .bg-second{
     background-color: {{$colors->organ_color_2 ?? 'black'}};
+}
+
+.logo h1, .logo h3{
+    color: white;
+}
+.logo h1 {
+    font-size: 3em;
+}
+.logo h3 {
+    font-size: 1.3em;
+    margin-right: 30px;
 }
 </style>

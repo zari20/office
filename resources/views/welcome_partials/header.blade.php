@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 mt-2">
             <div class="text-left ml-5 mb-1 my-md-0 my-4">
                 <a class="text-white mx-3" href="tel:{{$header->telephone}}">
                     {{$header->telephone}}
@@ -27,19 +27,19 @@
             <div class="row header-center">
                 <div class="col-md-1 text-center col-3">
                     <a target="_blank" href="http://t.me/{{$header->telegram_id ?? ''}}">
-                        <i class="text-white fa fa-telegram fa-3x"></i>
+                        <i class="text-white fa fa-telegram fa-2x mt-2 mr-2"></i>
                     </a>
                 </div>
                 <div class="bl"></div>
                 <div class="col-md-1 text-center col-4">
                     <a target="_blank" href="http://instagram.com/{{$header->instagram_id ?? ''}}">
-                        <i class="text-white fa fa-instagram fa-3x"></i>
+                        <i class="text-white fa fa-instagram fa-2x mt-2 mr-2"></i>
                     </a>
                 </div>
                 <div class="bl"></div>
                 <div class="col-md-1 text-center col-3">
                     <a target="_blank" href="{{url('/login')}}">
-                        <i class="text-white fa fa-user fa-3x"></i>
+                        <i class="text-white fa fa-user fa-2x mt-2 mr-2"></i>
                     </a>
                 </div>
                 <div class="bl d-none d-md-block"></div>

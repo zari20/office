@@ -959,10 +959,26 @@ ol.carousel-indicators{
     transition: all 0.25s ease;
     cursor: pointer;
 }
+
+.carousel-indicators-circles li {
+    text-indent: 0;
+    text-align: center;
+    margin: 0 2px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 100%;
+    line-height: 30px;
+    color: #fff;
+    background-color: #c6c6c6 !important;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
 .carousel-indicators-numbers li.active, .carousel-indicators-numbers li:hover {
     margin: 0 2px;
-    width: 30px;
-    height: 30px;
+    background-color: {{$colors->organ_color_1 ?? 'blue'}} !important ;
+}
+.carousel-indicators-circles li.active, .carousel-indicators-circles li:hover {
     background-color: {{$colors->organ_color_1 ?? 'blue'}} !important ;
 }
 
@@ -997,10 +1013,10 @@ ol.carousel-indicators{
 }
 
 .hover-bg-first:hover{
-    background-color: {{$colors->organ_color_1 ?? 'black'}};
+    background-color: {{$colors->organ_color_1 ?? 'black'}} !important;
 }
 .hover-bg-second:hover{
-    background-color: {{$colors->organ_color_2 ?? 'black'}};
+    background-color: {{$colors->organ_color_2 ?? 'black'}} !important;
 }
 
 .text-first{
@@ -1033,5 +1049,15 @@ ol.carousel-indicators{
     color: white;
     width: 1px;
     margin-right: 15px;
+}
+
+.tab-pill {
+    background-color: {{$colors->organ_color_2 ?? 'black'}};
+    color: black;
+}
+.tab-pill.active, .tab-pill:hover {
+    background-color: {{$colors->organ_color_1 ?? 'black'}} !important;
+    color: white !important;
+    border-radius: 4px !important;
 }
 </style>

@@ -10,7 +10,8 @@
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     @foreach ($tab->visible_sections() as $i => $section)
                         <li class="nav-item">
-                            <a class="nav-link {{ $i==0 ? 'active' : '' }}" id="{{$tab->id}}-{{$i}}-tab" data-toggle="pill" href="#{{$tab->id}}-{{$i}}" role="tab">
+                            <a class="nav-link tab-pill {{ $i==0 ? 'active' : '' }}" id="{{$tab->id}}-{{$i}}-tab" data-toggle="pill" href="#{{$tab->id}}-{{$i}}" role="tab">
+                                <small class="fa fa-circle ml-1"></small>
                                 {{$section->title}}
                             </a>
                         </li>

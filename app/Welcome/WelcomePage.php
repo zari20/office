@@ -8,9 +8,9 @@ class WelcomePage extends Model
 {
     protected $guarded = ['id'];
 
-    public static function delete_others($numbers,$section_id)
+    public static function delete_others($numbers,$section_id=0)
     {
-        $items = self::where('section_id',$section_id)->get();
+        $items = $section_id ? self::where('section_id',$section_id)->get() : self::all();
         foreach ($items as $key => $item) {
             if(!in_array($item->number,$numbers)){
                 $item->delete();

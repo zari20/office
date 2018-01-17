@@ -13,13 +13,13 @@
             </div>
         </div>
         <div class="col-md-5 mt-2">
-            <div class="text-left ml-5 mb-1 my-md-0 my-4">
-                <a class="text-white mx-3" href="tel:{{$header->telephone}}">
+            <div class="text-md-left text-center ml-md-5 ml-0 mb-1 my-md-0 my-4">
+                <a class="text-white mx-md-3 mx-1" href="tel:{{$header->telephone}}">
                     {{$header->telephone}}
                     <i class="fa fa-phone text-second mr-1"></i>
                 </a>
-                <div class="bl">&nbsp;</div>
-                <a class="text-white mx-3" href="{{$header->link_href}}">
+                <div class="bl d-none d-md-inline-block">&nbsp;</div>
+                <a class="text-white mx-md-3 mx-1" href="{{$header->link_href}}">
                     <i class="fa fa-{{$header->link_icon}} text-second ml-1"></i>
                     {{$header->link_name}}
                 </a>

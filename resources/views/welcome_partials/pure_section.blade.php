@@ -5,9 +5,9 @@
     <hr class="col-12">
 @endif
 
-<div class="clone-box col-12">
+<div class=" @if(!isset($editable)) clone-box @endif col-12">
     @foreach ( $sections as $key => $section)
-        <div class="to-be-cloned col-12 row">
+        <div class="@if(!isset($editable)) to-be-cloned @endif col-12 row">
             @if (!isset($editable))
                 <div class="form-group col-md-{{$array ? '4' : '3'}}">
                     <label> نوع ماژول </label>

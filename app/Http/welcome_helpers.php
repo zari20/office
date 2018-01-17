@@ -30,11 +30,11 @@ function welcome_translate($word)
         case 'five_col': return '5 ستونه'; break;
         case 'slider': return 'اسلایدر'; break;
         case 'blog': return 'بلاگ'; break;
-        case 'image': return 'عکس چهارتایی'; break;
-        case 'image_cadr': return 'عکس چهارتایی با کادر'; break;
-        case 'download': return 'دانلود فایل 4 ستونه'; break;
-        case 'product': return 'محصول چهارتایی'; break;
-        case 'link': return 'لینک چهارتایی'; break;
+        case 'image': return 'ستون های عکس دار'; break;
+        case 'image_cadr': return 'ستون های عکس دار با کادر'; break;
+        case 'download': return 'ستون های دانلود'; break;
+        case 'product': return 'محصولات'; break;
+        case 'link': return 'لینک'; break;
         case 'card': return 'آگهی'; break;
         default: return $word; break;
     }

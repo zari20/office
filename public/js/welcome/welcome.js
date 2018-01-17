@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    hideOrShowSectionInputs('five_col');
+
     //english inputs
     $('input[lang=en]').keypress(function(event){
         var ew = event.which;
@@ -96,10 +98,19 @@ function remove(element) {
 
 function changeSectionPhoto(type) {
     $('#section-img').attr('src','welcome_images/'+type+'.png');
+    hideOrShowSectionInputs(type);
+}
+
+function hideOrShowSectionInputs(type) {
     if(type=='slider'){
         $('.section-title').hide();
+        $('.section-cols').hide();
+    } else if(type=='five_col' || type=='blog') {
+        $('.section-title').show();
+        $('.section-cols').hide();
     }else {
         $('.section-title').show();
+        $('.section-cols').show();
     }
 }
 

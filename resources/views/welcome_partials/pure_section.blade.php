@@ -12,15 +12,15 @@
                 <div class="form-group col-md-{{$array ? '4' : '3'}}">
                     <label> نوع ماژول </label>
                     <select class="form-control section-type" name="type{{$array ? '[]' : ''}}" onchange="changeSectionPhoto($(this).find(':selected').val())">
-                        <option value="five_col" {{$section->type=='five_col' ? 'selected' : ''}}>5 ستونه</option>
-                        <option value="slider" {{$section->type=='slider' ? 'selected' : ''}}>اسلایدر</option>
-                        <option value="blog" {{$section->type=='blog' ? 'selected' : ''}}>بلاگ</option>
-                        <option value="image" {{$section->type=='image' ? 'selected' : ''}}>عکس چهارتایی</option>
-                        <option value="image_cadr" {{$section->type=='image_cadr' ? 'selected' : ''}}>عکس چهارتایی با کادر</option>
-                        <option value="download" {{$section->type=='download' ? 'selected' : ''}}>دانلود فایل 4 ستونه</option>
-                        <option value="product" {{$section->type=='product' ? 'selected' : ''}}>محصول چهارتایی</option>
-                        <option value="link" {{$section->type=='link' ? 'selected' : ''}}>لینک چهارتایی</option>
-                        <option value="card" {{$section->type=='card' ? 'selected' : ''}}> آگهی </option>
+                        <option value="five_col" {{$section->type=='five_col' ? 'selected' : ''}}> {{welcome_translate('five_col')}} </option>
+                        <option value="slider" {{$section->type=='slider' ? 'selected' : ''}}> {{welcome_translate('slider')}} </option>
+                        <option value="blog" {{$section->type=='blog' ? 'selected' : ''}}> {{welcome_translate('blog')}} </option>
+                        <option value="image" {{$section->type=='image' ? 'selected' : ''}}> {{welcome_translate('image')}} </option>
+                        <option value="image_cadr" {{$section->type=='image_cadr' ? 'selected' : ''}}> {{welcome_translate('image_cadr')}} </option>
+                        <option value="download" {{$section->type=='download' ? 'selected' : ''}}> {{welcome_translate('download')}} </option>
+                        <option value="product" {{$section->type=='product' ? 'selected' : ''}}> {{welcome_translate('product')}} </option>
+                        <option value="link" {{$section->type=='link' ? 'selected' : ''}}> {{welcome_translate('link')}} </option>
+                        <option value="card" {{$section->type=='card' ? 'selected' : ''}}>  {{welcome_translate('card')}}  </option>
                     </select>
                 </div>
             @endif
@@ -28,7 +28,7 @@
                 <label for="title">عنوان</label>
                 <input type="text" class="form-control" id="title" name="title{{$array ? '[]' : ''}}" value="{{$section->title}}">
             </div>
-            <div class="form-group section-title col-md-{{$array ? '4' : '3'}}">
+            <div class="form-group section-cols col-md-{{$array ? '4' : '3'}}">
                 <label for="cols">تعداد ستون</label>
                 <select class="form-control" id="cols" name="cols{{$array ? '[]' : ''}}">
                     <option value="1" {{$section->cols == 1 ? 'selected' : ''}}> 1 </option>

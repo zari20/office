@@ -40,13 +40,13 @@ function welcome_translate($word)
     }
 }
 
-function carousel_indicators($array)
+function carousel_indicators($array,$cols=4)
 {
     $count = count($array);
-    if($count%4==0){
-        return ($count/4)-1;
+    if($count%$cols==0){
+        return ($count/$cols)-1;
     }else {
-        return floor($count/4);
+        return floor($count/$cols);
     }
 }
 

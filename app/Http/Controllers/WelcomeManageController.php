@@ -107,34 +107,8 @@ class WelcomeManageController extends WelcomeController
         $header = WelcomeValidate::header();
         \App\Welcome\WelcomeHeader::create($header);
 
-        //dynamic links
-        $hrefs = request('website_link');
-        $logos = request('website_logo');
-        $numbers = request('number');
+        $this->update_and_upload('top_link',false);
 
-        \App\Welcome\WelcomeTopLink::delete_others($numbers);
-
-        for ($i=0; $i < count($hrefs) ; $i++) {
-
-            $link_instance = \App\Welcome\WelcomeTopLink::where('number',$numbers[$i])->first();
-            if (isset($logos[$i])) {
-                $link_instance ? $link_instance->delete() : null;
-                $link = new \App\Welcome\WelcomeTopLink;
-                $link->href = $hrefs[$i];
-                $link->number = $numbers[$i];
-                $link->logo_path = $logos[$i]->storeAs(
-                    'header', $numbers[$i].'.'.$logos[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
-                );
-                $link->save();
-            }elseif($link_instance) {
-                $link_instance->href = $hrefs[$i];
-                $link_instance->number = $numbers[$i];
-                $link_instance->save();
-            }else{
-                continue;
-            }
-
-        }
         WelcomeHelper::flash();
         return back();
     }
@@ -143,11 +117,7 @@ class WelcomeManageController extends WelcomeController
     {
         $found = \App\Welcome\WelcomeLogo::find(1);
         $main_logo =  $found ?? new \App\Welcome\WelcomeLogo;
-        if (request('main_logo')) {
-            $main_logo->logo_path = request('main_logo')->storeAs(
-                'header', 'main_logo.'.request('main_logo')->getClientOriginalExtension(), 'welcome_page_uploads'
-            );
-        }
+        $main_logo->picture_path = $this->upload('header','main_logo',$main_logo->picture_path);
         $main_logo->title = request('title');
         $main_logo->info = request('info');
         $main_logo->save();
@@ -168,11 +138,7 @@ class WelcomeManageController extends WelcomeController
     {
         $found = \App\Welcome\WelcomeContactUs::find(1);
         $contact_us =  $found ?? new \App\Welcome\WelcomeContactUs;
-        if (request('background_path')) {
-            $contact_us->background_path = request('background_path')->storeAs(
-                'contact_us', 'background.'.request('background_path')->getClientOriginalExtension(), 'welcome_page_uploads'
-            );
-        }
+        $contact_us->background_path = $this->upload('contact_us','background_path'.$contact_us->background_path);
         $contact_us->title = request('title');
         $contact_us->latin_id = request('latin_id');
         $contact_us->main_branch_title = request('main_branch_title');
@@ -234,9 +200,41 @@ class WelcomeManageController extends WelcomeController
         return back();
     }
 
-    private function update_and_upload($keyword)
+    private function random_string($length=10)
     {
-        $section_id = request('id');
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    private function upload($folder,$index,$prev_path)
+    {
+        if (request($index)) {
+            $this->delete_photo($prev_path);
+            return request($index)->storeAs(
+                $folder, $this->random_string().'.'.request($index)->getClientOriginalExtension(), 'welcome_page_uploads'
+            );
+        }else {
+            return $prev_path;
+        }
+    }
+
+    private function delete_photo($path)
+    {
+        $path = 'welcome/'.$path;
+        if (!is_dir($path) && file_exists($path)) {
+            unlink($path);
+        }
+
+    }
+
+    private function update_and_upload($keyword,$inside_a_section=true)
+    {
+        $section_id = $inside_a_section ? request('id') : 0;
         $pictures = request('picture');
         $files = request('file');
         $numbers = request('number');
@@ -246,17 +244,23 @@ class WelcomeManageController extends WelcomeController
 
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            $object_instance = $class::where('number',$numbers[$i])->where('section_id',$section_id)->first();
+            if ($inside_a_section) {
+                $object_instance = $class::where('number',$numbers[$i])->where('section_id',$section_id)->first();
+            }else {
+                $object_instance = $class::where('number',$numbers[$i])->first();
+            }
             $object = $object_instance ?? new $class;
 
             if (isset($pictures[$i])) {
+                $this->delete_photo($object->picture_path);
                 $object->picture_path = $pictures[$i]->storeAs(
-                    $keyword, $section_id.'-'.$numbers[$i].'.'.$pictures[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
+                    $keyword, $section_id.'-'.$numbers[$i].'-'.$this->random_string().'.'.$pictures[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
                 );
             }
             if (isset($files[$i])) {
+                $this->delete_photo($object->file_path);
                 $object->file_path = $files[$i]->storeAs(
-                    $keyword.'/files', $section_id.'-'.$numbers[$i].'.'.$files[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
+                    $keyword.'/files', $section_id.'-'.$numbers[$i].'-'.$this->random_string().'.'.$files[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
                 );
             }
             foreach (request()->all() as $key => $input) {

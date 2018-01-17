@@ -99,11 +99,11 @@
                     </fieldset>
                     <fieldset class="form-group col-md-7 p-3">
                         <label> لینک </label>
-                        <input name="website_link[]" value="{{$link->href}}" type="text" class="form-control">
+                        <input name="href[]" value="{{$link->href}}" type="text" class="form-control">
                     </fieldset>
                     <fieldset class="form-group col-md-3 p-3">
                         <label> آپلود لوگو </label>
-                        <input name="website_logo[]" type="file" class="form-control-file">
+                        <input name="picture[]" type="file" class="form-control-file">
                     </fieldset>
                 </div>
             @endforeach

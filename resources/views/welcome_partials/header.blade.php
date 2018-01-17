@@ -3,7 +3,7 @@
         <div class="col-md-5">
             <div class="row">
                 <div class="col-3 col-sm-2">
-                    <img src="{{ $welcome_logo->logo_path ? asset('welcome/'.$welcome_logo->logo_path) : asset('welcome_images/logo.png') }}"
+                    <img src="{{ $welcome_logo->picture_path ? asset('welcome/'.$welcome_logo->picture_path) : asset('welcome_images/logo.png') }}"
                     alt="{{$welcome_logo->title ?? ''}}" width="75px" height="75px">
                 </div>
                 <div class="col-9 col-sm-10 logo text-right">
@@ -59,7 +59,7 @@
                 @foreach ($top_links as $link)
                     <li>
                         <a href="{{$link->href ?? '#'}}">
-                            <img src="{{asset('welcome/'.($link->logo_path ?? ''))}}" width="33px" height="33px">
+                            <img src="{{asset('welcome/'.($link->picture_path ?? ''))}}" width="33px" height="33px">
                         </a>
                     </li>
                 @endforeach

@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-9 col-sm-10 logo text-right">
                     <h1> {{$welcome_logo->title ?? ''}} </h1>
-                    <h3> {{$welcome_logo->info ?? ''}} </h3>
+                    <h3> {!! $welcome_logo->info ? nl2br($welcome_logo->info) : '' !!} </h3>
                 </div>
             </div>
         </div>

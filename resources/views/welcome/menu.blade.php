@@ -3,37 +3,6 @@
 
     @include('welcome_partials.banner', ['title' => ' مدیریت منو'])
 
-    <form class="p-5" action="{{url('/welcome_page/logo')}}" method="post" enctype="multipart/form-data">
-
-        <p class="h3 dinar text-info mb-3"> مدیریت لوگو </p>
-
-        {{ csrf_field() }}
-        {{ method_field('PATCH') }}
-
-        <div class="row">
-
-            <fieldset class="form-group col-md-4">
-                <label> عنوان سایت </label>
-                <input value="{{$welcome_logo->title ?? ''}}" type="text" class="form-control" name="title">
-            </fieldset>
-
-            <fieldset class="form-group col-md-6">
-                <label> توضیخات سایت </label>
-                <input value="{{$welcome_logo->info ?? ''}}" type="text" class="form-control" name="info">
-            </fieldset>
-
-            <fieldset class="form-group col-md-2">
-                <label> لوگوی اصلی </label>
-                <input name="main_logo" type="file" class="form-control-file">
-            </fieldset>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5"></div>
-            <button type="submit" class="btn btn-primary form-control col-md-2"> تایید </button>
-        </div>
-    </form>
-
     <form class="p-5" action="{{url('/welcome_page/menu')}}" method="post">
         <p class="h3 dinar text-info mb-4"> مدیریت منو </p>
 

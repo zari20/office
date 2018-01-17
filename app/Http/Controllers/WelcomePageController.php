@@ -76,16 +76,16 @@ class WelcomePageController extends WelcomeController
         switch ($partial) {
             case 'header':
                 $header = \App\Welcome\WelcomeHeader::find(1);
+                $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
                 $top_links = \App\Welcome\WelcomeTopLink::orderBy('number')->get();
                 if(!count($top_links)) $top_links = array(new \App\Welcome\WelcomeTopLink);
-                return view('welcome.'.$partial,compact('header','top_links'));
+                return view('welcome.'.$partial,compact('header','top_links','welcome_logo'));
                 break;
             case 'menu':
                 $layouts = \App\Welcome\WelcomeLayout::all();
                 $menus = \App\Welcome\WelcomeMenu::all();
-                $welcome_logo = \App\Welcome\WelcomeLogo::find(1);
                 if(!count($menus)) $menus = array(new \App\Welcome\WelcomeMenu);
-                return view('welcome.'.$partial,compact('menus','welcome_logo','layouts'));
+                return view('welcome.'.$partial,compact('menus','layouts'));
                 break;
             case 'contact_us':
                 $main_branch = \App\Welcome\WelcomeMainBranch::find(1);

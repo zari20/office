@@ -148,7 +148,6 @@ section {
     border-radius: 3px;
     width: 33px;
     height: 33px;
-    opacity: 0.8;
     transition: 0.3s;
 }
 .portal ul li a:hover img{

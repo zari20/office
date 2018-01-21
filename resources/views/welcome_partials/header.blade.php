@@ -1,6 +1,6 @@
 <section class="topbar" id="home">
     <div class="row px-4">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="row">
                 <div class="col-3 col-sm-2">
                     <img src="{{ $welcome_logo->picture_path ? asset('welcome/'.$welcome_logo->picture_path) : asset('welcome_images/logo.png') }}"
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 portal">
+        <div class="col-md-3 portal">
             <div class="flash-title">
                 <img src="welcome_images/flash.png" alt="{{$header->top_links_topic ?? ''}}">
                 <p>{{$header->top_links_topic ?? ''}}</p>

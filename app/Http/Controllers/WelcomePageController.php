@@ -47,9 +47,9 @@ class WelcomePageController extends WelcomeController
 
         //header and footer
         $header = \App\Welcome\WelcomeHeader::find(1) ?? new \App\Welcome\WelcomeHeader;
-        $top_links = \App\Welcome\WelcomeTopLink::all();
+        $top_links = \App\Welcome\WelcomeTopLink::orderBy('number')->get();
         $welcome_logo = \App\Welcome\WelcomeLogo::find(1) ?? new \App\Welcome\WelcomeLogo;
-        $menus = \App\Welcome\WelcomeMenu::all();
+        $menus = \App\Welcome\WelcomeMenu::orderBy('number')->get();
         $footer = \App\Welcome\WelcomeFooter::find(1) ?? new \App\Welcome\WelcomeFooter;
 
         //contact us
@@ -83,14 +83,14 @@ class WelcomePageController extends WelcomeController
                 break;
             case 'menu':
                 $layouts = \App\Welcome\WelcomeLayout::all();
-                $menus = \App\Welcome\WelcomeMenu::all();
+                $menus = \App\Welcome\WelcomeMenu::orderBy('number')->get();
                 if(!count($menus)) $menus = array(new \App\Welcome\WelcomeMenu);
                 return view('welcome.'.$partial,compact('menus','layouts'));
                 break;
             case 'contact_us':
                 $main_branch = \App\Welcome\WelcomeMainBranch::find(1);
                 $contact_us = \App\Welcome\WelcomeContactUs::find(1);
-                $branches = \App\Welcome\WelcomeContactBranch::all();
+                $branches = \App\Welcome\WelcomeContactBranch::orderBy('number')->get();
                 if(!count($branches)) $branches = array(new \App\Welcome\WelcomeContactBranch);
                 return view('welcome.'.$partial,compact('main_branch','branches','contact_us'));
                 break;

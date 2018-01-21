@@ -15,6 +15,6 @@ class WelcomeContactUs extends WelcomePage
 
     public function branches()
     {
-        return $this->hasMany(WelcomeContactBranch::class,'contact_us_id');
+        return $this->hasMany(WelcomeContactBranch::class,'contact_us_id')->orderBy('number');
     }
 }

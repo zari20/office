@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-3 portal">
             <div class="flash-title">
-                <img src="welcome_images/flash.png" alt="{{$header->top_links_topic ?? ''}}">
+                <img src="welcome_images/cursor.png" alt="{{$header->top_links_topic ?? ''}}">
                 <p>{{$header->top_links_topic ?? ''}}</p>
             </div>
             <ul>

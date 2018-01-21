@@ -1034,10 +1034,11 @@ ol.carousel-indicators{
     color: white;
 }
 .logo h1 {
-    font-size: 3em;
+    font-size: 2.7em;
 }
 .logo h3 {
-    font-size: 1.3em;
+    font-size: 1.2em;
+    line-height: 1.2em;
 }
 
 .bl {

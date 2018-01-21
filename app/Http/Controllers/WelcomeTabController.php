@@ -66,6 +66,7 @@ class WelcomeTabController extends WelcomeController
             $section = new Section;
             $section->tab_id = $tab->id;
             $section->title = $titles[$i];
+            $section->type = $types[$i];
             $section->cols = $cols[$i];
             $section->save();
         }

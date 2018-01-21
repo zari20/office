@@ -53,7 +53,6 @@ section {
     display: block;
 }
 .carousel-item {
-  min-height: 300px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -151,7 +150,7 @@ section {
     transition: 0.3s;
 }
 .portal ul li a:hover img{
-    opacity: 1;
+    transform: scale(1.2);
 }
 .social{
     background-color: #fff;

@@ -242,14 +242,15 @@ class WelcomeManageController extends WelcomeController
         $class = '\App\Welcome\Welcome'.pascal_case($keyword);
         $class::delete_others($numbers,$section_id);
 
+        if ($inside_a_section) {
+            $object_instances = $class::where('section_id',$section_id)->get();
+        }else {
+            $object_instances = $class::all();
+        }
+
         for ($i=0; $i < count($numbers) ; $i++) {
 
-            if ($inside_a_section) {
-                $object_instance = $class::where('number',$numbers[$i])->where('section_id',$section_id)->first();
-            }else {
-                $object_instance = $class::where('number',$numbers[$i])->first();
-            }
-            $object = $object_instance ?? new $class;
+            $object = $object_instances[$i] ?? new $class;
 
             if (isset($pictures[$i])) {
                 $this->delete_photo($object->picture_path);
@@ -263,6 +264,9 @@ class WelcomeManageController extends WelcomeController
                     $keyword.'/files', $section_id.'-'.$numbers[$i].'-'.$this->random_string().'.'.$files[$i]->getClientOriginalExtension(), 'welcome_page_uploads'
                 );
             }
+
+            $picture_paths[$numbers[$i]] = $object->picture_path;
+
             foreach (request()->all() as $key => $input) {
                 if (is_array($input) && !($key == 'picture' || $key == 'file')) {
                     $object->$key = $input[$i];

@@ -485,10 +485,6 @@ li.nav-item{
     background-color: #fff;
     padding: 15px 0px 25px 0px;
 }
-.news .content .contbox ol.carousel-indicators,
-.introduction .tabs ol.carousel-indicators{
-    bottom: -10px
-}
 
 ol.carousel-indicators{
     padding: 0;

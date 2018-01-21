@@ -493,7 +493,6 @@ li.nav-item{
 ol.carousel-indicators{
     padding: 0;
     margin: 0;
-    bottom: -30px
 }
 .news .content .contbox ol.carousel-indicators li,
 .introduction .tabs  ol.carousel-indicators li,
@@ -944,6 +943,9 @@ ol.carousel-indicators{
 .sticky h1,
 .sticky h2{
     display: none
+}
+.carousel-indicators-numbers{
+    bottom: -50px;
 }
 
 .carousel-indicators-numbers li {

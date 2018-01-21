@@ -1,10 +1,12 @@
 <div class="container">
     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators carousel-indicators-circles">
-            @foreach ($section->fragments() as $key => $slider)
-                <li data-target="#carouselIndicators" data-slide-to="{{$key}}" {!! $key==0 ? 'class="active"' : '' !!} ></li>
-            @endforeach
-        </ol>
+        @if ( count($section->fragments()) > 1 )
+            <ol class="carousel-indicators carousel-indicators-circles">
+                @foreach ($section->fragments() as $key => $slider)
+                    <li data-target="#carouselIndicators" data-slide-to="{{$key}}" {!! $key==0 ? 'class="active"' : '' !!} ></li>
+                @endforeach
+            </ol>
+        @endif
         <div class="carousel-inner" role="listbox">
             @foreach ($section->fragments() as $key => $slider)
                 <div class="carousel-item {{$key==0 ? 'active' : ''}}">

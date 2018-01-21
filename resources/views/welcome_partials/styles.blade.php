@@ -489,12 +489,11 @@ li.nav-item{
 .introduction .tabs ol.carousel-indicators{
     bottom: -10px
 }
-.shop ol.carousel-indicators {
-    bottom: -20px
-}
+
 ol.carousel-indicators{
     padding: 0;
-    margin: 20px 0px;
+    margin: 0;
+    bottom: -30px
 }
 .news .content .contbox ol.carousel-indicators li,
 .introduction .tabs  ol.carousel-indicators li,

@@ -535,11 +535,11 @@ ol.carousel-indicators{
 }
 .introduction{
     background-color: #FAFAFA;
-    padding: 10px 0px;
+    padding: 40px 0px;
 }
 .introduction.about{
-    padding-bottom: 10px !important;
-    padding-top: 10px !important;
+    padding-bottom: 25px !important;
+    padding-top: 25px !important;
     background-color: #fff;
 }
 .layout-title{

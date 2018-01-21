@@ -494,7 +494,7 @@ li.nav-item{
 }
 ol.carousel-indicators{
     padding: 0;
-    margin: 0;
+    margin: 20px 0px;
 }
 .news .content .contbox ol.carousel-indicators li,
 .introduction .tabs  ol.carousel-indicators li,
@@ -538,8 +538,8 @@ ol.carousel-indicators{
     padding: 10px 0px;
 }
 .introduction.about{
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
     background-color: #fff;
 }
 .layout-title{

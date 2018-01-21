@@ -31,7 +31,7 @@
                 <section id="{{$layout->puzzle->latin_id}}">
                     @if ($title = $layout->puzzle->title)
                         <div class="layout-title">
-                            <h2>{{$title}}</h2>
+                            <h2 class="my-4">{{$title}}</h2>
                         </div>
                     @endif
                     @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])

@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-3 col-sm-2">
                     <img src="{{ $welcome_logo->picture_path ? asset('welcome/'.$welcome_logo->picture_path) : asset('welcome_images/logo.png') }}"
-                    alt="{{$welcome_logo->title ?? ''}}" width="75px" height="75px" class="ml-3">
+                    alt="{{$welcome_logo->title ?? ''}}" width="85px" height="85px" class="ml-3">
                 </div>
                 <div class="col-9 col-sm-10 logo text-right">
-                    <div class="mr-3">
+                    <div class="mr-4">
                         <h1> {{$welcome_logo->title ?? ''}} </h1>
                         <h3> {!! $welcome_logo->info ? nl2br($welcome_logo->info) : '' !!} </h3>
                     </div>

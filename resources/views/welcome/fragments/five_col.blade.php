@@ -22,6 +22,10 @@
                     <fieldset class="form-group col-md-1 p-3 text-center">
                         <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                     </fieldset>
+                    <fieldset class="form-group col-md-1 p-3">
+                        <label> شماره </label>
+                        <input name="number[]" value="{{$col->number}}" type="text" class="form-control">
+                    </fieldset>
                     <fieldset class="form-group col-md-2 p-3">
                         <label> عنوان </label>
                         <input name="subject[]" value="{{$col->subject}}" type="text" class="form-control">
@@ -34,7 +38,7 @@
                         <label> لینک </label>
                         <input name="href[]" value="{{$col->href}}" type="text" class="form-control">
                     </fieldset>
-                    <fieldset class="form-group col-md-5 p-3">
+                    <fieldset class="form-group col-md-4 p-3">
                         <label> توضیحات </label>
                         <input name="info[]" value="{{$col->info}}" type="text" class="form-control">
                     </fieldset>

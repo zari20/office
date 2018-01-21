@@ -22,15 +22,19 @@
                     <fieldset class="form-group col-md-1 p-3 text-center">
                         <a class="delete-cloned pointer"><i class="fa fa-trash fa-2x mt-4 text-danger"></i></a>
                     </fieldset>
-                    <fieldset class="form-group col-md-5 p-3">
+                    <fieldset class="form-group col-md-1 p-3">
+                        <label> شماره </label>
+                        <input name="number[]" value="{{$menu->number}}" type="text" class="form-control">
+                    </fieldset>
+                    <fieldset class="form-group col-md-3 p-3">
                         <label> نام </label>
                         <input name="name[]" value="{{$menu->name}}" type="text" class="form-control">
                     </fieldset>
-                    <fieldset class="form-group col-md-3 p-3">
+                    <fieldset class="form-group col-md-2 p-3">
                         <label> آیکون </label>
                         <input name="icon[]" value="{{$menu->icon}}" type="text" class="form-control">
                     </fieldset>
-                    <fieldset class="form-group col-md-3 p-3">
+                    <fieldset class="form-group col-md-2 p-3">
                         <label> هدف </label>
                         <select class="form-control" name="target[]">
                             <option value="" {{!$menu->target ? 'selected' : null}}> [بدون هدف] </option>
@@ -41,6 +45,10 @@
                                 </option>
                             @endforeach
                         </select>
+                    </fieldset>
+                    <fieldset class="form-group col-md-3 p-3">
+                        <label> لینک </label>
+                        <input name="link[]" value="{{$menu->link}}" type="text" class="form-control">
                     </fieldset>
                 </div>
             @endforeach

@@ -1,4 +1,4 @@
-<footer class="bg-first">
+<footer class="bg-first mt-5">
     <div class="text-center d-sm-none">
 
         <div class="text-center mb-4">

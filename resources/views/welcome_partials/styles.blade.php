@@ -535,7 +535,7 @@ ol.carousel-indicators{
 }
 .introduction{
     background-color: #FAFAFA;
-    padding: 80px 0px;
+    padding: 10px 0px;
 }
 .introduction.about{
     padding-bottom: 0 !important;

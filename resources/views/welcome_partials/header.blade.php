@@ -60,7 +60,7 @@
             <ul>
                 @foreach ($top_links as $link)
                     <li>
-                        <a href="{{$link->href ?? '#'}}">
+                        <a href="{{$link->href ?? '#'}}" title="{{$link->name}}" data-toggle="tooltip">
                             <img src="{{asset('welcome/'.($link->picture_path ?? ''))}}" width="33px" height="33px">
                         </a>
                     </li>

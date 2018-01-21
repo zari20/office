@@ -1,4 +1,4 @@
-<section class="introduction contact" id="{{$contact_us->latin_id}}">
+<section class="introduction contact mt-5" id="{{$contact_us->latin_id}}">
     <div class="container">
         <div class="row">
             <div class="title">

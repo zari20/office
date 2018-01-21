@@ -97,7 +97,11 @@
                         <label> شماره </label>
                         <input name="number[]" value="{{$link->number}}" type="text" class="form-control">
                     </fieldset>
-                    <fieldset class="form-group col-md-7 p-3">
+                    <fieldset class="form-group col-md-3 p-3">
+                        <label> نام </label>
+                        <input name="name[]" value="{{$link->name}}" type="text" class="form-control">
+                    </fieldset>
+                    <fieldset class="form-group col-md-4 p-3">
                         <label> لینک </label>
                         <input name="href[]" value="{{$link->href}}" type="text" class="form-control">
                     </fieldset>

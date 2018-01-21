@@ -309,7 +309,7 @@ li.nav-item{
 }
 .boxes{
     background-color: #FAFAFA;
-    padding: 80px 0px;
+    padding: 40px 0px;
 }
 
 .srsl{
@@ -538,6 +538,8 @@ ol.carousel-indicators{
     padding: 80px 0px;
 }
 .introduction.about{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
     background-color: #fff;
 }
 .layout-title{
@@ -558,7 +560,7 @@ ol.carousel-indicators{
 }
 .introduction .tabs{
     width: 100%;
-    margin-top: 40px;
+    margin-top: 25px;
 
 }
 .introduction .tabs ul{

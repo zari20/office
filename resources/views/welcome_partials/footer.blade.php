@@ -4,7 +4,7 @@
         <div class="text-center mb-4">
             <img src="http://127.0.0.1:8000/img/icons/royan.png" width="60px" height="60px" alt="رویان رسانه">
             <p class="royan-desc text-black"> اولین موسس باشگاه مشتریان هوشمند در ایران </p>
-            <a href="http://www.mmba.ir" class="d-block royan-desc text-white"> w w w . m m b a . i r </a>
+            <a href="http://www.rqmedia.ir" class="d-block royan-desc text-white"> w w w . m m b a . i r </a>
         </div>
 
         <a href="tel:02146013418" class="row footer-call">
@@ -60,7 +60,7 @@
                         </a>
                     </div>
                     <div class="col-4">
-                        <a href="http://www.mmba.ir">
+                        <a href="http://www.rqmedia.ir">
                             <img src="http://127.0.0.1:8000/img/icons/globe-white.png" class="mt-2" width="25px">
                         </a>
                     </div>
@@ -78,7 +78,7 @@
             <div class="text-center mb-4 col-md-4">
                 <img src="http://127.0.0.1:8000/img/icons/royan.png" width="60px" height="60px" alt="رویان رسانه">
                 <p class="royan-desc text-black"> اولین موسس باشگاه مشتریان هوشمند در ایران </p>
-                <a href="http://www.mmba.ir" class="d-block royan-desc text-white"> w w w . m m b a . i r </a>
+                <a href="http://www.rqmedia.ir" class="d-block royan-desc text-white"> w w w . m m b a . i r </a>
             </div>
 
             <div class="col-md-4">
@@ -130,7 +130,7 @@
                         </a>
                     </div>
                     <div class="col-4">
-                        <a href="http://www.mmba.ir">
+                        <a href="http://www.rqmedia.ir">
                             <img src="http://127.0.0.1:8000/img/icons/globe-white.png" class="mt-2" width="25px">
                         </a>
                     </div>

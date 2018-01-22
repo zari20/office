@@ -138,7 +138,7 @@ class WelcomeManageController extends WelcomeController
     {
         $found = \App\Welcome\WelcomeContactUs::find(1);
         $contact_us =  $found ?? new \App\Welcome\WelcomeContactUs;
-        $contact_us->background_path = $this->upload('contact_us','background_path'.$contact_us->background_path);
+        $contact_us->background_path = $this->upload('contact_us','background_path',$contact_us->background_path);
         $contact_us->title = request('title');
         $contact_us->latin_id = request('latin_id');
         $contact_us->main_branch_title = request('main_branch_title');

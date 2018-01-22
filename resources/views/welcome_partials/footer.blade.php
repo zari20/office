@@ -171,7 +171,7 @@ footer div {
     color: #00B9CF;
     padding: 10px 0px;
     font-size: 1.2em;
-    font-family: 'Entezar';
+    font-family: 'Yekan';
     background-color: white;
     margin: 5px 0px 0px 10px;
 }

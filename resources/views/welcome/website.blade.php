@@ -8,9 +8,13 @@
             <label for="title"> عنوان سایت </label>
             <input type="text" class="form-control" id="title" name="title" value="{{$website->title}}">
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-3">
             <label for="author"> مدیر سایت </label>
             <input type="text" class="form-control" id="author" name="author" value="{{$website->author}}">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="telegram_chat"> آیدی چت تلگرام </label>
+            <input type="text" class="form-control" id="telegram_chat" name="telegram_chat" value="{{$website->telegram_chat}}">
         </div>
         <div class="form-group col-md-12">
             <label for="description"> توضیحات سایت </label>

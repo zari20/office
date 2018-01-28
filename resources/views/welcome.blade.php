@@ -18,7 +18,11 @@
     </head>
     <body>
 
-        <div class="cnfix"><a href="#"><i class="fa fa-comments"></i> گفتگوی آنلاین </a></div>
+        <div class="cnfix">
+            <a href="http://t.me/{{$website->telegram_chat}}" target="_blank">
+                <i class="fa fa-comments"></i> چت تلگرام
+            </a>
+        </div>
 
         @if ($header->visible)
             @include('welcome_partials.header')

@@ -25,7 +25,4 @@
         </div>
     </div>
 </section>
-<div class="text-center p-3">
-    <a href="#" class="bg-second ml-4 p-3 text-white animated pulse">مشاهده همه <i class="fa fa-arrow-left mr-1"></i></a>
-</div>
 <hr>

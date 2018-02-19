@@ -69,12 +69,12 @@ class WelcomeManageController extends WelcomeController
     {
         //check if logged in
         WelcomeHelper::auth();
-
         $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
         $positions = request('position');
 
         foreach ($layouts as $key => $layout) {
             $layout->position = $positions[$key];
+            $layout->container = request("container$key");
             $layout->save();
         }
 

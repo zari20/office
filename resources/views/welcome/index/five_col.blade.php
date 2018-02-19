@@ -3,7 +3,7 @@
 @endphp
 
 <section class="boxes">
-    <div class="container">
+    @if($layout->container) <div class="container"> @endif
         <div id="five-cols-{{$section->id}}" class="carousel slide" data-ride="carousel" data-interval="false">
             @if (count($five_cols) > 5)
                 <ol class="carousel-indicators carousel-indicators-numbers">
@@ -30,5 +30,5 @@
             @endfor
             @if (count($five_cols) > 5) </div> @endif
         </div>
-    </div>
+    @if($layout->container) </div> @endif
 </section>

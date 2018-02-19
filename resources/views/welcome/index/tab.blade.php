@@ -1,5 +1,5 @@
 <section class="introduction about">
-    <div class="container">
+    @if($layout->container) <div class="container"> @endif
         <div class="row">
             @if ($tab->title)
                 <div class="layout-title">
@@ -41,5 +41,5 @@
                 </div>
             </div>
         </div>
-    </div>
+        @if($layout->container) </div> @endif
 </section>

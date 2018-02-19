@@ -1,4 +1,4 @@
-<div class="container">
+@if($layout->container) <div class="container"> @endif
     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
         @if ( count($section->fragments()) > 1 )
             <ol class="carousel-indicators carousel-indicators-circles">
@@ -27,4 +27,4 @@
             <span class="sr-only">بعدی</span>
         </a>
     </div>
-</div>
+@if($layout->container) </div> @endif

@@ -1,5 +1,5 @@
 <section class="category">
-    <div class="container">
+    @if($layout->container) <div class="container"> @endif
         <div class="row mb-3">
             @foreach ($section->fragments() as $key => $card)
                 <div class="col-md-{{calculate_cols($section->cols)}} my-1 p-1">
@@ -23,6 +23,6 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    @if($layout->container) </div> @endif
 </section>
 <hr>

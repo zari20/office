@@ -64,7 +64,6 @@ section {
     display: block;
     float: right;
     width: 100%;
-    padding-top: 10px;
 }
 .topbar .contact ul{
     margin: 0;
@@ -1058,4 +1057,40 @@ ol.carousel-indicators{
     color: white !important;
     border-radius: 4px !important;
 }
+
+.white-logo{
+    background-color: white;
+}
+.white-logo h1{
+    color : {{$colors->organ_color_1 ?? 'black'}}
+}
+.white-logo h3{
+    color : {{$colors->organ_color_2 ?? 'black'}}
+}
+
+.second-header-portal {
+    text-align: center;
+}
+
+.second-header-portal .devider {
+    display: inline-block;
+    width: 1px;
+    height: 40px;
+    background-color: white;
+}
+
+.second-header-portal a {
+    position: relative;
+    bottom: 15px;
+    transition: 0.5s;
+    color: white;
+    font-size: 17px;
+    margin: 0px 8px;
+}
+
+.second-header-portal a.badge:hover {
+    color: white;
+    background-color: {{$colors->organ_color_2 ?? 'black'}};
+}
+
 </style>

@@ -23,4 +23,9 @@ class WelcomeSection extends WelcomePage
     {
         return WelcomeLayout::where('puzzle_type',self::class)->where('puzzle_id',$this->id)->first();
     }
+
+    public function snippets()
+    {
+        return $this->hasMany(WelcomeSnippet::class,'section_id');
+    }
 }

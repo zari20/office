@@ -14,6 +14,7 @@
         <link href="css/welcome/responsive.css" rel="stylesheet">
         <link href="css/welcome/fonts.css" rel="stylesheet">
         <link href="css/welcome/animate.css" rel="stylesheet">
+        <link href="css/welcome/snippets.css" rel="stylesheet">
 
     </head>
     <body>

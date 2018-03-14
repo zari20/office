@@ -2,7 +2,7 @@
     @foreach ($section->snippets as $key => $snippet)
         @if ($model == 1524)
             <figure class="snip1524">
-                <img src="{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
+                <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <figcaption>
                     <h2>{{$snippet->header}}</h2>
                     <p>{{$snippet->body}}</p>
@@ -12,7 +12,7 @@
         @endif
         @if ($model == 1536)
             <figure class="snip1536">
-                <img src="{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
+                <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <figcaption>
                     <p>{{$snippet->body}}</p>
                     <h3>{{$snippet->header}}</h3>
@@ -23,7 +23,7 @@
         @endif
         @if ($model == 1576)
             <figure class="snip1576">
-                <img src="{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
+                <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <figcaption>
                     <h3>{{$snippet->body}} <span>{{$snippet->header}}</span></h3>
                 </figcaption>

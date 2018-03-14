@@ -16,6 +16,7 @@ class CreateWelcomeSnippetsTable extends Migration
         Schema::create('welcome_snippets', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('section_id');
+            $table->unsignedInteger('number')->nullable();
             $table->string('header')->nullable();
             $table->string('link')->nullable();
             $table->string('button')->nullable();

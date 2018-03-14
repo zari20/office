@@ -26,6 +26,6 @@ class WelcomeSection extends WelcomePage
 
     public function snippets()
     {
-        return $this->hasMany(WelcomeSnippet::class,'section_id');
+        return $this->hasMany(WelcomeSnippet::class,'section_id')->orderBy('number');
     }
 }

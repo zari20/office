@@ -102,7 +102,14 @@ class WelcomePageController extends WelcomeController
             case 'section':
                 $section = \App\Welcome\WelcomeSection::find($id);
                 $editable = !$section->tab_id;
-                return view('welcome.fragments.'.$section->type,compact('section','editable'));
+                if (substr( $section->type, 0, 5 ) === "model"){
+                    $view = "model";
+                    $model = str_replace("model", "", $section->type);
+                }else {
+                    $view = $section->type;
+                    $model = null;
+                }
+                return view('welcome.fragments.'.$view,compact('section','editable','model'));
                 break;
             case 'tab':
                 $tab = \App\Welcome\WelcomeTab::find(request('id'));

@@ -1,6 +1,6 @@
 <section class="topbar" id="home">
-    <div class="row">
-        <div class="col-md-4 @if($header->type == 2) white-logo @endif">
+    <div class="row pb-3">
+        <div class="col-md-4">
             <div class="row mt-2">
                 <div class="col-3 col-sm-2">
                     <img src="{{ $welcome_logo->picture_path ? asset('welcome/'.$welcome_logo->picture_path) : asset('welcome_images/logo.png') }}"

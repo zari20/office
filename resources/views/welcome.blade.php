@@ -30,7 +30,6 @@
             </section>
         @endif
     @endforeach
-    @include('welcome.index.blog2')
     @if ($footer->visible)
         @include('welcome_partials.footer')
     @endif

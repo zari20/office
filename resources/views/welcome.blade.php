@@ -20,7 +20,11 @@
                         <h2 class="my-4">{{$title}}</h2>
                     </div>
                 @endif
-                @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])
+                @if (substr( $layout->puzzle->type, 0, 5 ) === "model")
+                    @include('welcome.index.model',['section'=>$layout->puzzle, 'model' => str_replace("model", "", $layout->puzzle->type) ])
+                @else
+                    @include('welcome.index.'.$layout->puzzle->type,['section'=>$layout->puzzle])
+                @endif
             </section>
         @elseif(rw($layout->puzzle_type) == 'contactus')
             @include('welcome_partials.contact_us')

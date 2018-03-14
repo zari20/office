@@ -36,6 +36,9 @@ function welcome_translate($word)
         case 'product': return 'محصولات'; break;
         case 'link': return 'لینک'; break;
         case 'card': return 'آگهی'; break;
+        case 'model1524': return 'مدل 1524'; break;
+        case 'model1536': return 'مدل 1536'; break;
+        case 'model1576': return 'مدل 1576'; break;
         default: return $word; break;
     }
 }

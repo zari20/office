@@ -13,7 +13,7 @@ class WelcomeSectionController extends WelcomeController
         //check if logged in
         WelcomeHelper::auth();
 
-        //validatio
+        //validation
         // TODO: uniqueness
 
         //store in database

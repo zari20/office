@@ -1,6 +1,6 @@
 <div class="text-center">
     @foreach ($section->snippets as $key => $snippet)
-        @if ($section->model == 1524)
+        @if ($model == 1524)
             <figure class="snip1524">
                 <img src="{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <figcaption>
@@ -10,7 +10,7 @@
                 <a href="{{$snippet->link}}">{{$snippet->button}}</a>
             </figure>
         @endif
-        @if ($section->model == 1536)
+        @if ($model == 1536)
             <figure class="snip1536">
                 <img src="{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <figcaption>
@@ -21,7 +21,7 @@
                 <a href="{{$snippet->link}}">{{$snippet->button}}</a>
             </figure>
         @endif
-        @if ($section->model == 1576)
+        @if ($model == 1576)
             <figure class="snip1576">
                 <img src="{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <figcaption>

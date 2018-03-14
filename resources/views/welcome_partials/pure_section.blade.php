@@ -21,6 +21,9 @@
                         <option value="product" {{$section->type=='product' ? 'selected' : ''}}> {{welcome_translate('product')}} </option>
                         <option value="link" {{$section->type=='link' ? 'selected' : ''}}> {{welcome_translate('link')}} </option>
                         <option value="card" {{$section->type=='card' ? 'selected' : ''}}>  {{welcome_translate('card')}}  </option>
+                        <option value="model1524" {{$section->type=='model1524' ? 'selected' : ''}}>  {{welcome_translate('model1524')}}  </option>
+                        <option value="model1536" {{$section->type=='model1536' ? 'selected' : ''}}>  {{welcome_translate('model1536')}}  </option>
+                        <option value="model1576" {{$section->type=='model1576' ? 'selected' : ''}}>  {{welcome_translate('model1576')}}  </option>
                     </select>
                 </div>
             @endif

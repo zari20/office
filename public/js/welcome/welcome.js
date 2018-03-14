@@ -107,7 +107,7 @@ function hideOrShowSectionInputs(type) {
     if(type=='slider'){
         $('.section-title').hide();
         $('.section-cols').hide();
-    } else if(type=='five_col' || type=='blog') {
+    } else if(type=='five_col' || type=='blog' || type.startsWith('model')) {
         $('.section-title').show();
         $('.section-cols').hide();
     }else {

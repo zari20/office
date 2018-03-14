@@ -9,9 +9,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-77-tab" data-toggle="pill" href="#pills-77" role="tab" aria-controls="pills-77" aria-selected="true">{{$contact_us->main_branch_title}}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-88-tab" data-toggle="pill" href="#pills-88" role="tab" aria-controls="pills-88" aria-selected="false">{{$contact_us->other_branches_title}}</a>
-                    </li>
+                    @if (count($contact_branches))
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-88-tab" data-toggle="pill" href="#pills-88" role="tab" aria-controls="pills-88" aria-selected="false">{{$contact_us->other_branches_title}}</a>
+                        </li>
+                    @endif
                     @if ($contact_us->form_visible)
                         <li class="nav-item">
                             <a class="nav-link" id="pills-99-tab" data-toggle="pill" href="#pills-99" role="tab" aria-controls="pills-99" aria-selected="false">{{$contact_us->form_title}}</a>

@@ -18,7 +18,7 @@
                     <h3>{{$snippet->header}}</h3>
                 </figcaption>
                 <div class="hover"></div>
-                <i class="fa fa-{{$snippet->icon}}"></i>
+                <i class="{{$snippet->icon}}"></i>
                 <a href="{{$snippet->link}}">{{$snippet->button}}</a>
             </figure>
         @endif
@@ -43,7 +43,7 @@
         @if ($model == 1557)
             <figure class="snip1557">
                 <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
-                <i class="fa fa-{{$snippet->icon}}"></i>
+                <i class="{{$snippet->icon}}"></i>
                 <h3>{{$snippet->header}}</h3>
                 <a href="{{$snippet->link}}">{{$snippet->button}}</a>
             </figure>

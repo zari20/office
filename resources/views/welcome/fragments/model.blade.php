@@ -39,7 +39,7 @@
                         <input name="button[]" value="{{$snippet->button}}" type="text" class="form-control">
                     </fieldset>
                     <fieldset class="form-group col-md-2 p-3">
-                        <label> آیکون </label>
+                        <label> آیکون <a href="http://ionicons.com/cheatsheet.html" target="_blank"> مشاهده آیکون ها</a> </label>
                         <input name="icon[]" value="{{$snippet->icon}}" type="text" class="form-control">
                     </fieldset>
                     <fieldset class="form-group col-md-9 p-3">

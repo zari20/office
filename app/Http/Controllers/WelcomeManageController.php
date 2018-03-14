@@ -102,9 +102,12 @@ class WelcomeManageController extends WelcomeController
 
     public function header()
     {
-        //header itself
+        //get header type
+        $type = \App\Welcome\WelcomeHeader::find(1)->type;
+
         \App\Welcome\WelcomeHeader::truncate();
         $header = WelcomeValidate::header();
+        $header['type'] = $type;
         \App\Welcome\WelcomeHeader::create($header);
 
         $this->update_and_upload('top_link',false);

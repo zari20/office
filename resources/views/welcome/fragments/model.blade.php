@@ -16,7 +16,7 @@
 
 
         <div class="clone-box">
-            @foreach ($section->snippets as $key => $snippet)
+            @foreach ($section->models() as $key => $snippet)
                 <div class="row to-be-cloned">
                     <input type="hidden" name="section_id[]" value="{{$section->id}}">
                     <fieldset class="form-group col-md-1 p-3 text-center">

@@ -28,4 +28,9 @@ class WelcomeSection extends WelcomePage
     {
         return $this->hasMany(WelcomeSnippet::class,'section_id')->orderBy('number');
     }
+
+    public function models()
+    {
+        return count($this->snippets) ? $this->snippets : [new \App\Welcome\WelcomeSnippet];
+    }
 }

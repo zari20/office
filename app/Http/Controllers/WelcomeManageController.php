@@ -240,7 +240,7 @@ class WelcomeManageController extends WelcomeController
         $section_id = $inside_a_section ? request('id') : 0;
         $pictures = request('picture');
         $files = request('file');
-        $numbers = request('number');
+        $numbers = request('number') ?? [];
 
         $class = '\App\Welcome\Welcome'.pascal_case($keyword);
         $class::delete_others($numbers,$section_id);

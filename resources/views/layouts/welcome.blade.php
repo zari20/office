@@ -19,5 +19,5 @@
 
     <script src="{{asset('js/welcome/jquery.min.js')}}"></script>
     <script src="{{asset('js/welcome/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('js/welcome/welcome.js')}}"></script>
+    <script src="{{asset('js/welcome/welcome-panel.js')}}"></script>
 </html>

@@ -1,5 +1,327 @@
 [class^="snip"], [class*=" snip"] {
     direction: rtl;
+    font-family: 'Yekan';
+}
+
+/******************************** 1554 *****************************************/
+
+.snip1554 {
+  background-color: #045e78;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px;
+  max-width: 315px;
+  min-width: 230px;
+  overflow: hidden;
+  position: relative;
+  text-align: right;
+  width: 100%;
+}
+
+.snip1554 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease;
+  transition: all 0.45s ease;
+}
+
+.snip1554:after {
+  background-color: white;
+  opacity: 0.6;
+  top: 0;
+  bottom: 0;
+  content: '';
+  left: -100%;
+  position: absolute;
+  width: 200px;
+  box-shadow: 0 0 100px white;
+  -webkit-transform: skew(-20deg);
+  transform: skew(-20deg);
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.snip1554 img {
+  vertical-align: top;
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+
+.snip1554 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  line-height: 1em;
+  opacity: 0;
+}
+
+.snip1554 h3 {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 1.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.snip1554 h3 span {
+  font-weight: 700;
+}
+
+.snip1554 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.snip1554:hover > img,
+.snip1554.hover > img {
+  opacity: 0.4;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.snip1554:hover:after,
+.snip1554.hover:after {
+  left: 200%;
+}
+
+.snip1554:hover figcaption,
+.snip1554.hover figcaption {
+  opacity: 1;
+}
+
+
+/******************************** 1557 *****************************************/
+
+.snip1557 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 8px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #000000;
+  font-size: 16px;
+  line-height: 1.2em;
+  text-align: center;
+  font-weight: 300;
+}
+
+.snip1557 *,
+.snip1557 *:before,
+.snip1557 *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
+}
+
+.snip1557:after {
+  -webkit-transition: all 0.65s ease;
+  transition: all 0.65s ease;
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  top: -478px;
+  left: -478px;
+  border-radius: 50%;
+  border: 500px solid transparent;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  content: '';
+  opacity: 0.8;
+}
+
+.snip1557 img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.snip1557 i {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  color: #000000;
+  display: block;
+  z-index: 10;
+}
+
+.snip1557 i:before,
+.snip1557 i:after {
+  border-radius: 50%;
+}
+
+.snip1557 i:before {
+  color: #ddd;
+  background-color: #fff;
+  font-size: 37.64705882px;
+  line-height: 64px;
+  text-align: center;
+  width: 64px;
+}
+
+.snip1557 i:after {
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  left: -14px;
+  right: -14px;
+  border: 15px solid #ddd;
+  border-top-color: #2980b9;
+  border-left-color: #2980b9;
+  content: '';
+  z-index: -2;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.snip1557 i:hover {
+  background-color: #D2B17F;
+  cursor: pointer;
+}
+
+.snip1557 h3 {
+  bottom: 0;
+  color: #fff;
+  letter-spacing: 2px;
+  margin: 0;
+  opacity: 0;
+  padding: 10px 15px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.snip1557 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+
+.snip1557:hover:after,
+.snip1557.hover:after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.snip1557:hover img,
+.snip1557.hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.snip1557:hover i:before,
+.snip1557.hover i:before {
+  color: #2980b9;
+}
+
+.snip1557:hover i:after,
+.snip1557.hover i:after {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+.snip1557:hover h3,
+.snip1557.hover h3 {
+  opacity: 1;
+}
+
+
+/******************************** 1561 *****************************************/
+
+.snip1561 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 8px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  background: #700877;
+  background: -moz-linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
+  background: -webkit-linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
+  background: linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
+}
+
+.snip1561 img,
+.snip1561:before,
+.snip1561:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.snip1561 img {
+  max-width: 100%;
+  backface-visibility: hidden;
+  vertical-align: top;
+}
+
+.snip1561:before,
+.snip1561:after {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.snip1561:before {
+  width: 60px;
+  height: 1px;
+  left: 100%;
+}
+
+.snip1561:after {
+  height: 60px;
+  width: 1px;
+  top: 0%;
+}
+
+.snip1561 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.snip1561:hover img,
+.snip1561.hover img {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
+
+.snip1561:hover:before,
+.snip1561.hover:before,
+.snip1561:hover:after,
+.snip1561.hover:after {
+  opacity: 1;
+  top: 50%;
+  left: 50%;
 }
 
 /******************************** 1576 *****************************************/
@@ -8,7 +330,6 @@
   background-color: #fff;
   color: #444;
   display: inline-block;
-  font-family: 'Yekan';
   font-size: 24px;
   margin: 8px;
   max-width: 315px;
@@ -108,7 +429,6 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   color: #ffffff;
   display:inline-block;
-  font-family: 'Yekan';
   font-size: 16px;
   line-height: 1.6em;
   margin: 10px 1%;
@@ -222,7 +542,6 @@
 /******************************** 1524 *****************************************/
 
 figure.snip1524 {
-  font-family: 'Yekan';
   position: relative;
   overflow: hidden;
   margin: 10px 1%;

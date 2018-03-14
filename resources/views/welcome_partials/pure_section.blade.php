@@ -21,9 +21,11 @@
                         <option value="product" {{$section->type=='product' ? 'selected' : ''}}> {{welcome_translate('product')}} </option>
                         <option value="link" {{$section->type=='link' ? 'selected' : ''}}> {{welcome_translate('link')}} </option>
                         <option value="card" {{$section->type=='card' ? 'selected' : ''}}>  {{welcome_translate('card')}}  </option>
-                        <option value="model1524" {{$section->type=='model1524' ? 'selected' : ''}}>  {{welcome_translate('model1524')}}  </option>
-                        <option value="model1536" {{$section->type=='model1536' ? 'selected' : ''}}>  {{welcome_translate('model1536')}}  </option>
-                        <option value="model1576" {{$section->type=='model1576' ? 'selected' : ''}}>  {{welcome_translate('model1576')}}  </option>
+                        @foreach ([1524,1536,1554,1557,1561,1576] as $number)
+                            <option value="model{{$number}}" {{$section->type=='model'.$number ? 'selected' : ''}}>
+                                {{welcome_translate('model'.$number)}}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
             @endif

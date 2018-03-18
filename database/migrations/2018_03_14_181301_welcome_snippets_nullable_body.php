@@ -14,7 +14,7 @@ class WelcomeSnippetsNullableBody extends Migration
     public function up()
     {
         Schema::table('welcome_snippets', function (Blueprint $table) {
-            $table->string('body')->nullable()->change();
+            $table->text('body')->nullable()->change();
         });
     }
 

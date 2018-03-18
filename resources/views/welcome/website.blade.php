@@ -25,7 +25,7 @@
             <textarea name="keywords" rows="8" class="form-control" id="keywords">{{$website->keywords}}</textarea>
         </div>
         <div class="form-group col-md-12">
-             <p class=""> نوع عناوین </p>
+             <p> نوع عناوین </p>
             @foreach([0,1582,1575,1564,1562] as $key => $model)
                 <label class="custom-control custom-radio">
                     @if($model)

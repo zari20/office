@@ -7,7 +7,7 @@
                     <h2>{{$snippet->header}}</h2>
                     <p>{{$snippet->body}}</p>
                 </figcaption>
-                <a href="{{$snippet->link}}">{{$snippet->button}}</a>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
         @if ($model == 1536)
@@ -19,7 +19,7 @@
                 </figcaption>
                 <div class="hover"></div>
                 <i class="{{$snippet->icon}}"></i>
-                <a href="{{$snippet->link}}">{{$snippet->button}}</a>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
         @if ($model == 1576)
@@ -28,7 +28,7 @@
                 <figcaption>
                     <h3>{{$snippet->body}} <span>{{$snippet->header}}</span></h3>
                 </figcaption>
-                <a href="{{$snippet->link}}">{{$snippet->button}}</a>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
         @if ($model == 1554)
@@ -37,7 +37,7 @@
                 <figcaption>
                     <h3>{{$snippet->header}}</h3>
                 </figcaption>
-                <a href="{{$snippet->link}}">{{$snippet->button}}</a>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
         @if ($model == 1557)
@@ -45,14 +45,31 @@
                 <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
                 <i class="{{$snippet->icon}}"></i>
                 <h3>{{$snippet->header}}</h3>
-                <a href="{{$snippet->link}}">{{$snippet->button}}</a>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
         @if ($model == 1561)
             <figure class="snip1561">
                 <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
-                <a href="{{$snippet->link}}">{{$snippet->button}}</a>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
+
+        <div class="modal fade" id="lightbox{{$snippet->id}}" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-full" role="document">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{$snippet->header}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="text-white">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
     @endforeach
 </div>

@@ -1093,4 +1093,9 @@ ol.carousel-indicators{
     background-color: {{$colors->organ_color_2 ?? 'black'}};
 }
 
+.modal-full {
+    min-width: 100%;
+    margin: 0;
+}
+
 </style>

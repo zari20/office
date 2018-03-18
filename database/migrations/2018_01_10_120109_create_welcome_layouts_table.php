@@ -23,7 +23,7 @@ class CreateWelcomeLayoutsTable extends Migration
 
         \DB::table('welcome_layouts')->insert([
             'puzzle_id' => 1,
-            'puzzle_type' => '\App\Welcome\WelcomeContactUs',
+            'puzzle_type' => 'App\Welcome\WelcomeContactUs',
             'position' => 1,
             'visible' => 1,
         ]);

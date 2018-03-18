@@ -28,7 +28,7 @@
             </section>
         @elseif(rw($layout->puzzle_type) == 'contactus')
             @include('welcome_partials.contact_us')
-        @else
+        @elseif(rw($layout->puzzle_type) == 'tab')
             <section id="{{$layout->puzzle->latin_id}}">
                 @include('welcome.index.tab', ['tab' => $layout->puzzle])
             </section>

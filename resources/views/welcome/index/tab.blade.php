@@ -1,10 +1,8 @@
 <section class="introduction about">
     @if($layout->container) <div class="container"> @endif
         <div class="row">
-            @if ($tab->title)
-                <div class="layout-title">
-                    <h2>{{$tab->title}}</h2>
-                </div>
+            @if ($title = $tab->title)
+                @include('welcome_partials.title')
             @endif
             <div class="tabs">
                 <ul class="nav nav-pills mb-3 d-inline d-sm-flex" id="pills-tab" role="tablist">

@@ -14,7 +14,7 @@
         <link href="css/welcome/responsive.css" rel="stylesheet">
         <link href="css/welcome/fonts.css" rel="stylesheet">
         <link href="css/welcome/animate.css" rel="stylesheet">
-        <link href="css/welcome/snippets.css" rel="stylesheet">
+        @include('welcome_partials.snippets')
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 
     </head>

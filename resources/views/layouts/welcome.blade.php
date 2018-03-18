@@ -8,7 +8,8 @@
         <link href="{{asset('css/welcome/animate.css')}}" rel="stylesheet">
         <link href="{{asset('css/welcome/fonts.css')}}" rel="stylesheet">
         <link href="{{asset('css/welcome/welcome.css')}}" rel="stylesheet">
-
+        @include('welcome_partials.snippets')
+        
     </head>
 
     <body>

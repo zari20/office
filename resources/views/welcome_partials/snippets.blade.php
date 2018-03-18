@@ -1,7 +1,69 @@
+<style>
+
 [class^="snip"], [class*=" snip"] {
     direction: rtl;
     font-family: 'Yekan';
 }
+
+/******************************** 1582 *****************************************/
+
+.snip1582 {
+  background-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.snip1582:before,
+.snip1582:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.snip1582:before {
+  border-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border-top-width: 2px;
+  left: 0px;
+  top: -5px;
+}
+
+.snip1582:after {
+  border-bottom-width: 2px;
+  border-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  bottom: -5px;
+  right: 0px;
+}
+
+.snip1582:hover,
+.snip1582.hover {
+  background-color: {{$colors->organ_color_1 ?? '#c47135'}};
+}
+
+.snip1582:hover:before,
+.snip1582.hover:before,
+.snip1582:hover:after,
+.snip1582.hover:after {
+  height: 100%;
+  width: 100%;
+}
+
 
 /******************************** 1554 *****************************************/
 
@@ -621,3 +683,6 @@ figure.snip1524:hover figcaption {
   -webkit-transform: rotate(0);
   transform: rotate(0);
 }
+
+
+</style>

@@ -79,7 +79,7 @@ class WelcomeManageController extends WelcomeController
         }
 
         WelcomeHelper::flash();
-        return redirect('welcome_panel');
+        return redirect('welcome_positions');
     }
 
     public function website()

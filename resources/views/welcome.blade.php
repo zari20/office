@@ -16,9 +16,7 @@
         @if (rw($layout->puzzle_type) == 'section')
             <section id="{{$layout->puzzle->latin_id}}">
                 @if ($title = $layout->puzzle->title)
-                    <div class="layout-title">
-                        <h2 class="my-4">{{$title}}</h2>
-                    </div>
+                    @include('welcome_partials.title')
                 @endif
                 @if (substr( $layout->puzzle->type, 0, 5 ) === "model")
                     @include('welcome.index.model',['section'=>$layout->puzzle, 'model' => str_replace("model", "", $layout->puzzle->type) ])

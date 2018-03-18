@@ -5,21 +5,9 @@
         <a href="{{url('welcome_new_section')}}" class="border-btn mx-1 float-left"> <i class="fa fa-plus m-1"></i> بخش جدید </a>
         <a href="{{url('welcome_new_tab')}}" class="border-btn mx-1 float-left"> <i class="fa fa-plus m-1"></i> مجموعه تب جدید </a>
         <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank" class="border-btn mx-1 float-right"> <i class="fa fa-font-awesome m-1"></i> لیست فونت ها </a>
-        <a href="{{url('welcome_positions')}}" class="border-btn mx-1 float-right"> <i class="fa fa-sort-amount-asc m-1"></i> مدیریت ترتیب ها </a>
+        <a href="{{url('welcome_positions')}}" class="border-btn mx-1 float-right"> <i class="fa fa-sort-amount-asc m-1"></i> مدیریت کلی سایت </a>
     </nav>
     <section class="p-3 text-center map">
-
-        {{-- colors --}}
-        <hr class="mt-0">
-        <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-dashboard ml-1"></i> مدیریت رنگ ها </p>
-        <hr>
-        @include('welcome.colors')
-
-        {{-- website --}}
-        <hr class="mt-0">
-        <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-globe ml-1"></i> مدیریت وبسایت </p>
-        <hr>
-        @include('welcome.website')
 
         {{-- map --}}
         <hr>

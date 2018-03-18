@@ -64,8 +64,10 @@ class WelcomePageController extends WelcomeController
 
     public function positions()
     {
+        $colors = \App\Welcome\WelcomeColors::find(1) ?? new \App\Welcome\WelcomeColors;
+        $website = \App\Welcome\WelcomeWebsite::find(1) ?? new \App\Welcome\WelcomeWebsite;
         $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
-        return view('welcome_partials.positions',compact('layouts'));
+        return view('welcome_partials.main',compact('layouts','colors','website'));
     }
 
     public function load($partial,$id=0)

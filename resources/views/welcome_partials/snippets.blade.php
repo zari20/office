@@ -423,7 +423,6 @@
 .snip1557 h3 {
   bottom: 0;
   color: #fff;
-  letter-spacing: 2px;
   margin: 0;
   opacity: 0;
   padding: 10px 15px;
@@ -614,7 +613,6 @@
 .snip1576 h3 {
   font-size: 1em;
   font-weight: 400;
-  letter-spacing: 1px;
   margin: 0;
   text-transform: uppercase;
 }
@@ -698,11 +696,11 @@
   background-color: #000000;
   bottom: 0;
   font-weight: 800;
-  letter-spacing: -0.4px;
   margin: 0;
   padding: 10px 20px;
   position: absolute;
   width: 100%;
+  font-size: 18px;
 }
 
 .snip1536 p {

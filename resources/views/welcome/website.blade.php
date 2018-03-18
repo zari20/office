@@ -25,16 +25,17 @@
             <textarea name="keywords" rows="8" class="form-control" id="keywords">{{$website->keywords}}</textarea>
         </div>
         <div class="form-group col-md-12">
-            <label class="custom-control custom-radio">
-                <span class="snip1582">عنوان</span>
-                <input id="radio1" name="radio" type="radio" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-            </label>
-            <label class="custom-control custom-radio">
-                <input id="radio2" name="radio" type="radio" class="custom-control-input">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Or toggle this other custom radio</span>
-            </label>
+            @foreach([0,1582,1575,1564,1562] as $key => $model)
+                <label class="custom-control custom-radio">
+                    @if($model)
+                        <span class="snip{{$model}}">عنوان</span>
+                    @else
+                        <span class="custom-control-description">هیچکدام</span>
+                    @endif
+                    <input name="title_type" type="radio" class="custom-control-input" value="{{$model}}" {{$website->title_type == $model ? 'checked' : ''}}>
+                    <span class="custom-control-indicator"></span>
+                </label>
+            @endforeach
         </div>
 
     </div>

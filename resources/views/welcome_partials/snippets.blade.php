@@ -5,6 +5,173 @@
     font-family: 'Yekan';
 }
 
+/******************************** 1562 *****************************************/
+
+.snip1562 {
+  background-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.snip1562:before,
+.snip1562:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.snip1562:before {
+  border-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border-left-width: 2px;
+  border-top-width: 2px;
+  left: -5px;
+  top: -5px;
+}
+
+.snip1562:after {
+  border-bottom-width: 2px;
+  border-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border-right-width: 2px;
+  bottom: -5px;
+  right: -5px;
+}
+
+.snip1562:hover,
+.snip1562.hover {
+  background-color: {{$colors->organ_color_1 ?? '#c47135'}};
+}
+
+.snip1562:hover:before,
+.snip1562.hover:before,
+.snip1562:hover:after,
+.snip1562.hover:after {
+  height: 100%;
+  width: 100%;
+}
+
+
+/******************************** 1564 *****************************************/
+
+.snip1564 {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 6px solid {{$colors->organ_color_1 ?? '#c47135'}};
+  border-top: 6px solid {{$colors->organ_color_1 ?? '#c47135'}};
+  color: #555;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 46px;
+  line-height: 34px;
+  margin: 15px 40px;
+  outline: none;
+  padding: 0 10px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.snip1564:before,
+.snip1564:after {
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #ffffff;
+  border-radius: 50%;
+  top: -6px;
+  content: "";
+  height: 46px;
+  position: absolute;
+  width: 46px;
+  border: 6px solid #ddd;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.snip1564:before {
+  right: -23px;
+  border-left-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border-bottom-color: {{$colors->organ_color_1 ?? '#c47135'}};
+}
+
+.snip1564:after {
+  left: -23px;
+  border-right-color: {{$colors->organ_color_1 ?? '#c47135'}};
+  border-top-color: {{$colors->organ_color_1 ?? '#c47135'}};
+}
+
+.snip1564:hover,
+.snip1564.hover {
+  background-color: #ffffff;
+}
+
+.snip1564:hover:before,
+.snip1564.hover:before,
+.snip1564:hover:after,
+.snip1564.hover:after {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+
+/******************************** 1575 *****************************************/
+
+.snip1575 {
+  color: #000;
+  cursor: pointer;
+  padding: 0px 40px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  line-height: 2.7em;
+  font-size: 1em;
+  outline: none;
+  position: relative;
+  font-size: 16px;
+  border: 3px solid #fff;
+  background-color: transparent;
+  border-radius: 15px 0 15px 15px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-color: {{$colors->organ_color_2 ?? '#c47135'}};
+}
+
+.snip1575:before {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 35px 35px 0;
+  border-color: transparent {{$colors->organ_color_2 ?? '#c47135'}} transparent transparent;
+  z-index: 1;
+}
+
+.snip1575:hover {
+  border-color: {{$colors->organ_color_1 ?? '#c47135'}};
+}
+
 /******************************** 1582 *****************************************/
 
 .snip1582 {

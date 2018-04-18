@@ -13,7 +13,7 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('room_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->unsignedSmallInteger('capacity');
@@ -22,7 +22,7 @@ class CreateRoomsTable extends Migration
             $table->timestamps();
         });
 
-        \DB::table('rooms')->insert([
+        \DB::table('room_types')->insert([
             [
                 'name' => 'اتاق 3+17 نفره',
                 'capacity' => 20,
@@ -45,6 +45,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('room_types');
     }
 }

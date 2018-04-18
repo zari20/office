@@ -9,5 +9,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //services
-Auth::get('services/{method}/{type}/{id?}','ServicesController@main');
-Auth::post('services/{method}/{type}/{id?}','ServicesController@main');
+Route::get('services/{method}/{type}/{id?}','ServicesController@main');
+Route::post('services/{method}/{type}/{id?}','ServicesController@main');

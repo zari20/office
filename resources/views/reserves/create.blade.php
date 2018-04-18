@@ -33,21 +33,27 @@
         <hr>
 
         <h4 class="reserve-title badge"> <i class="fa fa-coffee ml-1"></i> خدمات پذیرایی را انتخاب نمایید </h4>
+        @include('fragments.new_service',['type'=>'catering', 'services'=>$caterings])
         <hr>
 
         <h4 class="reserve-title badge"> <i class="fa fa-film ml-1"></i> خدمات سمعی بصری را انتخاب نمایید. </h4>
+        @include('fragments.new_service',['type'=>'medium', 'services'=>$media])
         <hr>
 
         <h4 class="reserve-title badge"> <i class="fa fa-gamepad ml-1"></i> خدمات گرافیکی را انتخاب نمایید. </h4>
+        @include('fragments.new_service',['type'=>'graphics', 'services'=>$graphics])
         <hr>
 
         <h4 class="reserve-title badge"> <i class="fa fa-headphones ml-1"></i> خدمات روابط عمومی و اطلاع رسانی را انتخاب نمایید. </h4>
+        @include('fragments.new_service',['type'=>'informing', 'services'=>$informings])
         <hr>
 
         <h4 class="reserve-title badge"> <i class="fa fa-edge ml-1"></i> خدمات رزرواسیون آنلاین را انتخاب نمایید. </h4>
+
         <hr>
 
         <h4 class="reserve-title badge"> <i class="fa fa-check ml-1"></i> نهایی سازی و پرداخت آنلاین را انتخاب نمایید </h4>
+
         <hr>
     </form>
 

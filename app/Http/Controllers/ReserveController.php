@@ -16,7 +16,11 @@ class ReserveController extends Controller
     public function create()
     {
         $rooms = \App\RoomType::all();
-        return view('reserves.create',compact('rooms'));
+        $caterings = \App\CateringType::all();
+        $media = \App\MediumType::all();
+        $graphics = \App\GraphicType::all();
+        $informings = \App\InformingType::all();
+        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons'));
     }
 
     public function store(Request $request)

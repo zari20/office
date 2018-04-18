@@ -15,12 +15,27 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->nullable()->unique();
+            $table->string('email')->nullable()->unique();
+            $table->string('mobile')->nullable()->unique();
+            $table->string('telephone')->nullable()->unique();
+            $table->unsignedInteger('state_id')->default(0);
+            $table->unsignedInteger('city_id')->default(0);
+            $table->string('region')->nullable();
+            $table->text('address')->nullable();
+            $table->unsignedInteger('postal_code')->nullable();
             $table->string('password');
+            $table->string('type')->default('regular');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        \DB::table('users')->insert([
+            'username' => 'admin',
+            'mobile' => '09183366244',
+            'password' => bcrypt('1q2w3e'),
+            'type' => 'admin'
+        ]);
     }
 
     /**

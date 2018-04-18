@@ -7,7 +7,7 @@
     @foreach (array_combine($services,$icons) as $service => $icon)
         <div class="col5">
             <div class="card text-white bg-secondary mb-3">
-                <div class="card-header text-center"> <i class="fa fa-{{$icon}} ml-1"></i> مدیریت {{$service}}</div>
+                <div class="card-header text-center"> <i class="fa fa-{{$icon}} ml-1"></i> {{$service}}</div>
                 <div class="card-body">
                     <a href="#" class="btn btn-block text-light white-shadow bg-blue-no-hover"> <i class="fa fa-eye ml-1"></i> مشاهد همه </a>
                     <a href="#" class="btn btn-block text-light white-shadow bg-green"> <i class="fa fa-plus ml-1"></i> تعریف مورد جدید </a>

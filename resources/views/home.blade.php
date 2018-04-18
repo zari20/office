@@ -3,7 +3,9 @@
 @section('content')
     <div class="p-2">
         <div class="card">
-            <div class="card-header">داشبرد</div>
+            <div class="card-header h5 text-blue">
+                <strong> داشبرد @lang('messages.'.user_type())  </strong>
+            </div>
 
             <div class="card-body">
                 @if (session('status'))
@@ -12,7 +14,7 @@
                     </div>
                 @endif
 
-                You are logged in!
+                @include('dashboards.'.user_type())
             </div>
         </div>
     </div>

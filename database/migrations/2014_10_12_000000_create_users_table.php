@@ -19,8 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable()->unique();
             $table->string('mobile')->nullable()->unique();
             $table->string('telephone')->nullable()->unique();
-            $table->unsignedInteger('state_id')->default(0);
-            $table->unsignedInteger('city_id')->default(0);
+            $table->unsignedInteger('city_id')->nullable();
             $table->string('region')->nullable();
             $table->text('address')->nullable();
             $table->unsignedInteger('postal_code')->nullable();

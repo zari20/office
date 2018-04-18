@@ -12,6 +12,13 @@ function admin()
     return auth()->user()->type == 'admin';
 }
 
+//retrieve
+
+function cities()
+{
+    return \DB::table('cities')->get();
+}
+
 //services
 
 function services()

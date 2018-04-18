@@ -8,84 +8,58 @@ use Illuminate\Http\Request;
 class ReserveController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $rooms = \App\RoomType::all();
+        return view('reserves.create',compact('rooms'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Reserve  $reserve
-     * @return \Illuminate\Http\Response
-     */
     public function show(Reserve $reserve)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Reserve  $reserve
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Reserve $reserve)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Reserve  $reserve
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Reserve $reserve)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Reserve  $reserve
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Reserve $reserve)
     {
         //
+    }
+
+    public function create_user()
+    {
+        $data = request()->validate([
+            'email' => 'nullable|string|email|max:190|unique:users',
+            'mobile' => 'required|digits:11|unique:users',
+            'telephone' => 'nullable|digits:11|unique:users',
+            'city_id' => 'nullable|integer|exists:cities,id',
+            'region' => 'nullable|string|max:190',
+            'address' => 'nullable|string|max:300',
+            'postal_code' => 'nullable|integer|digits:10|unique:users',
+            'password' => 'required|string|min:4|confirmed',
+        ]);
+        $user = \App\User::create($data);
+        \Auth::login($user);
+
+        Helper::flash();
+        return redirect("reserves/create");
     }
 }

@@ -37,6 +37,7 @@
         @include('partials.nav')
 
         <main class="p-md-4">
+            @include('fragments.errors')
             @yield('content')
         </main>
     </div>

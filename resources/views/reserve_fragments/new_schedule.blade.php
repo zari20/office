@@ -43,7 +43,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
-            <input type="text" class="form-control" id="room-final-cost" name="room_cost" value="{{$rooms->first()->cost_pre_hour}}" disabled>
+            <input type="text" class="form-control" id="room-final-cost" name="room_cost" value="{{$rooms->first()->cost_pre_hour ?? 0}}" disabled>
         </div>
     </div>
     <hr>

@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class ReserveController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['logmein']);
+    }
+
     public function index()
     {
         //
@@ -65,5 +70,10 @@ class ReserveController extends Controller
 
         Helper::flash();
         return redirect("reserves/create");
+    }
+
+    public function logmein()
+    {
+        return redirect('reserves/create');
     }
 }

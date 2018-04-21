@@ -45,4 +45,10 @@
 
     @include('fragments.submit', ['text'=>'ایجاد حساب کاربری', 'icon'=>'user-plus'])
 
+    <div class="col-12 text-center my-2">
+        <hr>
+        در صورتی که قبلا ثبت نام کرده اید، وارد شوید
+        <br><br>
+        <a href="{{url("reserve_logmein")}}" class="btn bg-green shadow text-white"> <i class="fa fa-sign-in ml-1"></i>  ورود به حساب کاربری </a>
+    </div>
 </form>

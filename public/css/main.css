@@ -27,3 +27,36 @@ button, [data-toggle] {cursor: pointer;}
         width:100%;
     }
 }
+
+/* card numbers*/
+.card-numbers input {
+    display: inline-block;
+    width: 24%;
+}
+
+/* fieldset and legend */
+fieldset.with-border {
+    border: 1px solid #e6e6e6;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+fieldset.with-border legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+/*Hide Arrows for input type number*/
+input.no-arrow::-webkit-inner-spin-button,
+input.no-arrow::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}

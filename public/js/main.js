@@ -1,9 +1,23 @@
 $(document).ready(function () {
+
+    //inits
     $('[title]').tooltip();
     $('[data-toggle="popover"]').popover();
     $('[data-calendar="persian"]').persianDatepicker();
     $('.select2').select2({
        width: '100%',
+    });
+
+    //card-number autofocus
+    $(".card-numbers input").keyup(function () {
+        var length = $(this).val().length;
+        if (length==4) {
+            if ($(this).is(':last-child')) {
+                $('#owner-name').focus();
+            }else {
+                $(this).next('.card-numbers input').focus();
+            }
+        }
     });
 });
 

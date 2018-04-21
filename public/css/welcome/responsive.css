@@ -1,0 +1,277 @@
+/*!
+ * Responsive Style
+*/
+
+@media (min-width: 1200px) {
+    .topbar .contact ul li{
+        margin-left: 40px;
+    }
+    .topbar .contact ul{
+        flex-direction: row;
+    }
+    .navbar-nav li{
+        border-left: solid 1px #EDEDED;
+        padding: 0px 10px;
+    }
+    .navbar-nav li:first-child{
+        padding-right: 0;
+    }
+    .navbar-nav li:last-child{
+        border-left: none;
+    }
+    .sticky{
+        position: fixed !important;
+        width: 100% !important;
+        top:0 !important;
+        left:0 !important;
+        z-index: 999;
+        background-color: #fff;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .topbar .contact ul li{
+        margin-left: 11px;
+    }
+    .topbar .contact ul{
+        flex-direction: row;
+    }
+    .topbar .contact form input{
+        width: 88%
+    }
+    .portal .flash-title{
+        width: 38%;
+    }
+    .portal ul{
+        width: 60%
+    }
+    .portal .flash-title p{
+        font-size: 12px;
+    }
+    .social ul li{
+        font-size: 10px;
+    }
+    .social ul li a i.fa.fa-telegram{
+        font-size: 13px;
+        margin: 6px 1px 0 0;
+    }
+    .social ul li a i.fa.fa-instagram{
+        font-size: 13px;
+        margin: 6px 1px 0 0;
+    }
+    .navbar-nav li{
+        border-left: solid 1px #EDEDED;
+        padding: 0px 10px;
+    }
+    .navbar-nav li:first-child{
+        padding-right: 0;
+    }
+    .navbar-nav li:last-child{
+        border-left: none;
+    }
+    .news .content form.search input{
+        width: 89px;
+    }
+    .news .content .contbox ol.carousel-indicators,
+    .introduction .tabs ol.carousel-indicators{
+        bottom: -10px
+    }
+    .sticky{
+        position: fixed !important;
+        width: 100% !important;
+        top:0 !important;
+        left:0 !important;
+        z-index: 999;
+        background-color: #fff;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .topbar .contact ul li{
+        margin-left: 20px;
+    }
+    .topbar .contact form input{
+        width: 87%
+    }
+    .portal .flash-title{
+        width: 38%;
+    }
+    .portal ul{
+        width: 60%
+    }
+    .user{
+        margin-bottom: 20px;
+    }
+    .navbar-nav li{
+        border-bottom: solid 1px #EDEDED;
+        padding: 10px 0px;
+    }
+    .navbar-nav li:first-child{
+        padding-top: 0;
+    }
+    .navbar-nav li:last-child{
+        border-bottom: none;
+    }
+    .boxes .box{
+        width: 50%;
+        border-left: none;
+    }
+    .srsl .slider .carousel-inner .carousel-item{
+        padding: 40px;
+    }
+    .news .content form.search{
+        width: 100%;
+    }
+    .news .content form.search input{
+        width: 72px;
+        font-size: 12px;
+    }
+    .news .content .newtit{
+        width: 100%;
+        float: right;
+        margin-bottom: 20px;
+    }
+    .text-center .project{
+        margin-bottom: 10px;
+    }
+    .introduction.shop .col-xl-3.col-lg-3.col-md-6.col-xs-12{
+        margin-bottom: 15px;
+    }
+    .footer h3{
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .topbar .contact ul{
+        flex-direction: column;
+        width: 100%;
+    }
+    .topbar .contact ul li{
+        background-color: #3f5872;
+        padding: 3px 7px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    .topbar .contact ul li:hover{
+        background-color: transparent;
+    }
+    .topbar .contact form input{
+        width: 88%
+    }
+    .portal{
+        margin: 10px 0px;
+    }
+    .portal .flash-title{
+        width: 38%;
+    }
+    .portal ul{
+        width: 60%
+    }
+    .portal .flash-title p{
+        font-size: 12px;
+    }
+    .user{
+        margin-bottom: 10px;
+    }
+    .navbar-nav li{
+        border-bottom: solid 1px #EDEDED;
+        padding: 10px 0px;
+    }
+    .navbar-nav li:first-child{
+        padding-top: 0;
+    }
+    .navbar-nav li:last-child{
+        border-bottom: none;
+    }
+    .boxes .box{
+        width: 100%;
+        border-bottom: solid 1px #E8E6E6;
+        padding: 15px;
+    }
+    .boxes .box:last-child{
+        border-bottom: none;
+    }
+    .boxes,
+    .srsl{
+        padding: 40px 0px;
+    }
+    .srsl .col-xl-3.col-lg-3.col-md-6.col-xs-12{
+        padding-right: 15px;
+        margin-bottom: 15px;
+    }
+    .srsl .col-xl-9.col-lg-9.col-md-6.col-xs-12{
+        padding-left: 15px;
+    }
+    .srsl .slider .carousel-inner .carousel-item{
+        padding: 35px;
+    }
+    .news .content form.search{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: auto
+    }
+    .news .content form.search .group{
+        border-bottom: solid 1px #fad763;
+    }
+    .news .content form.search.pazi .group{
+        border-bottom: solid 1px #1c98c3;
+    }
+    .news .content form.search .group:last-child{
+        border-bottom: none;
+    }
+    .news .content form.search input{
+        width: 85%;
+    }
+    .news .content form.search button{
+        width: 13%;
+        border-left: none;
+    }
+    .news .content .newtit{
+        width: 100%;
+        float: right;
+        margin-bottom: 20px;
+    }
+    .news,
+    .introduction{
+        padding: 50px 15px;
+    }
+    .introduction .tabs ul li{
+        margin: 0px;
+    }
+    .text-center .project{
+        margin-bottom: 10px;
+    }
+    .introduction.contact .title h4{
+        text-align: center
+    }
+    .introduction.contact .tabs ul{
+        justify-content: center;
+    }
+    .introduction .title h4{
+        font-size: 20px;
+    }
+    .introduction.contact .tabs ul.nav.nav-pills.mb-3{
+        margin-top: 0px;
+    }
+    .introduction.support.about .tabs form .input-ticket input,
+    .introduction.support.about .tabs form .input-ticket textarea{
+        width: 100%;
+    }
+    .introduction.shop .col-xl-3.col-lg-3.col-md-6.col-xs-12{
+        margin-bottom: 15px;
+    }
+    .footer h3{
+        margin-top: 20px;
+    }
+    .copyright .webcover,
+    .copyright .copy{
+        text-align: center!important
+    }
+    .srsl .search,
+    .cnfix{
+        display: none;
+    }
+}

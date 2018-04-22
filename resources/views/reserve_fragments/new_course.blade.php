@@ -1,4 +1,8 @@
-<div class="collapse show" id="collapseCourse">
+<div class="collapse show" id="collapseCourse" data-parent="#reserves-collapseable">
+    <div class="alert alert-info text-right">
+        <i class="fa fa-info-circle fa-2x ml-2"></i>
+        در این قسمت اطلاعات دوره آموزشی یا کنفرانس خود را وارد کنید.
+    </div>
     <div class="row">
         <div class="form-group col-md-4">
             <label for="name"> <i class="fa fa-pencil ml-1"></i> نام دوره / کارگاه / کنفرانس <i class="fa fa-asterisk text-danger"></i></label>

@@ -30,7 +30,7 @@ class ReserveController extends Controller
 
     public function store(Request $request)
     {
-        //
+        dd('در دست ساخت');
     }
 
     public function show(Reserve $reserve)

@@ -69,7 +69,7 @@ input.no-arrow::-webkit-outer-spin-button {
   line-height: 1em;
   margin: 15px 5px;
   outline: none;
-  padding: 12px 40px 10px;
+  padding: 12px 20px 10px;
   position: relative;
   text-transform: uppercase;
   font-weight: 400;
@@ -113,6 +113,17 @@ input.no-arrow::-webkit-outer-spin-button {
 .s-title.hover:after {
   height: 100%;
   width: 100%;
+}
+
+.s-title[aria-expanded=true]{
+    background-color: #00B9CF;
+    color: white;
+}
+.s-title[aria-expanded=true]:before {
+  border-color: #00B9CF;
+}
+.s-title[aria-expanded=true]:after {
+  border-color: #00B9CF;
 }
 
 .r-title {

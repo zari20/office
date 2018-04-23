@@ -45,3 +45,8 @@ function toman($amount)
 {
     return $amount ? number_format($amount)."تومان" : 0;
 }
+
+function str_with_dots($string,$number=100)
+{
+    return strlen($string) > $number ? substr($string, 0, $number).'...' : $string;
+}

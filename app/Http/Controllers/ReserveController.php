@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Reserve;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReserveController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth')->only(['logmein']);
+        $this->middleware('auth')->except(['create','store']);
     }
 
     public function index()
@@ -30,7 +31,12 @@ class ReserveController extends Controller
 
     public function store(Request $request)
     {
-        dd('در دست ساخت');
+        if(Auth::check()){
+            dd('store process');
+
+        }else {
+            return back()->withErrors(['شما باید ابتدا وارد حساب کاربری خود شوید.']);
+        }
     }
 
     public function show(Reserve $reserve)

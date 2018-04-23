@@ -34,10 +34,13 @@ function changeService(element) {
     $('.'+type+'-description').hide();
     $('#'+type+'-description-'+value).show();
 
-    //capacity
+    //capacity & min_hour
     if (type=='room') {
         $('.'+type+'-capacity').hide();
         $('#'+type+'-capacity-'+value).show();
+
+        $('.'+type+'-min-hour').hide();
+        $('#'+type+'-min-hour-'+value).show();
     }
 
     //final cost

@@ -12,7 +12,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="room-count"> <i class="fa fa-hourglass-1 ml-1"></i> تعداد ساعات <i class="fa fa-asterisk text-danger"></i></label>
-            <input type="number" step="0.5" class="form-control" id="room-count" name="hours" value="{{old('hours') ?? 1}}" required placeholder="*الزامی" onchange="changeCount($(this))" data-type="room">
+            <input type="number" step="{{$room->time_steps}}" class="form-control" id="room-count" name="hours" value="{{old('hours') ?? 1}}" required placeholder="*الزامی" onchange="changeCount($(this))" data-type="room">
         </div>
         <div class="form-group col-md-4">
             <label for="date"> <i class="fa fa-calendar ml-1"></i> تاریخ <i class="fa fa-asterisk text-danger"></i></label>
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group col-md-4">
             <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
-            <input type="text" class="form-control" id="room-final-cost" name="room_cost" value="{{$rooms->first()->cost_pre_hour ?? 0}}" disabled>
+            <input type="text" step="5000" class="form-control" id="room-final-cost" name="room_cost" value="{{$rooms->first()->cost_pre_hour ?? 0}}" disabled>
         </div>
     </div>
 
@@ -47,6 +47,13 @@
                 <span class="room-capacity" id="room-capacity-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->capacity}} </span>
             @endforeach
             نفر
+        </p>
+        <p>
+            حداقل ساعت اجاره :
+            @foreach ($rooms as $key => $room)
+                <span class="room-min-hour" id="room-min-hour-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->min_hour}} </span>
+            @endforeach
+            ساعت
         </p>
     </div>
 

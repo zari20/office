@@ -4,6 +4,7 @@ body {font-family: 'Yekan','OpenSans'}
 .white-shadow:hover { box-shadow: 1px 1px 5px white}
 select { font-family: 'Calibri'}
 button, [data-toggle] {cursor: pointer;}
+.direct-x{ white-space: nowrap; overflow-x: auto;}
 
 /* reserve */
 .s-titles-container{

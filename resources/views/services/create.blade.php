@@ -3,16 +3,20 @@
 
     <form class="row" action="{{isset($object) ? url("services/update/$type/$object->id") : url("services/store/$type")}}" method="post">
         @csrf
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-{{$type=='room' ? 3 : 4}}">
             <label for="name">نام {{translate($type)}}</label>
             <input type="text" class="form-control" id="name" name="name" value="{{$object->name ?? old('name')}}" required>
         </div>
         @if ($type=='room')
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="capacity"> ظرقیت اتاق </label>
                 <input type="number" class="form-control" id="capacity" name="capacity" value="{{$object->capacity ?? old('capacity')}}" required>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
+                <label for="min_hour"> حداقل ساعت اجاره </label>
+                <input type="number" step="0.5" class="form-control" id="min_hour" name="min_hour" value="{{$object->min_hour ?? old('min_hour') ?? 1}}" required>
+            </div>
+            <div class="form-group col-md-3">
                 <label for="cost_pre_hour"> هزینه در هر ساعت (به تومان) </label>
                 <input type="number" class="form-control" id="cost_pre_hour" name="cost_pre_hour" value="{{$object->cost_pre_hour ?? old('cost_pre_hour')}}" required>
             </div>

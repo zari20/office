@@ -1,5 +1,8 @@
 <?php
 
+//dates
+
+
 //authenticating
 
 function user_type()
@@ -18,8 +21,6 @@ function cities()
 {
     return \DB::table('cities')->get();
 }
-
-//services
 
 function services()
 {

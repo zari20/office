@@ -1,5 +1,7 @@
 @if ($title = $tab->title)
-    @include('welcome_partials.title')
+    <div class="mt-5">
+        @include('welcome_partials.title')
+    </div>
 @endif
 <section class="introduction about">
     @if($layout->container) <div class="container"> @endif

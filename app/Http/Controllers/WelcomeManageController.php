@@ -71,9 +71,12 @@ class WelcomeManageController extends WelcomeController
         WelcomeHelper::auth();
         $layouts = \App\Welcome\WelcomeLayout::orderBy('position')->get();
         $positions = request('position');
-
+        $margin_tops = request('margin_top');
+        $margin_bottoms = request('margin_bottom');
         foreach ($layouts as $key => $layout) {
             $layout->position = $positions[$key];
+            $layout->margin_top = $margin_tops[$key] ?? 0;
+            $layout->margin_bottom = $margin_bottoms[$key] ?? 0;
             $layout->container = request("container$key");
             $layout->save();
         }

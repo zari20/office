@@ -938,7 +938,7 @@ ol.carousel-indicators{
     display: none
 }
 .carousel-indicators-numbers{
-    bottom: -50px;
+    bottom: -30px;
 }
 
 .carousel-indicators-numbers li {

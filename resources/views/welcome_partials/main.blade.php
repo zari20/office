@@ -9,7 +9,7 @@
     <div class="text-center">
       {{--  positions --}}
       <hr class="mt-0">
-      <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-dashboard ml-1"></i> مدیریت ترتیب ها </p>
+      <p class="h3 dinar bg-success text-white py-4"> <i class="fa fa-sort ml-1"></i> مدیریت ترتیب ها </p>
       <hr>
       @include('welcome.positions')
 

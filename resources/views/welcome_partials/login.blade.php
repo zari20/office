@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Creative Login Form Responsive Widget Template :: w3layouts</title>
+	<title> ورود به مدیریت قالب سایت </title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

@@ -7,9 +7,9 @@
     @if($layout->container) <div class="container"> @endif
         <div class="row">
             <div class="tabs">
-                <ul class="nav nav-pills mb-3 d-inline d-sm-flex" id="pills-tab" role="tablist">
+                <ul class="nav nav-pills d-inline d-sm-flex" id="pills-tab" role="tablist">
                     @foreach ($tab->visible_sections() as $i => $section)
-                        <li class="nav-item my-2 my-sm-0">
+                        <li class="nav-item">
                             <a class="nav-link tab-pill {{ $i==0 ? 'active' : '' }}" id="{{$tab->id}}-{{$i}}-tab" data-toggle="pill" href="#{{$tab->id}}-{{$i}}" role="tab">
                                 <small class="fa fa-circle ml-1"></small>
                                 {{$section->title}}

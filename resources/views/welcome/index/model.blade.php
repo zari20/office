@@ -54,6 +54,17 @@
                 <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
             </figure>
         @endif
+        @if ($model == 1581)
+            <figure class="snip1581">
+                <img src="welcome/{{$snippet->picture_path}}" alt="{{$snippet->header}}" />
+                <figcaption>
+                    {{-- <h3 class="title1"></h3> --}}
+                    <h3 class="title2">{{$snippet->header}}</h3>
+                    <h3 class="title3">{{$snippet->body}}</h3>
+                </figcaption>
+                <a @if($snippet->link) href="{{$snippet->link}}" @else data-toggle="modal" data-target="#lightbox{{$snippet->id}}" @endif >{{$snippet->button}}</a>
+            </figure>
+        @endif
 
         <div class="modal fade" id="lightbox{{$snippet->id}}" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-full" role="document">

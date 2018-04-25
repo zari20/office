@@ -36,7 +36,6 @@
                                             @else
                                                 @include('welcome.index.'.$section->type,compact('section'))
                                             @endif
-                                            @include('welcome.index.'.$section->type,compact('section'))
                                         </div>
                                     @endfor
                                 @if(false) </div> @endif

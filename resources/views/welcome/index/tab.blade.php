@@ -31,6 +31,11 @@
                                 @if(false) <div class="carousel-inner"> @endif
                                     @for ($i=0; $i <= 0; $i++)
                                         <div class="carousel-item {!! $i==0 ? 'active' : '' !!}">
+                                            @if (substr( $section->type, 0, 5 ) === "model")
+                                                @include('welcome.index.model',['section'=>$section, 'model' => str_replace("model", "", $section->type) ])
+                                            @else
+                                                @include('welcome.index.'.$section->type,compact('section'))
+                                            @endif
                                             @include('welcome.index.'.$section->type,compact('section'))
                                         </div>
                                     @endfor

@@ -21,12 +21,31 @@ class ReserveController extends Controller
 
     public function create()
     {
+        //getting neccessary records from database
         $rooms = \App\RoomType::all();
         $caterings = \App\CateringType::all();
         $media = \App\MediumType::all();
         $graphics = \App\GraphicType::all();
         $informings = \App\InformingType::all();
-        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons'));
+
+        //creating days and dates array
+        $today = date('w');
+        $day = 0;
+        $i = 0;
+        while ($day != $today) {
+            $day = $day==0 ? $today : $day;
+
+            $days[] = \App\Day::where('latin_number',$day)->first();
+
+            $date = new \DateTime(date('Y-m-d'));
+            $date->modify("+$i day");
+            $dates[] = $date;
+
+            $day == 7 ? $day = 1 : $day++;
+            $i++;
+        }
+
+        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons','days','dates'));
     }
 
     public function store(Request $request)

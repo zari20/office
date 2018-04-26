@@ -24,24 +24,6 @@
         </div>
     </div>
 
-    @php
-        $today = date('w'); //4
-        $day = 0;
-        $i = 0;
-        while ($day != $today) {
-            $day = $day==0 ? $today : $day;
-
-            $days[] = \App\Day::where('latin_number',$day)->first();
-
-            $date = new DateTime(date('Y-m-d'));
-            $date->modify("+$i day");
-            $dates[] = $date;
-
-            $day == 7 ? $day = 1 : $day++;
-            $i++;
-        }
-    @endphp
-
     @foreach ($days as $key => $day)
         <div class="schedule">
             <div class="day-heading">

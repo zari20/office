@@ -12,7 +12,7 @@
 }
 
 .period {
-    border: 2px solid grey;
+    border: 2px solid #383838;
     position: relative;
 }
 
@@ -29,6 +29,6 @@
 
 .day-heading {
     background-color: #FEBF2C;
-    border: 2px solid #FEBF2C;
+    border: 2px solid #383838;
     width: 20%;
 }

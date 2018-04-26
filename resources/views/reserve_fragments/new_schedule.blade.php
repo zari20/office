@@ -4,23 +4,26 @@
     <div class="row">
         <div class="form-group col-md-3">
             <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع اتاق </label>
-            <select class="form-control" name="room_id" id="room" onchange="changeService($(this))">
+            <select class="form-control" name="schedule[room_id]" id="room" onchange="changeService($(this))">
                 @foreach ($rooms as $key => $room)
-                    <option value="{{$room->id}}" data-cost="{{$room->cost_pre_hour}}">{{$room->name}}</option>
+                    <option value="{{$room->id}}" data-cost="{{$room->cost_pre_hour}}" @if(old('schedule')['room_id'] == $room->id) selected @endif>
+                        {{$room->name}}
+                    </option>
                 @endforeach
             </select>
         </div>
         <div class="form-group col-md-3">
             <label for="date"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
-            <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="date" name="date" value="{{old('date') ?? date_picker_date(date('Y-m-d'))}}" required>
+            <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="date" name="schedule[date]"
+            value="{{old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
         </div>
         <div class="form-group col-md-3">
             <label for="room-count"> <i class="fa fa-hourglass-1 ml-1"></i> تعداد ساعات </label>
-            <input type="number" class="form-control" id="room-count" name="hours" value="{{old('hours') ?? 0}}" disabled>
+            <input type="number" class="form-control" id="room-hours" name="schedule[hours]" value="{{old('schedule')['hours'] ?? 0}}" readonly>
         </div>
         <div class="form-group col-md-3">
             <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
-            <input type="text" class="form-control" id="room-final-cost" name="room_cost" value="0" disabled>
+            <input type="text" class="form-control" id="room-final-cost" name="schedule[cost]" value="{{old('schedule')['cost'] ?? 0}}" readonly>
         </div>
     </div>
 
@@ -31,29 +34,22 @@
                 <span> {{date_picker_date($dates[$key])}} </span>
             </div>
             @foreach ($day->periods as $key => $period)
-                <div class="period alert-{{$period->booked($dates[$key]) ? 'danger' : 'primary'}}" id="period-{{$period->id}}"
-                    @if(!$period->booked($dates[$key])) onclick="book({{$period->id}})" @endif
-                    style="width:{{floor(80/count($day->periods))-1}}%; cursor:{{$period->booked($dates[$key]) ? 'not-allowed' : 'pointer'}}"
-                    title="{{$period->booked($dates[$key]) ? 'این سانس قبلا رزرو شده است' : 'برای رزرو این سانس کلیک کنید'}}"
-                    data-time="{{time_difference($period->till,$period->from)}}">
-                    <span>
-                        از
-                        {{display_time($period->from)}}
-                        تا
-                        {{display_time($period->till)}}
-                    </span>
-                    <span>
-                        {{$period->booked($dates[$key]) ? 'رزرو شده' : 'قابل رزرو'}}
-                    </span>
-                    @if (!$period->booked($dates[$key]))
-                        <i class="fa fa-square-o"></i>
-                    @endif
-                </div>
+                @if (is_array(old('period')['id']) && in_array($period->id,old('period')['id']))
+                    @include('fragments.period', ['type' => 'picked'])
+                @else
+                    @include('fragments.period', ['type' => 'available'])
+                @endif
             @endforeach
         </div>
     @endforeach
     <div id="schedule-inputs">
-        {{-- will be updated via jQuery --}}
+        @if (is_array(old('period')['id']))
+            @foreach (old('period')['id'] as $key => $id)
+                <input type="hidden" name="period[id][]" value="{{$id}}" id="period-id-input-{{$id}}">
+                <input type="hidden" name="period[date][]" value="{{old('period')['date'][$key]}}" id="period-date-input-{{$id}}">
+                <input type="hidden" name="period[hours][]" class="hidden-hours" value="{{old('period')['hours'][$key]}}" id="period-date-input-{{$id}}">
+            @endforeach
+        @endif
     </div>
 
 

@@ -24,7 +24,7 @@
     @endguest
     <hr>
 
-    <form id="reserves-collapseable" action="{{url('reserves')}}" method="post">
+    <form id="reserves-collapseable" action="{{url('reserves')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <h4 class="r-title" data-toggle="collapse" data-target="#collapseCourse"> <i class="fa fa-sitemap ml-1"></i> اطلاعات دوره آموزشی </h4>

@@ -51,10 +51,12 @@ class ReserveController extends Controller
     public function store(Request $request)
     {
         if(Auth::check()){
-            dd('store process');
+
+            self::validation();
+            dd(request()->all());
 
         }else {
-            return back()->withErrors(['شما باید ابتدا وارد حساب کاربری خود شوید.']);
+            return back()->withErrors(['شما باید ابتدا وارد حساب کاربری خود شوید.'])->withInput();
         }
     }
 
@@ -100,5 +102,15 @@ class ReserveController extends Controller
     public function logmein()
     {
         return redirect('reserves/create');
+    }
+
+    public static function validation()
+    {
+        request()->validate([
+            'course.name' => 'required',
+            'course.performer' => 'required',
+            'schedule.room_id' => 'required',
+            'period' => 'required'
+        ]);
     }
 }

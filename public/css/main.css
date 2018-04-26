@@ -6,6 +6,9 @@ select { font-family: 'Calibri'}
 button, [data-toggle] {cursor: pointer;}
 .direct-x{ white-space: nowrap; overflow-x: auto;}
 
+.pointer {cursor: pointer;}
+.not-allowed {cursor: not-allowed;}
+
 /* reserve */
 .s-titles-container{
     white-space: nowrap;

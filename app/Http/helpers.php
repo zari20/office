@@ -79,3 +79,10 @@ function display_time($time)
 {
     return substr($time, 0, -3);
 }
+function period_details($id,$date)
+{
+    $period = \App\Period::find($id);
+    if($period){
+        return week_day($period->day->number) .' '. human_date($date) .' ساعت '. display_time($period->from) .' تا '.  display_time($period->till);
+    }
+}

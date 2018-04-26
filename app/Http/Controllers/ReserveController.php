@@ -52,8 +52,43 @@ class ReserveController extends Controller
     {
         if(Auth::check()){
 
-            self::validation();
-            dd(request()->all());
+            //re-filling the form
+            if ($request->step == 0) {
+                $reserve_data = session('reserve_data');
+                // TODO:
+                dd('در دست ساخت');
+            }
+
+            //finalizing form
+            if ($request->step == 1) {
+                self::validation();
+                $reserve_data = request()->all();
+                $total_amount = $reserve_data['schedule']['cost']+
+                                $reserve_data['catering']['cost']+
+                                $reserve_data['medium']['cost']+
+                                $reserve_data['graphic']['cost']+
+                                $reserve_data['informing']['cost'];
+                $reserve_data['total_amount'] = $total_amount;
+                session(compact('reserve_data'));
+                return view('reserves.finalize',compact('reserve_data'));
+            }
+
+            //discount code
+            if ($request->step == 2) {
+                $reserve_data = session('reserve_data');
+                $found = \App\DiscountCode::where('code',$request->discount_code)->first();
+                if ($found) {
+                    // TODO:
+                }else {
+                    return view('reserves.finalize',compact('reserve_data'))->withErrors(['کد تخفیف وارد شده صحیح نیست']);
+                }
+            }
+
+            //storing in database
+            if ($request->step == 3) {
+                $reserve_data = session('reserve_data');
+                dd(request()->all());
+            }
 
         }else {
             return back()->withErrors(['شما باید ابتدا وارد حساب کاربری خود شوید.'])->withInput();

@@ -26,6 +26,7 @@
 
     <form id="reserves-collapseable" action="{{url('reserves')}}" method="post" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="step" value="1">
 
         <h4 class="r-title" data-toggle="collapse" data-target="#collapseCourse"> <i class="fa fa-sitemap ml-1"></i> اطلاعات دوره آموزشی </h4>
         @include('reserve_fragments.new_course')

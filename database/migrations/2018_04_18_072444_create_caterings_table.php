@@ -17,7 +17,7 @@ class CreateCateringsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('reserve_id');
             $table->unsignedInteger('catering_type_id');
-            $table->unsignedSmallInteger('guests');
+            $table->unsignedSmallInteger('count');
             $table->unsignedBigInteger('cost');
             $table->timestamps();
         });

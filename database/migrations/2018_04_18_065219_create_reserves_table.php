@@ -17,6 +17,7 @@ class CreateReservesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('discount_code_id')->default(0);
+            $table->unsignedBigInteger('total_cost');
             $table->timestamps();
         });
     }

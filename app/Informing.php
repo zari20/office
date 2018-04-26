@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Informing extends Model
+class Informing extends Service
 {
     //
 }

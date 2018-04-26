@@ -24,7 +24,7 @@
             <ul class="list-group">
                 <li class="list-group-item"> <strong> شماره کارت : </strong> <span dir="ltr"> {{implode($reserve_data['payment']['card_number'],'-')}} </span> </li>
                 <li class="list-group-item"> <strong> نام صاحب حساب : </strong> {{$reserve_data['payment']['owner_name']}} </li>
-                <li class="list-group-item"> <strong> شماره شبا : </strong> {{$reserve_data['payment']['shaba_number']}} </li>
+                <li class="list-group-item"> <strong> شماره شبا : </strong> {{$reserve_data['payment']['shaba']}} </li>
                 <li class="list-group-item">
                     <strong> اطلاعات بانک : </strong>
                     بانک
@@ -66,7 +66,7 @@
                     <td>{{toman($reserve_data['informing']['cost'])}}</td>
                     <td>{{toman($reserve_data['discount_amount'] ?? 0)}}</td>
                     <td class="bg-yellow">
-                        {{toman($reserve_data['total_amount'])}}
+                        {{toman($reserve_data['total_cost'])}}
                     </td>
                 </tr>
             </tbody>

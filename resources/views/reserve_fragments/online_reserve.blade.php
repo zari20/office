@@ -25,7 +25,7 @@
         <div class="col-md-4">
             <fieldset class="form-group with-border">
                 <legend> شماره شبا </legend>
-                <input type="text" dir="ltr" name="payment[shaba_number]" class="form-control" value="{{old('payment')['shaba_number'] ?? 'IR'}}">
+                <input type="text" dir="ltr" name="payment[shaba]" class="form-control" value="{{old('payment')['shaba'] ?? 'IR'}}">
             </fieldset>
         </div>
         <div class="col-md-8">

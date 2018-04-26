@@ -63,12 +63,12 @@ class ReserveController extends Controller
             if ($request->step == 1) {
                 self::validation();
                 $reserve_data = request()->all();
-                $total_amount = $reserve_data['schedule']['cost']+
+                $total_cost = $reserve_data['schedule']['cost']+
                                 $reserve_data['catering']['cost']+
                                 $reserve_data['medium']['cost']+
                                 $reserve_data['graphic']['cost']+
                                 $reserve_data['informing']['cost'];
-                $reserve_data['total_amount'] = $total_amount;
+                $reserve_data['total_cost'] = $total_cost;
                 session(compact('reserve_data'));
                 return view('reserves.finalize',compact('reserve_data'));
             }
@@ -87,7 +87,15 @@ class ReserveController extends Controller
             //storing in database
             if ($request->step == 3) {
                 $reserve_data = session('reserve_data');
-                dd(request()->all());
+                $reserve_instance = Reserve::make($reserve_data);
+                \App\Course::make($reserve_data,$reserve_instance);
+                \App\Schedule::make($reserve_data,$reserve_instance);
+                \App\Booking::make($reserve_data,$reserve_instance);
+                \App\Service::make($reserve_data,$reserve_instance);
+                \App\Payment::make($reserve_data,$reserve_instance);
+
+                Helper::flash();
+                return redirect("reserves/$reserve_instance->id");
             }
 
         }else {
@@ -97,7 +105,7 @@ class ReserveController extends Controller
 
     public function show(Reserve $reserve)
     {
-        //
+        dd('show');
     }
 
     public function edit(Reserve $reserve)

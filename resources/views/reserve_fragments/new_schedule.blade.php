@@ -24,9 +24,56 @@
         </div>
     </div>
 
-    <div class="">
-        
+    @php
+        $today = date('w'); //4
+        $day = 0;
+        $i = 0;
+        while ($day != $today) {
+            $day = $day==0 ? $today : $day;
+
+            $days[] = \App\Day::where('latin_number',$day)->first();
+
+            $date = new DateTime(date('Y-m-d'));
+            $date->modify("+$i day");
+            $dates[] = $date;
+
+            $day == 7 ? $day = 1 : $day++;
+            $i++;
+        }
+    @endphp
+
+    @foreach ($days as $key => $day)
+        <div class="schedule">
+            <div class="day-heading">
+                <span> {{latin_week_day($day->latin_number)}} </span>
+                <span> {{date_picker_date($dates[$key])}} </span>
+            </div>
+            @foreach ($day->periods as $key => $period)
+                <div class="period alert-{{$period->booked($dates[$key]) ? 'danger' : 'primary'}}" id="period-{{$period->id}}"
+                    @if(!$period->booked($dates[$key])) onclick="book({{$period->id}})" @endif
+                    style="width:{{floor(80/count($day->periods))-1}}%; cursor:{{$period->booked($dates[$key]) ? 'not-allowed' : 'pointer'}}"
+                    title="{{$period->booked($dates[$key]) ? 'این سانس قبلا رزرو شده است' : 'برای رزرو این سانس کلیک کنید'}}"
+                    data-time="{{time_difference($period->till,$period->from)}}">
+                    <span>
+                        از
+                        {{display_time($period->from)}}
+                        تا
+                        {{display_time($period->till)}}
+                    </span>
+                    <span>
+                        {{$period->booked($dates[$key]) ? 'رزرو شده' : 'قابل رزرو'}}
+                    </span>
+                    @if (!$period->booked($dates[$key]))
+                        <i class="fa fa-square-o"></i>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+    @endforeach
+    <div id="schedule-inputs">
+        {{-- will be updated via jQuery --}}
     </div>
+
 
     <div class="alert alert-info">
         <h4 class="alert-heading">توضیحات اتاق</h4>

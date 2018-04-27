@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Day extends Model
 {
-    public function periods()
+    public function periods($room_id)
     {
-        return $this->hasMany(Period::class);
+        return Period::where('room_id',$room_id)->where('day_id',$this->id)->get();
     }
 }

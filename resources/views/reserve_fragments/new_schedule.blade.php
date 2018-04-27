@@ -33,10 +33,10 @@
                 <span> {{latin_week_day($day->latin_number)}} </span>
                 <span> {{date_picker_date($dates[$i])}} </span>
             </div>
-            @foreach ($day->periods as $key => $period)
+            @foreach ($day->periods(old('schedule')['room_id'] ?? $rooms->first()->id) as $key => $period)
                 @if (is_array(old('period')['id']) && in_array($period->id,old('period')['id']))
                     @include('fragments.period', ['type' => 'picked'])
-                @elseif($period->booked($dates[$i]))
+                @elseif($period->booked($dates[$i],old('schedule')['room_id'] ?? $rooms->first()->id))
                     @include('fragments.period', ['type' => 'booked'])
                 @else
                     @include('fragments.period', ['type' => 'available'])

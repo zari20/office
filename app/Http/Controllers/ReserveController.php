@@ -21,8 +21,13 @@ class ReserveController extends Controller
 
     public function create()
     {
-        //getting neccessary records from database
+        //check if rooms exist
         $rooms = \App\RoomType::all();
+        if(!count($rooms)){
+            return view('reserves.no_room_error');
+        }
+
+        //getting neccessary records from database
         $caterings = \App\CateringType::all();
         $media = \App\MediumType::all();
         $graphics = \App\GraphicType::all();

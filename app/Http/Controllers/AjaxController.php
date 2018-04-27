@@ -16,7 +16,8 @@ class AjaxController extends Controller
         $date = miladi(request('date'));
         $week_day = date('N', strtotime($date));
 
-        if (new \DateTime() > new \DateTime($date)) {
+
+        if ( strtotime(date('Y-m-d')) > strtotime($date) ) {
             return view('fragments.error')->withMessage('تاریخ انتخاب شده در گذشته میباشد');
         }
 

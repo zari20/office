@@ -44,7 +44,6 @@ class ReserveController extends Controller
 
     public function store(Request $request)
     {
-        dd(request()->all());
         if(Auth::check()){
 
             //re-filling the form

@@ -11,7 +11,7 @@ class ReserveController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['create','store']);
+        $this->middleware('auth')->only(['index','show','edit','update','destroy','logmein']);
     }
 
     public function index()

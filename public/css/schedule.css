@@ -5,7 +5,7 @@
     margin: 5px 0px;
 }
 
-.schedule > div {
+.day-heading, .period {
     display: inline-block;
     min-width: 200px;
     padding: 5px 0px;
@@ -23,8 +23,13 @@
     font-size: 1.5em;
 }
 
-.schedule > div > span {
+.schedule span {
     display: block;
+}
+
+.periods {
+    display: inline-block;
+    width: 70%;
 }
 
 .day-heading {

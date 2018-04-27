@@ -1,10 +1,11 @@
 <div class="collapse show" id="collapseSchedule" data-parent="#reserves-collapseable">
     <div class="alert alert-warning"> <h3 class="alert-heading"> رزرو سالن </h3> </div>
     <hr>
+
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع اتاق </label>
-            <select class="form-control" name="schedule[room_id]" id="room" onchange="changeService($(this))">
+            <select class="form-control" name="schedule[room_id]" id="room-type">
                 @foreach ($rooms as $key => $room)
                     <option value="{{$room->id}}" data-cost="{{$room->cost_pre_hour}}" @if(old('schedule')['room_id'] == $room->id) selected @endif>
                         {{$room->name}}
@@ -12,48 +13,15 @@
                 @endforeach
             </select>
         </div>
-        <div class="form-group col-md-3">
-            <label for="date"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
-            <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="date" name="schedule[date]"
-            value="{{old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
-        </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="room-count"> <i class="fa fa-hourglass-1 ml-1"></i> تعداد ساعات </label>
             <input type="number" class="form-control" id="room-hours" name="schedule[hours]" value="{{old('schedule')['hours'] ?? 0}}" readonly>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
             <input type="text" class="form-control" id="room-final-cost" name="schedule[cost]" value="{{old('schedule')['cost'] ?? 0}}" readonly>
         </div>
     </div>
-
-    @foreach ($days as $i => $day)
-        <div class="schedule">
-            <div class="day-heading">
-                <span> {{latin_week_day($day->latin_number)}} </span>
-                <span> {{date_picker_date($dates[$i])}} </span>
-            </div>
-            @foreach ($day->periods as $key => $period)
-                @if (is_array(old('period')['id']) && in_array($period->id,old('period')['id']))
-                    @include('fragments.period', ['type' => 'picked'])
-                @elseif($period->booked($dates[$i]))
-                    @include('fragments.period', ['type' => 'booked'])
-                @else
-                    @include('fragments.period', ['type' => 'available'])
-                @endif
-            @endforeach
-        </div>
-    @endforeach
-    <div id="schedule-inputs">
-        @if (is_array(old('period')['id']))
-            @foreach (old('period')['id'] as $key => $id)
-                <input type="hidden" name="period[id][]" value="{{$id}}" id="period-id-input-{{$id}}">
-                <input type="hidden" name="period[date][]" value="{{old('period')['date'][$key]}}" id="period-date-input-{{$id}}">
-                <input type="hidden" name="period[hours][]" class="hidden-hours" value="{{old('period')['hours'][$key]}}" id="period-date-input-{{$id}}">
-            @endforeach
-        @endif
-    </div>
-
 
     <div class="alert alert-info">
         <h4 class="alert-heading">توضیحات اتاق</h4>
@@ -77,6 +45,28 @@
         </p>
     </div>
 
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+            <div class="form-group row">
+                <label for="schedule-date" class="col-md-3 col-form-label"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
+                <div class="col-md-9">
+                    <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="schedule-date" name="schedule[date]"
+                    value="{{old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-block text-white bg-green shadow" onclick="getCalendar()">
+                <i class="fa fa-search ml-1"></i> بگرد
+            </button>
+        </div>
+    </div>
+    <div id="schedule-calendar">
+        @include('partials.calendar')
+    </div>
+
+    <hr>
     <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapseCatering">
          مرحله بعدی <i class="fa fa-arrow-left mr-1"></i>
      </button>

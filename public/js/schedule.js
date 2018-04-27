@@ -28,11 +28,5 @@ function setHours() {
         total += parseInt($(this).val());
     });
     $('input#room-hours').val(total);
-    calculateRoomMoney();
-}
-
-function calculateRoomMoney() {
-    var count = $('input#room-hours').val();
-    var base = $('select#room').find(":selected").attr('data-cost');
-    $('#room-final-cost').val(count*base);
+    roomCost();
 }

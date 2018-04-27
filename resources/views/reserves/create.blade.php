@@ -54,7 +54,7 @@
                 <h4 data-toggle="collapse" data-target="#collapseInforming" class="s-title">
                      <i class="fa fa-headphones ml-1"></i> خدمات روابط عمومی
                  </h4>
-                <h4 data-toggle="collapse" data-target="#collapseOnlineReserve" class="s-title">
+                <h4 data-toggle="collapse" data-target="#collapsePayment" class="s-title">
                      <i class="fa fa-edge ml-1"></i> خدمات ثبت نام
                  </h4>
             </div>
@@ -63,8 +63,8 @@
             @include('reserve_fragments.new_service',['type'=>'catering', 'next'=>'Medium', 'services'=>$caterings])
             @include('reserve_fragments.new_service',['type'=>'medium', 'next'=>'Graphic', 'services'=>$media])
             @include('reserve_fragments.new_service',['type'=>'graphic', 'next'=>'Informing', 'services'=>$graphics])
-            @include('reserve_fragments.new_service',['type'=>'informing', 'next'=>'OnlineReserve', 'services'=>$informings])
-            @include('reserve_fragments.online_reserve')
+            @include('reserve_fragments.new_service',['type'=>'informing', 'next'=>'Payment', 'services'=>$informings])
+            @include('reserve_fragments.payment')
         </div>
 
         {{-- <h4 data-toggle="collapse" data-target="#collapseFinalize" class="reserve-title"> <i class="fa fa-check ml-1"></i> نهایی سازی و پرداخت آنلاین  </h4>

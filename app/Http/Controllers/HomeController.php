@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (user_type()=='admin') {
+            $reserves = \App\Reserve::limit(5)->get();
+            return view('home',compact('reserves'));
+        }else {
+            return view('home');
+        }
     }
 }

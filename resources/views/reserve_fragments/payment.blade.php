@@ -1,4 +1,4 @@
-<div class="collapse" id="collapseOnlineReserve" data-parent="#reserves-collapseable">
+<div class="collapse" id="collapsePayment" data-parent="#reserves-collapseable">
     <div class="alert alert-warning"> <h3 class="alert-heading"> خدمات ثبت نام </h3> </div>
     <hr>
     <p class="lead text-right"> اطلاعات تسویه حساب مشترکین خدمات رزرواسیون </p>

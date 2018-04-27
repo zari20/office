@@ -37,6 +37,7 @@
         </p>
     </div>
 
+    <hr>
     <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapse{{$next}}">
          مرحله بعدی <i class="fa fa-arrow-left mr-1"></i>
      </button>

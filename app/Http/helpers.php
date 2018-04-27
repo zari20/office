@@ -15,6 +15,11 @@ function admin()
     return auth()->user()->type == 'admin';
 }
 
+function user()
+{
+    return auth()->user()->type == 'regular';
+}
+
 //retrieve
 
 function cities()

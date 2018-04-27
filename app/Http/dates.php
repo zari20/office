@@ -115,7 +115,7 @@ function gregorian_to_jalali ($g_y, $g_m, $g_d,$str)
 function miladi($string,$sep='/')
 {
     $arr = explode($sep,$string);
-    return jalali_to_gregorian($arr[0],$arr[1],$arr[2]);
+    return jalali_to_gregorian($arr[0],$arr[1],$arr[2],true);
 }
 
 

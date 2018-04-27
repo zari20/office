@@ -11,7 +11,7 @@ class ReserveController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['create','store']);
+        $this->middleware('auth')->only(['index','show','edit','update','destroy','logmein']);
     }
 
     public function index()
@@ -21,31 +21,25 @@ class ReserveController extends Controller
 
     public function create()
     {
-        //getting neccessary records from database
+        //check if rooms exist
         $rooms = \App\RoomType::all();
+        if(!count($rooms)){
+            return view('reserves.no_room_error');
+        }
+
+        //getting neccessary records from database
         $caterings = \App\CateringType::all();
         $media = \App\MediumType::all();
         $graphics = \App\GraphicType::all();
         $informings = \App\InformingType::all();
 
         //creating days and dates array
-        $today = date('w');
-        $day = 0;
-        $i = 0;
-        while ($day != $today) {
-            $day = $day==0 ? $today : $day;
+        $days_and_dates = \App\Day::days_and_dates();
+        $days = $days_and_dates['days'];
+        $dates = $days_and_dates['dates'];
+        $current_room = old('schedule')['room_id'] ?? $rooms->first()->id;
 
-            $days[] = \App\Day::where('latin_number',$day)->first();
-
-            $date = new \DateTime(date('Y-m-d'));
-            $date->modify("+$i day");
-            $dates[] = $date;
-
-            $day == 7 ? $day = 1 : $day++;
-            $i++;
-        }
-
-        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons','days','dates'));
+        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons','days','dates','current_room'));
     }
 
     public function store(Request $request)

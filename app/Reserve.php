@@ -22,9 +22,9 @@ class Reserve extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function discount_code()
+    public function discount()
     {
-        return $this->belongsTo(DiscountCode::class);
+        return $this->belongsTo(DiscountCode::class,'discount_code_id');
     }
 
     public function bookings()
@@ -32,27 +32,27 @@ class Reserve extends Model
         return $this->hasMany(Booking::class);
     }
 
-    public function courses()
+    public function course()
     {
         return $this->hasOne(Course::class);
     }
 
-    public function graphics()
+    public function graphic()
     {
         return $this->hasOne(Graphic::class);
     }
 
-    public function informings()
+    public function informing()
     {
         return $this->hasOne(Informing::class);
     }
 
-    public function media()
+    public function medium()
     {
         return $this->hasOne(Medium::class);
     }
 
-    public function payments()
+    public function payment()
     {
         return $this->hasOne(Payment::class);
     }
@@ -60,5 +60,15 @@ class Reserve extends Model
     public function schedule()
     {
         return $this->hasOne(Schedule::class);
+    }
+
+    public function services()
+    {
+        $service_types = Service::$types;
+        $services = [];
+        foreach ($service_types as $key => $type) {
+            $services[$type] = $this->$type;
+        }
+        return $services;
     }
 }

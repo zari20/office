@@ -68,7 +68,12 @@ function latin_week_day($day)
 
 function toman($amount)
 {
-    return $amount ? number_format($amount)."تومان" : 0;
+    return $amount ? number_format($amount)." تومان" : 0;
+}
+
+function discount($amount,$discount=0)
+{
+    return $amount - ($discount*$amount)/100;
 }
 
 function str_with_dots($string,$number=100)

@@ -44,8 +44,6 @@
         <table class="table table-bordered table-hover table-striped text-center">
             <thead>
                 <tr>
-                    {{-- <th>نام دوره / کارگاه / کنفرانس</th>
-                    <th>نام موسسه / فرد برگزار کننده</th> --}}
                     <th>هزینه رزرو سالن</th>
                     <th>هزینه پذیرایی</th>
                     <th>هزینه خدمات سمعی بصری</th>
@@ -57,8 +55,6 @@
             </thead>
             <tbody>
                 <tr>
-                    {{-- <td> {{$reserve_data['course']['name']}} </td>
-                    <td> {{$reserve_data['course']['performer']}} </td> --}}
                     <td>{{toman($reserve_data['schedule']['cost'])}}</td>
                     <td>{{toman($reserve_data['catering']['cost'])}}</td>
                     <td>{{toman($reserve_data['medium']['cost'])}}</td>

@@ -103,9 +103,16 @@ class ReserveController extends Controller
         }
     }
 
-    public function show(Reserve $reserve)
+    public function show($id)
     {
-        dd('show');
+        //getting instance
+        $reserve = Reserve::find($id);
+
+        //user check
+        Helper::user_check($reserve);
+
+        //return view
+        return view('reserves.show',compact('reserve'));
     }
 
     public function edit(Reserve $reserve)

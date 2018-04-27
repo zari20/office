@@ -10,6 +10,8 @@ th {text-align: center;}
 .pointer {cursor: pointer;}
 .not-allowed {cursor: not-allowed;}
 
+.none:hover {text-decoration: none;}
+
 /* reserve */
 .s-titles-container{
     white-space: nowrap;

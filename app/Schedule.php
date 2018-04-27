@@ -16,4 +16,9 @@ class Schedule extends Model
         $s->save();
         return $s;
     }
+
+    public function room()
+    {
+        return $this->belongsTo(RoomType::class);
+    }
 }

@@ -1,7 +1,7 @@
 @if ($type=='available')
     <div class="period alert-primary pointer" id="period-{{$period->id}}"
         onclick="book({{$period->id}})"
-        style="width:{{floor(80/count($day->periods(old('schedule')['room_id'] ?? $rooms->first()->id)))-1}}%;"
+        style="width:{{floor(80/count($day->periods($current_room)))-1}}%;"
         data-date="{{$dates[$i]->format('Y-m-d')}}"
         data-time="{{time_difference($period->till,$period->from)}}">
         <span>
@@ -18,7 +18,7 @@
 @if ($type=='picked')
     <div class="period alert-success pointer" id="period-{{$period->id}}"
         onclick="book({{$period->id}})"
-        style="width:{{floor(80/count($day->periods(old('schedule')['room_id'] ?? $rooms->first()->id)))-1}}%;"
+        style="width:{{floor(80/count($day->periods($current_room)))-1}}%;"
         data-date="{{$dates[$i]->format('Y-m-d')}}"
         data-time="{{time_difference($period->till,$period->from)}}">
         <span>
@@ -34,7 +34,7 @@
 
 @if ($type=='booked')
     <div class="period alert-danger not-allowed" id="period-{{$period->id}}"
-        style="width:{{floor(80/count($day->periods(old('schedule')['room_id'] ?? $rooms->first()->id)))-1}}%;">
+        style="width:{{floor(80/count($day->periods($current_room)))-1}}%;">
         <span>
             از
             {{display_time($period->from)}}
@@ -47,7 +47,7 @@
 
 @if ($type=='impossible')
     <div class="period alert-danger not-allowed" id="period-{{$period->id}}"
-        style="width:{{floor(80/count($day->periods(old('schedule')['room_id'] ?? $rooms->first()->id)))-1}}%;">
+        style="width:{{floor(80/count($day->periods($current_room)))-1}}%;">
         <span>
             از
             {{display_time($period->from)}}

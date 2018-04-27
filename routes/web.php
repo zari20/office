@@ -17,3 +17,6 @@ Route::post('services/{method}/{type}/{id?}','ServicesController@main');
 //other
 Route::post('new_user','ReserveController@create_user');
 Route::get('reserve_logmein','ReserveController@logmein');
+
+//ajax requests
+Route::post('ajax/{method}','AjaxController@main');

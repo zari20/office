@@ -21,6 +21,36 @@ $(document).ready(function () {
     });
 });
 
+$(document).on('change','select#room-type',function () {
+    changeRoom();
+    getCalendar();
+})
+
+$(document).on('change','#schedule-date',function () {
+    getCalendar();
+})
+
+function getCalendar() {
+    var roomId = $('select#room-type').val();
+    var date = $('#schedule-date').val();
+    var formData = {room_id:roomId, date:date};
+    var target = $('div#schedule-calendar');
+    sendAjax('get_calendar',formData,target)
+}
+
+function changeRoom() {
+    var id = $('select#room-type').val();
+    $('.room-cost').hide(); $('.room-capacity').hide(); $('.room-description').hide();
+    $('#room-cost-'+id).show(); $('#room-capacity-'+id).show(); $('#room-description-'+id).show();
+    roomCost();
+}
+
+function roomCost() {
+    var cost = $('select#room-type').find(":selected").attr('data-cost');
+    var hours = $('#room-hours').val();
+    $('#room-final-cost').val(hours*cost);
+}
+
 
 function changeService(element) {
     var value = element.val();
@@ -34,12 +64,6 @@ function changeService(element) {
     $('.'+type+'-description').hide();
     $('#'+type+'-description-'+value).show();
 
-    //capacity
-    if (type=='room') {
-        $('.'+type+'-capacity').hide();
-        $('#'+type+'-capacity-'+value).show();
-    }
-
     //final cost
     var count = $('#'+type+'-count').val();
     var base = element.find(":selected").attr('data-cost');
@@ -51,6 +75,28 @@ function changeCount(element) {
     var count = element.val();
     var base = $('select#'+type).find(":selected").attr('data-cost');
     $('#'+type+'-final-cost').val(count*base);
+}
+
+function sendAjax(method,formData,target){
+
+    var token = $('input[name="_token"]').val();
+    formData._token = token;
+
+    var url = documentRoot+'/ajax/'+method;
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    })
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: formData,
+        success: function(data) {
+            if(target && data) target.html(data);
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function() {

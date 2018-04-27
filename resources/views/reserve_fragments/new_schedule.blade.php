@@ -3,7 +3,7 @@
     <hr>
 
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع اتاق </label>
             <select class="form-control" name="schedule[room_id]" id="room-type">
                 @foreach ($rooms as $key => $room)
@@ -13,16 +13,11 @@
                 @endforeach
             </select>
         </div>
-        <div class="form-group col-md-3">
-            <label for="schedule-date"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
-            <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="schedule-date" name="schedule[date]"
-            value="{{old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
-        </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="room-count"> <i class="fa fa-hourglass-1 ml-1"></i> تعداد ساعات </label>
             <input type="number" class="form-control" id="room-hours" name="schedule[hours]" value="{{old('schedule')['hours'] ?? 0}}" readonly>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
             <input type="text" class="form-control" id="room-final-cost" name="schedule[cost]" value="{{old('schedule')['cost'] ?? 0}}" readonly>
         </div>
@@ -50,6 +45,23 @@
         </p>
     </div>
 
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+            <div class="form-group row">
+                <label for="schedule-date" class="col-md-3 col-form-label"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
+                <div class="col-md-9">
+                    <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="schedule-date" name="schedule[date]"
+                    value="{{old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-block text-white bg-green shadow" onclick="getCalendar()">
+                <i class="fa fa-search ml-1"></i> بگرد
+            </button>
+        </div>
+    </div>
     <div id="schedule-calendar">
         @include('partials.calendar')
     </div>

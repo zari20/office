@@ -13,7 +13,7 @@ class Day extends Model
 
     public static function days_and_dates($init_week_day=null,$init_date=null)
     {
-        $init_week_day = $init_week_day ?? date('w');
+        $init_week_day = $init_week_day ?? date('N');
         $init_date = $init_date ?? date('Y-m-d');
 
         $day = 0;

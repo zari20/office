@@ -26,10 +26,6 @@ $(document).on('change','select#room-type',function () {
     getCalendar();
 })
 
-$(document).on('change','#schedule-date',function () {
-    getCalendar();
-})
-
 function getCalendar() {
     var roomId = $('select#room-type').val();
     var date = $('#schedule-date').val();

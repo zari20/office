@@ -58,7 +58,7 @@
     <div class="row">
         @foreach ($reserve->bookings as $key => $booking)
             <div class="col-md-4">
-                <div class="card bg-light">
+                <div class="card bg-light my-1">
                     <div class="card-body">
                         {{period_details($booking->period_id,$booking->date)}}
                     </div>
@@ -151,4 +151,9 @@
         </table>
     </div>
 
+    <hr>
+    <p class="lead text-blue dinar my-3"> عملیات :  </p>
+    <button type="button" class="btn mx-1 btn-info"> <i class="fa fa-cogs ml-1"></i> مدیریت </button>
+    <button type="button" class="btn mx-1 btn-success"> <i class="fa fa-edit ml-1"></i> ویرایش </button>
+    <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i>  اطلاعات دوره آموزشی </p>
             <ul class="list-group">
                 <li class="list-group-item"> <strong> نام دوره / کارگاه / کنفرانس : </strong> {{$reserve_data['course']['name'] ?? '-'}} </li>
@@ -11,22 +11,14 @@
                 <li class="list-group-item"> <strong> مرجع صدور مجوز / مدرک استاد : </strong> {{$reserve_data['course']['document'] ?? '-'}} </li>
             </ul>
         </div>
-        <div class="col-md-6">
-
-            <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> سانس های انتخاب شده </p>
-            <ul class="list-group">
-                @foreach ($reserve_data['period']['id'] as $key => $id)
-                    <li class="list-group-item"> <strong> {{$key+1}} - </strong> {{period_details($id,$reserve_data['period']['date'][$key])}} </li>
-                @endforeach
-            </ul>
-
+        <div class="col-md-3">
             <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> اطلاعات تسویه حساب </p>
             <ul class="list-group">
-                <li class="list-group-item"> <strong> شماره کارت : </strong> <span dir="ltr"> {{implode($reserve_data['payment']['card_number'],'-')}} </span> </li>
+                <li class="list-group-item"> <strong> شماره کارت : </strong> <br> <span dir="ltr"> {{implode($reserve_data['payment']['card_number'],'-')}} </span> </li>
                 <li class="list-group-item"> <strong> نام صاحب حساب : </strong> {{$reserve_data['payment']['owner_name']}} </li>
                 <li class="list-group-item"> <strong> شماره شبا : </strong> {{$reserve_data['payment']['shaba']}} </li>
                 <li class="list-group-item">
-                    <strong> اطلاعات بانک : </strong>
+                    <strong> اطلاعات بانک : </strong> <br>
                     بانک
                     {{$reserve_data['payment']['bank_name'] ?? '?'}}
                     شعبه
@@ -35,7 +27,14 @@
                     {{$reserve_data['payment']['bank_code'] ?? '?'}}
                 </li>
             </ul>
-
+        </div>
+        <div class="col-md-5">
+            <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> سانس های انتخاب شده </p>
+            <ul class="list-group">
+                @foreach ($reserve_data['period']['id'] as $key => $id)
+                    <li class="list-group-item"> <strong> {{$key+1}} - </strong> {{period_details($id,$reserve_data['period']['date'][$key])}} </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 

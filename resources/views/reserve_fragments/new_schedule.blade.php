@@ -66,7 +66,7 @@
         @include('partials.calendar')
     </div>
 
-
+    <hr>
     <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapseCatering">
          مرحله بعدی <i class="fa fa-arrow-left mr-1"></i>
      </button>

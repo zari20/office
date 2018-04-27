@@ -4,15 +4,17 @@
             <span> {{latin_week_day($day->latin_number)}} </span>
             <span> {{date_picker_date($dates[$i])}} </span>
         </div>
-        @foreach ($day->periods($current_room) as $key => $period)
-            @if (is_array(old('period')['id']) && in_array($period->id,old('period')['id']))
-                @include('fragments.period', ['type' => 'picked'])
-            @elseif($period->booked($dates[$i],$current_room))
-                @include('fragments.period', ['type' => 'booked'])
-            @else
-                @include('fragments.period', ['type' => 'available'])
-            @endif
-        @endforeach
+        <div class="periods">
+            @foreach ($day->periods($current_room) as $key => $period)
+                @if (is_array(old('period')['id']) && in_array($period->id,old('period')['id']))
+                    @include('fragments.period', ['type' => 'picked'])
+                @elseif($period->booked($dates[$i],$current_room))
+                    @include('fragments.period', ['type' => 'booked'])
+                @else
+                    @include('fragments.period', ['type' => 'available'])
+                @endif
+            @endforeach
+        </div>
     </div>
 @endforeach
 <div id="schedule-inputs">

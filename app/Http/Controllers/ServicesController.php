@@ -75,7 +75,6 @@ class ServicesController extends Controller
         if ($type=='room') {
             $object->capacity = request('capacity');
             $object->cost_pre_hour = request('cost_pre_hour');
-            $object->min_hour = request('min_hour');
         }else {
             $object->cost = request('cost');
         }

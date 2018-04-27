@@ -75,13 +75,6 @@
             @endforeach
             نفر
         </p>
-        <p>
-            حداقل ساعت اجاره :
-            @foreach ($rooms as $key => $room)
-                <span class="room-min-hour" id="room-min-hour-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->min_hour}} </span>
-            @endforeach
-            ساعت
-        </p>
     </div>
 
     <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapseCatering">

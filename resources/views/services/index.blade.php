@@ -30,7 +30,6 @@
                         @if ($type=='room')
                             <td> {{$object->capacity}} </td>
                             <td> {{toman($object->cost_pre_hour)}} </td>
-                            <td> {{$object->min_hour}} </td>
                         @else
                             <td> {{toman($object->cost)}} </td>
                         @endif

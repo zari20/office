@@ -71,7 +71,14 @@
     <p class="lead text-blue dinar my-3"> خدمات انتخاب شده :  </p>
     @if (!count(array_filter($reserve->services())))
         <div class="alert alert-danger">
-            شما هیچ خدماتی انتخاب نکرده اید.
+            @admin
+                این شخص هیچ خدماتی انتخاب نکرده است.
+            @else
+                شما هیچ خدماتی انتخاب نکرده اید.
+            @endadmin
+        </div>
+        <div class="text-left">
+            <a href="#"> <i class="fa fa-plus ml-1"></i> اضافه کردن خدمات </a>
         </div>
     @endif
     @foreach ($reserve->services() as $type => $service)

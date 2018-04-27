@@ -2,7 +2,7 @@
     <div class="period alert-primary pointer" id="period-{{$period->id}}"
         onclick="book({{$period->id}})"
         style="width:{{floor(80/count($day->periods))-1}}%;"
-        data-date="{{$dates[$key]->format('Y-m-d')}}"
+        data-date="{{$dates[$i]->format('Y-m-d')}}"
         data-time="{{time_difference($period->till,$period->from)}}">
         <span>
             از
@@ -19,7 +19,7 @@
     <div class="period alert-success pointer" id="period-{{$period->id}}"
         onclick="book({{$period->id}})"
         style="width:{{floor(80/count($day->periods))-1}}%;"
-        data-date="{{$dates[$key]->format('Y-m-d')}}"
+        data-date="{{$dates[$i]->format('Y-m-d')}}"
         data-time="{{time_difference($period->till,$period->from)}}">
         <span>
             از

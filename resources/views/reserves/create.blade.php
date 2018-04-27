@@ -24,8 +24,9 @@
     @endguest
     <hr>
 
-    <form id="reserves-collapseable" action="{{url('reserves')}}" method="post">
+    <form id="reserves-collapseable" action="{{url('reserves')}}" method="post" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="step" value="1">
 
         <h4 class="r-title" data-toggle="collapse" data-target="#collapseCourse"> <i class="fa fa-sitemap ml-1"></i> اطلاعات دوره آموزشی </h4>
         @include('reserve_fragments.new_course')
@@ -38,7 +39,7 @@
                 پس از تکمیل اطلاعات مربوط به رزرو سالن میتوانید هرکدام از خدمات دیگر مانند پذیرایی یا خدمات سمعی بصری و ... را نیز انتخاب کنید
             </div>
             <div class="s-titles-container">
-                <h4 data-toggle="collapse" data-target="#collapseSchedule" class="s-title">
+                <h4 data-toggle="collapse" data-target="#collapseSchedule" class="s-title" aria-expanded="true">
                      <i class="fa fa-bank ml-1"></i> رزرو سالن
                  </h4>
                 <h4 data-toggle="collapse" data-target="#collapseCatering" class="s-title">
@@ -59,10 +60,10 @@
             </div>
 
             @include('reserve_fragments.new_schedule')
-            @include('reserve_fragments.new_service',['type'=>'catering', 'services'=>$caterings])
-            @include('reserve_fragments.new_service',['type'=>'medium', 'services'=>$media])
-            @include('reserve_fragments.new_service',['type'=>'graphic', 'services'=>$graphics])
-            @include('reserve_fragments.new_service',['type'=>'informing', 'services'=>$informings])
+            @include('reserve_fragments.new_service',['type'=>'catering', 'next'=>'Medium', 'services'=>$caterings])
+            @include('reserve_fragments.new_service',['type'=>'medium', 'next'=>'Graphic', 'services'=>$media])
+            @include('reserve_fragments.new_service',['type'=>'graphic', 'next'=>'Informing', 'services'=>$graphics])
+            @include('reserve_fragments.new_service',['type'=>'informing', 'next'=>'OnlineReserve', 'services'=>$informings])
             @include('reserve_fragments.online_reserve')
         </div>
 

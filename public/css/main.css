@@ -4,6 +4,13 @@ body {font-family: 'Yekan','OpenSans'}
 .white-shadow:hover { box-shadow: 1px 1px 5px white}
 select { font-family: 'Calibri'}
 button, [data-toggle] {cursor: pointer;}
+th {text-align: center;}
+.direct-x{ white-space: nowrap; overflow-x: auto;}
+
+.pointer {cursor: pointer;}
+.not-allowed {cursor: not-allowed;}
+
+.none:hover {text-decoration: none;}
 
 /* reserve */
 .s-titles-container{
@@ -68,7 +75,7 @@ input.no-arrow::-webkit-outer-spin-button {
   line-height: 1em;
   margin: 15px 5px;
   outline: none;
-  padding: 12px 40px 10px;
+  padding: 12px 20px 10px;
   position: relative;
   text-transform: uppercase;
   font-weight: 400;
@@ -112,6 +119,17 @@ input.no-arrow::-webkit-outer-spin-button {
 .s-title.hover:after {
   height: 100%;
   width: 100%;
+}
+
+.s-title[aria-expanded=true]{
+    background-color: #00B9CF;
+    color: white;
+}
+.s-title[aria-expanded=true]:before {
+  border-color: #00B9CF;
+}
+.s-title[aria-expanded=true]:after {
+  border-color: #00B9CF;
 }
 
 .r-title {

@@ -40,5 +40,12 @@ class Helper extends Controller
             abort(404);
         }
     }
-    
+
+    public static function user_check($object)
+    {
+        if (!admin() && auth()->id() != $object->user_id) {
+            abort(404);
+        }
+    }
+
 }

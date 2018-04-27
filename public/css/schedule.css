@@ -1,0 +1,34 @@
+.schedule {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 5px 0px;
+}
+
+.schedule > div {
+    display: inline-block;
+    min-width: 200px;
+    padding: 5px 0px;
+}
+
+.period {
+    border: 2px solid #383838;
+    position: relative;
+}
+
+.period > i {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 1.5em;
+}
+
+.schedule > div > span {
+    display: block;
+}
+
+.day-heading {
+    background-color: #FEBF2C;
+    border: 2px solid #383838;
+    width: 20%;
+}

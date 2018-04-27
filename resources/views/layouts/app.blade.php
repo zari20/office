@@ -17,6 +17,7 @@
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script src="{{ asset('js/persianDatepicker.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
+    <script src="{{ asset('js/schedule.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
     <!-- Fonts -->
@@ -29,6 +30,7 @@
     <link href="{{ asset('css/persianDatepicker-default.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/colors.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/schedule.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body @if(app()->getLocale() == 'fa') dir="rtl" style="text-align:right" @endif>

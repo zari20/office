@@ -1,5 +1,8 @@
 <?php
 
+//dates
+
+
 //authenticating
 
 function user_type()
@@ -19,8 +22,6 @@ function cities()
     return \DB::table('cities')->get();
 }
 
-//services
-
 function services()
 {
     return ['room','catering','medium','graphic','informing'];
@@ -39,9 +40,54 @@ function translate($word)
     }
 }
 
+function week_day($day)
+{
+    if($day==0) return "شنبه";
+    if($day==1) return "یکشنبه";
+    if($day==2) return "دوشنبه";
+    if($day==3) return "سه شنبه";
+    if($day==4) return "چهارشنبه";
+    if($day==5) return "پنجشنبه";
+    if($day==6) return "جمعه";
+    return '?';
+}
+
+function latin_week_day($day)
+{
+    if($day==1) return "دوشنبه";
+    if($day==2) return "سه شنبه";
+    if($day==3) return "چهارشنبه";
+    if($day==4) return "پنجشنبه";
+    if($day==5) return "جمعه";
+    if($day==6) return "شنبه";
+    if($day==7) return "یکشنبه";
+    return '?';
+}
+
 //texts
 
 function toman($amount)
 {
-    return $amount ? number_format($amount)."تومان" : 0;
+    return $amount ? number_format($amount)." تومان" : 0;
+}
+
+function discount($amount,$discount=0)
+{
+    return $amount - ($discount*$amount)/100;
+}
+
+function str_with_dots($string,$number=100)
+{
+    return strlen($string) > $number ? substr($string, 0, $number).'...' : $string;
+}
+function display_time($time)
+{
+    return substr($time, 0, -3);
+}
+function period_details($id,$date)
+{
+    $period = \App\Period::find($id);
+    if($period){
+        return week_day($period->day->number) .' '. human_date($date) .' ساعت '. display_time($period->from) .' تا '.  display_time($period->till);
+    }
 }

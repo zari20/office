@@ -4,19 +4,21 @@
     <div class="row">
         <div class="form-group col-md-4 styled-select slate">
             <label for="{{$type}}"> نوع {{translate($type)}} </label>
-            <select class="form-control" name="{{$type}}_id" id="{{$type}}" onchange="changeService($(this))">
+            <select class="form-control" name="{{$type}}[id]" id="{{$type}}" onchange="changeService($(this))">
                 @foreach ($services as $key => $service)
-                    <option value="{{$service->id}}" data-cost="{{$service->cost}}">{{$service->name}}</option>
+                    <option value="{{$service->id}}" data-cost="{{$service->cost}}" @if(old($type)['id'] == $service->id) selected @endif>
+                        {{$service->name}}
+                    </option>
                 @endforeach
             </select>
         </div>
         <div class="form-group col-md-4">
             <label for="{{$type}}-count"> تعداد </label>
-            <input type="number" class="form-control" id="{{$type}}-count" name="{{$type}}_count" value="{{old($type.'_count') ?? 0}}" onchange="changeCount($(this))" data-type="{{$type}}">
+            <input type="number" class="form-control" id="{{$type}}-count" name="{{$type}}[count]" value="{{old($type)['count'] ?? 0}}" onchange="changeCount($(this))" data-type="{{$type}}">
         </div>
         <div class="form-group col-md-4">
             <label for="{{$type}}-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
-            <input type="text" class="form-control" id="{{$type}}-final-cost" name="{{$type}}_cost" value="0" disabled>
+            <input type="text" class="form-control" id="{{$type}}-final-cost" name="{{$type}}[cost]" value="{{old($type)['cost'] ?? 0}}" readonly>
         </div>
     </div>
 
@@ -34,6 +36,10 @@
             تومان
         </p>
     </div>
+
+    <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapse{{$next}}">
+         مرحله بعدی <i class="fa fa-arrow-left mr-1"></i>
+     </button>
 
     <hr>
 </div>

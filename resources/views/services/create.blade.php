@@ -14,12 +14,12 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="cost_pre_hour"> هزینه در هر ساعت (به تومان) </label>
-                <input type="number" class="form-control" id="cost_pre_hour" name="cost_pre_hour" value="{{$object->cost_pre_hour ?? old('cost_pre_hour')}}" required>
+                <input type="number" step="1000" class="form-control" id="cost_pre_hour" name="cost_pre_hour" value="{{$object->cost_pre_hour ?? old('cost_pre_hour')}}" required>
             </div>
         @else
             <div class="form-group col-md-4">
                 <label for="cost"> فی </label>
-                <input type="number" class="form-control" id="cost" name="cost" value="{{$object->cost ?? old('cost')}}" required>
+                <input type="number" step="1000" class="form-control" id="cost" name="cost" value="{{$object->cost ?? old('cost')}}" required>
             </div>
         @endif
         <div class="form-group col-md-12">

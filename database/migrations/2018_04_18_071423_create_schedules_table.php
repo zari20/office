@@ -18,8 +18,6 @@ class CreateSchedulesTable extends Migration
             $table->unsignedInteger('reserve_id');
             $table->unsignedInteger('room_id');
             $table->double('hours');
-            $table->date('date');
-            $table->time('time');
             $table->unsignedBigInteger('cost');
             $table->timestamps();
         });

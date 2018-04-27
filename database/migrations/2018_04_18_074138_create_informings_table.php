@@ -17,7 +17,6 @@ class CreateInformingsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('reserve_id');
             $table->unsignedInteger('informing_type_id');
-            $table->string('file_path')->nullable();
             $table->unsignedSmallInteger('count')->default(1);
             $table->unsignedBigInteger('cost');
             $table->timestamps();

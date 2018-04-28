@@ -41,6 +41,7 @@
 
         <main class="p-md-4 p-2">
             @include('fragments.errors')
+            @include('fragments.flash')
             @yield('content')
         </main>
     </div>

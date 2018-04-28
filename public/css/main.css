@@ -3,7 +3,7 @@ body {font-family: 'Yekan','OpenSans'}
 /* general classes */
 .white-shadow:hover { box-shadow: 1px 1px 5px white}
 select { font-family: 'Calibri'}
-button, [data-toggle] {cursor: pointer;}
+button, [data-toggle], [onclick] {cursor: pointer;}
 th {text-align: center;}
 .direct-x{ white-space: nowrap; overflow-x: auto;}
 

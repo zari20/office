@@ -16,4 +16,9 @@ class Period extends Model
     {
         return $this->belongsTo(Day::class);
     }
+
+    public function room()
+    {
+        return $this->belongsTo(RoomType::class,'room_id');
+    }
 }

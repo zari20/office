@@ -19,4 +19,9 @@ class Booking extends Model
         }
         return $bookings;
     }
+
+    public function reserve()
+    {
+        return $this->belongsTo(Reserve::class);
+    }
 }

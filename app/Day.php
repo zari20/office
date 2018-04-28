@@ -8,7 +8,7 @@ class Day extends Model
 {
     public function periods($room_id)
     {
-        return Period::where('room_id',$room_id)->where('day_id',$this->id)->get();
+        return Period::where('room_id',$room_id)->where('day_id',$this->id)->orderBy('from')->get();
     }
 
     public static function days_and_dates($init_week_day=null,$init_date=null)

@@ -16,3 +16,9 @@
     @endforeach
 </div>
 <hr>
+
+<h4 class="text-green dinar mb-4"> <i class="fa fa-flash ml-1"></i> مدیریت سانس ها </h4>
+<div class="">
+    <a href="{{url("/periods")}}" class="btn btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+    <a href="{{url("/periods")}}" class="btn btn-success"> <i class="fa fa-plus ml-1"></i> تعریف سانس جدید </a>
+</div>

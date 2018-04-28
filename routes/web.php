@@ -9,6 +9,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //resources
 Route::resource('reserves','ReserveController');
+Route::resource('periods','PeriodController');
 
 //services
 Route::get('services/{method}/{type}/{id?}','ServicesController@main');

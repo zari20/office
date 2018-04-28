@@ -12,12 +12,14 @@ function user_type()
 
 function admin()
 {
-    return auth()->user()->type == 'admin';
+    $type = auth()->user()->type ?? null;
+    return $type && auth()->user()->type == 'admin';
 }
 
 function user()
 {
-    return auth()->user()->type == 'regular';
+    $type = auth()->user()->type ?? null;
+    return $type && auth()->user()->type == 'regular';
 }
 
 //retrieve

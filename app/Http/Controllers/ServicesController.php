@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 class ServicesController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function main($method,$type,$id=0)
     {
         Helper::admin_check();

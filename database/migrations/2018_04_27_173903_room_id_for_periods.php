@@ -23,16 +23,7 @@ class RoomIdForPeriods extends Migration
         //insert periods for every rooms
         $rooms = \DB::table('room_types')->get();
         foreach ($rooms as $key1 => $room) {
-            foreach (range(1,7) as $key2 => $i) {
-                foreach ( array_combine(['08:30','14:00','19:30'],['13:30','19:00','22:30']) as $from => $untill) {
-                    \DB::table('periods')->insert([
-                        'day_id'=>$i,
-                        'room_id'=>$room->id,
-                        'from'=>$from,
-                        'till'=>$untill
-                    ]);
-                }
-            }
+            \App\Period::create_defaults($room->id);
         }
     }
 

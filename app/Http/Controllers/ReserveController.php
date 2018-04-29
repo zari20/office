@@ -11,12 +11,14 @@ class ReserveController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only(['index','show','edit','update','destroy','logmein']);
+        $this->middleware('auth')->only(['show','edit','update','logmein']);
+        $this->middleware('admin')->only(['index','destroy']);
     }
 
     public function index()
     {
-        //
+        $reserves = \App\Reserve::latest()->get();
+        return view('reserves.index',compact('reserves'));
     }
 
     public function create()
@@ -49,8 +51,7 @@ class ReserveController extends Controller
             //re-filling the form
             if ($request->step == 0) {
                 $reserve_data = session('reserve_data');
-                // TODO:
-                dd('در دست ساخت');
+                return view('partials.under_construction');
             }
 
             //finalizing form
@@ -111,17 +112,17 @@ class ReserveController extends Controller
 
     public function edit(Reserve $reserve)
     {
-        //
+        return view('partials.under_construction');
     }
 
     public function update(Request $request, Reserve $reserve)
     {
-        //
+        //under construction
     }
 
     public function destroy(Reserve $reserve)
     {
-        //
+        return view('partials.under_construction');
     }
 
     public function create_user()

@@ -36,7 +36,7 @@ class ServicesController extends Controller
     {
         $class = '\App\\'.ucfirst($type).'Type';
         $object = new $class;
-        return $this->save($type,$object);
+        return $this->save($type,$object,true);
     }
 
     public function edit($type,$id)
@@ -55,7 +55,7 @@ class ServicesController extends Controller
         $class = '\App\\'.ucfirst($type).'Type';
         $object = $class::find($id);
         if ($object) {
-            return $this->save($type,$object);
+            return $this->save($type,$object,false);
         }else {
             abort(404);
         }
@@ -74,7 +74,7 @@ class ServicesController extends Controller
         }
     }
 
-    private function save($type,$object)
+    private function save($type,$object,$create_periods=false)
     {
         $object->name = request('name');
         if ($type=='room') {
@@ -85,6 +85,10 @@ class ServicesController extends Controller
         }
         $object->description = request('description');
         $object->save();
+
+        if ($create_periods && $type=='room') {
+            \App\Period::create_defaults($object->id);
+        }
 
         Helper::flash();
         return redirect("services/index/$type");

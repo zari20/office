@@ -39,10 +39,10 @@ function translate($word)
 {
     switch ($word) {
         case 'room': return 'اتاق'; break;
-        case 'catering': return 'پذیرایی'; break;
-        case 'medium': return 'خدمات سمعی بصری'; break;
-        case 'graphic': return 'خدمات گرافیکی'; break;
-        case 'informing': return 'خدمات روابط عمومی'; break;
+        case 'catering': case 'caterings': return 'پذیرایی'; break;
+        case 'medium': case 'media': return 'خدمات سمعی بصری'; break;
+        case 'graphic': case 'graphics': return 'خدمات گرافیکی'; break;
+        case 'informing': case 'informings': return 'خدمات روابط عمومی'; break;
         default: return $word; break;
     }
 }

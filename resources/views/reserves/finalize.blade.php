@@ -55,10 +55,10 @@
             <tbody>
                 <tr>
                     <td>{{toman($reserve_data['schedule']['cost'])}}</td>
-                    <td>{{toman($reserve_data['catering']['cost'])}}</td>
-                    <td>{{toman($reserve_data['medium']['cost'])}}</td>
-                    <td>{{toman($reserve_data['graphic']['cost'])}}</td>
-                    <td>{{toman($reserve_data['informing']['cost'])}}</td>
+                    <td>{{toman(array_sum($reserve_data['catering']['cost']))}}</td>
+                    <td>{{toman(array_sum($reserve_data['medium']['cost']))}}</td>
+                    <td>{{toman(array_sum($reserve_data['graphic']['cost']))}}</td>
+                    <td>{{toman(array_sum($reserve_data['informing']['cost']))}}</td>
                     <td>{{toman($reserve_data['discount_amount'] ?? 0)}}</td>
                     <td class="bg-yellow">
                         {{toman($reserve_data['total_cost'])}}

@@ -59,10 +59,10 @@ class ReserveController extends Controller
                 self::validation();
                 $reserve_data = request()->all();
                 $total_cost = $reserve_data['schedule']['cost']+
-                                $reserve_data['catering']['cost']+
-                                $reserve_data['medium']['cost']+
-                                $reserve_data['graphic']['cost']+
-                                $reserve_data['informing']['cost'];
+                                array_sum($reserve_data['catering']['cost'])+
+                                array_sum($reserve_data['medium']['cost'])+
+                                array_sum($reserve_data['graphic']['cost'])+
+                                array_sum($reserve_data['informing']['cost']);
                 $reserve_data['total_cost'] = $total_cost;
                 session(compact('reserve_data'));
                 return view('reserves.finalize',compact('reserve_data'));

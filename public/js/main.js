@@ -73,6 +73,24 @@ function changeCount(element) {
     $('#'+type+'-final-cost').val(count*base);
 }
 
+
+function newServiceRow(type) {
+    var element = $('[data-service-type='+type+']').last();
+    var rowNumber = element.attr('data-row');
+    element.clone().attr('data-row',parseInt(rowNumber)+1).appendTo("#service-rows");
+    $('#'+type+'-trash-icon').show();
+}
+
+function removeServiceRow(type) {
+    var element = $('[data-service-type='+type+']').last();
+    if(element.attr('data-row') != 1){
+        element.remove();
+    }
+    if ($('[data-service-type='+type+']').length < 2) {
+        $('#'+type+'-trash-icon').hide();
+    }
+}
+
 function sendAjax(method,formData,target){
 
     var token = $('input[name="_token"]').val();

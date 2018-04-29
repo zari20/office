@@ -23,10 +23,10 @@
                         <th scope="row"> {{$key+1}} </th>
                         <td> {{$reserve->user->mobile ?? '?'}} </td>
                         <td> {{$reserve->schedule->room->name ?? '?'}} </td>
-                        <td> @include('fragments.cor', ['var' => $reserve->catering]) </td>
-                        <td> @include('fragments.cor', ['var' => $reserve->medium]) </td>
-                        <td> @include('fragments.cor', ['var' => $reserve->graphic]) </td>
-                        <td> @include('fragments.cor', ['var' => $reserve->informing]) </td>
+                        <td> @include('fragments.cor', ['var' => count($reserve->caterings)]) </td>
+                        <td> @include('fragments.cor', ['var' => count($reserve->media)]) </td>
+                        <td> @include('fragments.cor', ['var' => count($reserve->graphics)]) </td>
+                        <td> @include('fragments.cor', ['var' => count($reserve->informings)]) </td>
                         <td> {{toman($reserve->total_cost)}} </td>
                         <td>
                             <a href="{{url("reserves/$reserve->id")}}" title="مشاهده"> <i class="fa fa-eye text-info"></i></a>

@@ -10,7 +10,7 @@
             <label for="schedule-date" class="col-md-3 col-form-label"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
             <div class="col-md-9">
                 <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="schedule-date" name="schedule[date]"
-                value="{{$calendar_date ?? old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required data-gdate="{{date('Y/m/d')}}">
+                value="{{$calendar_date ?? old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
             </div>
         </div>
     </div>

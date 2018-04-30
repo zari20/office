@@ -105,6 +105,10 @@ function sendAjax(method,formData,target){
         data: formData,
         success: function(data) {
             if(target && data) target.html(data);
+            $('[data-calendar="persian"]').persianDatepicker();
+            $('.select2').select2({
+                width: '100%',
+            });
         }
     });
 }

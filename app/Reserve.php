@@ -37,19 +37,24 @@ class Reserve extends Model
         return $this->hasOne(Course::class);
     }
 
-    public function graphic()
+    public function caterings()
     {
-        return $this->hasOne(Graphic::class);
+        return $this->hasMany(Catering::class);
     }
 
-    public function informing()
+    public function graphics()
     {
-        return $this->hasOne(Informing::class);
+        return $this->hasMany(Graphic::class);
     }
 
-    public function medium()
+    public function informings()
     {
-        return $this->hasOne(Medium::class);
+        return $this->hasMany(Informing::class);
+    }
+
+    public function media()
+    {
+        return $this->hasMany(Medium::class);
     }
 
     public function payment()
@@ -62,13 +67,36 @@ class Reserve extends Model
         return $this->hasOne(Schedule::class);
     }
 
-    public function services()
+    public function services_groups()
     {
-        $service_types = Service::$types;
+        $service_types = Service::$ptypes;
         $services = [];
-        foreach ($service_types as $key => $type) {
-            $services[$type] = $this->$type;
+        foreach ($service_types as $key => $ptype) {
+            $services[$ptype] = $this->$ptype;
         }
         return $services;
+    }
+
+    public function no_service()
+    {
+        $no_service = true;
+        foreach ($this->services_groups() as $ptype => $services) {
+            if(count($services)){
+                $no_service = false;
+                break;
+            }
+        }
+        return $no_service;
+    }
+
+    public function services_total_cost()
+    {
+        $total = 0;
+        foreach ($this->services_groups() as $ptype => $services) {
+            foreach ($services as $key => $service) {
+                $total += $service->cost;
+            }
+        }
+        return $total;
     }
 }

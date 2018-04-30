@@ -26,14 +26,6 @@ $(document).on('change','select#room-type',function () {
     getCalendar();
 })
 
-function getCalendar() {
-    var roomId = $('select#room-type').val();
-    var date = $('#schedule-date').val();
-    var formData = {room_id:roomId, date:date};
-    var target = $('div#schedule-calendar');
-    sendAjax('get_calendar',formData,target)
-}
-
 function changeRoom() {
     var id = $('select#room-type').val();
     $('.room-cost').hide(); $('.room-capacity').hide(); $('.room-description').hide();
@@ -49,6 +41,9 @@ function roomCost() {
 
 
 function changeService(element) {
+
+    var rowNumber = element.parents('[data-row]').attr('data-row');
+
     var value = element.val();
     var type = element.attr('id');
 
@@ -61,16 +56,35 @@ function changeService(element) {
     $('#'+type+'-description-'+value).show();
 
     //final cost
-    var count = $('#'+type+'-count').val();
+    var count = $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-count').val();
     var base = element.find(":selected").attr('data-cost');
-    $('#'+type+'-final-cost').val(count*base);
+    $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-final-cost').val(count*base);
 }
 
 function changeCount(element) {
     var type = element.attr('data-type');
     var count = element.val();
+    var rowNumber = element.parents('[data-row]').attr('data-row');
     var base = $('select#'+type).find(":selected").attr('data-cost');
-    $('#'+type+'-final-cost').val(count*base);
+    $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-final-cost').val(count*base);
+}
+
+
+function newServiceRow(type) {
+    var element = $('[data-service-type='+type+']').last();
+    var rowNumber = element.attr('data-row');
+    element.clone().attr('data-row',parseInt(rowNumber)+1).appendTo('#'+type+'-service-rows');
+    $('#'+type+'-trash-icon').show();
+}
+
+function removeServiceRow(type) {
+    var element = $('[data-service-type='+type+']').last();
+    if(element.attr('data-row') != 1){
+        element.remove();
+    }
+    if ($('[data-service-type='+type+']').length < 2) {
+        $('#'+type+'-trash-icon').hide();
+    }
 }
 
 function sendAjax(method,formData,target){

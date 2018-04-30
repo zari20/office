@@ -29,11 +29,11 @@
 
 .periods {
     display: inline-block;
-    width: 70%;
+    width: 80%;
 }
 
 .day-heading {
     background-color: #FEBF2C;
     border: 2px solid #383838;
-    width: 20%;
+    width: 10%;
 }

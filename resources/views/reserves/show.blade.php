@@ -69,7 +69,7 @@
 
     <hr>
     <p class="lead text-blue dinar my-3"> خدمات انتخاب شده :  </p>
-    @if (!count(array_filter($reserve->services())))
+    @if ($reserve->no_service())
         <div class="alert alert-danger">
             @admin
                 این شخص هیچ خدماتی انتخاب نکرده است.
@@ -81,30 +81,42 @@
             <a href="#"> <i class="fa fa-plus ml-1"></i> اضافه کردن خدمات </a>
         </div>
     @endif
-    @foreach ($reserve->services() as $type => $service)
-        @if ($service)
+    @foreach ($reserve->services_groups() as $type => $services)
+        @if (count($services))
             <div class="card bg-light mb-3">
-                <div class="card-header">{{translate($type)}}</div>
+                <div class="card-header bg-info text-light">{{translate($type)}}</div>
                 <div class="card-body">
-                    <div class="row text-center">
-                        <div class="col-md-4">
-                            <h6 class="card-title"> نام : {{$service->mother->name}} </h6>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="card-title"> فی : {{toman($service->mother->cost)}} </h6>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="card-title"> تعداد : {{$service->count}} </h6>
-                        </div>
+                    <div class="direct-x">
+                        <table class="table table-bordered table-hover table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th> ردیف </th>
+                                    <th> نام </th>
+                                    <th> فی </th>
+                                    <th> تعداد </th>
+                                    <th> هزینه </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($services as $key => $service)
+                                    <tr>
+                                        <td> {{$key+1}} </td>
+                                        <td> {{$service->mother->name}} </td>
+                                        <td> {{toman($service->mother->cost)}} </td>
+                                        <td> {{$service->count}} </td>
+                                        <td> {{toman($service->cost)}} </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                    <hr>
-                    <p class="card-text">{{$service->mother->description ?? '[بدون توضیحات]'}}</p>
                 </div>
                 <div class="card-footer text-left">
-                    هزینه نهایی : {{toman($service->cost)}}
+                    مجموع هزینه ها : {{toman($services->sum('cost'))}}
                 </div>
             </div>
         @endif
+
     @endforeach
 
     <hr>

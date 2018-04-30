@@ -562,9 +562,7 @@ ol.carousel-indicators{
     padding: 0;
     margin: 0;
 }
-.introduction .tabs ul li{
-    margin: 0px 20px;
-}
+
 .introduction .tabs ul li.nav-item a{
     border: solid 1px transparent;
 }
@@ -938,7 +936,7 @@ ol.carousel-indicators{
     display: none
 }
 .carousel-indicators-numbers{
-    bottom: -50px;
+    bottom: -30px;
 }
 
 .carousel-indicators-numbers li {

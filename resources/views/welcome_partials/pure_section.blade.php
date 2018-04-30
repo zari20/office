@@ -21,7 +21,7 @@
                         <option value="product" {{$section->type=='product' ? 'selected' : ''}}> {{welcome_translate('product')}} </option>
                         <option value="link" {{$section->type=='link' ? 'selected' : ''}}> {{welcome_translate('link')}} </option>
                         <option value="card" {{$section->type=='card' ? 'selected' : ''}}>  {{welcome_translate('card')}}  </option>
-                        @foreach ([1524,1536,1554,1557,1561,1576] as $number)
+                        @foreach ([1524,1536,1554,1557,1561,1576,1581] as $number)
                             <option value="model{{$number}}" {{$section->type=='model'.$number ? 'selected' : ''}}>
                                 {{welcome_translate('model'.$number)}}
                             </option>

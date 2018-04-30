@@ -1,7 +1,7 @@
 <div class="collapse" id="collapse{{ucfirst($type)}}" data-parent="#reserves-collapseable">
     <div class="alert alert-warning"> <h3 class="alert-heading"> {{translate($type)}} </h3> </div>
 
-    <div id="service-rows">
+    <div id="{{$type}}-service-rows">
         <div class="row" data-service-type="{{$type}}" data-row="1">
             <div class="form-group col-md-4 styled-select slate">
                 <label for="{{$type}}"> نوع {{translate($type)}} </label>
@@ -18,7 +18,7 @@
                 <input type="number" class="form-control" id="{{$type}}-count" name="{{$type}}[count][]" value="{{old($type)['count'] ?? 0}}" onchange="changeCount($(this))" data-type="{{$type}}">
             </div>
             <div class="form-group col-md-4">
-                <label for="{{$type}}-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
+                <label for="{{$type}}-final-cost"> <i class="fa fa-money ml-1"></i> هزینه به تومان </label>
                 <input type="text" class="form-control" id="{{$type}}-final-cost" name="{{$type}}[cost][]" value="{{old($type)['cost'] ?? 0}}" readonly>
             </div>
         </div>

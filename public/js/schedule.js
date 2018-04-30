@@ -21,6 +21,14 @@ function book(periodId) {
     setHours();
 }
 
+function getCalendar(type) {
+    var roomId = $('select#room-type').val();
+    var date = $('#schedule-date').val();
+    var formData = {room_id:roomId, date:date, type:type};
+    var target = $('div#schedule-section');
+    sendAjax('get_calendar',formData,target);
+}
+
 function setHours() {
     var inputs = $('#schedule-inputs .hidden-hours');
     var total = 0;

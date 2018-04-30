@@ -26,14 +26,6 @@ $(document).on('change','select#room-type',function () {
     getCalendar();
 })
 
-function getCalendar() {
-    var roomId = $('select#room-type').val();
-    var date = $('#schedule-date').val();
-    var formData = {room_id:roomId, date:date};
-    var target = $('div#schedule-calendar');
-    sendAjax('get_calendar',formData,target)
-}
-
 function changeRoom() {
     var id = $('select#room-type').val();
     $('.room-cost').hide(); $('.room-capacity').hide(); $('.room-description').hide();

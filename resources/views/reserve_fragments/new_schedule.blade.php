@@ -45,38 +45,8 @@
         </p>
     </div>
 
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-1">
-            <button type="button" class="btn bg-blue d-md-block d-none"> <i class="fa fa-arrow-right ml-1"></i> هفته قبل </button>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group row">
-                <label for="schedule-date" class="col-md-3 col-form-label"> <i class="fa fa-calendar ml-1"></i> تاریخ </label>
-                <div class="col-md-9">
-                    <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="schedule-date" name="schedule[date]"
-                    value="{{old('schedule')['date'] ?? date_picker_date(date('Y-m-d'))}}" required>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-block text-white bg-green shadow d-md-block d-none" onclick="getCalendar()">
-                <i class="fa fa-search ml-1"></i> بگرد
-            </button>
-        </div>
-        <div class="col-md-1">
-            <button type="button" class="btn bg-blue d-md-block d-none"> هفته بعد <i class="fa fa-arrow-left mr-1"></i> </button>
-        </div>
-    </div>
-    <div class="mb-3 d-md-none d-block">
-        <button type="button" class="btn bg-blue"> <i class="fa fa-arrow-right ml-1"></i> هفته قبل </button>
-        <button type="button" class="btn text-white bg-green shadow" onclick="getCalendar()">
-            <i class="fa fa-search ml-1"></i> بگرد
-        </button>
-        <button type="button" class="btn bg-blue"> هفته بعد <i class="fa fa-arrow-left mr-1"></i> </button>
-    </div>
-    <div id="schedule-calendar">
-        @include('partials.calendar')
+    <div id="schedule-section">
+        @include('partials.schedule')
     </div>
 
     <hr>

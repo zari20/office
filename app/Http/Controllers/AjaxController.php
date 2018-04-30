@@ -27,7 +27,7 @@ class AjaxController extends Controller
 
 
         if ( strtotime(date('Y-m-d')) > strtotime($date) ) {
-            return view('fragments.error')->withMessage('تاریخ انتخاب شده در گذشته میباشد');
+            $past_date = true ;
         }
 
         $days_and_dates = \App\Day::days_and_dates($week_day,$date);
@@ -35,6 +35,6 @@ class AjaxController extends Controller
         $dates = $days_and_dates['dates'];
         $current_room = request('room_id');
 
-        return view('partials.schedule',compact('days','dates','current_room', 'calendar_date'));
+        return view('partials.schedule',compact('days','dates','current_room', 'calendar_date', 'past_date'));
     }
 }

@@ -37,5 +37,9 @@
     </button>
 </div>
 <div id="schedule-calendar">
-    @include('partials.calendar')
+    @if (isset($past_date) && $past_date)
+        @include('fragments.error', ['message' => 'تاریخ انتخاب شده در گذشته میباشد'])
+    @else
+        @include('partials.calendar')
+    @endif
 </div>

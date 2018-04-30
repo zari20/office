@@ -1,5 +1,5 @@
 @foreach ($days as $i => $day)
-    <div class="schedule">
+    <div class="schedule animated fadeIn">
         <div class="day-heading">
             <span> {{latin_week_day($day->latin_number)}} </span>
             <span> {{date_picker_date($dates[$i])}} </span>

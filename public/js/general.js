@@ -24,7 +24,18 @@ $(document).ready(function () {
 $(document).on('change','select#room-type',function () {
     changeRoom();
     getCalendar();
-})
+});
+
+$(document).on('click','.show-password',function () {
+    $(this).toggleClass('fa-eye fa-eye-slash');
+    var input = $(this).siblings('input');
+    var attr = input.attr('type');
+    if (attr == 'text') {
+        input.attr('type','password')
+    }else {
+        input.attr('type','text')
+    }
+});
 
 function changeRoom() {
     var id = $('select#room-type').val();

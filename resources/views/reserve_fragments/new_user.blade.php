@@ -41,11 +41,13 @@
         </div>
         <div class="form-group col-md-3">
             <label for="password"> <i class="fa fa-key ml-1"></i> رمز عبور <i class="fa fa-asterisk text-danger"></i> </label>
-            <input type="text" class="form-control" id="password" name="password" value="{{old('password')}}" required placeholder="*الزامی">
+            <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}" required placeholder="*الزامی">
+            <span class="fa fa-eye inside-input show-password"></span>
         </div>
         <div class="form-group col-md-3">
-            <label for="password_confirmation"> <i class="fa fa-key ml-1"></i> تکرار رمز عبور <i class="fa fa-asterisk text-danger"></i></label>
-            <input type="text" class="form-control" id="password_confirmation" name="password_confirmation" value="{{old('password_confirmation')}}" required placeholder="*الزامی">
+            <label for="password-confirmation"> <i class="fa fa-key ml-1"></i> تکرار رمز عبور <i class="fa fa-asterisk text-danger"></i></label>
+            <input type="password" class="form-control" id="password-confirmation" name="password_confirmation" value="{{old('password_confirmation')}}" required placeholder="*الزامی">
+            <span class="fa fa-eye inside-input show-password"></span>
         </div>
         <div class="form-group col-md-12">
             <label for="address"> <i class="fa fa-map-pin ml-1"></i> نشانی دقیق پستی </label>

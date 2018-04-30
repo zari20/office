@@ -193,3 +193,13 @@ input.no-arrow::-webkit-outer-spin-button {
   -webkit-transform: rotate(225deg);
   transform: rotate(225deg);
 }
+
+.inside-input {
+        float: left;
+        margin-left: 8px;
+        margin-top: -27px;
+        position: relative;
+        z-index: 2;
+        color: #00B9CF;
+        cursor: pointer;
+    }

@@ -140,9 +140,12 @@ class ReserveController extends Controller
         //under construction
     }
 
-    public function destroy(Reserve $reserve)
+    public function destroy($id)
     {
-        return view('partials.under_construction');
+        $reserve = Reserve::find($id);
+        $reserve->delete();
+        Helper::flash_delete_message();
+        return back();
     }
 
     public function create_user()

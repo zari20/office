@@ -13,8 +13,9 @@
                     <th> خدمات صوتی تصویری </th>
                     <th> خدمات گرافیکی </th>
                     <th> خدمات اطلاع رسانی </th>
+                    <th> کد تخفیف </th>
                     <th> هزینه نهایی </th>
-                    <th colspan="3"> عملیات </th>
+                    <th colspan="2"> عملیات </th>
                 </tr>
             </thead>
             <tbody>
@@ -27,16 +28,23 @@
                         <td> @include('fragments.cor', ['var' => count($reserve->media)]) </td>
                         <td> @include('fragments.cor', ['var' => count($reserve->graphics)]) </td>
                         <td> @include('fragments.cor', ['var' => count($reserve->informings)]) </td>
+                        <td> {{ $reserve->discount_code_id ? ($reserve->discount->code ?? '?') : '-'}} </td>
                         <td> {{toman($reserve->total_cost)}} </td>
                         <td>
                             <a href="{{url("reserves/$reserve->id")}}" title="مشاهده"> <i class="fa fa-eye text-info"></i></a>
                         </td>
-                        <td>
+                        {{-- <td>
                             <a href="{{url("reserves/$reserve->id/edit")}}" title="ویرایش"> <i class="fa fa-edit text-success"></i></a>
-                        </td>
+                        </td> --}}
                         <td>
-                            <a onclick="" title="حذف"> <i class="fa fa-trash text-danger"></i></a>
-                        </td>
+                             <a onclick="if(confirm('ایا این آیتم پاک شود؟')) $('form#delete-reserve-{{$reserve->id}}').submit()" title="حذف">
+                                 <i class="fa fa-trash text-danger"></i>
+                             </a>
+                             <form class="d-none" action="{{url("reserves/$reserve->id")}}" method="post" id="delete-reserve-{{$reserve->id}}">
+                                 @csrf
+                                 {{method_field('DELETE')}}
+                             </form>
+                         </td>
                     </tr>
                 @endforeach
             </tbody>

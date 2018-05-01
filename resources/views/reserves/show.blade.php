@@ -24,9 +24,9 @@
             </tbody>
         </table>
     </div>
-    <div class="text-left">
+    {{-- <div class="text-left">
         <a href="#" class="text-green none"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
-    </div>
+    </div> --}}
 
     <hr>
     <p class="lead text-blue dinar my-3"> اطلاعات سالن </p>
@@ -77,9 +77,9 @@
                 شما هیچ خدماتی انتخاب نکرده اید.
             @endadmin
         </div>
-        <div class="text-left">
+        {{-- <div class="text-left">
             <a href="#"> <i class="fa fa-plus ml-1"></i> اضافه کردن خدمات </a>
-        </div>
+        </div> --}}
     @endif
     @foreach ($reserve->services_groups() as $type => $services)
         @if (count($services))
@@ -148,9 +148,9 @@
             </tbody>
         </table>
     </div>
-    <div class="text-left">
+    {{-- <div class="text-left">
         <a href="#" class="text-green none"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
-    </div>
+    </div> --}}
 
     <hr>
     <p class="lead text-blue dinar my-3"> اطلاعات کلی رزرو </p>
@@ -175,9 +175,9 @@
         </table>
     </div>
 
-    <hr>
+    {{-- <hr>
     <p class="lead text-blue dinar my-3"> عملیات :  </p>
     <button type="button" class="btn mx-1 btn-info"> <i class="fa fa-cogs ml-1"></i> مدیریت </button>
     <button type="button" class="btn mx-1 btn-success"> <i class="fa fa-edit ml-1"></i> ویرایش </button>
-    <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button>
+    <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button> --}}
 @endsection

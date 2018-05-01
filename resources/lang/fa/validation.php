@@ -24,7 +24,7 @@ return [
     'before'               => ' :attribute must be a date before :date.',
     'before_or_equal'      => ' :attribute must be a date before or equal to :date.',
     'between'              => [
-        'numeric' => ' :attribute must be between :min and :max.',
+        'numeric' => ' :attribute باید بین :min و :max باشد.',
         'file'    => ' :attribute must be between :min and :max kilobytes.',
         'string'  => ' :attribute must be between :min and :max characters.',
         'array'   => ' :attribute must have between :min and :max items.',
@@ -142,6 +142,7 @@ return [
         'address' => 'آدرس',
         'email' => 'ایمیل',
         'region' => 'منطقه شهری',
+        'percent' => 'درصد تخفیف',
     ],
 
 ];

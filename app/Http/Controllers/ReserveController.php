@@ -71,9 +71,28 @@ class ReserveController extends Controller
             //discount code
             if ($request->step == 2) {
                 $reserve_data = session('reserve_data');
-                $found = \App\DiscountCode::where('code',$request->discount_code)->first();
-                if ($found) {
-                    // TODO:
+                $discount_code = \App\DiscountCode::where('code',$request->discount_code)->first();
+                if ($discount_code) {
+                    $errors = [];
+                    if ($discount_code->expired()) {
+                        $errors[] = "تاریخ استفاده از این کد گذشته است. انقضا: ".date_picker_date($discount_code->expire_date);
+                    }
+                    if ($discount_code->room_id && $discount_code->room_id != $reserve_data['schedule']['room_id']) {
+                        $errors[] = "این کد تخفیف برای این اتاق قابل استفاده نمیباشد.";
+                    }
+                    if ($discount_code->period_id && !in_array($discount_code->period_id,$reserve_data['period']['id'])) {
+                        $errors[] = "این تخفیف در صورتی شامل حال شما میشود که از سانس ".period_details($discount_code->period_id)." استفاده کنید.";
+                    }
+                    if (count($errors)) {
+                        return view('reserves.finalize',compact('reserve_data'))->withErrors($errors);
+                    }else {
+                        $reserve_data['discount_code'] = $request->discount_code;
+                        $reserve_data['discount_code_percent'] = $discount_code->percent;
+                        $reserve_data['discount_code_id'] = $discount_code->id;
+                        $reserve_data['discount_amount'] = floor($reserve_data['total_cost'] * ($discount_code->percent/100));
+                        session(['reserve_data'=>$reserve_data]);
+                        return view('reserves.finalize',compact('reserve_data'));
+                    }
                 }else {
                     return view('reserves.finalize',compact('reserve_data'))->withErrors(['کد تخفیف وارد شده صحیح نیست']);
                 }
@@ -90,6 +109,7 @@ class ReserveController extends Controller
                 \App\Payment::make($reserve_data,$reserve_instance);
 
                 Helper::flash();
+                session(['reserve_data'=>null]);
                 return redirect("reserves/$reserve_instance->id");
             }
 

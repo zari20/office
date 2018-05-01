@@ -61,7 +61,7 @@
                     <td>{{toman(array_sum($reserve_data['informing']['cost']))}}</td>
                     <td>{{toman($reserve_data['discount_amount'] ?? 0)}}</td>
                     <td class="bg-yellow">
-                        {{toman($reserve_data['total_cost'])}}
+                        {{toman($reserve_data['total_cost'] - $reserve_data['discount_amount'] ?? 0)}}
                     </td>
                 </tr>
             </tbody>
@@ -71,15 +71,23 @@
     <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> عملیات </p>
     <form class="row" action="{{url('reserves')}}" method="post">
         @csrf
-        <div class="form-group col-md-3">
-            <label for="discount_code"> <i class="fa fa-percent ml-1"></i> کد تخفیف</label>
-            <input type="text" name="discount_code" id="discount_code" class="form-control" value="{{old('discount_code')}}">
-        </div>
+        @if (isset($reserve_data['discount_code_id']) && $reserve_data['discount_code_id'])
+            <div class="col-md-6 mt-3">
+                <div class="alert alert-success">
+                    کد تخفیف {{$reserve_data['discount_code']}} با {{$reserve_data['discount_code_percent']}}٪  تخفیف اعمال شده است.
+                </div>
+            </div>
+        @else
+            <div class="form-group col-md-3">
+                <label for="discount_code"> <i class="fa fa-percent ml-1"></i> کد تخفیف</label>
+                <input type="text" name="discount_code" id="discount_code" class="form-control" value="{{old('discount_code')}}">
+            </div>
+            <div class="form-group col-md-3 mt-md-4">
+                <button type="submit" name="step" value="2" class="btn btn-block btn-warning bg-yellow"> <i class="fa fa-balance-scale ml-1"></i> اعمال کد تخفیف </button>
+            </div>
+        @endif
         <div class="form-group col-md-3 mt-md-4">
-            <button type="submit" name="step" value="2" class="btn btn-block btn-warning bg-yellow"> <i class="fa fa-balance-scale ml-1"></i> اعمال کد تخفیف </button>
-        </div>
-        <div class="form-group col-md-3 mt-md-4">
-            <button type="submit" name="step" value="0" class="btn btn-block btn-success bg-green"> <i class="fa fa-edit ml-1"></i> ویرایش اطلاعات </button>
+            <button type="button" onclick="history.back()" class="btn btn-block btn-success bg-green"> <i class="fa fa-edit ml-1"></i> ویرایش اطلاعات </button>
         </div>
         <div class="form-group col-md-3 mt-md-4">
             <button type="submit" name="step" value="3" class="btn btn-block btn-primary bg-blue-no-hover"> <i class="fa fa-check ml-1"></i> تایید و ادامه </button>

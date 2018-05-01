@@ -91,10 +91,13 @@ function display_time($time)
 {
     return substr($time, 0, -3);
 }
-function period_details($id,$date)
+
+function period_details($id,$date=null)
 {
-    $period = \App\Period::find($id);
-    if($period){
+    $period = \App\Period::find($id); if(!$period) return '?';
+    if($date){
         return week_day($period->day->number) .' '. human_date($date) .' ساعت '. display_time($period->from) .' تا '.  display_time($period->till);
+    }else {
+        return week_day($period->day->number) .' ساعت '. display_time($period->from) .' تا '.  display_time($period->till);
     }
 }

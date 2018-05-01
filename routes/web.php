@@ -10,6 +10,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //resources
 Route::resource('reserves','ReserveController');
 Route::resource('periods','PeriodController');
+Route::resource('discounts','DiscountCodeController');
 
 //services
 Route::get('services/{method}/{type}/{id?}','ServicesController@main');

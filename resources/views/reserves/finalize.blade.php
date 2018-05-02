@@ -59,9 +59,9 @@
                     <td>{{toman(array_sum($reserve_data['medium']['cost']))}}</td>
                     <td>{{toman(array_sum($reserve_data['graphic']['cost']))}}</td>
                     <td>{{toman(array_sum($reserve_data['informing']['cost']))}}</td>
-                    <td>{{toman($reserve_data['discount_amount'] ?? 0)}}</td>
+                    <td>{{toman($reserve_data['discount']['amount'] ?? 0)}}</td>
                     <td class="bg-yellow">
-                        {{toman($reserve_data['total_cost'] - $reserve_data['discount_amount'] ?? 0)}}
+                        {{toman($reserve_data['payable_amount'] ?? $reserve_data['total_cost'])}}
                     </td>
                 </tr>
             </tbody>
@@ -71,10 +71,10 @@
     <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> عملیات </p>
     <form class="row" action="{{url('reserves')}}" method="post">
         @csrf
-        @if (isset($reserve_data['discount_code_id']) && $reserve_data['discount_code_id'])
+        @if (isset($reserve_data['discount']['id']) && $reserve_data['discount']['id'])
             <div class="col-md-6 mt-3">
                 <div class="alert alert-success">
-                    کد تخفیف {{$reserve_data['discount_code']}} با {{$reserve_data['discount_code_percent']}}٪  تخفیف اعمال شده است.
+                    کد تخفیف {{$reserve_data['discount']['code']}} با {{$reserve_data['discount']['percent']}}٪  تخفیف اعمال شده است.
                 </div>
             </div>
         @else

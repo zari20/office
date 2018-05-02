@@ -201,5 +201,5 @@ function time_difference($time1,$time2,$type='h')
     if($type=='m') $number = 60;
     if($type=='s') $number = 1;
     $number = 3600;
-    echo (strtotime($time1) - strtotime($time2))/$number;
+    return abs(strtotime($time1) - strtotime($time2))/$number;
 }

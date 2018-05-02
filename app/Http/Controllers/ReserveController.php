@@ -48,24 +48,21 @@ class ReserveController extends Controller
     {
         if(Auth::check()){
 
-            //re-filling the form
-            if ($request->step == 0) {
-                $reserve_data = session('reserve_data');
-                return view('partials.under_construction');
-            }
-
             //finalizing form
             if ($request->step == 1) {
                 self::validation();
                 $reserve_data = request()->all();
-                $total_cost = $reserve_data['schedule']['cost']+
-                                array_sum($reserve_data['catering']['cost'])+
-                                array_sum($reserve_data['medium']['cost'])+
-                                array_sum($reserve_data['graphic']['cost'])+
-                                array_sum($reserve_data['informing']['cost']);
-                $reserve_data['total_cost'] = $total_cost;
-                session(compact('reserve_data'));
-                return view('reserves.finalize',compact('reserve_data'));
+
+                //hack check and return view
+                $requested_total_cost = ReseveDataController::total_cost_from_request($reserve_data);
+                $total_cost = ReseveDataController::total_cost();
+                if ($requested_total_cost == $total_cost) {
+                    $reserve_data['total_cost'] = $total_cost;
+                    session(compact('reserve_data'));
+                    return view('reserves.finalize',compact('reserve_data'));
+                }else {
+                    return back()->withErrors(ReseveDataController::$erros);
+                }
             }
 
             //discount code
@@ -86,10 +83,11 @@ class ReserveController extends Controller
                     if (count($errors)) {
                         return view('reserves.finalize',compact('reserve_data'))->withErrors($errors);
                     }else {
-                        $reserve_data['discount_code'] = $request->discount_code;
-                        $reserve_data['discount_code_percent'] = $discount_code->percent;
-                        $reserve_data['discount_code_id'] = $discount_code->id;
-                        $reserve_data['discount_amount'] = floor($reserve_data['total_cost'] * ($discount_code->percent/100));
+                        $reserve_data['discount']['code'] = $request->discount_code;
+                        $reserve_data['discount']['percent'] = $discount_code->percent;
+                        $reserve_data['discount']['id'] = $discount_code->id;
+                        $reserve_data['discount']['amount'] = floor($reserve_data['total_cost'] * ($discount_code->percent/100));
+                        $reserve_data['payable_amount'] = $reserve_data['total_cost'] - $reserve_data['discount']['amount'];
                         session(['reserve_data'=>$reserve_data]);
                         return view('reserves.finalize',compact('reserve_data'));
                     }

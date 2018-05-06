@@ -7,10 +7,12 @@ require('welcome_routes.php');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 //resources
 Route::resource('reserves','ReserveController');
 Route::resource('periods','PeriodController');
 Route::resource('discounts','DiscountCodeController');
+
 
 //services
 Route::get('services/{method}/{type}/{id?}','ServicesController@main');
@@ -22,3 +24,9 @@ Route::get('reserve_logmein','ReserveController@logmein');
 
 //ajax requests
 Route::post('ajax/{method}','AjaxController@main');
+
+//Zarin Pal
+Route::get('zarinpal/callback/{type}','ZarinPalController@authority');
+Route::get('/test', function () {
+    return \App\Http\Controllers\ZarinPalController::direct(100,'تست','reserve');
+});

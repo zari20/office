@@ -99,16 +99,9 @@ class ReserveController extends Controller
             //storing in database
             if ($request->step == 3) {
                 $reserve_data = session('reserve_data');
-                $reserve_instance = Reserve::make($reserve_data);
-                \App\Course::make($reserve_data,$reserve_instance);
-                \App\Schedule::make($reserve_data,$reserve_instance);
-                \App\Booking::make($reserve_data,$reserve_instance);
-                \App\Service::make($reserve_data,$reserve_instance);
-                \App\Payment::make($reserve_data,$reserve_instance);
-
-                Helper::flash();
-                session(['reserve_data'=>null]);
-                return redirect("reserves/$reserve_instance->id");
+                $amount = $reserve_data['payable_amount'] ?? $reserve_data['total_cost'];
+                $description = "پرداخت هزینه مربوط به اجاره سالن در آیکیوآفیس";
+                return \App\Http\Controllers\ZarinPalController::direct($amount,$description,'reserve');
             }
 
         }else {
@@ -144,6 +137,21 @@ class ReserveController extends Controller
         $reserve->delete();
         Helper::flash_delete_message();
         return back();
+    }
+
+    public static function successful_transaction()
+    {
+        $reserve_data = session('reserve_data');
+        $reserve_instance = Reserve::make($reserve_data);
+        \App\Course::make($reserve_data,$reserve_instance);
+        \App\Schedule::make($reserve_data,$reserve_instance);
+        \App\Booking::make($reserve_data,$reserve_instance);
+        \App\Service::make($reserve_data,$reserve_instance);
+        \App\Payment::make($reserve_data,$reserve_instance);
+
+        Helper::flash();
+        session(['reserve_data'=>null]);
+        return redirect("reserves/$reserve_instance->id");
     }
 
     public function create_user()

@@ -21,19 +21,19 @@ class ZarinPalController extends Controller
 
         //library codes
         $jsonData = json_encode($data);
-        $ch = \curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json');
-        \curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
-        \curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        \curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
-        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        \curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        $ch = curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentRequest.json');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($jsonData)
         ));
-        $result = \curl_exec($ch);
-        $err = \curl_error($ch);
+        $result = curl_exec($ch);
+        $err = curl_error($ch);
         $result = json_decode($result, true);
-        \curl_close($ch);
+        curl_close($ch);
 
         //store zarinpal in database
         ZarinPal::make($initial_data,$result,$type);
@@ -60,18 +60,18 @@ class ZarinPalController extends Controller
 
         //library codes
         $jsonData = json_encode($data);
-        $ch = \curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentVerification.json');
-        \curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
-        \curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        \curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
-        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        \curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        $ch = curl_init('https://www.zarinpal.com/pg/rest/WebGate/PaymentVerification.json');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
             'Content-Length: ' . strlen($jsonData)
         ));
-        $result = \curl_exec($ch);
-        $err = \curl_error($ch);
-        \curl_close($ch);
+        $result = curl_exec($ch);
+        $err = curl_error($ch);
+        curl_close($ch);
         $result = json_decode($result, true);
 
         //redirections and results

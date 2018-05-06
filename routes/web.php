@@ -27,6 +27,3 @@ Route::post('ajax/{method}','AjaxController@main');
 
 //Zarin Pal
 Route::get('zarinpal/callback/{type}','ZarinPalController@authority');
-Route::get('/test', function () {
-    return \App\Http\Controllers\ZarinPalController::direct(100,'تست','reserve');
-});

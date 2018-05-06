@@ -81,7 +81,7 @@ class ZarinPalController extends Controller
             if ($result['Status'] == 100) {
                 $zarin->rid = $result['RefID'];
                 $zarin->save();
-                self::finish($type,$zarin->id);
+                return self::finish($type,$zarin->id);
             } else {
                 return view('partials.whoops',[ 'message' => "ارور : ".$result["Status"] ]);
             }
@@ -91,7 +91,7 @@ class ZarinPalController extends Controller
     public static function finish($type,$zid)
     {
         if ($type=='reserve') {
-            ReserveController::successful_transaction($zid);
+            return ReserveController::successful_transaction($zid);
         }
     }
 }

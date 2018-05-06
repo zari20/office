@@ -139,9 +139,10 @@ class ReserveController extends Controller
         return back();
     }
 
-    public static function successful_transaction()
+    public static function successful_transaction($zid)
     {
         $reserve_data = session('reserve_data');
+        $reserve_data['zarin_pal_id'] = $zid;
         $reserve_instance = Reserve::make($reserve_data);
         \App\Course::make($reserve_data,$reserve_instance);
         \App\Schedule::make($reserve_data,$reserve_instance);

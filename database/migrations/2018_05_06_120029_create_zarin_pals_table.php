@@ -17,7 +17,7 @@ class CreateZarinPalsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('aid'); //authority id
             $table->string('mid'); //merchant id
-            $table->unsignedInteger('rid')->nullable(); //red id
+            $table->string('rid')->nullable(); //red id
             $table->unsignedBigInteger('amount');
             $table->string('callback_url');
             $table->string('type');

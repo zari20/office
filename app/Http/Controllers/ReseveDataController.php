@@ -45,11 +45,13 @@ class ReseveDataController extends Controller
         //services cost
         $services_cost = 0;
         foreach (\App\Service::$types as $key => $type) {
-            foreach ($data[$type]['id'] as $i => $id) {
-                if ($count = $data[$type]['count'][$i]) {
-                    $class = '\App\\'.ucfirst($type).'Type';
-                    $service = $class::find($id);
-                    $services_cost += $count * $service->cost;
+            if (isset($data[$type]['id'])) {
+                foreach ($data[$type]['id'] as $i => $id) {
+                    if ($count = $data[$type]['count'][$i]) {
+                        $class = '\App\\'.ucfirst($type).'Type';
+                        $service = $class::find($id);
+                        $services_cost += $count * $service->cost;
+                    }
                 }
             }
         }

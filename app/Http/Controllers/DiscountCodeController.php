@@ -73,10 +73,20 @@ class DiscountCodeController extends Controller
 
     public static function validation($id=0)
     {
-        return request()->validate([
+        //initial data
+        $data = request()->validate([
             "room_id" => "nullable",
             "code" => "required|string|max:100|unique:discount_codes,code,$id",
-            "percent" => "required|integer|between:1,99"
+            "percent" => "required|integer|between:1,99",
+            "expire_date" => "nullable"
         ]);
+
+        //convert persian date
+        if ($data['expire_date']) {
+            $data['expire_date'] = persian_to_carbon($data['expire_date']);
+        }
+
+        //returning result
+        return $data;
     }
 }

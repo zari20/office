@@ -13,6 +13,7 @@
                     <th> اتاق </th>
                     <th> کد </th>
                     <th> درصد </th>
+                    <th> تاریخ انقضا </th>
                     <th colspan="2"> عملیات </th>
                 </tr>
             </thead>
@@ -23,6 +24,7 @@
                         <td> <a href="{{url("services/index/room")}}">{{$code->room->name ?? '-'}}</a> </td>
                         <td> {{$code->code}} </td>
                         <td> {{$code->percent}} </td>
+                        <td> {{ $code->expire_date ? human_date($code->expire_date) : '-' }} </td>
                         <td> <a href="{{url("discounts/$code->id/edit")}}"> <i class="fa fa-edit text-success"></i> </a> </td>
                         <td>
                              <a onclick="if(confirm('ایا این آیتم پاک شود؟')) $('form#delete-discount-{{$code->id}}').submit()" >

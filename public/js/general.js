@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 $(document).on('change','select#room-type',function () {
     changeRoom();
-    getCalendar();
+    getCalendar('current');
 });
 
 $(document).on('click','.show-password',function () {

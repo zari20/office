@@ -85,7 +85,7 @@ function discount($amount,$discount=0)
 
 function str_with_dots($string,$number=100)
 {
-    return strlen($string) > $number ? substr($string, 0, $number).'...' : $string;
+    return strlen($string) > $number ? mb_substr($string, 0, $number, 'utf-8').'...' : $string;
 }
 function display_time($time)
 {

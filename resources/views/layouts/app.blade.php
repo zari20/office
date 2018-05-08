@@ -20,7 +20,7 @@
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('js/jdate.js') }}"></script>
     <script src="{{ asset('js/schedule.js') }}"></script>
-    <script src="{{ asset('js/general.js') }}"></script>
+    <script src="{{ asset('js/iqoffice.js') }}"></script>
 
     <!-- Fonts -->
     <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
@@ -33,7 +33,7 @@
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/colors.css') }}" rel="stylesheet">
     <link href="{{ asset('css/schedule.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/iqoffice.css') }}" rel="stylesheet">
 </head>
 <body @if(app()->getLocale() == 'fa') dir="rtl" style="text-align:right" @endif>
     <div id="app">

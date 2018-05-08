@@ -35,11 +35,6 @@ class PeriodController extends Controller
         return redirect('/periods');
     }
 
-    public function show(Period $period)
-    {
-        return redirect('/periods');
-    }
-
     public function edit(Period $period)
     {
         $days = \App\Day::orderBy('number')->get();

@@ -11,7 +11,7 @@ class ReserveController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only(['show','edit','update','logmein']);
+        $this->middleware('auth')->only(['show','logmein']);
         $this->middleware('admin')->only(['index','destroy']);
     }
 
@@ -125,16 +125,6 @@ class ReserveController extends Controller
 
         //return view
         return view('reserves.show',compact('reserve'));
-    }
-
-    public function edit(Reserve $reserve)
-    {
-        return view('partials.under_construction');
-    }
-
-    public function update(Request $request, Reserve $reserve)
-    {
-        //under construction
     }
 
     public function destroy($id)

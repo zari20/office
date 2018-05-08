@@ -64,21 +64,6 @@ class BookingController extends Controller
         return redirect('bookings');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function destroy(Booking $booking)
     {
         $booking->delete();

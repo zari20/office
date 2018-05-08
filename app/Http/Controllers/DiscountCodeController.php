@@ -38,11 +38,6 @@ class DiscountCodeController extends Controller
         return redirect('discounts');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit($id)
     {
         $code = DiscountCode::find($id);

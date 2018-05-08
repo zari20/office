@@ -18,16 +18,6 @@ class UserController extends Controller
         //
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show(User $user)
     {
         return view('partials.under_construction');

@@ -9,11 +9,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //resources
-Route::resource('reserves','ReserveController');
-Route::resource('periods','PeriodController');
-Route::resource('discounts','DiscountCodeController');
-Route::resource('bookings','BookingController');
-Route::resource('users','UserController');
+Route::resource('reserves','ReserveController')->except( ['edit','update'] );
+Route::resource('periods','PeriodController')->except( ['show'] );
+Route::resource('discounts','DiscountCodeController')->except( ['show'] );
+Route::resource('bookings','BookingController')->except( ['show','edit','update'] );
+Route::resource('users','UserController')->except( ['create','store','update'] );
 
 
 //services

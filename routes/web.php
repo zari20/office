@@ -12,6 +12,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('reserves','ReserveController');
 Route::resource('periods','PeriodController');
 Route::resource('discounts','DiscountCodeController');
+Route::resource('bookings','BookingController');
+Route::resource('users','UserController');
 
 
 //services

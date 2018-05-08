@@ -10,6 +10,8 @@ th {text-align: center;}
 .pointer {cursor: pointer;}
 .not-allowed {cursor: not-allowed;}
 
+.half-x {font-size: 1.5em}
+
 .none:hover {text-decoration: none;}
 
 /* reserve */

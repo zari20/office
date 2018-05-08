@@ -8,7 +8,7 @@
             @foreach ($day->periods($current_room) as $key => $period)
                 @if (is_array(old('period')['id']) && in_array($period->id,old('period')['id']))
                     @include('fragments.period', ['type' => 'picked'])
-                @elseif($period->booked($dates[$i],$current_room))
+                @elseif($period->booked($dates[$i]))
                     @include('fragments.period', ['type' => 'booked'])
                 @else
                     @include('fragments.period', ['type' => 'available'])

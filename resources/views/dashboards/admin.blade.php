@@ -18,27 +18,30 @@
 
 <hr>
 
-<div class="row">
-    <div class="col-md-4">
+<div class="row text-center">
+
+    <div class="col-md-6 my-3">
         <h4 class="text-green dinar mb-4"> <i class="fa fa-map-signs ml-1"></i> مدیریت سانس ها </h4>
         <div class="">
-            <a href="{{url("/periods")}}" class="btn btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
-            <a href="{{url("/periods/create")}}" class="btn btn-success"> <i class="fa fa-plus ml-1"></i> تعریف سانس جدید </a>
+            <a href="{{url("/periods")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+            <a href="{{url("/periods/create")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-success"> <i class="fa fa-plus ml-1"></i> تعریف سانس جدید </a>
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6 my-3">
         <h4 class="text-green dinar mb-4"> <i class="fa fa-percent ml-1"></i> مدیریت کدهای تخفیف </h4>
         <div class="">
-            <a href="{{url("/discounts")}}" class="btn btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
-            <a href="{{url("/discounts/create")}}" class="btn btn-success"> <i class="fa fa-plus ml-1"></i> تعریف مورد جدید </a>
+            <a href="{{url("/discounts")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+            <a href="{{url("/discounts/create")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-success"> <i class="fa fa-plus ml-1"></i> تعریف مورد جدید </a>
         </div>
     </div>
-
-    <div class="col-md-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 my-3">
         <h4 class="text-green dinar mb-4"> <i class="fa fa-flash ml-1"></i> مدیریت رزرو ها </h4>
         <div class="">
-            <a href="{{url("/reserves")}}" class="btn btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+            <a href="{{url("/reserves")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+            <a href="{{url("/bookings")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-warning"> <i class="fa fa-calendar ml-1"></i> مدیریت تقویم </a>
+            <a href="{{url("/bookings/create")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-danger"> <i class="fa fa-bookmark ml-1"></i> اشغال سانس </a>
         </div>
     </div>
 </div>

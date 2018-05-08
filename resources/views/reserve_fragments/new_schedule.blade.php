@@ -3,7 +3,7 @@
     <hr>
 
     <div class="alert alert-info">
-        <h4 class="alert-heading">توضیحات اتاق</h4>
+        <h4 class="alert-heading">توضیحات سالن</h4>
         <hr>
         @foreach ($rooms as $key => $room)
             <p class="room-description" id="room-description-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->description}} </p>

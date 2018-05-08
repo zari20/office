@@ -20,18 +20,18 @@ class BookingController extends Controller
 
          switch ($type) {
              case 'all':
-                 $bookings['past'] = \App\Booking::whereDate('date','<',Carbon::today())->limit(6)->get();
-                 $bookings['today'] = \App\Booking::whereDate('date','=',Carbon::today())->limit(6)->get();
-                 $bookings['future'] = \App\Booking::whereDate('date','>',Carbon::today())->limit(6)->get();
+                 $bookings['past'] = Booking::whereDate('date','<',Carbon::today())->orderBy('date')->limit(6)->get();
+                 $bookings['today'] = Booking::whereDate('date','=',Carbon::today())->orderBy('date')->limit(6)->get();
+                 $bookings['future'] = Booking::whereDate('date','>',Carbon::today())->orderBy('date')->limit(6)->get();
                  break;
              case 'past':
-                 dd('past');
+                 $bookings = Booking::whereDate('date','<',Carbon::today())->orderBy('date')->paginate(30);
                  break;
              case 'today':
-                 dd('today');
+                 $bookings = Booking::whereDate('date','=',Carbon::today())->orderBy('date')->paginate(30);
                  break;
              case 'future':
-                 dd('future');
+                 $bookings = Booking::whereDate('date','>',Carbon::today())->orderBy('date')->paginate(30);
                  break;
              default:
                 abort(404);
@@ -71,7 +71,7 @@ class BookingController extends Controller
 
     public function edit($id)
     {
-        return view('partials.under_construction');
+        //
     }
 
     public function update(Request $request, $id)
@@ -79,8 +79,12 @@ class BookingController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Booking $booking)
     {
-        return view('partials.under_construction');
+        $booking->delete();
+
+        $message = "عملیات با موفقیت انجام شد.";
+        Helper::message($message);
+        return back();
     }
 }

@@ -22,11 +22,8 @@
                             @endisset
                         </span>
                         <span class="float-left badge badge-pill badge-light py-2 px-3">
-                            <a href="{{url("bookings/$booking->id/edit")}}" class="text-success none half-x mx-1" title="ویرایش">
-                                 <i class="fa fa-edit"></i>
-                            </a>
-                            <a onclick="if(confirm('آیا این رزرو موردنظر لغو شود؟')) $('form#delete-booking-{{$booking->id}}').submit()" class="text-danger none half-x mx-1" title="لغو">
-                                 <i class="fa fa-times"></i>
+                            <a onclick="if(confirm('آیا این رزرو موردنظر لغو شود؟')) $('form#delete-booking-{{$booking->id}}').submit()" class="text-danger none half-x mx-1" title="{{$type=='past' ? 'حذف' : 'لغو'}}">
+                                 <i class="fa fa-{{$type=='past' ? 'trash' : 'times'}}"></i>
                             </a>
                             <form class="d-none" action="{{url("bookings/$booking->id")}}" method="post" id="delete-booking-{{$booking->id}}">
                                 @csrf
@@ -38,11 +35,9 @@
             </div>
         @endforeach
     </div>
-    @if (count($bookings) == 6)
-        <div class="text-left mt-2">
-            <a href="{{url("bookings?type=$type")}}"> <i class="fa fa-list ml-1"></i> مشاهده همه </a>
-        </div>
-    @endif
+    <div class="text-left mt-2">
+        <a href="{{url("bookings?type=$type")}}"> <i class="fa fa-list ml-1"></i> مشاهده همه </a>
+    </div>
 @else
     <div class="alert alert-warning text-center">
         موردی یافت نشد.

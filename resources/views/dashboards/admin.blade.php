@@ -40,7 +40,7 @@
         <h4 class="text-green dinar mb-4"> <i class="fa fa-flash ml-1"></i> مدیریت رزرو ها </h4>
         <div class="">
             <a href="{{url("/reserves")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
-            <a href="{{url("/bookings")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-warning"> <i class="fa fa-calendar ml-1"></i> مدیریت تقویم </a>
+            <a href="{{url("/bookings")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-warning"> <i class="fa fa-calendar ml-1"></i> سانس های رزرو شده </a>
             <a href="{{url("/bookings/create")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-danger"> <i class="fa fa-bookmark ml-1"></i> اشغال سانس </a>
         </div>
     </div>

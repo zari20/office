@@ -1,9 +1,8 @@
 <div class="collapse" id="collapse{{ucfirst($type)}}" data-parent="#reserves-collapseable">
-    <div class="alert alert-warning"> <h3 class="alert-heading"> {{translate($type)}} </h3> </div>
 
     @foreach (old($type)['id'] ?? [0] as $i => $id)
         <div id="{{$type}}-service-rows">
-            <div class="row" data-service-type="{{$type}}" data-row="{{$i}}">
+            <div class="row" data-service-type="{{$type}}" data-row="{{$i+1}}">
                 <div class="form-group col-md-4 styled-select slate">
                     <label for="{{$type}}"> نوع {{translate($type)}} </label>
                     <select class="form-control" name="{{$type}}[id][]" id="{{$type}}" onchange="changeService($(this))">
@@ -25,11 +24,11 @@
             </div>
         </div>
     @endforeach
-    <div class="text-md-left text-center">
-        <a onclick="removeServiceRow('{{$type}}')" class="text-danger mx-1" id="{{$type}}-trash-icon" @if(count(old($type)['id'] ?? []) < 2) style="display:none" @endif>
+    <div class="text-light text-center">
+        <a onclick="removeServiceRow('{{$type}}')" class="btn btn-danger mx-1" id="{{$type}}-trash-icon" @if(count(old($type)['id'] ?? []) < 2) style="display:none" @endif>
             <i class="fa fa-times ml-1"></i> حذف مورد
         </a>
-        <a onclick="newServiceRow('{{$type}}')" class="text-info mx-1"> <i class="fa fa-plus ml-1"></i> اضافه کردن مورد جدید </a>
+        <a onclick="newServiceRow('{{$type}}')" class="btn btn-success mx-1"> <i class="fa fa-plus ml-1"></i> اضافه کردن مورد جدید </a>
     </div>
 
     <div class="alert alert-info mt-3">

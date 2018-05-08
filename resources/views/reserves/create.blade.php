@@ -6,23 +6,7 @@
     @guest
         <h4 class="r-title" data-toggle="collapse" data-target="#collapseNewUser"> <i class="fa fa-lock ml-1"></i> تعریف حساب کاربری  </h4>
         @include('reserve_fragments.new_user')
-    @else
-        <div class="alert alert-success">
-            <i class="fa fa-check ml-1"></i>
-            شما وارد حساب کاربری خود شدید.
-            <br>
-            <i class="fa fa-user ml-1"></i>
-            نام کاربری یا شماره موبایل شما :
-            <span class="text-dark"> {{auth()->user()->username ?? auth()->user()->mobile}} </span>
-        </div>
-        @if (admin())
-            <div class="alert alert-warning">
-                <i class="fa fa-warning ml-1"></i>
-                توجه داشته باشید که شما با دسترسی ادمین وارد شده اید.
-            </div>
-        @endif
     @endguest
-    <hr>
 
     <form id="reserves-collapseable" action="{{url('reserves')}}" method="post" enctype="multipart/form-data">
         @csrf

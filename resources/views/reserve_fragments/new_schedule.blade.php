@@ -1,10 +1,6 @@
 <div class="collapse show" id="collapseSchedule" data-parent="#reserves-collapseable">
-    <div class="alert alert-warning"> <h3 class="alert-heading"> رزرو سالن </h3> </div>
-    <hr>
 
     <div class="alert alert-info">
-        <h4 class="alert-heading">توضیحات سالن</h4>
-        <hr>
         @foreach ($rooms as $key => $room)
             <p class="room-description" id="room-description-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->description}} </p>
         @endforeach

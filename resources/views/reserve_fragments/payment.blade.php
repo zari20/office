@@ -1,6 +1,5 @@
 <div class="collapse" id="collapsePayment" data-parent="#reserves-collapseable">
-    <div class="alert alert-warning"> <h3 class="alert-heading"> خدمات ثبت نام </h3> </div>
-    <hr>
+
     <p class="lead text-right"> اطلاعات تسویه حساب مشترکین خدمات رزرواسیون </p>
     <div class="row">
         <div class="col-md-6">
@@ -32,7 +31,7 @@
             <fieldset class="form-group with-border">
                 <legend> اطلاعات بانک </legend>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="form-group row">
                             <label for="bank-name" class="col-md-4 col-form-label">نام بانک</label>
                             <div class="col-md-8">
@@ -48,9 +47,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="form-group row">
-                            <label for="bank-code" class="col-md-4 col-form-label">کد</label>
+                            <label for="bank-code" class="col-md-4 col-form-label">کد شعبه</label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" id="bank-code" name="payment[bank_code]" value="{{old('payment')['bank_code']}}">
                             </div>

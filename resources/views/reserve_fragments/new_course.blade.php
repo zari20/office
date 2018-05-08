@@ -5,7 +5,7 @@
     </div>
     <div class="row">
         <div class="form-group col-md-4">
-            <label for="name"> <i class="fa fa-pencil ml-1"></i> نام دوره / کارگاه / کنفرانس <i class="fa fa-asterisk text-danger"></i></label>
+            <label for="name"> <i class="fa fa-pencil ml-1"></i> نام دوره / کارگاه / کنفرانس / جلسه<i class="fa fa-asterisk text-danger"></i></label>
             <input type="text" class="form-control" id="name" name="course[name]" value="{{old('course')['name']}}" required placeholder="*الزامی">
         </div>
         <div class="form-group col-md-4">

@@ -14,7 +14,8 @@
                     <th> خدمات گرافیکی </th>
                     <th> خدمات اطلاع رسانی </th>
                     <th> کد تخفیف </th>
-                    <th> هزینه نهایی </th>
+                    <th> مجموع هزینه ها </th>
+                    <th> قابل پرداخت </th>
                     <th colspan="2"> عملیات </th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                         <td> @include('fragments.cor', ['var' => count($reserve->informings)]) </td>
                         <td> {{ $reserve->discount_code_id ? ($reserve->discount->code ?? '?') : '-'}} </td>
                         <td> {{toman($reserve->total_cost)}} </td>
+                        <td> {{$reserve->payable_amount ? toman($reserve->payable_amount) : toman($reserve->total_cost)}} </td>
                         <td>
                             <a href="{{url("reserves/$reserve->id")}}" title="مشاهده"> <i class="fa fa-eye text-info"></i></a>
                         </td>

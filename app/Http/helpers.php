@@ -29,6 +29,12 @@ function cities()
     return \DB::table('cities')->get();
 }
 
+function city($id)
+{
+    $city = \DB::table('cities')->where('id',$id)->first();
+    return $city->name ?? '?';
+}
+
 function services()
 {
     return ['room','catering','medium','graphic','informing'];
@@ -43,6 +49,8 @@ function translate($word)
         case 'medium': case 'media': return 'خدمات سمعی بصری'; break;
         case 'graphic': case 'graphics': return 'خدمات گرافیکی'; break;
         case 'informing': case 'informings': return 'خدمات روابط عمومی'; break;
+        case 'admin': return 'ادمین'; break;
+        case 'regular': return 'عادی'; break;
         default: return $word; break;
     }
 }

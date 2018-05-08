@@ -13,7 +13,7 @@ Route::resource('reserves','ReserveController')->except( ['edit','update'] );
 Route::resource('periods','PeriodController')->except( ['show'] );
 Route::resource('discounts','DiscountCodeController')->except( ['show'] );
 Route::resource('bookings','BookingController')->except( ['show','edit','update'] );
-Route::resource('users','UserController')->except( ['create','store','update'] );
+Route::resource('users','UserController')->except( ['create','store'] );
 
 
 //services
@@ -23,6 +23,7 @@ Route::post('services/{method}/{type}/{id?}','ServicesController@main');
 //other
 Route::post('new_user','ReserveController@create_user');
 Route::get('reserve_logmein','ReserveController@logmein');
+Route::view('uc','partials.under_construction');
 
 //ajax requests
 Route::post('ajax/{method}','AjaxController@main');

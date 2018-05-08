@@ -20,7 +20,7 @@
 
 <div class="row text-center">
 
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
         <h4 class="text-green dinar mb-4"> <i class="fa fa-map-signs ml-1"></i> مدیریت سانس ها </h4>
         <div class="">
             <a href="{{url("/periods")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
@@ -28,13 +28,23 @@
         </div>
     </div>
 
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
+        <h4 class="text-green dinar mb-4"> <i class="fa fa-users ml-1"></i> مدیریت کاربران </h4>
+        <div class="">
+            <a href="{{url("/users")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+        </div>
+    </div>
+
+    <div class="col-md-4 my-3">
         <h4 class="text-green dinar mb-4"> <i class="fa fa-percent ml-1"></i> مدیریت کدهای تخفیف </h4>
         <div class="">
             <a href="{{url("/discounts")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
             <a href="{{url("/discounts/create")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-success"> <i class="fa fa-plus ml-1"></i> تعریف مورد جدید </a>
         </div>
     </div>
+
+
+
     <div class="col-md-3"></div>
     <div class="col-md-6 my-3">
         <h4 class="text-green dinar mb-4"> <i class="fa fa-flash ml-1"></i> مدیریت رزرو ها </h4>

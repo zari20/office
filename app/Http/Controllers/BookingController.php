@@ -26,12 +26,15 @@ class BookingController extends Controller
                  break;
              case 'past':
                  $bookings = Booking::whereDate('date','<',Carbon::today())->orderBy('date')->paginate(30);
+                 $bookings->withPath("bookings?type=$type");
                  break;
              case 'today':
                  $bookings = Booking::whereDate('date','=',Carbon::today())->orderBy('date')->paginate(30);
+                 $bookings->withPath("bookings?type=$type");
                  break;
              case 'future':
                  $bookings = Booking::whereDate('date','>',Carbon::today())->orderBy('date')->paginate(30);
+                 $bookings->withPath("bookings?type=$type");
                  break;
              default:
                 abort(404);

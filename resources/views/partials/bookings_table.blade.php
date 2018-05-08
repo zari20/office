@@ -1,19 +1,19 @@
 <div class="text-center">
-    <a href="{{url("bookings?type=past")}}" class="btn bg-blue"> رزو شده های روز های قبلی </a>
+    <a href="{{url("bookings?type=past")}}" class="btn bg-blue"> رزو شده های قبلی </a>
     <a href="{{url("bookings?type=today")}}" class="btn bg-blue"> رزو شده های امروز </a>
-    <a href="{{url("bookings?type=future")}}" class="btn bg-blue"> رزو شده های روز های بعدی </a>
+    <a href="{{url("bookings?type=future")}}" class="btn bg-blue"> رزو شده های آتی </a>
 </div>
 
 <p class="lead text-blue">
     رزرو شده های
     @if ($type=='past')
-         روز های قبلی
+         قبلی
     @endif
     @if ($type=='today')
         امروز
     @endif
     @if ($type=='future')
-         روز های آتی
+         آتی
     @endif
 </p>
 
@@ -63,3 +63,5 @@
         @endforeach
     </tbody>
 </table>
+
+{{$bookings->links()}}

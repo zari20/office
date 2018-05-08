@@ -153,16 +153,8 @@ class ReserveController extends Controller
 
     public function create_user()
     {
-        $data = request()->validate([
-            'email' => 'nullable|string|email|max:190|unique:users',
-            'mobile' => 'required|digits:11|unique:users',
-            'telephone' => 'nullable|digits:11|unique:users',
-            'city_id' => 'nullable|integer|exists:cities,id',
-            'region' => 'nullable|string|max:190',
-            'address' => 'nullable|string|max:300',
-            'postal_code' => 'nullable|integer|digits:10|unique:users',
-            'password' => 'required|string|min:4|confirmed',
-        ]);
+        $data = UserController::validation();
+        $data['password'] = bcrypt($data['password']);
         $user = \App\User::create($data);
         \Auth::login($user);
 

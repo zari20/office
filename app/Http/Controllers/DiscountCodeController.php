@@ -78,6 +78,7 @@ class DiscountCodeController extends Controller
             "room_id" => "nullable",
             "code" => "required|string|max:100|unique:discount_codes,code,$id",
             "percent" => "required|integer|between:1,99",
+            "title" => "nullable|string",
             "expire_date" => "nullable"
         ]);
 

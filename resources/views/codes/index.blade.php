@@ -10,6 +10,7 @@
             <thead>
                 <tr>
                     <th> ردیف </th>
+                    <th> عنوان </th>
                     <th> اتاق </th>
                     <th> کد </th>
                     <th> درصد </th>
@@ -21,7 +22,8 @@
                 @foreach ($codes as $key => $code)
                     <tr>
                         <td> {{$key+1}} </td>
-                        <td> <a href="{{url("services/index/room")}}">{{$code->room->name ?? '-'}}</a> </td>
+                        <td> {!! $code->title ? '<strong>' : '<em>' !!} {{$code->title ?? '[بدون عنوان]'}} {!! $code->title ? '</strong>' : '</em>' !!} </td>
+                        <td> {{$code->room->name ?? '-'}} </td>
                         <td> {{$code->code}} </td>
                         <td> {{$code->percent}} </td>
                         <td> {{ $code->expire_date ? human_date($code->expire_date) : '-' }} </td>

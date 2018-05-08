@@ -8,7 +8,14 @@
             {{method_field('PUT')}}
         @endisset
 
-        <div class="form-group col-md-3">
+
+        <div class="form-group col-md-4">
+            <label for="title"> عنوان </label>
+            <input type="text" class="form-control" id="title" name="title" value="{{$code->title ?? old('title')}}">
+            <small> در این قسمت میتوانید یک عنوان برای این کدتخفیف انتخاب کنید. این فیلد الزامی نیست. </small>
+        </div>
+
+        <div class="form-group col-md-4">
             <label for="room-id"> اتاق </label>
             <select class="form-control" name="room_id" id="room-id">
                 <option value="0"> انتخاب کنید </option>
@@ -23,19 +30,19 @@
             <small> درصورت تمایل میتوانید اتاق مورد نطر را انتخاب کنید. مثلا تایین کنید که این کد تخفیف فقط برای فلان اتاق قابل اعمال باشد. </small>
         </div>
 
-        <div class="form-group col-md-3">
-            <label for="code"> کد </label>
+        <div class="form-group col-md-4">
+            <label for="code"> <i class="fa fa-asterisk ml-1 text-danger"></i> کد </label>
             <input type="text" class="form-control" id="code" name="code" value="{{$code->code ?? old('code')}}" required>
             <small> کد تخفیفی که متقاضیان میتوانند استفاده کنند را تایپ کنید. مثلا عباراتی مثل "نوروز97" یا "rooze-pedar" و یا هر عبارت دلخواه دیگر. </small>
         </div>
 
-        <div class="form-group col-md-3">
-            <label for="percent"> درصد تخفیف </label>
+        <div class="form-group col-md-4">
+            <label for="percent"> <i class="fa fa-asterisk ml-1 text-danger"></i> درصد تخفیف </label>
             <input type="number" class="form-control" id="percent" name="percent" value="{{$code->percent ?? old('percent')}}" required>
             <small> در این قسمت تایین کنید که متقاضی با وارد کردن این کد، از چند درصد تخفیف بهره مند شود. یک عدد به عنوان درصد تخفیف وارد کنید. </small>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="expire-date"> تاریخ انقضا </label>
                 <input type="text" data-calendar="persian" readonly autocomplete="off" class="form-control" id="expire-date" name="expire_date"

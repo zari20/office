@@ -12,12 +12,12 @@
         </thead>
         <tbody>
             <tr>
-                <td id="pricing-room"> 0 </td>
-                <td id="pricing-catering"> 0 </td>
-                <td id="pricing-medium"> 0 </td>
-                <td id="pricing-graphic"> 0 </td>
-                <td id="pricing-informing"> 0 </td>
-                <td id="pricing-total"> 0 </td>
+                <td id="pricing-room"> {{old('schedule')['cost'] ? number_format(old('schedule')['cost']) : 0}} </td>
+                <td id="pricing-catering"> {{ isset(old('catering')['cost']) ? number_format(array_sum(old('catering')['cost'])) : 0}} </td>
+                <td id="pricing-medium"> {{ isset(old('medium')['cost']) ? number_format(array_sum(old('medium')['cost'])) : 0}} </td>
+                <td id="pricing-graphic"> {{ isset(old('graphic')['cost']) ? number_format(array_sum(old('graphic')['cost'])) : 0}} </td>
+                <td id="pricing-informing"> {{ isset(old('informing')['cost']) ? number_format(array_sum(old('informing')['cost'])) : 0}} </td>
+                <td id="pricing-total"> {{old('total_cost') ? number_format(old('total_cost')) : 0}} </td>
             </tr>
         </tbody>
     </table>

@@ -87,7 +87,7 @@
             </div>
         @endif
         <div class="form-group col-md-3 mt-md-4">
-            <button type="button" onclick="history.back()" class="btn btn-block btn-success bg-green"> <i class="fa fa-edit ml-1"></i> ویرایش اطلاعات </button>
+            <button type="submit" name="step" value="0" class="btn btn-block btn-success bg-green"> <i class="fa fa-edit ml-1"></i> ویرایش اطلاعات </button>
         </div>
         <div class="form-group col-md-3 mt-md-4">
             <button type="submit" name="step" value="3" class="btn btn-block btn-primary bg-blue-no-hover"> <i class="fa fa-check ml-1"></i> تایید و ادامه </button>

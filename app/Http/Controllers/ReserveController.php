@@ -49,6 +49,12 @@ class ReserveController extends Controller
         if(Auth::check()){
 
             //finalizing form
+
+            if ($request->step == 0) {
+                $reserve_data = session('reserve_data');
+                return redirect('reserves/create')->withInput($reserve_data);
+            }
+
             if ($request->step == 1) {
                 self::validation();
                 $reserve_data = request()->all();

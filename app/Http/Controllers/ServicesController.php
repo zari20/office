@@ -67,6 +67,9 @@ class ServicesController extends Controller
         $object = $class::find($id);
         if ($object) {
             $object->delete();
+            if ($type == 'room') {
+                \App\Period::where('room_id',$id)->delete();
+            }
             Helper::flash_delete_message();
             return back();
         }else {

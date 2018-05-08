@@ -37,6 +37,17 @@ th {text-align: center;}
     width: 24%;
 }
 
+/* card numbers*/
+.pricing-box {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    background-color: lavender;
+}
+
 /* fieldset and legend */
 fieldset.with-border {
     border: 1px solid #e6e6e6;

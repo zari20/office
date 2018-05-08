@@ -54,7 +54,11 @@
         {{-- <h4 data-toggle="collapse" data-target="#collapseFinalize" class="reserve-title"> <i class="fa fa-check ml-1"></i> نهایی سازی و پرداخت آنلاین  </h4>
         @include('reserve_fragments.finalize') --}}
 
-        <div class="row">
+        <div class="pricing-box animated slideInUp d-none" id="pricing-box">
+            @include('fragments.pricing_box')
+        </div>
+
+        <div class="row" id="reserve-submit-box">
             @include('fragments.submit', ['text'=>'نهایی سازی عملیات', 'icon'=>'check'])
         </div>
 

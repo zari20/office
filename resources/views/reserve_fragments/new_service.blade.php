@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="{{$type}}-final-cost"> <i class="fa fa-money ml-1"></i> هزینه به تومان </label>
-                    <input type="text" class="form-control" id="{{$type}}-final-cost" name="{{$type}}[cost][]" value="{{old($type)['cost'][$i] ?? 0}}" readonly>
+                    <input type="text" class="form-control {{$type}}-final-cost" id="{{$type}}-final-cost" name="{{$type}}[cost][]" value="{{old($type)['cost'][$i] ?? 0}}" readonly>
                 </div>
             </div>
         </div>

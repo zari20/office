@@ -48,6 +48,7 @@ function roomCost() {
     var cost = $('select#room-type').find(":selected").attr('data-cost');
     var hours = $('#room-hours').val();
     $('#room-final-cost').val(hours*cost);
+    pricingBox();
 }
 
 
@@ -70,6 +71,9 @@ function changeService(element) {
     var count = $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-count').val();
     var base = element.find(":selected").attr('data-cost');
     $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-final-cost').val(count*base);
+
+    //pricing box
+    pricingBox();
 }
 
 function changeCount(element) {
@@ -78,6 +82,7 @@ function changeCount(element) {
     var rowNumber = element.parents('[data-row]').attr('data-row');
     var base = $('select#'+type).find(":selected").attr('data-cost');
     $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-final-cost').val(count*base);
+    pricingBox();
 }
 
 
@@ -86,6 +91,7 @@ function newServiceRow(type) {
     var rowNumber = element.attr('data-row');
     element.clone().attr('data-row',parseInt(rowNumber)+1).appendTo('#'+type+'-service-rows');
     $('#'+type+'-trash-icon').show();
+    pricingBox();
 }
 
 function removeServiceRow(type) {
@@ -96,6 +102,54 @@ function removeServiceRow(type) {
     if ($('[data-service-type='+type+']').length < 2) {
         $('#'+type+'-trash-icon').hide();
     }
+}
+
+function pricingBox() {
+
+    //styling changes
+    $('#reserve-submit-box').css('padding-bottom','100px');
+    $('#pricing-box').removeClass('d-none');
+
+
+    //rooms
+    var cost = $('select#room-type').find(":selected").attr('data-cost');
+    var hours = $('#room-hours').val();
+    var roomsCost = hours*cost;
+
+    //caterings
+    var cateringsCost = 0;
+    $('.catering-final-cost').each(function () {
+        cateringsCost += parseInt($(this).val());
+    });
+
+    //media
+    var mediaCost = 0;
+    $('.medium-final-cost').each(function () {
+        mediaCost += parseInt($(this).val());
+    });
+
+    //graphics
+    var graphicsCost = 0;
+    $('.graphic-final-cost').each(function () {
+        graphicsCost += parseInt($(this).val());
+    });
+
+    //informings
+    var informingsCost = 0;
+    $('.informing-final-cost').each(function () {
+        informingsCost += parseInt($(this).val());
+    });
+
+    //total
+    var totalCost = roomsCost + cateringsCost + mediaCost + graphicsCost + informingsCost;
+
+    //update html
+    $('#pricing-room').html(roomsCost.toLocaleString());
+    $('#pricing-catering').html(cateringsCost.toLocaleString());
+    $('#pricing-medium').html(mediaCost.toLocaleString());
+    $('#pricing-graphic').html(graphicsCost.toLocaleString());
+    $('#pricing-informing').html(informingsCost.toLocaleString());
+    $('#pricing-total').html(totalCost.toLocaleString());
 }
 
 function sendAjax(method,formData,target){

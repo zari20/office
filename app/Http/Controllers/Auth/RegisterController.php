@@ -79,5 +79,6 @@ class RegisterController extends Controller
             'postal_code' => $data['postal_code'],
             'password' => Hash::make($data['password']),
         ]);
+        SmsController::new_user($data);
     }
 }

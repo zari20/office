@@ -154,11 +154,12 @@ class ReserveController extends Controller
     public function create_user()
     {
         $data = UserController::validation();
+        SmsController::new_user($data);
         $data['password'] = bcrypt($data['password']);
         $user = \App\User::create($data);
         \Auth::login($user);
 
-        Helper::flash();
+        Helper::message("حساب کاربری با موفقیت ایجاد شد.");
         return redirect("reserves/create");
     }
 

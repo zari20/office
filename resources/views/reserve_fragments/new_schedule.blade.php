@@ -2,27 +2,6 @@
     <div class="alert alert-warning"> <h3 class="alert-heading"> رزرو سالن </h3> </div>
     <hr>
 
-    <div class="row">
-        <div class="form-group col-md-4">
-            <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع اتاق </label>
-            <select class="form-control" name="schedule[room_id]" id="room-type">
-                @foreach ($rooms as $key => $room)
-                    <option value="{{$room->id}}" data-cost="{{$room->cost_pre_hour}}" @if(old('schedule')['room_id'] == $room->id) selected @endif>
-                        {{$room->name}}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="room-count"> <i class="fa fa-hourglass-1 ml-1"></i> تعداد ساعات </label>
-            <input type="number" class="form-control" id="room-hours" name="schedule[hours]" value="{{old('schedule')['hours'] ?? 0}}" readonly>
-        </div>
-        <div class="form-group col-md-4">
-            <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
-            <input type="text" class="form-control" id="room-final-cost" name="schedule[cost]" value="{{old('schedule')['cost'] ?? 0}}" readonly>
-        </div>
-    </div>
-
     <div class="alert alert-info">
         <h4 class="alert-heading">توضیحات اتاق</h4>
         <hr>
@@ -43,6 +22,27 @@
             @endforeach
             نفر
         </p>
+    </div>
+
+    <div class="row my-3">
+        <div class="form-group col-md-4">
+            <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع اتاق </label>
+            <select class="form-control" name="schedule[room_id]" id="room-type">
+                @foreach ($rooms as $key => $room)
+                    <option value="{{$room->id}}" data-cost="{{$room->cost_pre_hour}}" @if(old('schedule')['room_id'] == $room->id) selected @endif>
+                        {{$room->name}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="room-count"> <i class="fa fa-hourglass-1 ml-1"></i> تعداد ساعات </label>
+            <input type="number" class="form-control" id="room-hours" name="schedule[hours]" value="{{old('schedule')['hours'] ?? 0}}" readonly>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="room-final-cost"> <i class="fa fa-money ml-1"></i> هزینه نهایی به تومان </label>
+            <input type="text" class="form-control" id="room-final-cost" name="schedule[cost]" value="{{old('schedule')['cost'] ?? 0}}" readonly>
+        </div>
     </div>
 
     <div id="schedule-section">

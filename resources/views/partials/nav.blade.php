@@ -16,16 +16,16 @@
                     <li><a class="nav-link text-light" href="{{ route('login') }}"> ورود </a></li>
                     <li><a class="nav-link text-light" href="{{ route('register') }}"> ثبت نام </a></li>
                 @else
+
+                    <li><a class="nav-link text-light" href="{{ route('home') }}"> <i class="fa fa-dashboard ml-1"></i> داشبورد </a></li>
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fa fa-user ml-1"></i>
                             {{ Auth::user()->username ?? Auth::user()->mobile }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('home')}}">
-                                <i class="fa fa-dashboard ml-1"></i> داشبورد
-                            </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

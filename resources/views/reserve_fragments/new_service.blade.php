@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="{{$type}}-count"> تعداد </label>
-                    <input type="number" class="form-control" id="{{$type}}-count" name="{{$type}}[count][]" value="{{old($type)['count'][$i] ?? 0}}" onchange="changeCount($(this))" data-type="{{$type}}">
+                    <input type="number" class="form-control" id="{{$type}}-count" name="{{$type}}[count][]" value="{{old($type)['count'][$i] ?? 0}}" onkeyup="changeCount($(this))" onchange="changeCount($(this))" data-type="{{$type}}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="{{$type}}-final-cost"> <i class="fa fa-money ml-1"></i> هزینه به تومان </label>

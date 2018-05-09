@@ -24,10 +24,12 @@ class HomeController extends Controller
     public function index()
     {
         if (user_type()=='admin') {
-            $reserves = \App\Reserve::limit(5)->get();
-            return view('home',compact('reserves'));
-        }else {
             return view('home');
+        }else {
+            $current_user = auth()->user();
+            $suffix = $current_user->payment->id ?? 'create';
+            $payment_url = 'payments/'.$suffix;
+            return view('home',compact('current_user','payment_url'));
         }
     }
 }

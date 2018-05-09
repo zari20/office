@@ -8,6 +8,7 @@ th {text-align: center;}
 .direct-x{ white-space: nowrap; overflow-x: auto;}
 
 .pointer {cursor: pointer;}
+.cursor-help {cursor: help;}
 .not-allowed {cursor: not-allowed;}
 
 .half-x {font-size: 1.5em}

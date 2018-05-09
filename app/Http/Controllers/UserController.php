@@ -52,7 +52,13 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if ($user->type != 'admin') {
+            //delete user instance
             $user->delete();
+
+            //delete user's payment
+            if($payment = $user->payment) $payment->delete();
+
+            //redirection
             Helper::flash_delete_message();
             return redirect('users');
         }else {

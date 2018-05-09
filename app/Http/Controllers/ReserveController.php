@@ -151,7 +151,6 @@ class ReserveController extends Controller
         \App\Schedule::make($reserve_data,$reserve_instance);
         \App\Booking::make($reserve_data,$reserve_instance);
         \App\Service::make($reserve_data,$reserve_instance);
-        \App\Payment::make($reserve_data,$reserve_instance);
 
         Helper::flash();
         session(['reserve_data'=>null]);

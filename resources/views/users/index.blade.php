@@ -16,7 +16,7 @@
                     <th> منطقه شهری </th>
                     <th> آدرس </th>
                     <th> نوع کاربر </th>
-                    <th colspan="4"> عملیات </th>
+                    <th colspan="5"> عملیات </th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +32,17 @@
                         <td> {{$user->address ?? '-'}} </td>
                         <td> {{translate($user->type)}} </td>
                         <td> <a href="{{url("users/{$user->id}")}}" class="card-link none mx-1" title="مشاهده"> <i class="fa fa-eye ml-1"></i> </a> </td>
+                        <td>
+                            @if ($user->payment)
+                                <a href="{{url("payments/{$user->payment->id}")}}" class="card-link none mx-1" title="مشاهده اطلاعات مالی">
+                                    <i class="fa fa-credit-card ml-1"></i>
+                                </a>
+                            @elseif($user->type == 'admin')
+                                <span class="cursor-help" title="این کاربر ادمین میباشد. اطلاعات مالی مختص به کاربران عادی میباشد."> - </span>
+                            @else
+                                <span class="cursor-help" title="این شخص هنوز اطلاعات مالی خود را ثبت نکرده است"> - </span>
+                            @endif
+                        </td>
                         <td> <a href="{{url("change_password/{$user->id}")}}" class="card-link text-warning none mx-1" title="تغییر رمز عبور"> <i class="fa fa-lock ml-1"></i> </a> </td>
                         <td> <a href="{{url("users/{$user->id}/edit")}}" class="card-link text-success none mx-1" title="ویرایش"> <i class="fa fa-edit ml-1"></i> </a> </td>
                         <td> @include('fragments.delete', ['object' => $user, 'name'=>'user']) </td>

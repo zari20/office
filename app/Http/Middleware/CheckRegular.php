@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminCheck
+class CheckRegular
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class AdminCheck
     public function handle($request, Closure $next)
     {
         $user_type = auth()->user()->type ?? null;
-        if ($user_type && $user_type=='admin') {
+        if ($user_type && $user_type=='regular') {
             return $next($request);
         }else {
-            return redirect('/home')->withErros(["شما به این بخش دسترسی دارید."]);
+            return redirect('/home')->withErros(["فقط کاربران عادی به این بخش دسترسی دارند."]);
         }
     }
 }

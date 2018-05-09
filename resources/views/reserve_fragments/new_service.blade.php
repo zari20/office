@@ -32,11 +32,10 @@
     </div>
 
     <div class="alert alert-info mt-3">
-        <h4 class="alert-heading">توضیحات {{translate($type)}}</h4>
-        <hr>
         @foreach ($services as $key => $service)
             <p class="{{$type}}-description" id="{{$type}}-description-{{$service->id}}" @if($key>0) style="display:none" @endif> {{$service->description}} </p>
         @endforeach
+        <hr>
         <p>
             هزینه واحد:
             @foreach ($services as $key => $service)
@@ -46,10 +45,12 @@
         </p>
     </div>
 
-    <hr>
-    <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapse{{$next}}">
-         مرحله بعدی <i class="fa fa-arrow-left mr-1"></i>
-     </button>
+    @if ($next)
+        <hr>
+        <button type="button" class="btn bg-blue" data-toggle="collapse" data-target="#collapse{{$next}}">
+             مرحله بعدی <i class="fa fa-arrow-left mr-1"></i>
+        </button>
+    @endif
 
     <hr>
 </div>

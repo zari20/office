@@ -25,30 +25,26 @@
             <div class="s-titles-container">
                 <h4 data-toggle="collapse" data-target="#collapseSchedule" class="s-title" aria-expanded="true">
                      <i class="fa fa-bank ml-1"></i> رزرو سالن
-                 </h4>
+                </h4>
                 <h4 data-toggle="collapse" data-target="#collapseCatering" class="s-title">
                      <i class="fa fa-coffee ml-1"></i> خدمات پذیرایی
-                 </h4>
+                </h4>
                 <h4 data-toggle="collapse" data-target="#collapseMedium" class="s-title">
                      <i class="fa fa-film ml-1"></i> خدمات سمعی بصری
-                 </h4>
+                </h4>
                 <h4 data-toggle="collapse" data-target="#collapseGraphic" class="s-title">
                      <i class="fa fa-gamepad ml-1"></i> خدمات گرافیک
-                 </h4>
+                </h4>
                 <h4 data-toggle="collapse" data-target="#collapseInforming" class="s-title">
                      <i class="fa fa-headphones ml-1"></i> خدمات روابط عمومی
-                 </h4>
-                <h4 data-toggle="collapse" data-target="#collapsePayment" class="s-title">
-                     <i class="fa fa-edge ml-1"></i> خدمات ثبت نام
-                 </h4>
+                </h4>
             </div>
 
             @include('reserve_fragments.new_schedule')
             @include('reserve_fragments.new_service',['type'=>'catering', 'next'=>'Medium', 'services'=>$caterings])
             @include('reserve_fragments.new_service',['type'=>'medium', 'next'=>'Graphic', 'services'=>$media])
             @include('reserve_fragments.new_service',['type'=>'graphic', 'next'=>'Informing', 'services'=>$graphics])
-            @include('reserve_fragments.new_service',['type'=>'informing', 'next'=>'Payment', 'services'=>$informings])
-            @include('reserve_fragments.payment')
+            @include('reserve_fragments.new_service',['type'=>'informing', 'next'=>null, 'services'=>$informings])
         </div>
 
         {{-- <h4 data-toggle="collapse" data-target="#collapseFinalize" class="reserve-title"> <i class="fa fa-check ml-1"></i> نهایی سازی و پرداخت آنلاین  </h4>

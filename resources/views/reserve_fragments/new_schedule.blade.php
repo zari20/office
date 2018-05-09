@@ -4,14 +4,15 @@
         @foreach ($rooms as $key => $room)
             <p class="room-description" id="room-description-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->description}} </p>
         @endforeach
-        <p>
+        <p class="d-inline mx-2">
             هزینه هر ساعت :
             @foreach ($rooms as $key => $room)
                 <span class="room-cost" id="room-cost-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->cost_pre_hour}} </span>
             @endforeach
             تومان
         </p>
-        <p>
+        -
+        <p class="d-inline mx-2">
             ظرفیت :
             @foreach ($rooms as $key => $room)
                 <span class="room-capacity" id="room-capacity-{{$room->id}}" @if($key>0) style="display:none" @endif> {{$room->capacity}} </span>

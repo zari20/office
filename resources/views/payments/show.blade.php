@@ -12,7 +12,7 @@
                             <a href="{{url("users/$payment->user_id")}}"> {{$payment->user->username ?? $payment->user->mobile ?? '-'}} </a>
                         </li>
                     @endadmin
-                    <li class="list-group-item"> شماره کارت : {{$payment->card_number ?? '-'}}</li>
+                    <li class="list-group-item"> شماره کارت : <span dir="ltr"> {{$payment->card_number ?? '-'}} </span> </li>
                     <li class="list-group-item"> نام صاحب حساب : {{$payment->owner_name ?? '-'}}</li>
                     <li class="list-group-item"> شماره شبا : {{$payment->shaba ?? '-'}}</li>
                     <li class="list-group-item"> نام بانک : {{$payment->bank_name ?? '-'}}</li>

@@ -10,7 +10,8 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->only(['index','destroy']);
+        $this->middleware('auth')->only(['show','edit','update','change_password','change_password_form']);
     }
 
     public function index()
@@ -21,21 +22,27 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        Helper::user_id_check($user);
         return view('users.show',compact('user'));
     }
 
     public function edit(User $user)
     {
+        Helper::user_id_check($user);
         return view('users.edit',compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         //get validated data
-        $data = UserController::validation($id,'nullable');
+        $data = UserController::validation($user->id,'nullable');
+
+        //user id check and hacker proof
+        Helper::user_id_check($user);
+        if(isset($data['type'])) unset($data['type']);
 
         //update
-        User::where('id',$id)->update($data);
+        User::where('id',$user->id)->update($data);
 
         //redirection
         Helper::flash();
@@ -53,9 +60,20 @@ class UserController extends Controller
         }
     }
 
+    public function change_password_form()
+    {
+        //
+    }
+
+    public function change_password()
+    {
+        //
+    }
+
     public static function validation($id=0,$password_type='required')
     {
         return request()->validate([
+            'username' => 'nullable|string|min:3|max:30|unique:users,username,'.$id,
             'email' => 'nullable|string|email|max:190|unique:users,email,'.$id,
             'mobile' => 'required|digits:11|unique:users,mobile,'.$id,
             'telephone' => 'nullable|digits:11|unique:users,telephone,'.$id,

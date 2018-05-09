@@ -11,13 +11,17 @@ class ReserveController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only(['show','logmein']);
-        $this->middleware('admin')->only(['index','destroy']);
+        $this->middleware('auth')->only(['show','logmein','index']);
+        $this->middleware('admin')->only(['destroy']);
     }
 
     public function index()
     {
-        $reserves = \App\Reserve::latest()->get();
+        if (admin()) {
+            $reserves = Reserve::latest()->get();
+        }else {
+            $reserves = Reserve::where('user_id',auth()->id())->latest()->get();
+        }
         return view('reserves.index',compact('reserves'));
     }
 

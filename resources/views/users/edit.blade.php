@@ -44,18 +44,15 @@
             <input type="text" class="form-control" name="postal_code" id="postal-code" value="{{$user->postal_code}}">
         </div>
 
-        {{-- <div class="form-group col-md-3">
-            <label for="password"> رمز عبور جدید </label>
-            <input type="text" class="form-control" name="password" id="password" value="">
-        </div> --}}
-
-        <div class="form-group col-md-3">
-            <label for="type"> نوع کاربر </label>
-            <select class="form-control" name="type">
-                <option value="regular" @if($user->type=='regular') selected @endif> {{translate('regular')}} </option>
-                <option value="admin" @if($user->type=='admin') selected @endif> {{translate('admin')}} </option>
-            </select>
-        </div>
+        {{-- @admin
+            <div class="form-group col-md-3">
+                <label for="type"> نوع کاربر </label>
+                <select class="form-control" name="type">
+                    <option value="regular" @if($user->type=='regular') selected @endif> {{translate('regular')}} </option>
+                    <option value="admin" @if($user->type=='admin') selected @endif> {{translate('admin')}} </option>
+                </select>
+            </div>
+        @endadmin --}}
 
         <div class="form-group col-md-12">
             <label for="address"> آدرس </label>

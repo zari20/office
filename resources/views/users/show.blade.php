@@ -27,7 +27,7 @@
                 </ul>
                 <div class="card-body text-left">
                     <a href="{{url("users/{$user->id}/edit")}}" class="card-link text-success none mx-1"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
-                    @if ($user->type != 'admin')
+                    @if ($user->type != 'admin' && user_type() == 'admin')
                         <a onclick="if(confirm('ایا این آیتم پاک شود؟')) $('form#delete-user-{{$user->id}}').submit()" class="card-link text-danger none mx-1">
                             <i class="fa fa-trash ml-1"></i> حذف
                         </a>

@@ -48,4 +48,11 @@ class Helper extends Controller
         }
     }
 
+    public static function user_id_check($user)
+    {
+        if ($user && !admin() && auth()->id() != $user->id) {
+            abort(404);
+        }
+    }
+
 }

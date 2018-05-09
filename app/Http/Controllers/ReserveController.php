@@ -45,7 +45,10 @@ class ReserveController extends Controller
         $dates = $days_and_dates['dates'];
         $current_room = old('schedule')['room_id'] ?? $rooms->first()->id;
 
-        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons','days','dates','current_room'));
+        //rserve data
+        $reserve_data = session('reserve_data');
+
+        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons','days','dates','current_room'))->withInput($reserve_data);
     }
 
     public function store(Request $request)

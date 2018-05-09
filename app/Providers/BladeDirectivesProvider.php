@@ -18,8 +18,8 @@ class BladeDirectivesProvider extends ServiceProvider
             return admin();
         });
 
-        Blade::if('user', function () {
-            return user();
+        Blade::if('regular', function () {
+            return regular();
         });
     }
 

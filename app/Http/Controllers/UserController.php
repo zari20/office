@@ -60,14 +60,45 @@ class UserController extends Controller
         }
     }
 
-    public function change_password_form()
+    public function change_password_form(User $user)
     {
-        //
+        return view('users.change_password',compact('user'));
     }
 
-    public function change_password()
+    public function change_password(User $user)
     {
-        //
+        //form validation
+        $data = self::password_validation();
+
+        //check access
+        Helper::user_id_check($user);
+        if(regular() && ! \Hash::check($data['current_password'], $user->password)){
+            return back()->withErrors(["رمز عبور فعلی صحیح نیست"]);
+        }
+
+        //change password
+        $user->password = bcrypt($data['password']);
+        $user->save();
+
+        //redirection
+        Helper::message("رمز عبور با موفقیت تغییر یافت.");
+        if (admin()) {
+            return redirect("users");
+        }else {
+            //log current user out
+            \Auth::logout();
+            //redirect to login page
+            return redirect("login");
+        }
+    }
+
+    public static function password_validation()
+    {
+        $current_password = admin() ? "nullable" : "required";
+        return request()->validate([
+            "current_password" => "$current_password",
+            "password" => "required|string|min:4|confirmed"
+        ]);
     }
 
     public static function validation($id=0,$password_type='required')

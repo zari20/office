@@ -16,7 +16,7 @@ function admin()
     return $type && auth()->user()->type == 'admin';
 }
 
-function user()
+function regular()
 {
     $type = auth()->user()->type ?? null;
     return $type && auth()->user()->type == 'regular';

@@ -144,6 +144,7 @@ return [
         'region' => 'منطقه شهری',
         'percent' => 'درصد تخفیف',
         'period_id' => 'انتخاب سانس',
+        'current_password' => 'رمزعبور فعلی',
     ],
 
 ];

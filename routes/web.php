@@ -26,8 +26,8 @@ Route::get('reserve_logmein','ReserveController@logmein');
 Route::view('uc','partials.under_construction');
 
 //users change password
-Route::get('change_password','UserController@change_password_form');
-Route::put('change_password','UserController@change_password');
+Route::get('change_password/{user}','UserController@change_password_form');
+Route::put('change_password/{user}','UserController@change_password');
 
 //ajax requests
 Route::post('ajax/{method}','AjaxController@main');

@@ -9,7 +9,7 @@
         </div>
         @if ($type=='room')
             <div class="form-group col-md-4">
-                <label for="capacity"> ظرقیت اتاق </label>
+                <label for="capacity"> ظرقیت سالن </label>
                 <input type="number" class="form-control" id="capacity" name="capacity" value="{{$object->capacity ?? old('capacity')}}" required>
             </div>
             <div class="form-group col-md-4">

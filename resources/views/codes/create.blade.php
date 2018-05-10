@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group col-md-4">
-            <label for="room-id"> اتاق </label>
+            <label for="room-id"> سالن </label>
             <select class="form-control" name="room_id" id="room-id">
                 <option value="0"> انتخاب کنید </option>
                 @foreach ($rooms as $key => $room)
@@ -27,7 +27,7 @@
                         </option>
                 @endforeach
             </select>
-            <small> درصورت تمایل میتوانید اتاق مورد نطر را انتخاب کنید. مثلا تایین کنید که این کد تخفیف فقط برای فلان اتاق قابل اعمال باشد. </small>
+            <small> درصورت تمایل میتوانید سالن مورد نطر را انتخاب کنید. مثلا تایین کنید که این کد تخفیف فقط برای فلان سالن قابل اعمال باشد. </small>
         </div>
 
         <div class="form-group col-md-4">

@@ -24,13 +24,13 @@ class CreateRoomsTable extends Migration
 
         \DB::table('room_types')->insert([
             [
-                'name' => 'اتاق 3+17 نفره',
+                'name' => 'سالن 3+17 نفره',
                 'capacity' => 20,
                 'cost_pre_hour' => 25000,
                 'description' => 'توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات'
             ],
             [
-                'name' => 'اتاق 7 نفره',
+                'name' => 'سالن 7 نفره',
                 'capacity' => 7,
                 'cost_pre_hour' => 10000,
                 'description' => 'توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات'

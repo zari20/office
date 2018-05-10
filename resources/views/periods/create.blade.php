@@ -17,7 +17,7 @@
             </select>
         </div>
         <div class="form-group col-md-3">
-            <label for="room-id"> اتاق </label>
+            <label for="room-id"> سالن </label>
             <select class="form-control" name="room_id" id="room-id">
                 @foreach ($rooms as $key => $room)
                     <option value="{{$room->id}}" @if(isset($period) && $period->room_id == $room->id) selected @endif> {{$room->name}} </option>

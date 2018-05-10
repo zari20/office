@@ -23,7 +23,7 @@
 
     <div class="row my-3">
         <div class="form-group col-md-4">
-            <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع اتاق </label>
+            <label for="room"> <i class="fa fa-hotel ml-1"></i> نوع سالن </label>
             <select class="form-control" name="schedule[room_id]" id="room-type">
                 @foreach ($rooms as $key => $room)
                     <option value="{{$room->id}}" data-cost="{{$room->cost_pre_hour}}" @if(old('schedule')['room_id'] == $room->id) selected @endif>

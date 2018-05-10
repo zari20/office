@@ -44,7 +44,7 @@ function services()
 function translate($word)
 {
     switch ($word) {
-        case 'room': return 'اتاق'; break;
+        case 'room': return 'سالن'; break;
         case 'catering': case 'caterings': return 'پذیرایی'; break;
         case 'medium': case 'media': return 'خدمات سمعی بصری'; break;
         case 'graphic': case 'graphics': return 'خدمات گرافیکی'; break;

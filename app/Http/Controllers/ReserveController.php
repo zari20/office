@@ -101,7 +101,7 @@ class ReserveController extends Controller
                         $errors[] = "تاریخ استفاده از این کد گذشته است. انقضا: ".date_picker_date($discount_code->expire_date);
                     }
                     if ($discount_code->room_id && $discount_code->room_id != $reserve_data['schedule']['room_id']) {
-                        $errors[] = "این کد تخفیف برای این اتاق قابل استفاده نمیباشد.";
+                        $errors[] = "این کد تخفیف برای این سالن قابل استفاده نمیباشد.";
                     }
                     if ($discount_code->period_id && !in_array($discount_code->period_id,$reserve_data['period']['id'])) {
                         $errors[] = "این تخفیف در صورتی شامل حال شما میشود که از سانس ".period_details($discount_code->period_id)." استفاده کنید.";

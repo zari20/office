@@ -70,9 +70,21 @@ class ReserveController extends Controller
                 $requested_total_cost = ReseveDataController::total_cost_from_request($reserve_data);
                 $total_cost = ReseveDataController::total_cost();
                 if ($requested_total_cost == $total_cost) {
+
+                    //set total cost in reserve data
                     $reserve_data['total_cost'] = $total_cost;
+
+                    //file upload
+                    if ($request->course_file) {
+                        $reserve_data['course']['file_path'] = $request->file('course_file')->store('courses');
+                        unset($reserve_data['file']);
+                    }
+
+                    //store reserve data in session for further use
                     session(compact('reserve_data'));
+
                     return view('reserves.finalize',compact('reserve_data'));
+
                 }else {
                     return back()->withErrors(ReseveDataController::$erros);
                 }

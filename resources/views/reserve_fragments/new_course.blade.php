@@ -25,8 +25,9 @@
             <input type="text" class="form-control" id="document" name="course[document]" value="{{old('course')['document']}}">
         </div>
         <div class="form-group col-md-4">
-            <label for="file_path"> <i class="fa fa-file ml-1"></i> پیوست مجوز / مدرک تحصیلی </label>
-            <input type="file" class="form-control" id="file_path" name="course[file_path]" >
+            <label for="course-file"> <i class="fa fa-file ml-1"></i> پیوست مجوز / مدرک تحصیلی </label>
+            <input type="file" class="form-control" id="course-file" name="course_file" >
+            <small> <i class="fa fa-asterisk ml-1"></i> ماکسیمم 2 مگابایت </small>
         </div>
     </div>
     <hr>

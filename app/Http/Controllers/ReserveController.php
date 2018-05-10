@@ -65,6 +65,7 @@ class ReserveController extends Controller
             if ($request->step == 1) {
                 self::validation();
                 $reserve_data = request()->all();
+                dd($reserve_data);
 
                 //hack check and return view
                 $requested_total_cost = ReseveDataController::total_cost_from_request($reserve_data);

@@ -14,6 +14,7 @@ class Course extends Model
         $c->teachers = $data['course']['teachers'];
         $c->code = $data['course']['code'];
         $c->document = $data['course']['document'];
+        $c->description = $data['course']['description'];
         $c->file_path = $data['course']['file_path'] ?? '';
         $c->save();
         return $c;

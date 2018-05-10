@@ -29,6 +29,10 @@
             <input type="file" class="form-control" id="course-file" name="course_file" >
             <small> <i class="fa fa-asterisk ml-1"></i> ماکسیمم 2 مگابایت </small>
         </div>
+        <div class="form-group col-md-12">
+            <label for="course-description"> <i class="fa fa-pencil ml-1"></i> توضیحات ضروری در مورد دوره / سمینار / جلسه </label>
+            <textarea name="course[description]" id="course-description" class="form-control" rows="6">{{old('course')['description']}}</textarea>
+        </div>
     </div>
     <hr>
 </div>

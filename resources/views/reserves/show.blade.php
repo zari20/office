@@ -24,6 +24,9 @@
             </tbody>
         </table>
     </div>
+    <div class="alert alert-info">
+        {{$reserve->course->description ?? '[بدون توضیحات]'}}
+    </div>
     {{-- <div class="text-left">
         <a href="#" class="text-green none"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
     </div> --}}
@@ -119,38 +122,6 @@
 
     @endforeach
 
-    <hr>
-    <p class="lead text-blue dinar my-3"> اطلاعات تسویه حساب مشترکین خدمات رزرواسیون :  </p>
-    <div class="direct-x">
-        <table class="table table-bordered table-hover table-striped text-center">
-            <thead>
-                <tr>
-                    <th> شماره کارت </th>
-                    <th> نام صاحب حساب </th>
-                    <th> شماره شبا  </th>
-                    <th> اطلاعات بانک </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td dir="ltr"> {{$reserve->payment->card_number ?? '-'}} </td>
-                    <td> {{$reserve->payment->owner_name ?? '-'}} </td>
-                    <td> {{$reserve->payment->shaba ?? '-'}} </td>
-                    <td>
-                        بانک
-                        {{$reserve->payment->bank_name ?? '-'}}
-                        شعبه
-                        {{$reserve->payment->bank_branch ?? '-'}}
-                        کد
-                        {{$reserve->payment->bank_code ?? '-'}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    {{-- <div class="text-left">
-        <a href="#" class="text-green none"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
-    </div> --}}
 
     <hr>
     <p class="lead text-blue dinar my-3"> اطلاعات کلی رزرو </p>

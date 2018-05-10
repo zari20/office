@@ -29,13 +29,13 @@ class ReseveDataController extends Controller
             if ($period && $period->room_id == $room_id) {
                 $hours += time_difference($period->from,$period->till);
             }else {
-                return back()->withErrors(self::$erros);
+                return back()->withErrors(self::$errors);
             }
         }
 
         //check if hours is not hacked
         if ($hours != $data['schedule']['hours']) {
-            return back()->withErrors(self::$erros);
+            return back()->withErrors(self::$errors);
         }
 
         //calculate room money

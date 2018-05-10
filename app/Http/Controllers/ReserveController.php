@@ -69,6 +69,7 @@ class ReserveController extends Controller
                 //hack check and return view
                 $requested_total_cost = ReseveDataController::total_cost_from_request($reserve_data);
                 $total_cost = ReseveDataController::total_cost();
+                if( !is_int($total_cost)) return $total_cost;
                 if ($requested_total_cost == $total_cost) {
 
                     //set total cost in reserve data
@@ -86,7 +87,7 @@ class ReserveController extends Controller
                     return view('reserves.finalize',compact('reserve_data'));
 
                 }else {
-                    return back()->withErrors(ReseveDataController::$erros);
+                    return back()->withErrors(ReseveDataController::$errors);
                 }
             }
 

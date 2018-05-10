@@ -22,7 +22,7 @@
         @foreach (old('period')['id'] as $key => $id)
             <input type="hidden" name="period[id][]" value="{{$id}}" id="period-id-input-{{$id}}">
             <input type="hidden" name="period[date][]" value="{{old('period')['date'][$key]}}" id="period-date-input-{{$id}}">
-            <input type="hidden" name="period[hours][]" class="hidden-hours" value="{{old('period')['hours'][$key]}}" id="period-date-input-{{$id}}">
+            <input type="hidden" name="period[hours][]" class="hidden-hours" value="{{old('period')['hours'][$key]}}" id="period-time-input-{{$id}}">
         @endforeach
     @endif
 </div>

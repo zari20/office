@@ -19,7 +19,7 @@ class AdminCheck
         if ($user_type && $user_type=='admin') {
             return $next($request);
         }else {
-            return redirect('/home')->withErros(["شما به این بخش دسترسی دارید."]);
+            return redirect('/home')->withErrors(["شما به این بخش دسترسی دارید."]);
         }
     }
 }

@@ -19,7 +19,7 @@ class CheckRegular
         if ($user_type && $user_type=='regular') {
             return $next($request);
         }else {
-            return redirect('/home')->withErros(["فقط کاربران عادی به این بخش دسترسی دارند."]);
+            return redirect('/home')->withErrors(["فقط کاربران عادی به این بخش دسترسی دارند."]);
         }
     }
 }

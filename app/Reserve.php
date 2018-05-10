@@ -11,6 +11,7 @@ class Reserve extends Model
         $r = new self;
         $r->user_id = auth()->id();
         $r->zarin_pal_id = $data['zarin_pal_id'];
+        $r->find_out_id = $data['find_out_id'];
         $r->discount_code_id = $data['discount']['id'] ?? 0;
         $r->payable_amount = $data['payable_amount'] ?? $data['total_cost'];
         $r->total_cost = $data['total_cost'];

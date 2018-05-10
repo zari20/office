@@ -33,6 +33,20 @@
             <label for="course-description"> <i class="fa fa-pencil ml-1"></i> توضیحات ضروری در مورد دوره / سمینار / جلسه </label>
             <textarea name="course[description]" id="course-description" class="form-control" rows="6">{{old('course')['description']}}</textarea>
         </div>
+
+        @if (count($find_outs))
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="find-out-id"> <i class="fa fa-handshake-o ml-1"></i> نحوه شنایی با ما </label>
+                <select class="form-control" name="find_out_id" id="find-out-id">
+                    <option value=""> انتخاب کنید </option>
+                    @foreach ($find_outs as $key => $fo)
+                        <option value="{{$fo->id}}"> {{$fo->title}} </option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
+
     </div>
     <hr>
 </div>

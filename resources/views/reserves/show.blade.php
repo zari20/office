@@ -27,6 +27,9 @@
     <div class="alert alert-info">
         {{$reserve->course->description ?? '[بدون توضیحات]'}}
     </div>
+    <div class="alert alert-info">
+        <strong> نحوه آشنایی : </strong> {{$reserve->find_out->title ?? '[نامشخص]'}}
+    </div>
     {{-- <div class="text-left">
         <a href="#" class="text-green none"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
     </div> --}}

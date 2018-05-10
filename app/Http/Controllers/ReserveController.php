@@ -39,6 +39,9 @@ class ReserveController extends Controller
         $graphics = \App\GraphicType::all();
         $informings = \App\InformingType::all();
 
+        //find_outs
+        $find_outs = \App\FindOut::all();
+
         //creating days and dates array
         $days_and_dates = \App\Day::days_and_dates();
         $days = $days_and_dates['days'];
@@ -48,7 +51,7 @@ class ReserveController extends Controller
         //rserve data
         $reserve_data = session('reserve_data');
 
-        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','icons','days','dates','current_room'))->withInput($reserve_data);
+        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','find_outs','icons','days','dates','current_room'))->withInput($reserve_data);
     }
 
     public function store(Request $request)

@@ -18,6 +18,12 @@ class CreateFindOutsTable extends Migration
             $table->string('title');
             $table->timestamps();
         });
+
+        foreach (['از طریق روزنامه', 'از طریق آگهی های تبلیغاتی'] as $key => $title) {
+            \DB::insert([
+                'title' => $title
+            ]);
+        }
     }
 
     /**

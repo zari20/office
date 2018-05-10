@@ -24,6 +24,11 @@ class Reserve extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function find_out()
+    {
+        return $this->belongsTo(FindOut::class);
+    }
+
     public function discount()
     {
         return $this->belongsTo(DiscountCode::class,'discount_code_id');

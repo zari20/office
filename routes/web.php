@@ -15,6 +15,7 @@ Route::resource('discounts','DiscountCodeController')->except( ['show'] );
 Route::resource('bookings','BookingController')->except( ['show','edit','update'] );
 Route::resource('users','UserController')->except( ['create','store'] );
 Route::resource('payments','PaymentController')->except(['index','destroy']);
+Route::resource('find_outs','FindOutController')->except( ['show'] );
 
 
 //services

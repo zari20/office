@@ -109,3 +109,14 @@ function period_details($id,$date=null)
         return week_day($period->day->number) .' ساعت '. display_time($period->from) .' تا '.  display_time($period->till);
     }
 }
+
+//random string
+function rs($length = 10) {
+    $characters = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}

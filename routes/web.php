@@ -24,6 +24,7 @@ Route::post('services/{method}/{type}/{id?}','ServicesController@main');
 
 //other
 Route::post('new_user','ReserveController@create_user');
+Route::post('reserves/pay/{reserve}','ReserveController@pay');
 Route::get('reserve_logmein','ReserveController@logmein');
 Route::view('uc','partials.under_construction');
 

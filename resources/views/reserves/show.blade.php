@@ -149,9 +149,15 @@
         </table>
     </div>
 
-    {{-- <hr>
+    <hr>
     <p class="lead text-blue dinar my-3"> عملیات :  </p>
-    <button type="button" class="btn mx-1 btn-info"> <i class="fa fa-cogs ml-1"></i> مدیریت </button>
-    <button type="button" class="btn mx-1 btn-success"> <i class="fa fa-edit ml-1"></i> ویرایش </button>
-    <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button> --}}
+    @if ($reserve->status==0)
+    <form class="" action="{{url("reserves/pay/$reserve->id")}}" method="post">
+        @csrf
+        <button type="submit" class="btn mx-1 px-3 bg-blue"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
+    </form>
+    @endif
+    {{-- <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button> --}}
+    {{-- <button type="button" class="btn mx-1 btn-info"> <i class="fa fa-cogs ml-1"></i> مدیریت </button>
+    <button type="button" class="btn mx-1 btn-success"> <i class="fa fa-edit ml-1"></i> ویرایش </button> --}}
 @endsection

@@ -55,7 +55,7 @@ class ZarinPalController extends Controller
     {
         //initial data
         $authority = $_GET['Authority'];
-        $zarin = ZarinPal::where('aid',$authority)->first(); if(!$zarin) return view('partials.whoops');
+        $zarin = ZarinPal::where('aid',$authority)->first(); if(!$zarin) return view('partials.whoops', ["extra"=>"کد پیگیری : $authority"]);
         $data = ['MerchantID' => $zarin->mid, 'Authority' => $authority, 'Amount' => $zarin->amount];
 
         //library codes
@@ -81,17 +81,17 @@ class ZarinPalController extends Controller
             if ($result['Status'] == 100) {
                 $zarin->rid = $result['RefID'];
                 $zarin->save();
-                return self::finish($type,$zarin->id);
+                return self::finish($type,$zarin);
             } else {
                 return view('partials.whoops',[ 'message' => "ارور : ".$result["Status"] ]);
             }
         }
     }
 
-    public static function finish($type,$zid)
+    public static function finish($type,$zarin_instance)
     {
         if ($type=='reserve') {
-            return ReserveController::successful_transaction($zid);
+            return ReserveController::successful_transaction($zarin_instance);
         }
     }
 }

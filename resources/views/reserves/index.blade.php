@@ -8,15 +8,19 @@
                 <thead>
                     <tr>
                         <th> ردیف </th>
-                        <th> شماره تماس کاربر </th>
+                        @admin
+                            <th> شماره تماس کاربر </th>
+                        @endadmin
                         <th> سالن </th>
-                        <th> پذیرایی </th>
+                        {{-- <th> پذیرایی </th>
                         <th> خدمات صوتی تصویری </th>
                         <th> خدمات گرافیکی </th>
-                        <th> خدمات اطلاع رسانی </th>
+                        <th> خدمات اطلاع رسانی </th> --}}
+                        <th> خدمات </th>
                         <th> کد تخفیف </th>
                         <th> مجموع هزینه ها </th>
                         <th> قابل پرداخت </th>
+                        <th> وضعیت </th>
                         <th colspan="2"> عملیات </th>
                     </tr>
                 </thead>
@@ -24,19 +28,40 @@
                     @foreach ($reserves as $key => $reserve)
                         <tr>
                             <th scope="row"> {{$key+1}} </th>
-                            <td> {{$reserve->user->mobile ?? '?'}} </td>
+                            @admin
+                                <td>
+                                    @if (isset($reserve->user->id) && $reserve->user->id)
+                                        <a href="{{url("users/{$reserve->user->id}")}}"> {{$reserve->user->mobile ?? '?'}} </a>
+                                    @endif
+                                </td>
+                            @endadmin
                             <td> {{$reserve->schedule->room->name ?? '?'}} </td>
-                            <td> @include('fragments.cor', ['var' => count($reserve->caterings)]) </td>
-                            <td> @include('fragments.cor', ['var' => count($reserve->media)]) </td>
-                            <td> @include('fragments.cor', ['var' => count($reserve->graphics)]) </td>
-                            <td> @include('fragments.cor', ['var' => count($reserve->informings)]) </td>
+                            <td>
+                                <span class="mx-1" title="{{translate('caterings')}}"> @include('fragments.cor', ['var' => count($reserve->caterings)]) </span>
+                                <span class="mx-1" title="{{translate('media')}}"> @include('fragments.cor', ['var' => count($reserve->media)]) </span>
+                                <span class="mx-1" title="{{translate('graphics')}}"> @include('fragments.cor', ['var' => count($reserve->graphics)]) </span>
+                                <span class="mx-1" title="{{translate('informings')}}"> @include('fragments.cor', ['var' => count($reserve->informings)]) </span>
+                            </td>
                             <td> {{ $reserve->discount_code_id ? ($reserve->discount->code ?? '?') : '-'}} </td>
                             <td> {{toman($reserve->total_cost)}} </td>
                             <td> {{$reserve->payable_amount ? toman($reserve->payable_amount) : toman($reserve->total_cost)}} </td>
-                            <td>
-                                <a href="{{url("reserves/$reserve->id")}}" title="مشاهده"> <i class="fa fa-eye text-info"></i></a>
+                            <td class="bg-{{$reserve->status ? ( $reserve->status==1 ? 'success' : 'danger' ) : 'warning'  }}">
+                                {{$reserve->status ? ( $reserve->status==1 ? 'پرداخت شده' : 'کنسل شده' ) : 'معلق'  }}
                             </td>
-                            @admin
+                            <td>
+                                @if ($reserve->status == 0)
+                                    <form class="d-inline" action="{{url("reserves/pay/$reserve->id")}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-info"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
+                                    </form>
+                                @elseif ($reserve->status == 1)
+                                    <a href="#" class="btn bg-blue"> <i class="fa fa-print ml-1"></i> دریافت فاکتور </a>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{url("reserves/$reserve->id")}}" class="btn btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده </a>
+                            </td>
+                            {{-- @admin
                                 <td>
                                      <a onclick="if(confirm('ایا این آیتم پاک شود؟')) $('form#delete-reserve-{{$reserve->id}}').submit()" title="حذف">
                                          <i class="fa fa-trash text-danger"></i>
@@ -46,7 +71,7 @@
                                          {{method_field('DELETE')}}
                                      </form>
                                  </td>
-                            @endadmin
+                            @endadmin --}}
                         </tr>
                     @endforeach
                 </tbody>

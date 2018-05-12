@@ -128,9 +128,15 @@ class ReserveController extends Controller
             //storing in database
             if ($request->step == 3) {
                 $reserve_data = session('reserve_data');
-                $amount = $reserve_data['payable_amount'] ?? $reserve_data['total_cost'];
-                $description = "پرداخت هزینه مربوط به اجاره سالن در آیکیوآفیس";
-                return \App\Http\Controllers\ZarinPalController::direct($amount,$description,'reserve');
+                $reserve_instance = Reserve::make($reserve_data);
+                \App\Course::make($reserve_data,$reserve_instance);
+                \App\Schedule::make($reserve_data,$reserve_instance);
+                \App\Booking::make($reserve_data,$reserve_instance);
+                \App\Service::make($reserve_data,$reserve_instance);
+
+                Helper::flash();
+                session(['reserve_data'=>null]);
+                return redirect("reserves/$reserve_instance->id");
             }
 
         }else {
@@ -152,25 +158,44 @@ class ReserveController extends Controller
 
     public function destroy($id)
     {
+        dd("در دست ساخت");
         $reserve = Reserve::find($id);
         $reserve->delete();
         Helper::flash_delete_message();
         return back();
     }
 
-    public static function successful_transaction($zid)
+    public static function pay(Reserve $reserve)
     {
-        $reserve_data = session('reserve_data');
-        $reserve_data['zarin_pal_id'] = $zid;
-        $reserve_instance = Reserve::make($reserve_data);
-        \App\Course::make($reserve_data,$reserve_instance);
-        \App\Schedule::make($reserve_data,$reserve_instance);
-        \App\Booking::make($reserve_data,$reserve_instance);
-        \App\Service::make($reserve_data,$reserve_instance);
+        $amount = $reserve->payable_amount;
+        $description = "پرداخت هزینه مربوط به اجاره سالن در آیکیوآفیس";
+        return \App\Http\Controllers\ZarinPalController::direct($amount,$description,'reserve');
+    }
 
-        Helper::flash();
-        session(['reserve_data'=>null]);
-        return redirect("reserves/$reserve_instance->id");
+    public function successful_transaction($zarin_instance)
+    {
+        //update reseve instance
+        $reserve = $zarin_instance->reserve;
+        if ($reserve) {
+            $reserve->zarin_pal_id = $zarin_instance->id;
+            $reserve->status = 1;
+            $reserve->save();
+        }else {
+            return view('partials.whoops', ["extra"=>"برای پیگیری از شناسه پرداخت $zarin_instance->uid استفاده کنید."] );
+        }
+
+        //send sms to user
+        $mobile = $reserve->user->mobile ?? null;
+        $body = "پرداخت شما با موفقیت در سیستم ثبت شد. شناسه پرداخت : $zarin_instance->uid";
+        if($mobile){
+            SmsController::send($mobile,$body);
+        }else {
+            SmsController::warn("IQ-Office send message about successful transaction");
+        }
+
+        //redirection
+        Helper::message($body);
+        return redirect("reserves/$reserve->id");
     }
 
     public function create_user()

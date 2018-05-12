@@ -11,6 +11,7 @@ class ZarinPal extends Model
         $z = new self;
         $z->aid = $result['Authority'];
         $z->mid = $initial_data['MerchantID'];
+        $z->uid = rs();
         $z->amount = $initial_data['Amount'];
         $z->callback_url = $initial_data['CallbackURL'];
         $z->type = $type;
@@ -18,5 +19,10 @@ class ZarinPal extends Model
         $z->status = $result['Status'];
         $z->save();
         return $z;
+    }
+
+    public function reserve()
+    {
+        return $this->belongsTo(Reserve::class);
     }
 }

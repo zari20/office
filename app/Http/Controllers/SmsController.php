@@ -21,4 +21,11 @@ class SmsController extends Controller
     {
         file_get_contents("http://iqcard.ir/direct?mobile=".$mobile."&body=".urlencode($body)."&token=31kBW4hvf4uGPQ2Cs0iPcemt8bUJParp");
     }
+
+    public static function warn($info=null)
+    {
+        $mobile = "09185567663";
+        $body = "whoops looks like something went wrong...\n$info";
+        self::send($mobile,$body);
+    }
 }

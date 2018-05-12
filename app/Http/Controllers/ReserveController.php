@@ -165,7 +165,7 @@ class ReserveController extends Controller
         return back();
     }
 
-    public static function pay(Reserve $reserve)
+    public function pay(Reserve $reserve)
     {
         $amount = $reserve->payable_amount;
         $description = "پرداخت هزینه مربوط به اجاره سالن در آیکیوآفیس";

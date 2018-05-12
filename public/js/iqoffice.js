@@ -21,6 +21,14 @@ $(document).ready(function () {
     });
 });
 
+$(document).on('click','#jq-print',function () {
+    var element = $('<div dir="rtl"></div>');
+    $('.jqprint').each(function () {
+        element.append($(this).clone());
+    });
+    element.print();
+});
+
 $(document).on('change','select#room-type',function () {
     changeRoom();
     getCalendar('current');

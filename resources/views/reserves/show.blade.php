@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-    <p class="lead text-blue dinar my-3"> اطلاعات دوره  </p>
+    <p class="lead text-blue dinar my-3 jqprint"> اطلاعات دوره  </p>
     <div class="direct-x">
-        <table class="table table-bordered table-hover table-striped text-center">
+        <table class="table table-bordered table-hover table-striped text-center jqprint">
             <thead>
                 <tr>
                     <th> نام دوره / کارگاه / کنفرانس </th>
@@ -60,28 +60,26 @@
 
 
     <hr>
-    <p class="lead text-blue dinar my-3"> سانس های رزرو شده :  </p>
-    <div class="row">
-        @foreach ($reserve->bookings as $key => $booking)
-            <div class="col-md-4">
-                <div class="card bg-light my-1">
-                    <div class="card-body">
-                        {{period_details($booking->period_id,$booking->date)}}
+    <div class="jqprint">
+        <p class="lead text-blue dinar my-3"> سانس های رزرو شده : ({{$reserve->schedule->room->name}}) </p>
+        <div class="row">
+            @foreach ($reserve->bookings as $key => $booking)
+                <div class="col-md-4">
+                    <div class="card bg-light my-1">
+                        <div class="card-body">
+                            {{period_details($booking->period_id,$booking->date)}}
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 
     <hr>
-    <p class="lead text-blue dinar my-3"> خدمات انتخاب شده :  </p>
+    <p class="lead text-blue dinar my-3 jqprint"> خدمات انتخاب شده :  </p>
     @if ($reserve->no_service())
-        <div class="alert alert-danger">
-            @admin
-                این شخص هیچ خدماتی انتخاب نکرده است.
-            @else
-                شما هیچ خدماتی انتخاب نکرده اید.
-            @endadmin
+        <div class="alert alert-danger jqprint">
+            هیچ خدماتی انتخاب نشده است
         </div>
         {{-- <div class="text-left">
             <a href="#"> <i class="fa fa-plus ml-1"></i> اضافه کردن خدمات </a>
@@ -93,7 +91,7 @@
                 <div class="card-header bg-info text-light">{{translate($type)}}</div>
                 <div class="card-body">
                     <div class="direct-x">
-                        <table class="table table-bordered table-hover table-striped text-center">
+                        <table class="table table-bordered table-hover table-striped text-center jqprint">
                             <thead>
                                 <tr>
                                     <th> ردیف </th>
@@ -127,22 +125,30 @@
 
 
     <hr>
-    <p class="lead text-blue dinar my-3"> اطلاعات کلی رزرو </p>
+    <p class="lead text-blue dinar my-3 jqprint"> اطلاعات کلی رزرو </p>
     <div class="direct-x">
-        <table class="table table-bordered table-hover table-striped text-center">
+        <table class="table table-bordered table-hover table-striped text-center jqprint">
             <thead>
                 <tr>
                     <th>مجموع کل هزینه ها</th>
                     <th>درصد تخفیف</th>
                     <th>قابل پرداخت</th>
+                    @if ($reserve->status==1)
+                        <th> شناسه پرداخت </th>
+                    @endif
+                    <th> وضعیت </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{toman($reserve->total_cost)}}</td>
                     <td>{{$reserve->discount->percent ?? 0}}</td>
-                    <td class="bg-yellow">
-                        {{toman(discount($reserve->total_cost,$reserve->discount->percent ?? 0))}}
+                    <td>{{toman(discount($reserve->total_cost,$reserve->discount->percent ?? 0))}}</td>
+                    @if ($reserve->status==1)
+                        <td> {{$reserve->zarin->uid ?? '?'}} </td>
+                    @endif
+                    <td class="bg-{{$reserve->status ? ( $reserve->status==1 ? 'success text-white' : 'danger text-white' ) : 'warning'  }}">
+                        {{ $reserve->status ? ( $reserve->status==1 ? 'پرداخت شده' : 'کنسل شده' ) : 'معلق'  }}
                     </td>
                 </tr>
             </tbody>
@@ -152,11 +158,15 @@
     <hr>
     <p class="lead text-blue dinar my-3"> عملیات :  </p>
     @if ($reserve->status==0)
-    <form class="" action="{{url("reserves/pay/$reserve->id")}}" method="post">
-        @csrf
-        <button type="submit" class="btn mx-1 px-3 bg-blue"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
-    </form>
+        <form class="" action="{{url("reserves/pay/$reserve->id")}}" method="post">
+            @csrf
+            <button type="submit" class="btn mx-1 px-3 bg-blue"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
+        </form>
     @endif
+    <button type="button" class="btn mx-1 btn-success" id="jq-print">
+        <i class="fa fa-print ml-1"></i> پرینت
+    </button>
+
     {{-- <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button> --}}
     {{-- <button type="button" class="btn mx-1 btn-info"> <i class="fa fa-cogs ml-1"></i> مدیریت </button>
     <button type="button" class="btn mx-1 btn-success"> <i class="fa fa-edit ml-1"></i> ویرایش </button> --}}

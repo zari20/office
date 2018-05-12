@@ -20,6 +20,11 @@ class Reserve extends Model
 
     }
 
+    public function zarin()
+    {
+        return $this->belongsTo(ZarinPal::class,'zarin_pal_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

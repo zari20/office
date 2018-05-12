@@ -45,19 +45,21 @@
                             <td> {{ $reserve->discount_code_id ? ($reserve->discount->code ?? '?') : '-'}} </td>
                             <td> {{toman($reserve->total_cost)}} </td>
                             <td> {{$reserve->payable_amount ? toman($reserve->payable_amount) : toman($reserve->total_cost)}} </td>
-                            <td class="bg-{{$reserve->status ? ( $reserve->status==1 ? 'success' : 'danger' ) : 'warning'  }}">
+                            <td class="bg-{{$reserve->status ? ( $reserve->status==1 ? 'success text-white' : 'danger text-white' ) : 'warning'  }}">
                                 {{$reserve->status ? ( $reserve->status==1 ? 'پرداخت شده' : 'کنسل شده' ) : 'معلق'  }}
                             </td>
-                            <td>
-                                @if ($reserve->status == 0)
-                                    <form class="d-inline" action="{{url("reserves/pay/$reserve->id")}}" method="post">
-                                        @csrf
-                                        <button type="submit" class="btn btn-info"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
-                                    </form>
-                                @elseif ($reserve->status == 1)
-                                    <a href="#" class="btn bg-blue"> <i class="fa fa-print ml-1"></i> دریافت فاکتور </a>
-                                @endif
-                            </td>
+                            @regular
+                                <td>
+                                    @if ($reserve->status == 0)
+                                        <form class="d-inline" action="{{url("reserves/pay/$reserve->id")}}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-info"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
+                                        </form>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                            @endregular
                             <td>
                                 <a href="{{url("reserves/$reserve->id")}}" class="btn btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده </a>
                             </td>

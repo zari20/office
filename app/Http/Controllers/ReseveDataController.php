@@ -39,7 +39,7 @@ class ReseveDataController extends Controller
         }
 
         //calculate room money
-        $room = \App\RoomType::find($room_id);
+        $room = \App\Room::find($room_id);
         $total_cost += $room->cost_pre_hour * $hours;
 
         //services cost

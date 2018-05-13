@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
+
         <div class="col-md-6">
             <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i>  اطلاعات دوره آموزشی </p>
             <ul class="list-group">
@@ -11,23 +12,7 @@
                 <li class="list-group-item"> <strong> مرجع صدور مجوز / مدرک استاد : </strong> {{$reserve_data['course']['document'] ?? '-'}} </li>
             </ul>
         </div>
-        {{-- <div class="col-md-3">
-            <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> اطلاعات تسویه حساب </p>
-            <ul class="list-group">
-                <li class="list-group-item"> <strong> شماره کارت : </strong> <br> <span dir="ltr"> {{implode($reserve_data['payment']['card_number'],'-')}} </span> </li>
-                <li class="list-group-item"> <strong> نام صاحب حساب : </strong> {{$reserve_data['payment']['owner_name']}} </li>
-                <li class="list-group-item"> <strong> شماره شبا : </strong> {{$reserve_data['payment']['shaba']}} </li>
-                <li class="list-group-item">
-                    <strong> اطلاعات بانک : </strong> <br>
-                    بانک
-                    {{$reserve_data['payment']['bank_name'] ?? '?'}}
-                    شعبه
-                    {{$reserve_data['payment']['bank_branch'] ?? '?'}}
-                    کد
-                    {{$reserve_data['payment']['bank_code'] ?? '?'}}
-                </li>
-            </ul>
-        </div> --}}
+
         <div class="col-md-6">
             <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> سانس های انتخاب شده </p>
             <ul class="list-group">
@@ -36,6 +21,7 @@
                 @endforeach
             </ul>
         </div>
+
     </div>
 
     <p class="lead text-blue my-3"> <i class="fa fa-check-circle"></i> هزینه نهایی </p>
@@ -55,10 +41,10 @@
             <tbody>
                 <tr>
                     <td>{{toman($reserve_data['schedule']['cost'])}}</td>
-                    <td>{{toman(array_sum($reserve_data['catering']['cost']))}}</td>
-                    <td>{{toman(array_sum($reserve_data['medium']['cost']))}}</td>
-                    <td>{{toman(array_sum($reserve_data['graphic']['cost']))}}</td>
-                    <td>{{toman(array_sum($reserve_data['informing']['cost']))}}</td>
+                    <td> 0 </td>
+                    <td> 0 </td>
+                    <td> 0 </td>
+                    <td> 0 </td>
                     <td>{{toman($reserve_data['discount']['amount'] ?? 0)}}</td>
                     <td class="bg-yellow">
                         {{toman($reserve_data['payable_amount'] ?? $reserve_data['total_cost'])}}

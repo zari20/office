@@ -21,7 +21,7 @@ class DiscountCodeController extends Controller
 
     public function create()
     {
-        $rooms = \App\RoomType::all();
+        $rooms = \App\Room::all();
         return view('codes.create',compact('rooms'));
     }
 
@@ -41,7 +41,7 @@ class DiscountCodeController extends Controller
     public function edit($id)
     {
         $code = DiscountCode::find($id);
-        $rooms = \App\RoomType::all();
+        $rooms = \App\Room::all();
         return view('codes.create',compact('rooms','code'));
     }
 

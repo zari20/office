@@ -15,6 +15,6 @@ class DiscountCode extends Model
 
     public function room()
     {
-        return $this->belongsTo(RoomType::class,'room_id');
+        return $this->belongsTo(Room::class,'room_id');
     }
 }

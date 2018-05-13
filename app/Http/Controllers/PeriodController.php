@@ -22,7 +22,7 @@ class PeriodController extends Controller
     public function create()
     {
         $days = \App\Day::orderBy('number')->get();
-        $rooms = \App\RoomType::all();
+        $rooms = \App\Room::all();
         return view('periods.create',compact('days','rooms'));
     }
 
@@ -38,7 +38,7 @@ class PeriodController extends Controller
     public function edit(Period $period)
     {
         $days = \App\Day::orderBy('number')->get();
-        $rooms = \App\RoomType::all();
+        $rooms = \App\Room::all();
         return view('periods.create',compact('days','rooms','period'));
     }
 

@@ -28,18 +28,12 @@ class ReserveController extends Controller
     public function create()
     {
         //check if rooms exist
-        $rooms = \App\RoomType::all();
+        $rooms = \App\Room::all();
         if(!count($rooms)){
             return view('reserves.no_room_error');
         }
 
         //getting neccessary records from database
-        $caterings = \App\CateringType::all();
-        $media = \App\MediumType::all();
-        $graphics = \App\GraphicType::all();
-        $informings = \App\InformingType::all();
-
-        //find_outs
         $find_outs = \App\FindOut::all();
 
         //creating days and dates array
@@ -51,7 +45,7 @@ class ReserveController extends Controller
         //rserve data
         $reserve_data = session('reserve_data');
 
-        return view('reserves.create',compact('rooms','caterings','media','graphics','informings','find_outs','icons','days','dates','current_room'))->withInput($reserve_data);
+        return view('reserves.create',compact('rooms','find_outs','icons','days','dates','current_room'))->withInput($reserve_data);
     }
 
     public function store(Request $request)
@@ -70,9 +64,9 @@ class ReserveController extends Controller
                 $reserve_data = request()->all();
 
                 //hack check and return view
-                $requested_total_cost = ReseveDataController::total_cost_from_request($reserve_data);
-                $total_cost = ReseveDataController::total_cost();
-                if( !is_int($total_cost)) return $total_cost;
+                $requested_total_cost = 1000;//ReseveDataController::total_cost_from_request($reserve_data);
+                $total_cost = 1000; //ReseveDataController::total_cost();
+                // if( !is_int($total_cost)) return $total_cost;
                 if ($requested_total_cost == $total_cost) {
 
                     //set total cost in reserve data
@@ -130,7 +124,6 @@ class ReserveController extends Controller
                 $reserve_data = session('reserve_data');
                 $reserve_instance = Reserve::make($reserve_data);
                 \App\Course::make($reserve_data,$reserve_instance);
-                \App\Schedule::make($reserve_data,$reserve_instance);
                 \App\Booking::make($reserve_data,$reserve_instance);
                 \App\Service::make($reserve_data,$reserve_instance);
 

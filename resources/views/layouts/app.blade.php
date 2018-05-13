@@ -10,19 +10,6 @@
 
     <title>IQ-Office</title>
 
-    <!-- Scripts -->
-    <script> documentRoot = '{{url('/')}}'; </script>
-    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.print.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/wow.min.js') }}"></script>
-    <script src="{{ asset('js/persianDatepicker.min.js') }}"></script>
-    <script src="{{ asset('js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/jdate.js') }}"></script>
-    <script src="{{ asset('js/schedule.js') }}"></script>
-    <script src="{{ asset('js/iqoffice.js') }}"></script>
-
     <!-- Fonts -->
     <link href="{{ asset('css/fonts.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -47,5 +34,26 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script>
+        documentRoot = '{{url('/')}}';
+        services = [
+            @foreach (services() as $key => $service)
+                '{{$service->id}}',
+            @endforeach
+        ]
+    </script>
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.print.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <script src="{{ asset('js/persianDatepicker.min.js') }}"></script>
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+    <script src="{{ asset('js/jdate.js') }}"></script>
+    <script src="{{ asset('js/schedule.js') }}"></script>
+    <script src="{{ asset('js/services.js') }}"></script>
+    <script src="{{ asset('js/iqoffice.js') }}"></script>
 </body>
 </html>

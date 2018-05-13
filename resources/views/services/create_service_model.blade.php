@@ -14,7 +14,7 @@
             <div class="form-group col-md-4">
                 <label for="service-type"> این مدل مربوط به کدام خدمات است؟ </label>
                 <select class="form-control" name="service_type_id" id="service-type">
-                    @foreach (service_types() as $key => $service_type)
+                    @foreach (services() as $key => $service_type)
                         <option value="{{$service_type->id}}"
                             @if(isset($object) && $object->service_type_id == $service_type->id)
                                 selected

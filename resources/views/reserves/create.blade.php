@@ -22,12 +22,15 @@
                 <h4 data-toggle="collapse" data-target="#collapseSchedule" class="s-title" aria-expanded="true">
                      <i class="fa fa-bank ml-1"></i> رزرو سالن
                 </h4>
-                {{-- <h4 data-toggle="collapse" data-target="#collapseCatering" class="s-title">
-                     <i class="fa fa-coffee ml-1"></i> خدمات پذیرایی
-                </h4> --}}
+                @foreach (services() as $key => $service)
+                    <h4 data-toggle="collapse" data-target="#collapse-service-{{$service->id}}" class="s-title">
+                         {{$service->title}}
+                    </h4>
+                @endforeach
             </div>
 
             @include('reserve_fragments.new_schedule')
+            @include('reserve_fragments.services')
 
         </div>
 

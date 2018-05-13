@@ -35,7 +35,7 @@ function city($id)
     return $city->name ?? '?';
 }
 
-function service_types()
+function services()
 {
     return \App\ServiceType::orderBy('position')->get();
 }

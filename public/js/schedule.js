@@ -38,3 +38,10 @@ function setHours() {
     $('input#room-hours').val(total);
     roomCost();
 }
+
+function roomCost() {
+    var cost = $('select#room-type').find(":selected").attr('data-cost');
+    var hours = $('#room-hours').val();
+    $('#room-final-cost').val(hours*cost);
+    pricingBox();
+}

@@ -29,89 +29,6 @@ $(document).on('click','#jq-print',function () {
     element.print();
 });
 
-$(document).on('change','select#room-type',function () {
-    changeRoom();
-    getCalendar('current');
-});
-
-$(document).on('click','.show-password',function () {
-    $(this).toggleClass('fa-eye fa-eye-slash');
-    var input = $(this).siblings('input');
-    var attr = input.attr('type');
-    if (attr == 'text') {
-        input.attr('type','password')
-    }else {
-        input.attr('type','text')
-    }
-});
-
-function changeRoom() {
-    var id = $('select#room-type').val();
-    $('.room-cost').hide(); $('.room-capacity').hide(); $('.room-description').hide();
-    $('#room-cost-'+id).show(); $('#room-capacity-'+id).show(); $('#room-description-'+id).show();
-    roomCost();
-}
-
-function roomCost() {
-    var cost = $('select#room-type').find(":selected").attr('data-cost');
-    var hours = $('#room-hours').val();
-    $('#room-final-cost').val(hours*cost);
-    pricingBox();
-}
-
-
-function changeService(element) {
-
-    var rowNumber = element.parents('[data-row]').attr('data-row');
-
-    var value = element.val();
-    var type = element.attr('id');
-
-    //costs
-    $('.'+type+'-cost').hide();
-    $('#'+type+'-cost-'+value).show();
-
-    //descriptions
-    $('.'+type+'-description').hide();
-    $('#'+type+'-description-'+value).show();
-
-    //final cost
-    var count = $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-count').val();
-    var base = element.find(":selected").attr('data-cost');
-    $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-final-cost').val(count*base);
-
-    //pricing box
-    pricingBox();
-}
-
-function changeCount(element) {
-    var type = element.attr('data-type');
-    var count = element.val();
-    var rowNumber = element.parents('[data-row]').attr('data-row');
-    var base = $('select#'+type).find(":selected").attr('data-cost');
-    $('[data-service-type='+type+'][data-row='+rowNumber+']').find('#'+type+'-final-cost').val(count*base);
-    pricingBox();
-}
-
-
-function newServiceRow(type) {
-    var element = $('[data-service-type='+type+']').last();
-    var rowNumber = element.attr('data-row');
-    element.clone().attr('data-row',parseInt(rowNumber)+1).appendTo('#'+type+'-service-rows');
-    $('#'+type+'-trash-icon').show();
-    pricingBox();
-}
-
-function removeServiceRow(type) {
-    var element = $('[data-service-type='+type+']').last();
-    if(element.attr('data-row') != 1){
-        element.remove();
-    }
-    if ($('[data-service-type='+type+']').length < 2) {
-        $('#'+type+'-trash-icon').hide();
-    }
-}
-
 function pricingBox() {
 
     //styling changes
@@ -124,39 +41,16 @@ function pricingBox() {
     var hours = $('#room-hours').val();
     var roomsCost = hours*cost;
 
-    //caterings
-    var cateringsCost = 0;
-    $('.catering-final-cost').each(function () {
-        cateringsCost += parseInt($(this).val());
-    });
-
-    //media
-    var mediaCost = 0;
-    $('.medium-final-cost').each(function () {
-        mediaCost += parseInt($(this).val());
-    });
-
-    //graphics
-    var graphicsCost = 0;
-    $('.graphic-final-cost').each(function () {
-        graphicsCost += parseInt($(this).val());
-    });
-
-    //informings
-    var informingsCost = 0;
-    $('.informing-final-cost').each(function () {
-        informingsCost += parseInt($(this).val());
-    });
+    //services
 
     //total
-    var totalCost = roomsCost + cateringsCost + mediaCost + graphicsCost + informingsCost;
+    var totalCost = roomsCost + 0;
 
     //update html
     $('#pricing-room').html(roomsCost.toLocaleString());
-    $('#pricing-catering').html(cateringsCost.toLocaleString());
-    $('#pricing-medium').html(mediaCost.toLocaleString());
-    $('#pricing-graphic').html(graphicsCost.toLocaleString());
-    $('#pricing-informing').html(informingsCost.toLocaleString());
+    for (var i = 0; i < services.length; i++) {
+        $('#pricing-service-'+services[i]).html(0);
+    }
     $('#pricing-total').html(totalCost.toLocaleString());
 }
 

@@ -10,6 +10,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //resources
 Route::resource('reserves','ReserveController')->except( ['edit','update'] );
+Route::resource('rooms','RoomController');
 Route::resource('periods','PeriodController')->except( ['show'] );
 Route::resource('discounts','DiscountCodeController')->except( ['show'] );
 Route::resource('bookings','BookingController')->except( ['show','edit','update'] );

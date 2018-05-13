@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service;
 use App\ServiceType;
 use App\ServiceModel;
 
@@ -17,10 +16,8 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $kind = request('kind') ?? 'service_type';
-        $class = class_name($kind);
-        $records = $class::all();
-        return view("services.{$kind}_index", compact('records','kind'));
+        $records = ServiceType::orderBy('position')->get();
+        return view("services.index", compact('records','kind'));
     }
 
     public function create()
@@ -84,7 +81,7 @@ class ServiceController extends Controller
         $kind = request('kind');
         if ($kind == 'service_type') {
             return request()->validate([
-                'title' => 'required',
+                'title' => 'required|string|max:100',
                 'position' => 'nullable'
             ]);
         }elseif ($kind == 'service_model') {

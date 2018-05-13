@@ -22,8 +22,8 @@
                         <td> {{$object->title ?? '-'}} </td>
                         <td> {{$object->position ?? '-'}} </td>
                         <td> <a title="جزییات" href="{{url("services/$object->id")}}"> <i class="fa fa-list"></i> </a> </td>
-                        <td> <a title="ویرایش" href="{{url("services/$object->id/edit?kind=$kind")}}" class="text-success"> <i class="fa fa-edit"></i> </a> </td>
-                        <td> @include('fragments.delete', ['name' => 'service', 'value'=>$kind]) </td>
+                        <td> <a title="ویرایش" href="{{url("services/$object->id/edit?kind=service_type")}}" class="text-success"> <i class="fa fa-edit"></i> </a> </td>
+                        <td> @include('fragments.delete', ['name' => 'service', 'value'=>'service_type']) </td>
                     </tr>
                 @endforeach
             </tbody>

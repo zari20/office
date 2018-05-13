@@ -35,9 +35,9 @@ function city($id)
     return $city->name ?? '?';
 }
 
-function services()
+function service_types()
 {
-    return ['room','catering','medium','graphic','informing'];
+    return \App\ServiceType::orderBy('position')->get();
 }
 
 //translate
@@ -119,4 +119,11 @@ function rs($length = 10) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     return $randomString;
+}
+
+
+//other
+function class_name($string)
+{
+    return '\App\\'.str_replace('_', '', ucwords($string, '_'));
 }

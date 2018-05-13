@@ -34,8 +34,8 @@
                             <td> {{toman($object->cost)}} </td>
                         @endif
                         <td> {{$object->description ? str_with_dots($object->description) : '-'}} </td>
-                        <td> <a href="{{url("services/edit/$type/$object->id")}}"> <i class="fa fa-edit text-success"></i> </a> </td>
-                        <td> <a href="{{url("services/destroy/$type/$object->id")}}" onclick="return confirm('ایا این آیتم پاک شود؟')" > <i class="fa fa-trash text-danger"></i> </a> </td>
+                        <td> <a title="ویرایش" href="{{url("services/$object->id/edit?kind=$kind")}}" class="text-success"> <i class="fa fa-edit"></i> </a> </td>
+                        <td> @include('fragments.delete', ['name' => 'service', 'value'=>$kind]) </td>
                     </tr>
                 @endforeach
             </tbody>

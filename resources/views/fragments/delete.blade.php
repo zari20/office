@@ -3,5 +3,8 @@
 </a>
 <form class="d-none" action="{{url("{$name}s/$object->id")}}" method="post" id="delete-{{$name}}-{{$object->id}}">
     @csrf
+    @isset($value)
+        <input type="hidden" name="{{$name}}" value="{{$value}}">
+    @endisset
     {{method_field('DELETE')}}
 </form>

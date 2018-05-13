@@ -39,8 +39,8 @@
             </div>
             <div class="card-body">
                 <div class="">
-                    <a href="{{url("/rooms")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
-                    <a href="{{url("/rooms/create")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-success"> <i class="fa fa-plus ml-1"></i> تعریف مورد جدید </a>
+                    <a href="{{url("/services")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-info"> <i class="fa fa-eye ml-1"></i> مشاهده همه </a>
+                    <a href="{{url("/services/create?kind=service_type")}}" class="btn d-md-inline-block my-md-0 my-1 d-block btn-success"> <i class="fa fa-plus ml-1"></i> تعریف مورد جدید </a>
                 </div>
             </div>
         </div>

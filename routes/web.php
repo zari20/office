@@ -11,6 +11,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //resources
 Route::resource('reserves','ReserveController')->except( ['edit','update'] );
 Route::resource('rooms','RoomController');
+Route::resource('services','ServiceController');
 Route::resource('periods','PeriodController')->except( ['show'] );
 Route::resource('discounts','DiscountCodeController')->except( ['show'] );
 Route::resource('bookings','BookingController')->except( ['show','edit','update'] );
@@ -18,10 +19,6 @@ Route::resource('users','UserController')->except( ['create','store'] );
 Route::resource('payments','PaymentController')->except(['index','destroy']);
 Route::resource('find_outs','FindOutController')->except( ['show'] );
 
-
-//services
-Route::get('services/{method}/{type}/{id?}','ServicesController@main');
-Route::post('services/{method}/{type}/{id?}','ServicesController@main');
 
 //other
 Route::post('new_user','ReserveController@create_user');

@@ -19,7 +19,7 @@ class CreateServiceModelsTable extends Migration
             $table->string('title');
             $table->unsignedBigInteger('base');
             $table->boolean('countable')->default(1);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

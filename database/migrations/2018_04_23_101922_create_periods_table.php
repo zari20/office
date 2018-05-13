@@ -16,18 +16,22 @@ class CreatePeriodsTable extends Migration
         Schema::create('periods', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('day_id');
+            $table->unsignedInteger('room_id');
             $table->time('from');
             $table->time('till');
             $table->timestamps();
         });
 
-        foreach (range(1,7) as $key1 => $i) {
-            foreach ( array_combine(['08:30','14:00','19:30'],['13:30','19:00','22:30']) as $from => $untill) {
-                \DB::table('periods')->insert([
-                    'day_id'=>$i,
-                    'from'=>$from,
-                    'till'=>$untill
-                ]);
+        foreach (\DB::table('rooms')->get() as $key2 => $room) {
+            foreach (range(1,7) as $key1 => $i) {
+                foreach ( array_combine(['08:30','14:00','19:30'],['13:30','19:00','22:30']) as $from => $untill) {
+                    \DB::table('periods')->insert([
+                        'day_id'=>$i,
+                        'room_id'=>$room->id,
+                        'from'=>$from,
+                        'till'=>$untill
+                    ]);
+                }
             }
         }
     }

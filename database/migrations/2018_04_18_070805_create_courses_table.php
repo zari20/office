@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->string('teachers')->nullable();
             $table->string('code')->nullable();
             $table->string('document')->nullable();
+            $table->text('description')->nullable();
             $table->string('file_path')->nullable();
             $table->timestamps();
         });

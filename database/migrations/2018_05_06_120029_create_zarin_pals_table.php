@@ -15,9 +15,10 @@ class CreateZarinPalsTable extends Migration
     {
         Schema::create('zarin_pals', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('aid'); //authority id
+            $table->unsignedBigInteger('aid'); //authority id
             $table->string('mid'); //merchant id
-            $table->string('rid')->nullable(); //red id
+            $table->string('rid')->nullable(); //reference id
+            $table->string('uid')->nullable(); //unique id
             $table->unsignedBigInteger('amount');
             $table->string('callback_url');
             $table->string('type');

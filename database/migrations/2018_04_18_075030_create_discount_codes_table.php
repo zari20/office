@@ -15,8 +15,11 @@ class CreateDiscountCodesTable extends Migration
     {
         Schema::create('discount_codes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title')->nullable();
+            $table->unsignedInteger('room_id');
             $table->string('code');
             $table->unsignedSmallInteger('percent');
+            $table->date('expire_date');
             $table->timestamps();
         });
     }

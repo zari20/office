@@ -20,6 +20,7 @@ class CreateBookingsTable extends Migration
             $table->date('date');
             $table->timestamps();
         });
+        \DB::statement('ALTER TABLE `bookings` ADD UNIQUE `unique_index`(`period_id`, `date`);');
     }
 
     /**

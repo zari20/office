@@ -4,7 +4,7 @@
     <form class="row" action="{{$room->id ? url("rooms/$room->id") : url("rooms")}}" method="post">
 
         @if ($room->id)
-            @method('put')
+            {{method_field('put')}}
         @endif
         @csrf
 

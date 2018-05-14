@@ -21,10 +21,6 @@ class BladeDirectivesProvider extends ServiceProvider
         Blade::if('regular', function () {
             return regular();
         });
-
-        Blade::directive('method', function ($expression) {
-            return method_field($expression);
-        });
     }
 
     /**

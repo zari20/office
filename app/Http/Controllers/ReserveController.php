@@ -60,13 +60,17 @@ class ReserveController extends Controller
             }
 
             if ($request->step == 1) {
+
+                //validation
                 self::validation();
                 $reserve_data = request()->all();
 
-                //hack check and return view
-                $requested_total_cost = 1000;//ReseveDataController::total_cost_from_request($reserve_data);
-                $total_cost = 1000; //ReseveDataController::total_cost();
-                // if( !is_int($total_cost)) return $total_cost;
+                //hack check
+                $requested_total_cost = ReseveDataController::total_cost_from_request($reserve_data);
+                $total_cost = ReseveDataController::total_cost();
+                if( !is_int($total_cost)) return $total_cost;
+
+                //continue process
                 if ($requested_total_cost == $total_cost) {
 
                     //set total cost in reserve data
@@ -99,9 +103,6 @@ class ReserveController extends Controller
                     }
                     if ($discount_code->room_id && $discount_code->room_id != $reserve_data['schedule']['room_id']) {
                         $errors[] = "این کد تخفیف برای این سالن قابل استفاده نمیباشد.";
-                    }
-                    if ($discount_code->period_id && !in_array($discount_code->period_id,$reserve_data['period']['id'])) {
-                        $errors[] = "این تخفیف در صورتی شامل حال شما میشود که از سانس ".period_details($discount_code->period_id)." استفاده کنید.";
                     }
                     if (count($errors)) {
                         return view('reserves.finalize',compact('reserve_data'))->withErrors($errors);

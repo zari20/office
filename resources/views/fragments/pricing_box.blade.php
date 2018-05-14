@@ -13,7 +13,13 @@
             <tr>
                 <td id="pricing-room"> {{old('schedule')['cost'] ? number_format(old('schedule')['cost']) : 0}} </td>
                 @foreach (services() as $key => $service)
-                    <td id="pricing-service-{{$service->id}}"> 0 </td>
+                    <td id="pricing-service-{{$service->id}}">
+                        @if (is_array($costs = old('service')[$service->id]['cost']))
+                            {{number_format(array_sum($costs))}}
+                        @else
+                            0
+                        @endif
+                    </td>
                 @endforeach
                 <td id="pricing-total"> {{old('total_cost') ? number_format(old('total_cost')) : 0}} </td>
             </tr>

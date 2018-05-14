@@ -8,11 +8,12 @@ class ReseveDataController extends Controller
 
     public static function total_cost_from_request($data)
     {
-        return $data['schedule']['cost']+
-                array_sum($data['catering']['cost'])+
-                array_sum($data['medium']['cost'])+
-                array_sum($data['graphic']['cost'])+
-                array_sum($data['informing']['cost']);
+        $schedule = $data['schedule']['cost'];
+        $services = 0;
+        foreach ($data['service'] as $key => $array) {
+            $services += array_sum($array['cost']);
+        }
+        return $schedule + $services;
     }
 
     public static function total_cost()
@@ -44,14 +45,11 @@ class ReseveDataController extends Controller
 
         //services cost
         $services_cost = 0;
-        foreach (\App\Service::$types as $key => $type) {
-            if (isset($data[$type]['id'])) {
-                foreach ($data[$type]['id'] as $i => $id) {
-                    if ($count = $data[$type]['count'][$i]) {
-                        $class = '\App\\'.ucfirst($type).'Type';
-                        $service = $class::find($id);
-                        $services_cost += $count * $service->cost;
-                    }
+        foreach ($data['service'] as $i => $array) {
+            foreach ($array['model'] as $j => $model_id) {
+                if ($model_id) {
+                    $model = \App\ServiceModel::find($model_id);
+                    $services_cost += $model->base * ( $model->countable ?  $array['count'][$j] : 1);
                 }
             }
         }

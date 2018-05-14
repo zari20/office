@@ -30,21 +30,23 @@
             <thead>
                 <tr>
                     <th>هزینه رزرو سالن</th>
-                    <th>هزینه پذیرایی</th>
-                    <th>هزینه خدمات سمعی بصری</th>
-                    <th>هزینه خدمات گرافیکی</th>
-                    <th>هزینه خدمات روابط عمومی</th>
-                    <th>تخفیف</th>
+                    @foreach (services() as $key => $service)
+                        <th> هزینه {{$service->title}} </th>
+                    @endforeach
                     <th>مجموع</th>
+                    <th>تخفیف</th>
+                    <th>قابل پرداخت</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{toman($reserve_data['schedule']['cost'])}}</td>
-                    <td> 0 </td>
-                    <td> 0 </td>
-                    <td> 0 </td>
-                    <td> 0 </td>
+                    @foreach (services() as $key => $service)
+                        <th> {{toman(array_sum($reserve_data['service'][$service->id]['cost']))}} </th>
+                    @endforeach
+                    <td>
+                        {{toman($reserve_data['total_cost'])}}
+                    </td>
                     <td>{{toman($reserve_data['discount']['amount'] ?? 0)}}</td>
                     <td class="bg-yellow">
                         {{toman($reserve_data['payable_amount'] ?? $reserve_data['total_cost'])}}

@@ -33,13 +33,17 @@ class ServiceController extends Controller
         $class = class_name($kind);
         $class::create($data);
         Helper::flash();
-        return redirect("services");
+        return $kind == 'service_type' ? redirect("services") : redirect("services/".$data['service_type_id']);
     }
 
     public function show($id)
     {
         $service = ServiceType::find($id);
-        return view('services.show',compact('service'));
+        if ($service) {
+            return view('services.show',compact('service'));
+        }else {
+            abort(404);
+        }
     }
 
     public function edit($id)
@@ -57,7 +61,7 @@ class ServiceController extends Controller
         $class = class_name($kind);
         $class::where('id',$id)->update($data);
         Helper::flash();
-        return redirect("services");
+        return $kind == 'service_type' ? redirect("services") : redirect("services/".$data['service_type_id']);
     }
 
     public function destroy($id)

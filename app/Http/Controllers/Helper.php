@@ -43,7 +43,7 @@ class Helper extends Controller
 
     public static function user_check($object)
     {
-        if ($object && !admin() && auth()->id() != $object->user_id) {
+        if (!$object || (!admin() && auth()->id() != $object->user_id) ) {
             abort(404);
         }
     }

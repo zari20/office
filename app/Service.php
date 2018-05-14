@@ -19,9 +19,20 @@ class Service extends Model
                     $s->type = $type_id;
                     $s->model = $model_id;
                     $s->count = $model->countable ? $array['count'][$i] : 1;
+                    $s->cost = $s->count * $model->base;
                     $s->save();
                 }
             }
         }
+    }
+
+    public function type_instance()
+    {
+        return $this->belongsTo(ServiceType::class,'type');
+    }
+
+    public function model_instance()
+    {
+        return $this->belongsTo(ServiceModel::class,'model');
     }
 }

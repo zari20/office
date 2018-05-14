@@ -30,38 +30,35 @@
     <div class="alert alert-info">
         <strong> نحوه آشنایی : </strong> {{$reserve->find_out->title ?? '[نامشخص]'}}
     </div>
-    {{-- <div class="text-left">
-        <a href="#" class="text-green none"> <i class="fa fa-edit ml-1"></i> ویرایش </a>
-    </div> --}}
 
     <hr>
     <p class="lead text-blue dinar my-3"> اطلاعات سالن </p>
     <div class="card bg-light mb-3">
-        <div class="card-header">{{$reserve->schedule->room->name}}</div>
+        <div class="card-header">{{$reserve->room->name}}</div>
         <div class="card-body">
             <div class="row text-center">
                 <div class="col-md-4">
-                    <h6 class="card-title"> ظرفیت : {{$reserve->schedule->room->capacity}} </h6>
+                    <h6 class="card-title"> ظرفیت : {{$reserve->room->capacity}} </h6>
                 </div>
                 <div class="col-md-4">
-                    <h6 class="card-title"> هزینه در هر ساعت : {{toman($reserve->schedule->room->cost_pre_hour)}} </h6>
+                    <h6 class="card-title"> هزینه در هر ساعت : {{toman($reserve->room->cost_pre_hour)}} </h6>
                 </div>
                 <div class="col-md-4">
-                    <h6 class="card-title"> مدت استفاده از سالن: {{$reserve->schedule->hours}} ساعت </h6>
+                    <h6 class="card-title"> مدت استفاده از سالن: {{$reserve->hours()}} ساعت </h6>
                 </div>
             </div>
             <hr>
-            <p class="card-text">{{$reserve->schedule->room->description}}</p>
+            <p class="card-text">{{$reserve->room->description}}</p>
         </div>
         <div class="card-footer text-left">
-            هزینه نهایی : {{toman($reserve->schedule->cost)}}
+            هزینه نهایی : {{toman($reserve->room_cost)}}
         </div>
     </div>
 
 
     <hr>
     <div class="jqprint">
-        <p class="lead text-blue dinar my-3"> سانس های رزرو شده : ({{$reserve->schedule->room->name}}) </p>
+        <p class="lead text-blue dinar my-3"> سانس های رزرو شده : ({{$reserve->room->name}}) </p>
         <div class="row">
             @foreach ($reserve->bookings as $key => $booking)
                 <div class="col-md-4">
@@ -77,51 +74,45 @@
 
     <hr>
     <p class="lead text-blue dinar my-3 jqprint"> خدمات انتخاب شده :  </p>
-    @if ($reserve->no_service())
+    @if (count($reserve->services))
+        <div class="card bg-light mb-3">
+            <div class="card-header bg-info text-light">خدمات</div>
+            <div class="card-body">
+                <div class="direct-x">
+                    <table class="table table-bordered table-hover table-striped text-center jqprint">
+                        <thead>
+                            <tr>
+                                <th> ردیف </th>
+                                <th> نوع </th>
+                                <th> مدل </th>
+                                <th> تعداد </th>
+                                <th> هزینه </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($reserve->services as $key => $service)
+                                <tr>
+                                    <td> {{$key+1}} </td>
+                                    <td> {{$service->type_instance->title}} </td>
+                                    <td> {{$service->model_instance->title}} </td>
+                                    <td> {{$service->count}} </td>
+                                    <td> {{toman($service->cost)}} </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer text-left">
+                مجموع هزینه ها : {{toman($reserve->services->sum('cost'))}}
+            </div>
+        </div>
+    @else
         <div class="alert alert-danger jqprint">
             هیچ خدماتی انتخاب نشده است
         </div>
-        {{-- <div class="text-left">
-            <a href="#"> <i class="fa fa-plus ml-1"></i> اضافه کردن خدمات </a>
-        </div> --}}
     @endif
-    @foreach ($reserve->services_groups() as $type => $services)
-        @if (count($services))
-            <div class="card bg-light mb-3">
-                <div class="card-header bg-info text-light">{{translate($type)}}</div>
-                <div class="card-body">
-                    <div class="direct-x">
-                        <table class="table table-bordered table-hover table-striped text-center jqprint">
-                            <thead>
-                                <tr>
-                                    <th> ردیف </th>
-                                    <th> نام </th>
-                                    <th> فی </th>
-                                    <th> تعداد </th>
-                                    <th> هزینه </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($services as $key => $service)
-                                    <tr>
-                                        <td> {{$key+1}} </td>
-                                        <td> {{$service->mother->name}} </td>
-                                        <td> {{toman($service->mother->cost)}} </td>
-                                        <td> {{$service->count}} </td>
-                                        <td> {{toman($service->cost)}} </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="card-footer text-left">
-                    مجموع هزینه ها : {{toman($services->sum('cost'))}}
-                </div>
-            </div>
-        @endif
 
-    @endforeach
 
 
     <hr>
@@ -158,7 +149,7 @@
     <hr>
     <p class="lead text-blue dinar my-3"> عملیات :  </p>
     @if ($reserve->status==0)
-        <form class="" action="{{url("reserves/pay/$reserve->id")}}" method="post">
+        <form class="d-inline" action="{{url("reserves/pay/$reserve->id")}}" method="post">
             @csrf
             <button type="submit" class="btn mx-1 px-3 bg-blue"> <i class="fa fa-credit-card ml-1"></i> پرداخت آنلاین </button>
         </form>
@@ -167,7 +158,4 @@
         <i class="fa fa-print ml-1"></i> پرینت
     </button>
 
-    {{-- <button type="button" class="btn mx-1 btn-danger"> <i class="fa fa-thumbs-down ml-1"></i> لغو رزرو </button> --}}
-    {{-- <button type="button" class="btn mx-1 btn-info"> <i class="fa fa-cogs ml-1"></i> مدیریت </button>
-    <button type="button" class="btn mx-1 btn-success"> <i class="fa fa-edit ml-1"></i> ویرایش </button> --}}
 @endsection

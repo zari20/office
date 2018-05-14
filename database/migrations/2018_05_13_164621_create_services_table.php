@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->unsignedInteger('type');
             $table->unsignedInteger('model');
             $table->unsignedInteger('count')->default(1);
+            $table->unsignedBigInteger('cost');
             $table->timestamps();
         });
     }

@@ -10,9 +10,11 @@ class Reserve extends Model
     {
         $r = new self;
         $r->user_id = auth()->id();
+        $r->room_id = $data['schedule']['room_id'];
         $r->zarin_pal_id = 0;
         $r->find_out_id = $data['find_out_id'] ?? 0;
         $r->discount_code_id = $data['discount']['id'] ?? 0;
+        $r->room_cost = $data['schedule']['cost'];
         $r->payable_amount = $data['payable_amount'] ?? $data['total_cost'];
         $r->total_cost = $data['total_cost'];
         $r->save();
@@ -28,6 +30,11 @@ class Reserve extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
     }
 
     public function find_out()
@@ -75,41 +82,18 @@ class Reserve extends Model
         return $this->hasOne(Payment::class);
     }
 
-    public function schedule()
+    public function services()
     {
-        return $this->hasOne(Schedule::class);
+        return $this->hasMany(Service::class);
     }
 
-    public function services_groups()
+    public function hours()
     {
-        $service_types = Service::$ptypes;
-        $services = [];
-        foreach ($service_types as $key => $ptype) {
-            $services[$ptype] = $this->$ptype;
+        $hours = 0;
+        foreach ($this->bookings as $key => $booking) {
+            $hours += time_difference($booking->period->from, $booking->period->till);
         }
-        return $services;
+        return $hours;
     }
 
-    public function no_service()
-    {
-        $no_service = true;
-        foreach ($this->services_groups() as $ptype => $services) {
-            if(count($services)){
-                $no_service = false;
-                break;
-            }
-        }
-        return $no_service;
-    }
-
-    public function services_total_cost()
-    {
-        $total = 0;
-        foreach ($this->services_groups() as $ptype => $services) {
-            foreach ($services as $key => $service) {
-                $total += $service->cost;
-            }
-        }
-        return $total;
-    }
 }

@@ -31,12 +31,13 @@
                                     @endif
                                 </td>
                             @endadmin
-                            <td> {{$reserve->schedule->room->name ?? '?'}} </td>
+                            <td> {{$reserve->room->name ?? '?'}} </td>
                             <td>
-                                <span class="mx-1" title="{{translate('caterings')}}"> @include('fragments.cor', ['var' => count($reserve->caterings)]) </span>
-                                <span class="mx-1" title="{{translate('media')}}"> @include('fragments.cor', ['var' => count($reserve->media)]) </span>
-                                <span class="mx-1" title="{{translate('graphics')}}"> @include('fragments.cor', ['var' => count($reserve->graphics)]) </span>
-                                <span class="mx-1" title="{{translate('informings')}}"> @include('fragments.cor', ['var' => count($reserve->informings)]) </span>
+                                @foreach (services() as $key => $service)
+                                    <span class="mx-1" title="{{$service->title}}">
+                                        @include('fragments.cor', ['var' => $reserve->services->find($service->id)])
+                                    </span>
+                                @endforeach
                             </td>
                             <td> {{ $reserve->discount_code_id ? ($reserve->discount->code ?? '?') : '-'}} </td>
                             <td> {{toman($reserve->total_cost)}} </td>

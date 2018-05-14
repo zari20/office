@@ -35,23 +35,32 @@ function pricingBox() {
     $('#reserve-submit-box').css('padding-bottom','100px');
     $('#pricing-box').removeClass('d-none');
 
+    //total cost
+    var totalCost = 0;
 
     //rooms
     var cost = $('select#room-type').find(":selected").attr('data-cost');
     var hours = $('#room-hours').val();
     var roomsCost = hours*cost;
+    totalCost += roomsCost;
+    $('#pricing-room').html(roomsCost.toLocaleString());
 
     //services
+    for (var i = 0; i < services.length; i++) {
+        var id = services[i];
+        var divs = $('[data-service-type='+id+']');
+        var serviceCost = 0;
+        divs.each(function () {
+            var cost = parseInt($(this).find('.model-row-cost').val());
+            serviceCost += cost;
+        });
+        totalCost += serviceCost;
+        $('#pricing-service-'+id).html(serviceCost.toLocaleString());
+    }
 
     //total
-    var totalCost = roomsCost + 0;
-
-    //update html
-    $('#pricing-room').html(roomsCost.toLocaleString());
-    for (var i = 0; i < services.length; i++) {
-        $('#pricing-service-'+services[i]).html(0);
-    }
     $('#pricing-total').html(totalCost.toLocaleString());
+
 }
 
 function sendAjax(method,formData,target){
